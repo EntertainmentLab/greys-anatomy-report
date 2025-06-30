@@ -1,0 +1,242 @@
+[
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [73.94]
+    ],
+    "se": [
+      [0.95]
+    ],
+    "n": [
+      [1204]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [76.09]
+    ],
+    "se": [
+      [0.959]
+    ],
+    "n": [
+      [1212]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [69.98]
+    ],
+    "se": [
+      [1.037]
+    ],
+    "n": [
+      [1162]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [74.82]
+    ],
+    "se": [
+      [0.979]
+    ],
+    "n": [
+      [1204]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [76.65]
+    ],
+    "se": [
+      [0.955]
+    ],
+    "n": [
+      [1212]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [72.02]
+    ],
+    "se": [
+      [1.077]
+    ],
+    "n": [
+      [1162]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [70.88]
+    ],
+    "se": [
+      [1.037]
+    ],
+    "n": [
+      [1101]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [71.92]
+    ],
+    "se": [
+      [1.087]
+    ],
+    "n": [
+      [1083]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [69.39]
+    ],
+    "se": [
+      [1.09]
+    ],
+    "n": [
+      [1043]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.52]
+    ],
+    "se": [
+      [1.067]
+    ],
+    "n": [
+      [1101]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.23]
+    ],
+    "se": [
+      [1.098]
+    ],
+    "n": [
+      [1083]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.1]
+    ],
+    "se": [
+      [1.062]
+    ],
+    "n": [
+      [1043]
+    ],
+    "wave": [
+      [3]
+    ]
+  }
+]

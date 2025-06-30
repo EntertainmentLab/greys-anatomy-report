@@ -1,0 +1,362 @@
+[
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "impact_issue": "Surgery Cancellation",
+    "not_at_all": 14.5,
+    "a_little_amount": 32.2,
+    "a_moderate_amount": 27.6,
+    "quite_a_bit": 15.3,
+    "a_great_deal": 10.4
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Surgery Cancellation",
+    "not_at_all": 14,
+    "a_little_amount": 29.5,
+    "a_moderate_amount": 26.6,
+    "quite_a_bit": 19.6,
+    "a_great_deal": 10.4
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "impact_issue": "Surgery Cancellation",
+    "not_at_all": 28,
+    "a_little_amount": 37,
+    "a_moderate_amount": 20.1,
+    "quite_a_bit": 10.6,
+    "a_great_deal": 4.4
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "impact_issue": "Losing Power",
+    "not_at_all": 11.4,
+    "a_little_amount": 28,
+    "a_moderate_amount": 27.1,
+    "quite_a_bit": 20.8,
+    "a_great_deal": 12.7
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Losing Power",
+    "not_at_all": 11.3,
+    "a_little_amount": 28,
+    "a_moderate_amount": 27.4,
+    "quite_a_bit": 20.1,
+    "a_great_deal": 13.2
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "impact_issue": "Losing Power",
+    "not_at_all": 23,
+    "a_little_amount": 32.7,
+    "a_moderate_amount": 23.9,
+    "quite_a_bit": 12.9,
+    "a_great_deal": 7.6
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "impact_issue": "Resource Shortage",
+    "not_at_all": 7.3,
+    "a_little_amount": 22.7,
+    "a_moderate_amount": 30.4,
+    "quite_a_bit": 24.3,
+    "a_great_deal": 15.4
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Resource Shortage",
+    "not_at_all": 8,
+    "a_little_amount": 19.6,
+    "a_moderate_amount": 31.6,
+    "quite_a_bit": 22.9,
+    "a_great_deal": 18
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "impact_issue": "Resource Shortage",
+    "not_at_all": 18.7,
+    "a_little_amount": 31.8,
+    "a_moderate_amount": 25.7,
+    "quite_a_bit": 15.3,
+    "a_great_deal": 8.5
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "impact_issue": "Overcrowding",
+    "not_at_all": 9.6,
+    "a_little_amount": 22.2,
+    "a_moderate_amount": 28.9,
+    "quite_a_bit": 24.2,
+    "a_great_deal": 15.2
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Overcrowding",
+    "not_at_all": 8.8,
+    "a_little_amount": 20.7,
+    "a_moderate_amount": 28.7,
+    "quite_a_bit": 23.3,
+    "a_great_deal": 18.5
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "impact_issue": "Overcrowding",
+    "not_at_all": 22.1,
+    "a_little_amount": 28.9,
+    "a_moderate_amount": 25.3,
+    "quite_a_bit": 15.6,
+    "a_great_deal": 8
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "impact_issue": "Er Visits",
+    "not_at_all": 5.6,
+    "a_little_amount": 19.8,
+    "a_moderate_amount": 32.3,
+    "quite_a_bit": 25.6,
+    "a_great_deal": 16.7
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Er Visits",
+    "not_at_all": 5,
+    "a_little_amount": 18.5,
+    "a_moderate_amount": 30.3,
+    "quite_a_bit": 26.9,
+    "a_great_deal": 19.3
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "impact_issue": "Er Visits",
+    "not_at_all": 10.7,
+    "a_little_amount": 26.7,
+    "a_moderate_amount": 32.6,
+    "quite_a_bit": 19.4,
+    "a_great_deal": 10.6
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "impact_issue": "Response Times",
+    "not_at_all": 5.3,
+    "a_little_amount": 18.9,
+    "a_moderate_amount": 32.4,
+    "quite_a_bit": 25.2,
+    "a_great_deal": 18.1
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Response Times",
+    "not_at_all": 5.3,
+    "a_little_amount": 19.2,
+    "a_moderate_amount": 28.5,
+    "quite_a_bit": 26.8,
+    "a_great_deal": 20.2
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "impact_issue": "Response Times",
+    "not_at_all": 12.1,
+    "a_little_amount": 31.4,
+    "a_moderate_amount": 28.5,
+    "quite_a_bit": 19,
+    "a_great_deal": 9
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "impact_issue": "Surgery Cancellation",
+    "not_at_all": 18.8,
+    "a_little_amount": 34.1,
+    "a_moderate_amount": 26,
+    "quite_a_bit": 13.3,
+    "a_great_deal": 7.7
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Surgery Cancellation",
+    "not_at_all": 19,
+    "a_little_amount": 32.2,
+    "a_moderate_amount": 25.1,
+    "quite_a_bit": 14.5,
+    "a_great_deal": 9.3
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "impact_issue": "Surgery Cancellation",
+    "not_at_all": 31.6,
+    "a_little_amount": 32.8,
+    "a_moderate_amount": 21.6,
+    "quite_a_bit": 10.2,
+    "a_great_deal": 3.7
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "impact_issue": "Losing Power",
+    "not_at_all": 15.6,
+    "a_little_amount": 31.4,
+    "a_moderate_amount": 26.9,
+    "quite_a_bit": 15.5,
+    "a_great_deal": 10.6
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Losing Power",
+    "not_at_all": 15.7,
+    "a_little_amount": 30.8,
+    "a_moderate_amount": 25.9,
+    "quite_a_bit": 15.7,
+    "a_great_deal": 12
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "impact_issue": "Losing Power",
+    "not_at_all": 21.8,
+    "a_little_amount": 34.7,
+    "a_moderate_amount": 23.4,
+    "quite_a_bit": 12.2,
+    "a_great_deal": 7.8
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "impact_issue": "Resource Shortage",
+    "not_at_all": 10.3,
+    "a_little_amount": 28.5,
+    "a_moderate_amount": 29.4,
+    "quite_a_bit": 18.9,
+    "a_great_deal": 12.9
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Resource Shortage",
+    "not_at_all": 11.7,
+    "a_little_amount": 26,
+    "a_moderate_amount": 28.2,
+    "quite_a_bit": 19.4,
+    "a_great_deal": 14.7
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "impact_issue": "Resource Shortage",
+    "not_at_all": 18.2,
+    "a_little_amount": 32.2,
+    "a_moderate_amount": 27.2,
+    "quite_a_bit": 15,
+    "a_great_deal": 7.4
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "impact_issue": "Overcrowding",
+    "not_at_all": 12.4,
+    "a_little_amount": 28.4,
+    "a_moderate_amount": 28.3,
+    "quite_a_bit": 18.4,
+    "a_great_deal": 12.4
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Overcrowding",
+    "not_at_all": 13.5,
+    "a_little_amount": 26,
+    "a_moderate_amount": 26.1,
+    "quite_a_bit": 19,
+    "a_great_deal": 15.5
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "impact_issue": "Overcrowding",
+    "not_at_all": 19.4,
+    "a_little_amount": 32.2,
+    "a_moderate_amount": 25.8,
+    "quite_a_bit": 14.4,
+    "a_great_deal": 8.1
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "impact_issue": "Er Visits",
+    "not_at_all": 6.6,
+    "a_little_amount": 23.4,
+    "a_moderate_amount": 33.1,
+    "quite_a_bit": 21.5,
+    "a_great_deal": 15.3
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Er Visits",
+    "not_at_all": 7.4,
+    "a_little_amount": 23,
+    "a_moderate_amount": 30.2,
+    "quite_a_bit": 23.4,
+    "a_great_deal": 15.9
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "impact_issue": "Er Visits",
+    "not_at_all": 10.1,
+    "a_little_amount": 29,
+    "a_moderate_amount": 31,
+    "quite_a_bit": 20.7,
+    "a_great_deal": 9.2
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "impact_issue": "Response Times",
+    "not_at_all": 7.4,
+    "a_little_amount": 24.7,
+    "a_moderate_amount": 31.3,
+    "quite_a_bit": 22.8,
+    "a_great_deal": 13.9
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "impact_issue": "Response Times",
+    "not_at_all": 8,
+    "a_little_amount": 23.8,
+    "a_moderate_amount": 29.4,
+    "quite_a_bit": 22.3,
+    "a_great_deal": 16.5
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "impact_issue": "Response Times",
+    "not_at_all": 12.5,
+    "a_little_amount": 31.3,
+    "a_moderate_amount": 28.3,
+    "quite_a_bit": 18.7,
+    "a_great_deal": 9.2
+  }
+]

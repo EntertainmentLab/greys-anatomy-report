@@ -1,0 +1,242 @@
+[
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "health_issue": "Death",
+    "not_worried": 9.6,
+    "little_worried": 33.8,
+    "moderately_worried": 29.6,
+    "very_worried": 19.9,
+    "extremely_worried": 7.1
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "health_issue": "Death",
+    "not_worried": 8.6,
+    "little_worried": 31.6,
+    "moderately_worried": 30.6,
+    "very_worried": 20.5,
+    "extremely_worried": 8.8
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "health_issue": "Death",
+    "not_worried": 13.6,
+    "little_worried": 37.7,
+    "moderately_worried": 25.9,
+    "very_worried": 15.7,
+    "extremely_worried": 7
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "health_issue": "Worsening Conditions",
+    "not_worried": 7,
+    "little_worried": 28.9,
+    "moderately_worried": 32.4,
+    "very_worried": 23.3,
+    "extremely_worried": 8.4
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "health_issue": "Worsening Conditions",
+    "not_worried": 7.6,
+    "little_worried": 26.3,
+    "moderately_worried": 34.8,
+    "very_worried": 22,
+    "extremely_worried": 9.2
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "health_issue": "Worsening Conditions",
+    "not_worried": 11.2,
+    "little_worried": 30.9,
+    "moderately_worried": 31.7,
+    "very_worried": 19.5,
+    "extremely_worried": 6.7
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "health_issue": "Heat Stroke",
+    "not_worried": 3.9,
+    "little_worried": 24.2,
+    "moderately_worried": 35.1,
+    "very_worried": 27.4,
+    "extremely_worried": 9.5
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "health_issue": "Heat Stroke",
+    "not_worried": 4.5,
+    "little_worried": 22,
+    "moderately_worried": 37,
+    "very_worried": 25.1,
+    "extremely_worried": 11.4
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "health_issue": "Heat Stroke",
+    "not_worried": 6.6,
+    "little_worried": 28.4,
+    "moderately_worried": 34.5,
+    "very_worried": 20.3,
+    "extremely_worried": 10.2
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave",
+    "health_issue": "Dehydration",
+    "not_worried": 3,
+    "little_worried": 18.3,
+    "moderately_worried": 36.3,
+    "very_worried": 30,
+    "extremely_worried": 12.4
+  },
+  {
+    "wave": 2,
+    "condition": "Heatwave + Handoff",
+    "health_issue": "Dehydration",
+    "not_worried": 3.8,
+    "little_worried": 19.2,
+    "moderately_worried": 33.6,
+    "very_worried": 29.4,
+    "extremely_worried": 14
+  },
+  {
+    "wave": 2,
+    "condition": "Control",
+    "health_issue": "Dehydration",
+    "not_worried": 4.5,
+    "little_worried": 25,
+    "moderately_worried": 35.6,
+    "very_worried": 23.6,
+    "extremely_worried": 11.2
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "health_issue": "Death",
+    "not_worried": 9.3,
+    "little_worried": 34.2,
+    "moderately_worried": 29.4,
+    "very_worried": 18.3,
+    "extremely_worried": 8.8
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "health_issue": "Death",
+    "not_worried": 11.9,
+    "little_worried": 32.4,
+    "moderately_worried": 26.8,
+    "very_worried": 20.9,
+    "extremely_worried": 7.9
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "health_issue": "Death",
+    "not_worried": 11.9,
+    "little_worried": 32.7,
+    "moderately_worried": 31.1,
+    "very_worried": 17.9,
+    "extremely_worried": 6.4
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "health_issue": "Worsening Conditions",
+    "not_worried": 6.8,
+    "little_worried": 26.1,
+    "moderately_worried": 33.7,
+    "very_worried": 23.2,
+    "extremely_worried": 10.2
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "health_issue": "Worsening Conditions",
+    "not_worried": 8.7,
+    "little_worried": 29.7,
+    "moderately_worried": 29.4,
+    "very_worried": 22,
+    "extremely_worried": 10.2
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "health_issue": "Worsening Conditions",
+    "not_worried": 10.3,
+    "little_worried": 27.6,
+    "moderately_worried": 34.2,
+    "very_worried": 20,
+    "extremely_worried": 7.9
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "health_issue": "Heat Stroke",
+    "not_worried": 4,
+    "little_worried": 24.3,
+    "moderately_worried": 35.1,
+    "very_worried": 24.6,
+    "extremely_worried": 12
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "health_issue": "Heat Stroke",
+    "not_worried": 4.6,
+    "little_worried": 25.8,
+    "moderately_worried": 33.6,
+    "very_worried": 25.2,
+    "extremely_worried": 10.8
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "health_issue": "Heat Stroke",
+    "not_worried": 6.3,
+    "little_worried": 24,
+    "moderately_worried": 36.1,
+    "very_worried": 25.1,
+    "extremely_worried": 8.5
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave",
+    "health_issue": "Dehydration",
+    "not_worried": 3.1,
+    "little_worried": 18.4,
+    "moderately_worried": 35.5,
+    "very_worried": 28.9,
+    "extremely_worried": 14.1
+  },
+  {
+    "wave": 3,
+    "condition": "Heatwave + Handoff",
+    "health_issue": "Dehydration",
+    "not_worried": 3.2,
+    "little_worried": 20.8,
+    "moderately_worried": 35.3,
+    "very_worried": 28.2,
+    "extremely_worried": 12.4
+  },
+  {
+    "wave": 3,
+    "condition": "Control",
+    "health_issue": "Dehydration",
+    "not_worried": 5.1,
+    "little_worried": 19.2,
+    "moderately_worried": 38.2,
+    "very_worried": 26.3,
+    "extremely_worried": 11.2
+  }
+]

@@ -1,0 +1,482 @@
+[
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [71.72]
+    ],
+    "se": [
+      [0.794]
+    ],
+    "n": [
+      [1209]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [75.67]
+    ],
+    "se": [
+      [0.741]
+    ],
+    "n": [
+      [1216]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [59.79]
+    ],
+    "se": [
+      [0.932]
+    ],
+    "n": [
+      [1165]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [68.38]
+    ],
+    "se": [
+      [0.878]
+    ],
+    "n": [
+      [1209]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [70.19]
+    ],
+    "se": [
+      [0.888]
+    ],
+    "n": [
+      [1216]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [53.04]
+    ],
+    "se": [
+      [1.083]
+    ],
+    "n": [
+      [1165]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [60.12]
+    ],
+    "se": [
+      [0.988]
+    ],
+    "n": [
+      [1209]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [64.1]
+    ],
+    "se": [
+      [0.956]
+    ],
+    "n": [
+      [1216]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [32.28]
+    ],
+    "se": [
+      [1.104]
+    ],
+    "n": [
+      [1165]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [42]
+    ],
+    "se": [
+      [1.316]
+    ],
+    "n": [
+      [1209]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [42.38]
+    ],
+    "se": [
+      [1.328]
+    ],
+    "n": [
+      [1216]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [27.03]
+    ],
+    "se": [
+      [1.471]
+    ],
+    "n": [
+      [1165]
+    ],
+    "wave": [
+      [2]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [72.99]
+    ],
+    "se": [
+      [0.863]
+    ],
+    "n": [
+      [1102]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [74.32]
+    ],
+    "se": [
+      [0.845]
+    ],
+    "n": [
+      [1085]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [64.81]
+    ],
+    "se": [
+      [0.965]
+    ],
+    "n": [
+      [1045]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [64.35]
+    ],
+    "se": [
+      [1.025]
+    ],
+    "n": [
+      [1102]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [66.23]
+    ],
+    "se": [
+      [1.035]
+    ],
+    "n": [
+      [1085]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [55.96]
+    ],
+    "se": [
+      [1.145]
+    ],
+    "n": [
+      [1045]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [58.38]
+    ],
+    "se": [
+      [1.116]
+    ],
+    "n": [
+      [1102]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [61.03]
+    ],
+    "se": [
+      [1.108]
+    ],
+    "n": [
+      [1085]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [38.56]
+    ],
+    "se": [
+      [1.23]
+    ],
+    "n": [
+      [1045]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [47.1]
+    ],
+    "se": [
+      [1.378]
+    ],
+    "n": [
+      [1102]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [44.44]
+    ],
+    "se": [
+      [1.487]
+    ],
+    "n": [
+      [1085]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [35.41]
+    ],
+    "se": [
+      [1.567]
+    ],
+    "n": [
+      [1045]
+    ],
+    "wave": [
+      [3]
+    ]
+  }
+]
