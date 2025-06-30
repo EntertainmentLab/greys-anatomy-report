@@ -1,0 +1,350 @@
+library(data.table)
+library(jsonlite)
+
+source("../../libraries.R")
+source("../../2-Processing/00 - Helpers/Helper - Likert to Numbers.R")
+source("../../2-Processing/00 - Helpers/Misc Helpers.R")
+source("../../2-Processing/00 - Helpers/Data Merging Helpers.R")
+source("../../2-Processing/00 - Helpers/Data Download Helpers.R")
+source("../../2-Processing/00 - Helpers/Health Risk Text Scoring.R")
+
+dt <- readRDS("../../1-Data/processed_data/complete_data_for_analysis.rds")
+
+# Calculate means and standard errors for knowledge variables
+calculate_knowledge_stats <- function(wave) {
+  
+  # Define knowledge variables for each wave
+  if (wave == 2) {
+    knowledge_vars <- c(
+      "heatwaves_knowledge_heart_attacks_w2",
+      "heatwaves_knowledge_organ_failure_w2",
+      "heatwaves_knowledge_premature_labor_w2",
+      "heatwaves_knowledge_violent_crime_w2"
+   # "heatwaves_knowledge_cancer_w2", 
+    )
+    condition_var <- "condition_w2"
+  } else if (wave == 3) {
+    knowledge_vars <- c(
+      "heatwaves_knowledge_heart_attacks_w3",
+     "heatwaves_knowledge_organ_failure_w3",
+      "heatwaves_knowledge_premature_labor_w3", 
+      "heatwaves_knowledge_violent_crime_w3"
+            #"heatwaves_knowledge_cancer_w3",
+    )
+    condition_var <- "condition_w2"  # Still using w2 condition
+  }
+  
+  # Create results list
+  results <- list()
+  
+  # Calculate stats for each combination
+  for (var in knowledge_vars) {
+    # Extract category name from variable name
+    category <- gsub(paste0("heatwaves_knowledge_|_w", wave), "", var)
+    category <- gsub("_", " ", category)
+    category <- tools::toTitleCase(category)
+    
+    # Calculate means and SEs by condition
+    stats <- dt[!is.na(get(var)) & !is.na(get(condition_var)), 
+                .(mean = mean(get(var), na.rm = TRUE),
+                  se = sd(get(var), na.rm = TRUE) / sqrt(.N),
+                  n = .N),
+                by = condition_var]
+    
+    setnames(stats, condition_var, "condition")
+    
+    # Create final records with array format for React compatibility
+    for (i in 1:nrow(stats)) {
+      results[[length(results) + 1]] <- list(
+        condition = list(stats$condition[i]),
+        category = list(category),
+        mean = list(round(stats$mean[i], 2)),
+        se = list(round(stats$se[i], 3)),
+        n = list(stats$n[i]),
+        wave = list(wave)
+      )
+    }
+  }
+  
+  return(results)
+}
+
+# Calculate heatwave health worry data
+calculate_health_worry_stats <- function(wave) {
+  
+  # Define health worry variables for each wave
+  if (wave == 2) {
+    worry_vars <- c(
+      "heatwaves_health_worry_death_w2_raw",
+      "heatwaves_health_worry_worsening_conds_w2_raw", 
+      "heatwaves_health_worry_heat_stroke_w2_raw",
+      "heatwaves_health_worry_dehydration_w2_raw"
+    )
+    condition_var <- "condition_w2"
+  } else if (wave == 3) {
+    worry_vars <- c(
+      "heatwaves_health_worry_death_w3_raw",
+      "heatwaves_health_worry_worsening_conds_w3_raw", 
+      "heatwaves_health_worry_heat_stroke_w3_raw",
+      "heatwaves_health_worry_dehydration_w3_raw"
+    )
+    condition_var <- "condition_w2"  # Still using w2 condition
+  }
+  
+  # Create condition labels
+  condition_labels <- c(
+    "control" = "Control",
+    "treatment" = "Heatwave", 
+    "handoff" = "Heatwave + Handoff"
+  )
+  
+  results <- list()
+  
+  # Calculate stats for each worry variable
+  for (var in worry_vars) {
+    # Skip if variable doesn't exist
+    if (!var %in% names(dt)) {
+      cat("Warning: Variable", var, "not found in dataset\n")
+      next
+    }
+    
+    # Extract health issue name
+    health_issue <- gsub(paste0("heatwaves_health_worry_|_w", wave, "_raw"), "", var)
+    health_issue <- gsub("_", " ", health_issue)
+    # Fix specific cases
+    health_issue <- gsub("conds", "conditions", health_issue)
+    health_issue <- tools::toTitleCase(health_issue)
+    
+    # Calculate counts by condition for each response level (using character matching)
+    worry_stats <- dt[!is.na(get(var)) & !is.na(get(condition_var)), 
+                      .(not_worried = sum(get(var) == "Not worried at all", na.rm = TRUE),
+                        little_worried = sum(get(var) == "A little worried", na.rm = TRUE),
+                        moderately_worried = sum(get(var) == "Moderately worried", na.rm = TRUE),
+                        very_worried = sum(get(var) == "Very worried", na.rm = TRUE),
+                        extremely_worried = sum(get(var) == "Extremely worried", na.rm = TRUE)),
+                      by = condition_var]
+    
+    setnames(worry_stats, condition_var, "condition")
+    
+    # Create records for each condition
+    for (i in 1:nrow(worry_stats)) {
+      # Calculate total for this condition/health issue
+      total <- worry_stats$not_worried[i] + worry_stats$little_worried[i] + 
+               worry_stats$moderately_worried[i] + worry_stats$very_worried[i] + 
+               worry_stats$extremely_worried[i]
+      
+      results[[length(results) + 1]] <- list(
+        wave = wave,
+        condition = condition_labels[worry_stats$condition[i]],
+        health_issue = health_issue,
+        not_worried = round((worry_stats$not_worried[i] / total) * 100, 1),
+        little_worried = round((worry_stats$little_worried[i] / total) * 100, 1),
+        moderately_worried = round((worry_stats$moderately_worried[i] / total) * 100, 1),
+        very_worried = round((worry_stats$very_worried[i] / total) * 100, 1),
+        extremely_worried = round((worry_stats$extremely_worried[i] / total) * 100, 1)
+      )
+    }
+  }
+  
+  return(results)
+}
+
+# Calculate heatwave system impacts data
+calculate_sys_impacts_stats <- function(wave) {
+  
+  # Define system impact variables for each wave
+  if (wave == 2) {
+  impact_vars <- c(
+    "heatwaves_system_impacts_surgery_cancellation_w2_raw",
+    "heatwaves_system_impacts_losing_power_w2_raw", 
+    "heatwaves_system_impacts_resource_shortage_w2_raw",
+    "heatwaves_system_impacts_overcrowding_w2_raw",
+    "heatwaves_system_impacts_er_visits_w2_raw",
+    "heatwaves_system_impacts_response_times_w2_raw"
+  )
+  condition_var <- "condition_w2"
+  } else if (wave == 3) {
+  impact_vars <- c(
+    "heatwaves_system_impacts_surgery_cancellation_w3_raw",
+    "heatwaves_system_impacts_losing_power_w3_raw", 
+    "heatwaves_system_impacts_resource_shortage_w3_raw",
+    "heatwaves_system_impacts_overcrowding_w3_raw",
+    "heatwaves_system_impacts_er_visits_w3_raw",
+    "heatwaves_system_impacts_response_times_w3_raw"
+  )
+  condition_var <- "condition_w2"  # Still using w2 condition
+  }
+  
+  # Create condition labels
+  condition_labels <- c(
+  "control" = "Control",
+  "treatment" = "Heatwave", 
+  "handoff" = "Heatwave + Handoff"
+  )
+  
+  results <- list()
+
+  # Calculate stats for each impact variable
+  for (var in impact_vars) {
+  # Skip if variable doesn't exist
+  if (!var %in% names(dt)) {
+    cat("Warning: Variable", var, "not found in dataset\n")
+    next
+  }
+  
+  # Extract impact issue name
+  impact_issue <- gsub(paste0("heatwaves_system_impacts_|_w", wave, "_raw"), "", var)
+  impact_issue <- gsub("_", " ", impact_issue)
+  impact_issue <- tools::toTitleCase(impact_issue)
+  
+  # Calculate counts by condition for each response level
+  impact_stats <- dt[!is.na(get(var)) & !is.na(get(condition_var)), 
+            .(not_at_all = sum(get(var) == "Not at all", na.rm = TRUE),
+            a_little_amount = sum(get(var) == "A little amount", na.rm = TRUE),
+            a_moderate_amount = sum(get(var) == "A moderate amount", na.rm = TRUE),
+            quite_a_bit = sum(get(var) == "Quite a bit", na.rm = TRUE),
+            a_great_deal = sum(get(var) == "A great deal", na.rm = TRUE)),
+            by = condition_var]
+  
+  setnames(impact_stats, condition_var, "condition")
+  
+  # Create records for each condition
+  for (i in 1:nrow(impact_stats)) {
+    # Calculate total for this condition/impact issue
+    total <- impact_stats$not_at_all[i] + impact_stats$a_little_amount[i] + 
+         impact_stats$a_moderate_amount[i] + impact_stats$quite_a_bit[i] + 
+         impact_stats$a_great_deal[i]
+    
+    results[[length(results) + 1]] <- list(
+    wave = wave,
+    condition = condition_labels[impact_stats$condition[i]],
+    impact_issue = impact_issue,
+    not_at_all = round((impact_stats$not_at_all[i] / total) * 100, 1),
+    a_little_amount = round((impact_stats$a_little_amount[i] / total) * 100, 1),
+    a_moderate_amount = round((impact_stats$a_moderate_amount[i] / total) * 100, 1),
+    quite_a_bit = round((impact_stats$quite_a_bit[i] / total) * 100, 1),
+    a_great_deal = round((impact_stats$a_great_deal[i] / total) * 100, 1)
+    )
+  }
+  }
+  
+  return(results)
+}
+
+
+# Calculate means and standard errors for policy support variables
+calculate_policy_support_stats <- function(wave) {
+  
+  # Define policy support variables for each wave
+  if (wave == 2) {
+    policy_vars <- c(
+      "policy_support_government_investment_w2",
+      "policy_support_cooling_centers_w2"
+    )
+    condition_var <- "condition_w2"
+  } else if (wave == 3) {
+    policy_vars <- c(
+      "policy_support_government_investment_w3",
+      "policy_support_cooling_centers_w3"
+    )
+    condition_var <- "condition_w2"  # Still using w2 condition
+  }
+  
+  # Create results list
+  results <- list()
+  
+  # Calculate stats for each combination
+  for (var in policy_vars) {
+    # Extract category name from variable name
+    category <- gsub(paste0("policy_support_|_w", wave), "", var)
+    category <- gsub("_", " ", category)
+    category <- tools::toTitleCase(category)
+    
+    # Calculate means and SEs by condition
+    stats <- dt[!is.na(get(var)) & !is.na(get(condition_var)), 
+                .(mean = mean(get(var), na.rm = TRUE),
+                  se = sd(get(var), na.rm = TRUE) / sqrt(.N),
+                  n = .N),
+                by = condition_var]
+    
+    setnames(stats, condition_var, "condition")
+    
+    # Create final records with array format for React compatibility
+    for (i in 1:nrow(stats)) {
+      results[[length(results) + 1]] <- list(
+        condition = list(stats$condition[i]),
+        category = list(category),
+        mean = list(round(stats$mean[i], 2)),
+        se = list(round(stats$se[i], 3)),
+        n = list(stats$n[i]),
+        wave = list(wave)
+      )
+    }
+  }
+  
+  return(results)
+}
+
+# Generate all data files
+cat("Generating data files...\n")
+
+
+# Generate knowledge data
+cat("Calculating knowledge data...\n")
+wave2_knowledge <- calculate_knowledge_stats(2)
+wave3_knowledge <- calculate_knowledge_stats(3)
+all_knowledge <- c(wave2_knowledge, wave3_knowledge)
+
+# Generate health worry data  
+cat("Calculating health worry data...\n")
+wave2_worry <- calculate_health_worry_stats(2)
+wave3_worry <- calculate_health_worry_stats(3)
+all_worry <- c(wave2_worry, wave3_worry)
+
+cat("Calculating system impacts data...\n")
+wave2_impacts <- calculate_sys_impacts_stats(2)
+wave3_impacts <- calculate_sys_impacts_stats(3)
+all_impacts <- c(wave2_impacts, wave3_impacts)
+
+# Generate policy support data
+cat("Calculating policy support data...\n")
+wave2_policy <- calculate_policy_support_stats(2)
+wave3_policy <- calculate_policy_support_stats(3)
+all_policy <- c(wave2_policy, wave3_policy)
+
+# Write individual files for React app
+write_json(all_knowledge, "public/knowledge-data.json", 
+           pretty = TRUE, auto_unbox = FALSE)
+
+write_json(all_worry, "public/heatwave-threat-data.json", 
+           pretty = TRUE, auto_unbox = TRUE)
+
+write_json(all_impacts, "public/system-impacts-data.json", 
+           pretty = TRUE, auto_unbox = TRUE)
+
+write_json(all_policy, "public/policy-support-data.json", 
+           pretty = TRUE, auto_unbox = FALSE)
+
+# Print summary
+cat("Generated JSON files for React app:\n")
+cat("- Knowledge data:", length(all_knowledge), "records\n")
+cat("- Health worry data:", length(all_worry), "records\n") 
+cat("- System impacts data:", length(all_impacts), "records\n")
+cat("- Policy support data:", length(all_policy), "records\n")
+
+
+# Preview structure
+cat("\nSample knowledge record structure:\n")
+print(all_impacts[[1]])
+
+if(length(all_worry) > 0) {
+  cat("\nSample health worry record structure:\n") 
+  print(all_impacts[[1]])
+} else {
+  cat("\nNo impact data found - check variable names\n")
+}
+
+
+
+cat("\nDone!\n")
+
