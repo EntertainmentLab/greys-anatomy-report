@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 import { useClimateTemporalData } from '../hooks/useClimateTemporalData'
 import { COLOR_MAP } from '../constants'
-import './ClimateTemporalChart.css'
+import './3.5-ClimateTemporalChart.css'
 
 // Define conditions with your color scheme
 const CLIMATE_CONDITIONS = [
@@ -77,10 +77,10 @@ function ClimateTemporalChart() {
       .call(d3.axisBottom(xScale)
         .tickFormat(d => {
           const timeLabels = {
-            1: "Baseline\n(3 Days Before)",
+            1: "Baseline\n(7 Days Before)",
             2: "Immediately\nAfter Viewing",
-            3: "5 days",
-            4: "10 days", 
+            3: "5 Days",
+            4: "10 Days",
             5: "15 Days\nLater"
           }
           return timeLabels[d] || d

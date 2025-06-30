@@ -5,7 +5,7 @@ function Methodology() {
         Methodology
       </h2>
       <p>
-        We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. Participants (N = 4,830) were quota-sampled to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region. Data were collected via Cloud Research Connect online survey platform, and participants were compensated at market rates increasing across waves to minimize attrition.
+        We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. Participants (N = 4,830) were quota-sampled to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region. Data were collected via Cloud Research Connect online survey platform, and participants were compensated at market rates increasing across waves to minimize attrition. Attrition was high between baseline and the viewing assignment, with 3,454 participants completing the viewing assignment and 3,204 responding to the post-exposure survey. 
       </p>
       
       <h3>
@@ -16,13 +16,13 @@ function Methodology() {
       </p>
       <ul>
         <li>
-          <strong>Control Group:</strong> Viewed Season 21, Episode 6 ("Night Moves")—a narrative episode with no reference to extreme heat or climate.
+          <strong>Control Group (N = 1,040):</strong> Viewed Season 21, Episode 6 (<a href="https://www.imdb.com/title/tt33528524/" target="_blank" rel="noopener noreferrer">"Night Moves"</a>)—a narrative episode with no reference to extreme heat or climate.
         </li>
         <li>
-          <strong>Treatment Group:</strong> Viewed Season 21, Episode 8 ("Drop it Like it's Hot"), in which a severe heatwave disrupts hospital operations and patient care.
+          <strong>Heatwave Group (N = 1,091):</strong> Viewed Season 21, Episode 8 (<a href="https://www.imdb.com/title/tt33528529/" target="_blank" rel="noopener noreferrer">"Drop it Like it's Hot"</a>), in which a severe heatwave disrupts hospital operations and patient care.
         </li>
         <li>
-          <strong>Hand-Off Group:</strong> Viewed the same episode as the Treatment group, followed by one of four climate-related Instagram videos developed to contextualize the episode's content within broader climate-health dynamics.
+          <strong>Heatwave + Handoff Group (N = 1,073):</strong> Viewed the same episode as the Heatwave group, followed by one of four climate-related Instagram videos developed to contextualize the episode's content within broader climate-health dynamics.
         </li>
       </ul>
 

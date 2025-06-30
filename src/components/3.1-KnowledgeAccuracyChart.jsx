@@ -1,27 +1,22 @@
 import { useState, useEffect, useRef } from 'react'
 import * as d3 from 'd3'
-import { usePolicyData } from '../hooks/usePolicyData'
+import { useKnowledgeData } from '../hooks/useKnowledgeData'
 import { CONDITION_LABELS, COLOR_MAP, WAVE_LABELS } from '../constants'
-import './PolicySupportChart.css'
+import './3.1-KnowledgeAccuracyChart.css'
 
-function PolicySupportChart() {
+function KnowledgeAccuracyChart() {
   const [currentWave, setCurrentWave] = useState(2)
-  const { data: policyData, loading, error } = usePolicyData()
+  const { data: knowledgeData, loading, error } = useKnowledgeData()
   const svgRef = useRef()
 
   useEffect(() => {
-    if (!policyData || policyData.length === 0) {
-      console.log('No policy data available')
-      return
-    }
+    if (!knowledgeData || knowledgeData.length === 0) return
 
-    const filteredData = policyData.filter(d => d.wave === currentWave)
-    console.log('Filtered policy data for wave', currentWave, ':', filteredData)
+    const filteredData = knowledgeData.filter(d => 
+      d.wave === currentWave && d.category !== 'Cancer'
+    )
     
-    if (filteredData.length === 0) {
-      console.log('No data for current wave')
-      return
-    }
+    if (filteredData.length === 0) return
 
     d3.select(svgRef.current).selectAll("*").remove()
 
@@ -37,10 +32,9 @@ function PolicySupportChart() {
       .attr("transform", `translate(${margin.left},${margin.top})`)
 
     const categories = [...new Set(filteredData.map(d => d.category))]
-    console.log('Categories:', categories)
     
     const xScale = d3.scaleLinear()
-      .domain([69, 78])
+      .domain([20, 80])
       .range([0, width])
 
     const yScale = d3.scaleBand()
@@ -55,8 +49,7 @@ function PolicySupportChart() {
       .attr("text-anchor", "middle")
       .style("font-size", "16px")
       .style("font-weight", "bold")
-      .style("font-family", "Roboto Condensed, sans-serif")
-      .text(`Policy Support Across Conditions (${WAVE_LABELS[currentWave]})`)
+      .text(`Knowledge Accuracy Across Conditions (${WAVE_LABELS[currentWave]})`)
 
     // Add subtitle
     svg.append("text")
@@ -66,8 +59,7 @@ function PolicySupportChart() {
       .style("font-size", "12px")
       .style("font-style", "italic")
       .style("fill", "#666")
-      .style("font-family", "Roboto Condensed, sans-serif")
-      .text('Average support scores for heat-adaptive policies by experimental condition')
+      .text('Average accuracy scores for health-related knowledge questions by experimental condition')
 
     // Add x-axis
     g.append("g")
@@ -79,8 +71,7 @@ function PolicySupportChart() {
       .attr("text-anchor", "middle")
       .style("fill", "black")
       .style("font-size", "12px")
-      .style("font-family", "Roboto Condensed, sans-serif")
-      .text("Average Support (%)")
+      .text("Average Accuracy (%)")
 
     // Add y-axis labels
     categories.forEach(category => {
@@ -91,11 +82,10 @@ function PolicySupportChart() {
         .attr("dominant-baseline", "middle")
         .style("font-size", "12px")
         .style("font-weight", "bold")
-        .style("font-family", "Roboto Condensed, sans-serif")
         .text(category)
     })
 
-    // Add connecting lines and dots
+    // Add connecting lines
     categories.forEach(category => {
       const categoryData = filteredData.filter(d => d.category === category)
       const controlData = categoryData.find(d => d.condition === 'control')
@@ -204,7 +194,6 @@ function PolicySupportChart() {
             .style("font-size", "8px")
             .style("fill", "white")
             .style("font-weight", "bold")
-            .style("font-family", "Roboto Condensed, sans-serif")
             .text(Math.round(d.mean))
         })
     })
@@ -227,21 +216,20 @@ function PolicySupportChart() {
         .attr("x", 15)
         .attr("y", 5)
         .style("font-size", "11px")
-        .style("font-family", "Roboto Condensed, sans-serif")
         .text(CONDITION_LABELS[condition])
     })
 
-  }, [policyData, currentWave])
+  }, [knowledgeData, currentWave])
 
-  if (loading) return <div className="loading">Loading policy support data...</div>
+  if (loading) return <div className="loading">Loading knowledge accuracy data...</div>
   if (error) return <div className="error">Error loading data: {error}</div>
   
-  if (!policyData || policyData.length === 0) {
-    return <div className="loading">No policy support data available...</div>
+  if (!knowledgeData || knowledgeData.length === 0) {
+    return <div className="loading">No knowledge data available...</div>
   }
 
   return (
-    <div className="policy-support-container">
+    <div className="knowledge-accuracy-container">
       <div className="wave-controls">
         <button 
           className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
@@ -264,4 +252,6 @@ function PolicySupportChart() {
   )
 }
 
-export default PolicySupportChart
+
+
+export default KnowledgeAccuracyChart

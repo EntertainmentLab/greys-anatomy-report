@@ -1,8 +1,8 @@
-import KnowledgeAccuracyChart from './KnowledgeAccuracyChart'
-import HealthWorryChart from './HealthWorryChart'
-import SystemImpactsChart from './SystemImpactsChart'
-import PolicySupportChart from './PolicySupportChart'
-import ClimateTemporalChart from './ClimateTemporalChart'
+import KnowledgeAccuracyChart from './3.1-KnowledgeAccuracyChart'
+import HealthWorryChart from './3.2-HealthWorryChart'
+import SystemImpactsChart from './3.3-SystemImpactsChart'
+import PolicySupportChart from './3.4-PolicySupportChart'
+import ClimateTemporalChart from './3.5-ClimateTemporalChart'
 
 function KeyFindings() {
   return (

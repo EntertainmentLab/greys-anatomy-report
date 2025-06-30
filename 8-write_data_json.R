@@ -6,7 +6,7 @@ source("../Greys-Anatomy/data/2-Processing/00 - Helpers/Data Download Helpers.R"
 source("../Greys-Anatomy/data/2-Processing/00 - Helpers/Health Risk Text Scoring.R")
 
 dt <- readRDS("../Greys-Anatomy/data/1-Data/processed_data/complete_data_for_analysis.rds")
-dt <- dt[wave_3_analysis_ready == TRUE,]
+dt <- dt[wave_2_analysis_ready == TRUE & wave_3_analysis_ready == TRUE,]
 
 # Calculate means and standard errors for knowledge variables
 calculate_knowledge_stats <- function(wave) {
@@ -349,60 +349,66 @@ calculate_climate_temporal_stats <- function() {
   
   # Define temporal proximity variables for each wave
   temporal_vars <- c(
-    "climate_temporal_proximity_timing_w1",
-    "climate_temporal_proximity_timing_w2", 
-    "climate_temporal_proximity_timing_w3"
+  "climate_temporal_proximity_timing_w1",
+  "climate_temporal_proximity_timing_w2", 
+  "climate_temporal_proximity_timing_w3"
   )
   
   condition_var <- "condition_w2"
   
   # Create condition labels
   condition_labels <- c(
-    "control" = "Control",
-    "treatment" = "Heatwave", 
-    "handoff" = "Heatwave + Handoff"
+  "control" = "Control",
+  "treatment" = "Heatwave", 
+  "handoff" = "Heatwave + Handoff"
   )
   
   # Wave labels
   wave_labels <- c(
-    "climate_temporal_proximity_timing_w1" = "Baseline (3 Days Before)",
-    "climate_temporal_proximity_timing_w2" = "Immediately After Viewing", 
-    "climate_temporal_proximity_timing_w3" = "15 Days Later"
+  "climate_temporal_proximity_timing_w1" = "Baseline (3 Days Before)",
+  "climate_temporal_proximity_timing_w2" = "Immediately After Viewing", 
+  "climate_temporal_proximity_timing_w3" = "15 Days Later"
   )
   
   results <- list()
   
+  # Only include rows where all three temporal_vars are non-NA
+  dt_sub <- dt[!is.na(get(temporal_vars[1])) & 
+         !is.na(get(temporal_vars[2])) & 
+         !is.na(get(temporal_vars[3])) & 
+         !is.na(get(condition_var))]
+  
   # Calculate stats for each wave
   for (var in temporal_vars) {
-    # Skip if variable doesn't exist
-    if (!var %in% names(dt)) {
-      cat("Warning: Variable", var, "not found in dataset\n")
-      next
-    }
-    
-    # Extract wave number from variable name
-    wave_num <- as.numeric(gsub(".*_w([0-9]+)", "\\1", var))
-    
-    # Calculate means and SEs by condition
-    stats <- dt[!is.na(get(var)) & !is.na(get(condition_var)), 
-                .(mean = mean(get(var), na.rm = TRUE),
-                  se = sd(get(var), na.rm = TRUE) / sqrt(.N),
-                  n = .N),
-                by = condition_var]
-    
-    setnames(stats, condition_var, "condition")
-    
-    # Create records for each condition
-    for (i in 1:nrow(stats)) {
-      results[[length(results) + 1]] <- list(
-        wave = wave_num,
-        wave_label = wave_labels[var],
-        condition = condition_labels[stats$condition[i]],
-        mean = round(stats$mean[i], 2),
-        se = round(stats$se[i], 3),
-        n = stats$n[i]
-      )
-    }
+  # Skip if variable doesn't exist
+  if (!var %in% names(dt_sub)) {
+    cat("Warning: Variable", var, "not found in dataset\n")
+    next
+  }
+  
+  # Extract wave number from variable name
+  wave_num <- as.numeric(gsub(".*_w([0-9]+)", "\\1", var))
+  
+  # Calculate means and SEs by condition
+  stats <- dt_sub[!is.na(get(var)), 
+        .(mean = mean(get(var), na.rm = TRUE),
+          se = sd(get(var), na.rm = TRUE) / sqrt(.N),
+          n = .N),
+        by = condition_var]
+  
+  setnames(stats, condition_var, "condition")
+  
+  # Create records for each condition
+  for (i in 1:nrow(stats)) {
+    results[[length(results) + 1]] <- list(
+    wave = wave_num,
+    wave_label = wave_labels[var],
+    condition = condition_labels[stats$condition[i]],
+    mean = round(stats$mean[i], 2),
+    se = round(stats$se[i], 3),
+    n = stats$n[i]
+    )
+  }
   }
   
   return(results)
