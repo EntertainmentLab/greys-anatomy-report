@@ -1,0 +1,132 @@
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  margin-bottom: 32px;
+  padding: 0;
+  background: none;
+  border: none;
+  flex-wrap: wrap;
+}
+
+.wave-toggle, .view-toggle {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.toggle-label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.toggle-buttons {
+  display: flex;
+  gap: 4px;
+  background: #f3f4f6;
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.wave-btn, .view-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  background: transparent;
+  color: #6b7280;
+}
+
+.wave-btn:hover, .view-btn:hover {
+  color: #374151;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.wave-btn.active, .view-btn.active {
+  background: #ffffff;
+  color: #111827;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.wave-btn:focus, .view-btn:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.condition-checkboxes {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.condition-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: currentColor;
+}
+
+.checkbox-label {
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1024px) {
+  .controls {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .condition-checkboxes {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .checkbox-group {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .wave-toggle, .view-toggle {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .controls {
+    padding: 0;
+    gap: 20px;
+  }
+  
+  .checkbox-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+}

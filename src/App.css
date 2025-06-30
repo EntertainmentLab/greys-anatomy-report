@@ -1,0 +1,183 @@
+.report-container {
+  font-family: 'Roboto', sans-serif;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 40px;
+  line-height: 1.7;
+  color: #333;
+}
+
+.report-content {
+  margin-top: 40px;
+}
+
+.report-section {
+  margin-bottom: 60px;
+}
+
+.chart-section {
+  margin: 80px 0;
+  padding: 40px 0;
+  border-top: 2px solid #e5e7eb;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.edit-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.edit-btn {
+  padding: 8px 16px;
+  border: 1px solid #005BBB;
+  border-radius: 6px;
+  background: transparent;
+  color: #005BBB;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.edit-btn:hover {
+  background: #005BBB;
+  color: white;
+}
+
+.edit-btn.active {
+  background: #005BBB;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .report-container {
+    padding: 20px 20px;
+  }
+  
+  .chart-section {
+    margin: 60px 0;
+    padding: 30px 0;
+  }
+}
+
+
+li {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  position: relative;
+  color: #444;
+  padding-left: 0;
+}
+
+li::before {
+  content: "•";
+  color: #005BBB;
+  font-weight: bold;
+  position: absolute;
+  left: -20px;
+  font-size: 1.2rem;
+}
+
+li strong {
+  color: #005BBB;
+  font-weight: 600;
+}
+
+.loading, .error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  font-size: 1.125rem;
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.edit-controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.edit-btn {
+  padding: 8px 16px;
+  border: 1px solid #005BBB;
+  border-radius: 6px;
+  background: transparent;
+  color: #005BBB;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: 'Roboto', sans-serif;
+}
+
+.edit-btn:hover {
+  background: #005BBB;
+  color: white;
+}
+
+.edit-btn.active {
+  background: #005BBB;
+  color: white;
+}
+
+/* Editable content styling */
+[contenteditable="true"] {
+  outline: 2px dashed transparent;
+  transition: outline 0.2s ease;
+  padding: 4px;
+  border-radius: 3px;
+}
+
+[contenteditable="true"]:hover {
+  outline-color: #005BBB;
+  background: rgba(0, 91, 187, 0.05);
+}
+
+[contenteditable="true"]:focus {
+  outline-color: #005BBB;
+  background: rgba(0, 91, 187, 0.1);
+}
+
+@media (max-width: 768px) {
+  .report-container {
+    padding: 20px 20px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  p, li {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  .chart-section {
+    margin: 60px 0;
+    padding: 30px 0;
+  }
+  
+  ul {
+    padding-left: 20px;
+  }
+  
+  li::before {
+    left: -15px;
+  }
+}
