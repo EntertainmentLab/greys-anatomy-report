@@ -199,7 +199,7 @@ function ClimateTemporalChart() {
           
           tooltip.html(`<strong>${d.condition}</strong><br/>
                        Wave ${d.wave}: ${d.mean.toFixed(2)} years<br/>
-                       (±${d.se.toFixed(2)} SE, n=${d.n})`)
+                       (±${d.se.toFixed(2)} SE)`)
             .style("left", (event.pageX + 10) + "px")
             .style("top", (event.pageY - 28) + "px")
         })
