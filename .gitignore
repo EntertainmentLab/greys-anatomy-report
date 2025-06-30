@@ -3,7 +3,6 @@ node_modules/
 
 # Production build
 build/
-dist/
 
 # Environment variables
 .env
@@ -56,4 +55,5 @@ jspm_packages/
 *.tgz
 
 # Yarn Integrity file
+.yarn-integrity
 .yarn-integrity
