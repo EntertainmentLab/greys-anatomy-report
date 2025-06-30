@@ -208,10 +208,13 @@ function ClimateTemporalChart() {
         })
     })
 
-    // Add legend at the bottom
+    // Add legend at the bottom (centered)
+    const legendWidth = CLIMATE_CONDITIONS.length * 150
+    const legendStartX = (width + margin.left + margin.right - legendWidth) / 2
+    
     const legend = svg.append("g")
       .attr("class", "legend")
-      .attr("transform", `translate(${margin.left}, ${height + margin.top + 60})`)
+      .attr("transform", `translate(${legendStartX}, ${height + margin.top + 60})`)
 
     const legendItems = legend.selectAll(".legend-item")
       .data(CLIMATE_CONDITIONS)
@@ -247,15 +250,7 @@ function ClimateTemporalChart() {
       .style("font-family", "Roboto Condensed, sans-serif")
       .text(d => d.name)
 
-    // Add legend title
-    legend.append("text")
-      .attr("x", 75)
-      .attr("y", -15)
-      .attr("text-anchor", "middle")
-      .style("font-size", "12px")
-      .style("font-weight", "bold")
-      .style("font-family", "Roboto Condensed, sans-serif")
-      .text("Condition")
+
 
   }, [climateTemporalData])
 
