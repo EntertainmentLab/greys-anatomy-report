@@ -42,7 +42,7 @@ function Methodology() {
       </ul>
       
       <p>
-        All outcome variables were derived from established measures or adapted from prior work on climate and risk communication. Multi-item batteries captured constructs including heatwave threat perception, knowledge of heat-related health risks, confidence in protective action, support for policy interventions, and beliefs about climate change's relevance to daily life. See full survey instrument.
+        All outcome variables were derived from established measures or adapted from prior work on climate and risk communication. Multi-item batteries captured constructs including heatwave threat perception, knowledge of heat-related health risks, confidence in protective action, support for policy interventions, and beliefs about climate change's relevance to daily life. See <a href={`${import.meta.env.BASE_URL}survey-instrument.html`} target="_blank" rel="noopener noreferrer">full survey instrument</a>.
       </p>
       <p>
         Participants who failed comprehension checks, provided non-substantive responses to open-text prompts, or viewed less than 85% of the assigned episode (based on telemetry data) were excluded from analysis. Analyses were <a href="https://osf.io/uv9x3" target="_blank" rel="noopener noreferrer">preregistered</a> and conducted according to a hierarchical model structure, with appropriate corrections for multiple comparisons.

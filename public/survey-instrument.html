@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grey's Anatomy Heatwave: Survey Instrument</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            line-height: 1.4;
+            color: #333;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: #2e7dd2;
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th {
+            background-color: #f8f9fa;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 700;
+            border: 1px solid #dee2e6;
+        }
+
+        td {
+            padding: 8px;
+            border: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+
+        .construct-cell {
+            font-weight: 700;
+            width: 120px;
+            text-align: center;
+        }
+
+        .subconstruct-cell {
+            font-style: italic;
+            width: 100px;
+        }
+
+        .question-cell {
+            width: 300px;
+        }
+
+        .question-type-cell {
+            width: 80px;
+            text-align: center;
+        }
+
+        .response-cell {
+            width: 180px;
+        }
+
+        .wave-cell {
+            width: 60px;
+            text-align: center;
+        }
+
+        /* Row grouping for hover effects */
+        .row-group {
+            transition: background-color 0.2s ease;
+        }
+
+        .row-group:hover {
+            background-color: #f8f9fa;
+        }
+
+        .row-group td {
+            border-top: 1px solid #dee2e6;
+        }
+
+        .row-group:first-child td {
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* Special styling for merged cells */
+        .merged-construct {
+            border-bottom: none;
+        }
+
+        .merged-construct + tr td:first-child {
+            border-top: none;
+        }
+
+        /* Question list styling */
+        .question-list {
+            margin: 5px 0;
+            padding-left: 15px;
+        }
+
+        .question-list li {
+            margin: 2px 0;
+        }
+
+        /* Attention check styling */
+        .attention-check {
+            font-weight: 500;
+            color: #dc3545;
+        }
+
+        /* Decoy item styling */
+        .decoy {
+            color: #6c757d;
+        }
+
+        /* Conditional question styling */
+        .conditional {
+            font-style: italic;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grey's Anatomy Heatwave: Survey Instrument</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th class="construct-cell">Construct</th>
+                    <th class="subconstruct-cell">Subconstruct</th>
+                    <th class="question-cell">Question</th>
+                    <th class="question-type-cell">Question Type</th>
+                    <th class="response-cell">Response Options/Scale</th>
+                    <th class="wave-cell">Wave</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Perceived Likelihood of Heatwave Exposure -->
+                <tr class="row-group">
+                    <td class="construct-cell">Perceived Likelihood of Heatwave Exposure</td>
+                    <td class="subconstruct-cell"></td>
+                    <td class="question-cell">How likely is it that you, your family, or your community will be seriously impacted by at least one severe heat wave this summer...?</td>
+                    <td class="question-type-cell">slider</td>
+                    <td class="response-cell">0-100 (Not at all likely to Extremely likely)</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Perceived Heatwave Threat Severity - Heatwave Worry -->
+                <tr class="row-group">
+                    <td class="construct-cell" rowspan="3" style="vertical-align: middle;">Perceived Heatwave Threat Severity</td>
+                    <td class="subconstruct-cell"><em>Heatwave Worry</em></td>
+                    <td class="question-cell">
+                        How worried are you about the effects of severe heat waves on...
+                        <ul class="question-list">
+                            <li>Your personal well-being</li>
+                            <li>The well-being of others in your family</li>
+                            <li>The well-being of others in your community</li>
+                            <li class="attention-check">Please select 'very worried' [attention]</li>
+                        </ul>
+                    </td>
+                    <td class="question-type-cell">likert matrix</td>
+                    <td class="response-cell">Not worried at all, A little worried, Moderately worried, Very worried, Extremely worried</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Perceived Heatwave Threat Severity - Heatwave Harm -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Heatwave Harm</em></td>
+                    <td class="question-cell">
+                        If a severe heat wave were to occur, how much do you think it would harm...
+                        <ul class="question-list">
+                            <li>Your personal well-being</li>
+                            <li>The well-being of others in your family</li>
+                            <li>The well-being of others in your community</li>
+                        </ul>
+                    </td>
+                    <td class="question-type-cell">likert matrix</td>
+                    <td class="response-cell">Would cause no harm at all, A little harm, Moderate harm, A great deal of harm, Would cause extreme harm</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Behavioral Intentions -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Behavioral Intentions</em></td>
+                    <td class="question-cell">
+                        If a severe heat wave occurs, how likely is it that you would…
+                        <ul class="question-list">
+                            <li>take extra precautions to protect yourself</li>
+                            <li>check on vulnerable people you know (elderly neighbors, etc.)</li>
+                        </ul>
+                    </td>
+                    <td class="question-type-cell">likert matrix</td>
+                    <td class="response-cell">Extremely unlikely, Moderately unlikely, Somewhat unlikely, Neither likely nor unlikely, Somewhat likely, Moderately likely, Extremely likely</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Perceived Threat of Heatwaves on Health - Heatwave Health Worry -->
+                <tr class="row-group">
+                    <td class="construct-cell" rowspan="3" style="vertical-align: middle;">Perceived Threat of Heatwaves on Health</td>
+                    <td class="subconstruct-cell"><em>Heatwave Health Worry</em></td>
+                    <td class="question-cell">
+                        If you were experiencing a severe heat wave... how worried would you be about the following health issues harming you, your family, or people in your community?
+                        <ul class="question-list">
+                            <li>Dehydration or heat exhaustion</li>
+                            <li>Heat stroke</li>
+                            <li>Worsening of chronic conditions</li>
+                            <li>Increased risk of death</li>
+                        </ul>
+                    </td>
+                    <td class="question-type-cell">likert matrix</td>
+                    <td class="response-cell">Not worried at all, A little worried, Moderately worried, Very worried, Extremely worried</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Worry Medical Access -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Worry Medical Access</em></td>
+                    <td class="question-cell">How worried are you about the impact of severe heat waves on your ability to be treated in a hospital?</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Not worried at all, A little worried, Moderately worried, Very worried, Extremely worried</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Healthcare System Impacts -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Healthcare System Impacts</em></td>
+                    <td class="question-cell">
+                        How concerned are you that severe heat waves in your local area could result in the following impacts:
+                        <ul class="question-list">
+                            <li>Hospitals losing power</li>
+                            <li>Increased emergency room visits</li>
+                            <li>Overcrowded hospitals turning away patients</li>
+                            <li>Shortages of medical staff or resources</li>
+                            <li>Cancellation of surgeries</li>
+                            <li>Increased (delayed) response times for emergency services</li>
+                        </ul>
+                    </td>
+                    <td class="question-type-cell">likert matrix</td>
+                    <td class="response-cell">Not at all, A little amount, A moderate amount, Quite a bit, A great deal</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Knowledge of the Impact of Heatwaves -->
+                <tr class="row-group">
+                    <td class="construct-cell" rowspan="3" style="vertical-align: middle;">Knowledge of the Impact of Heatwaves</td>
+                    <td class="subconstruct-cell"><em>Knowledge</em></td>
+                    <td class="question-cell">
+                        Please indicate how certain you are about whether the following statements are true or false. Extreme heat exposure can…
+                        <ul class="question-list">
+                            <li>trigger premature labor in pregnant women.</li>
+                            <li class="decoy">increase the risk of cancer. [decoy]</li>
+                            <li>cause organ failure.</li>
+                            <li>trigger heart attacks among the vulnerable.</li>
+                            <li>increase violent crime.</li>
+                        </ul>
+                    </td>
+                    <td class="question-type-cell">slider matrix</td>
+                    <td class="response-cell">-100 to 100 (100% certain it is FALSE to 100% certain it is TRUE)</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Health Risks -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Health Risks</em></td>
+                    <td class="question-cell">What are the primary health risks that can result from exposure to extreme heat?</td>
+                    <td class="question-type-cell">text list</td>
+                    <td class="response-cell">Min 2, Max 6 responses</td>
+                    <td class="wave-cell">2, 3</td>
+                </tr>
+
+                <!-- Lower Body Temperature -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Lower Body Temperature</em></td>
+                    <td class="question-cell">What is the fastest way to lower someone's internal body temperature after extreme heat exposure?</td>
+                    <td class="question-type-cell">multiple choice</td>
+                    <td class="response-cell">Drinking ice-cold water, Wrapping an ice-cold towel around their head, Immersing them in a tub of ice water, Giving them electrolytes</td>
+                    <td class="wave-cell">2, 3</td>
+                </tr>
+
+                <!-- Self-Efficacy -->
+                <tr class="row-group">
+                    <td class="construct-cell">Self-Efficacy</td>
+                    <td class="subconstruct-cell"></td>
+                    <td class="question-cell">If you were to experience a severe heat wave... how confident are you that you would know what to do to keep yourself and others safe?</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Not at all confident, A little confident, Moderately confident, Very confident, Extremely confident</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Heat and Policy Support - Policies -->
+                <tr class="row-group">
+                    <td class="construct-cell" rowspan="2" style="vertical-align: middle;">Heat and Policy Support</td>
+                    <td class="subconstruct-cell"><em>Policies</em></td>
+                    <td class="question-cell">
+                        Do you support or oppose the following policies?
+                        <ul class="question-list">
+                            <li>Federal, State, and Local Governments should invest resources to ensure that hospitals can run safely and effectively in severe heat waves.</li>
+                            <li>State and local governments should provide air-conditioned public spaces for people to use during severe heat waves to prevent heat-related health issues.</li>
+                        </ul>
+                    </td>
+                    <td class="question-type-cell">slider matrix</td>
+                    <td class="response-cell">-100 to 100 (Strongly oppose to Strongly support)</td>
+                    <td class="wave-cell">2, 3</td>
+                </tr>
+
+                <!-- Tax Increase -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Tax Increase</em></td>
+                    <td class="question-cell">How much more in overall income tax would you be willing to pay in order to ensure that your community and your hospitals are safer during severe heat waves?</td>
+                    <td class="question-type-cell">slider</td>
+                    <td class="response-cell">0-3%</td>
+                    <td class="wave-cell">2, 3</td>
+                </tr>
+
+                <!-- Responsibility of Healthcare Workers - Public -->
+                <tr class="row-group">
+                    <td class="construct-cell" rowspan="2" style="vertical-align: middle;">Responsibility of Healthcare Workers</td>
+                    <td class="subconstruct-cell"><em>Public</em></td>
+                    <td class="question-cell">Do you agree or disagree that health professionals have a responsibility to bring the health effects of severe heat waves to the attention of: the public?</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Strongly disagree, Moderately disagree, Slightly disagree, Neither agree nor disagree, Slightly agree, Moderately agree, Strongly agree</td>
+                    <td class="wave-cell">2, 3</td>
+                </tr>
+
+                <!-- Policy Makers -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Policy Makers</em></td>
+                    <td class="question-cell">Do you agree or disagree that health professionals have a responsibility to bring the health effects of severe heat waves to the attention of: policy makers?</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Strongly disagree, Moderately disagree, Slightly disagree, Neither agree nor disagree, Slightly agree, Moderately agree, Strongly agree</td>
+                    <td class="wave-cell">2, 3</td>
+                </tr>
+
+                <!-- Personal Impact of Climate Change - Climate Attribution -->
+                <tr class="row-group">
+                    <td class="construct-cell" rowspan="2" style="vertical-align: middle;">Personal Impact of Climate Change</td>
+                    <td class="subconstruct-cell"><em>Climate Attribution</em></td>
+                    <td class="question-cell">How much do you think climate change is responsible for extreme heat waves in recent years?</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Not at all, A little, A moderate amount, A lot, Completely</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Temporal Proximity of Climate Impact -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Temporal Proximity of Climate Impact</em></td>
+                    <td class="question-cell">
+                        Do you believe climate change will have a significant impact on your daily life?
+                        <div class="conditional">[if "Yes, I believe it will in the future"]<br>
+                        About how many years from now do you expect that impact to begin?</div>
+                    </td>
+                    <td class="question-type-cell">multiple choice<br><br>slider</td>
+                    <td class="response-cell">Yes, it already has, Yes, I believe it will in the future, No, it won't impact me<br><br>0 to 50 years</td>
+                    <td class="wave-cell">1, 2, 3<br><br>1, 2, 3</td>
+                </tr>
+
+                <!-- Social Norms about Climate Impacts -->
+                <tr class="row-group">
+                    <td class="construct-cell">Social Norms about Climate Impacts</td>
+                    <td class="subconstruct-cell"></td>
+                    <td class="question-cell">Imagine 10 people like you. If you had to guess, how many of them are currently concerned about the impacts of climate change on their lives?</td>
+                    <td class="question-type-cell">slider</td>
+                    <td class="response-cell">0-10</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Climate Change - Support for Action - Normative Beliefs on Climate Action -->
+                <tr class="row-group">
+                    <td class="construct-cell" rowspan="4" style="vertical-align: middle;">Climate Change - Support for Action</td>
+                    <td class="subconstruct-cell"><em>Normative Beliefs on Climate Action</em></td>
+                    <td class="question-cell">Do you think that people should take action to address climate change because it is the right thing to do?</td>
+                    <td class="question-type-cell">binary</td>
+                    <td class="response-cell">Yes, No</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Support Government Action -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Support Government Action</em></td>
+                    <td class="question-cell">Governments must take action immediately to slow climate change in order to prevent extreme weather like heat waves, floods, and other disasters</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Strongly disagree, Moderately disagree, Slightly disagree, Neither agree nor disagree, Slightly agree, Moderately agree, Strongly agree</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Action Intention -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Action Intention</em></td>
+                    <td class="question-cell">Please indicate how likely it is that you will take some action to address climate change in the next 12 months? (for example, donate to an environmental organization; speak out about the issue; make a sustainable swap in your daily life; etc.)</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Extremely unlikely, Moderately unlikely, Somewhat unlikely, Neither likely nor unlikely, Somewhat likely, Moderately likely, Extremely likely</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Receive Information -->
+                <tr class="row-group">
+                    <td class="subconstruct-cell"><em>Receive Information</em></td>
+                    <td class="question-cell">Please indicate if you would be willing to receive tailored information via e-mail on how climate change could impact the likelihood of severe heat waves in your area over the next few years?</td>
+                    <td class="question-type-cell">binary</td>
+                    <td class="response-cell">Yes, No</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr></tr>
+
+                <!-- Support Government Action -->
+                <tr class="row-group">
+                    <td class="construct-cell"></td>
+                    <td class="subconstruct-cell"><em>Support Government Action</em></td>
+                    <td class="question-cell">Governments must take action immediately to slow climate change in order to prevent extreme weather like heat waves, floods, and other disasters</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Strongly disagree, Moderately disagree, Slightly disagree, Neither agree nor disagree, Slightly agree, Moderately agree, Strongly agree</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Action Intention -->
+                <tr class="row-group">
+                    <td class="construct-cell"></td>
+                    <td class="subconstruct-cell"><em>Action Intention</em></td>
+                    <td class="question-cell">Please indicate how likely it is that you will take some action to address climate change in the next 12 months? (for example, donate to an environmental organization; speak out about the issue; make a sustainable swap in your daily life; etc.)</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Extremely unlikely, Moderately unlikely, Somewhat unlikely, Neither likely nor unlikely, Somewhat likely, Moderately likely, Extremely likely</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Receive Information -->
+                <tr class="row-group">
+                    <td class="construct-cell"></td>
+                    <td class="subconstruct-cell"><em>Receive Information</em></td>
+                    <td class="question-cell">Please indicate if you would be willing to receive tailored information via e-mail on how climate change could impact the likelihood of severe heat waves in your area over the next few years?</td>
+                    <td class="question-type-cell">binary</td>
+                    <td class="response-cell">Yes, No</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Audience Demand for Climate Content -->
+                <tr class="row-group">
+                    <td class="construct-cell">Audience Demand for Climate Content</td>
+                    <td class="subconstruct-cell"></td>
+                    <td class="question-cell">Do you think Hollywood should include more climate-relevant themes and climate-friendly actions on-screen in order to help address climate change?</td>
+                    <td class="question-type-cell">binary</td>
+                    <td class="response-cell">Yes, No</td>
+                    <td class="wave-cell">1, 2, 3</td>
+                </tr>
+
+                <!-- Entertainment - Recommend Show -->
+                <tr class="row-group">
+                    <td class="construct-cell">Entertainment</td>
+                    <td class="subconstruct-cell"><em>Recommend Show</em></td>
+                    <td class="question-cell">Based on this episode, how likely are you to recommend watching this show to people you know?</td>
+                    <td class="question-type-cell">likert</td>
+                    <td class="response-cell">Extremely likely, Very likely, Moderately likely, Slightly likely, Not at all likely</td>
+                    <td class="wave-cell">2</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
