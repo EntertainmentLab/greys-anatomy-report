@@ -8,7 +8,7 @@ export function useThreatData() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch('/heatwave-threat-data.json')
+        const response = await fetch(`${import.meta.env.BASE_URL}heatwave-threat-data.json`)
         
         if (!response.ok) throw new Error('Failed to fetch threat data')
         

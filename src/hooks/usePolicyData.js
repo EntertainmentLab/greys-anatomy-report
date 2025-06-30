@@ -17,7 +17,7 @@ export function usePolicyData() {
     const loadData = async () => {
       try {
         console.log('Fetching policy support data...')
-        const response = await fetch('/policy-support-data.json')
+        const response = await fetch(`${import.meta.env.BASE_URL}policy-support-data.json`)
         
         if (!response.ok) {
           throw new Error(`Failed to fetch policy support data: ${response.status} ${response.statusText}`)

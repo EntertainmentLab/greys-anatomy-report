@@ -26,8 +26,8 @@ export function useData() {
       try {
         // Load both datasets
         const [knowledgeResponse, threatResponse] = await Promise.all([
-          fetch('/data.json'),
-          fetch('/heatwave-threat-data.json')
+          fetch(`${import.meta.env.BASE_URL}data.json`),
+          fetch(`${import.meta.env.BASE_URL}heatwave-threat-data.json`)
         ])
         
         if (!knowledgeResponse.ok) throw new Error('Failed to fetch knowledge data')
