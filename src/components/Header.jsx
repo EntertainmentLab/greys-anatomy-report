@@ -1,9 +1,9 @@
 import './Header.css'
 
-function Header({ isEditMode }) {
+function Header() {
   return (
     <header className="report-header">
-      <h1 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h1>
         The Impact of Heatwave Storytelling on Climate Beliefs and Health Risk Perceptions
       </h1>
     </header>

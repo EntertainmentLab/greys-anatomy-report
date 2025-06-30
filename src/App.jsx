@@ -12,7 +12,6 @@ function App() {
   const [currentWave, setCurrentWave] = useState(2)
   const [currentView, setCurrentView] = useState('combined')
   const [selectedConditions, setSelectedConditions] = useState(['control', 'treatment', 'handoff'])
-  const [isEditMode, setIsEditMode] = useState(false)
   const { data, loading, error } = useKnowledgeData()
 
   if (loading) return <div className="loading">Loading data...</div>
@@ -20,21 +19,11 @@ function App() {
 
   return (
     <div className="report-container">
-      <Header isEditMode={isEditMode} />
-      
-      <div className="edit-controls">
-        <button 
-          className={`edit-btn ${isEditMode ? 'active' : ''}`}
-          onClick={() => setIsEditMode(!isEditMode)}
-        >
-          {isEditMode ? 'Exit Edit' : 'Edit Text'}
-        </button>
-      </div>
-      
+      <Header />
       <div className="report-content">
-        <StudyOverview isEditMode={isEditMode} />
-        <Methodology isEditMode={isEditMode} />
-        <KeyFindings isEditMode={isEditMode} />
+        <StudyOverview />
+        <Methodology />
+        <KeyFindings />
       </div>
     </div>
   )

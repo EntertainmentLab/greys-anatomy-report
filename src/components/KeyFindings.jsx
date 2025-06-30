@@ -3,30 +3,30 @@ import HealthWorryChart from './HealthWorryChart'
 import SystemImpactsChart from './SystemImpactsChart'
 import PolicySupportChart from './PolicySupportChart'
 
-function KeyFindings({ isEditMode }) {
+function KeyFindings() {
   return (
     <section className="report-section">
-      <h2 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h2>
         Key Findings
       </h2>
-      <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <p>
         Overall, the heatwave episode of Grey's Anatomy effectively educated viewers about heat-related health risks and significantly increased concern about heatwave impacts, with the handoff condition (episode + Instagram videos) showing the strongest and most sustained effects. Importantly, these impacts occurred without compromising entertainment value.
       </p>
 
-      <h3 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h3>
         Knowledge of Heatwave Health Impacts
       </h3>
-      <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <p>
         The heatwave episode effectively educated viewers about the serious health risks associated with extreme heat, particularly that it can trigger premature labor in pregnant women—a medical fact introduced early in the episode. While the handoff condition produced comparable or marginally stronger outcomes, the differences between the treatment and handoff groups were minimal and largely statistically nonsignificant. This educational boost persisted 15 days after viewing, demonstrating that the knowledge gained has lasting impact.
       </p>
 
       <KnowledgeAccuracyChart />
 
 
-      <h3 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h3>
         Perceived Threat and Personal Concern
       </h3>
-      <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <p>
         Participants who watched the episode (particularly those in the handoff condition) demonstrated significantly greater concern about the health consequences of heatwaves, including increased worry about potential effects on their own health and that of their loved ones, as well as greater awareness of how extreme heat events could strain their local hospital systems. This heightened awareness and concern remained 15 days later, suggesting that the episode created lasting changes that could translate into better preparedness and protective actions during future heatwave events.
       </p>
       <HealthWorryChart />
@@ -34,10 +34,10 @@ function KeyFindings({ isEditMode }) {
 
 
 
-      <h3 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h3>
         Policy Support
       </h3>
-      <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <p>
         Exposure to the heatwave episode increased support for heat-adaptive policies, including hospital infrastructure investments and public cooling centers. The handoff condition showed significantly stronger effects relative to treatment alone immediately after viewing. However, these policy support effects did not persist at the 15-day follow-up, with no significant differences observed at Wave 3.
       </p>
       <PolicySupportChart />
@@ -45,10 +45,10 @@ function KeyFindings({ isEditMode }) {
 
 
 
-      <h3 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h3>
         Climate Change Connections
       </h3>
-      <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <p>
         Participants in the handoff group were more likely to attribute heatwaves to climate change and believed the impacts of climate change would affect their daily lives sooner (over 1 year sooner in Wave 2). They were also more likely to believe others are concerned about climate change. These climate attribution effects were stronger in the handoff condition than in treatment alone and remained significant 15 days later, indicating that the supplemental Instagram videos successfully connected the episode's narrative to broader climate science.
         (Graph to be added)
 
@@ -56,10 +56,10 @@ function KeyFindings({ isEditMode }) {
 
 
 
-      <h3 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h3>
         Additional Effects
       </h3>
-      <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <p>
         <b>Climate Action Support:</b> The handoff condition significantly increased support for climate action, particularly in normative beliefs and intent to act. These effects were modest but consistent.
         <br />
         <b>Perceived Likelihood of Heatwave Exposure:</b> The handoff condition significantly increased perceived risk of experiencing a severe heatwave, compared to both control and treatment conditions. The treatment-only group saw a modest, marginal increase.
@@ -68,10 +68,10 @@ function KeyFindings({ isEditMode }) {
 
       </p>
 
-      <h3 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h3>
         Entertainment Value
       </h3>
-      <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <p>
         Critically, there was{' '}
         <a
           href={`${import.meta.env.BASE_URL}handoff_vs_treatment_recommendation.html`}
@@ -84,10 +84,10 @@ function KeyFindings({ isEditMode }) {
 
       </p>
 
-      <h3 contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <h3>
         Healthcare Worker Responsiblity
       </h3>
-      <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
+      <p>
         No significant effects were observed on perceptions of healthcare worker responsibility—either toward the public or policymakers—suggesting that the episode did not influence viewers' expectations about the role of medical professionals in addressing climate-health issues.
 
       </p>
