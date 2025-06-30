@@ -1,14 +1,12 @@
-library(data.table)
-library(jsonlite)
+source("../Greys-Anatomy/data/libraries.R")
+source("../Greys-Anatomy/data/2-Processing/00 - Helpers/Helper - Likert to Numbers.R")
+source("../Greys-Anatomy/data/2-Processing/00 - Helpers/Misc Helpers.R")
+source("../Greys-Anatomy/data/2-Processing/00 - Helpers/Data Merging Helpers.R")
+source("../Greys-Anatomy/data/2-Processing/00 - Helpers/Data Download Helpers.R")
+source("../Greys-Anatomy/data/2-Processing/00 - Helpers/Health Risk Text Scoring.R")
 
-source("../../libraries.R")
-source("../../2-Processing/00 - Helpers/Helper - Likert to Numbers.R")
-source("../../2-Processing/00 - Helpers/Misc Helpers.R")
-source("../../2-Processing/00 - Helpers/Data Merging Helpers.R")
-source("../../2-Processing/00 - Helpers/Data Download Helpers.R")
-source("../../2-Processing/00 - Helpers/Health Risk Text Scoring.R")
-
-dt <- readRDS("../../1-Data/processed_data/complete_data_for_analysis.rds")
+dt <- readRDS("../Greys-Anatomy/data/1-Data/processed_data/complete_data_for_analysis.rds")
+dt <- dt[wave_3_analysis_ready == TRUE,]
 
 # Calculate means and standard errors for knowledge variables
 calculate_knowledge_stats <- function(wave) {
@@ -344,7 +342,87 @@ if(length(all_worry) > 0) {
   cat("\nNo impact data found - check variable names\n")
 }
 
+# Add this section to your existing 8-write_data_json.R file
 
+# Calculate climate temporal proximity data
+calculate_climate_temporal_stats <- function() {
+  
+  # Define temporal proximity variables for each wave
+  temporal_vars <- c(
+    "climate_temporal_proximity_timing_w1",
+    "climate_temporal_proximity_timing_w2", 
+    "climate_temporal_proximity_timing_w3"
+  )
+  
+  condition_var <- "condition_w2"
+  
+  # Create condition labels
+  condition_labels <- c(
+    "control" = "Control",
+    "treatment" = "Heatwave", 
+    "handoff" = "Heatwave + Handoff"
+  )
+  
+  # Wave labels
+  wave_labels <- c(
+    "climate_temporal_proximity_timing_w1" = "Baseline (3 Days Before)",
+    "climate_temporal_proximity_timing_w2" = "Immediately After Viewing", 
+    "climate_temporal_proximity_timing_w3" = "15 Days Later"
+  )
+  
+  results <- list()
+  
+  # Calculate stats for each wave
+  for (var in temporal_vars) {
+    # Skip if variable doesn't exist
+    if (!var %in% names(dt)) {
+      cat("Warning: Variable", var, "not found in dataset\n")
+      next
+    }
+    
+    # Extract wave number from variable name
+    wave_num <- as.numeric(gsub(".*_w([0-9]+)", "\\1", var))
+    
+    # Calculate means and SEs by condition
+    stats <- dt[!is.na(get(var)) & !is.na(get(condition_var)), 
+                .(mean = mean(get(var), na.rm = TRUE),
+                  se = sd(get(var), na.rm = TRUE) / sqrt(.N),
+                  n = .N),
+                by = condition_var]
+    
+    setnames(stats, condition_var, "condition")
+    
+    # Create records for each condition
+    for (i in 1:nrow(stats)) {
+      results[[length(results) + 1]] <- list(
+        wave = wave_num,
+        wave_label = wave_labels[var],
+        condition = condition_labels[stats$condition[i]],
+        mean = round(stats$mean[i], 2),
+        se = round(stats$se[i], 3),
+        n = stats$n[i]
+      )
+    }
+  }
+  
+  return(results)
+}
+
+# Add this to your main generation section:
+cat("Calculating climate temporal proximity data...\n")
+climate_temporal_data <- calculate_climate_temporal_stats()
+
+# Write climate temporal proximity data
+write_json(climate_temporal_data, "public/climate-temporal-data.json", 
+           pretty = TRUE, auto_unbox = TRUE)
+
+cat("- Climate temporal data:", length(climate_temporal_data), "records\n")
+
+# Preview structure
+if(length(climate_temporal_data) > 0) {
+  cat("\nSample climate temporal record structure:\n") 
+  print(climate_temporal_data[[1]])
+}
 
 cat("\nDone!\n")
 

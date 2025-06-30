@@ -1,0 +1,74 @@
+[
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Heatwave",
+    "mean": 7.88,
+    "se": 0.311,
+    "n": 861
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Heatwave + Handoff",
+    "mean": 7.72,
+    "se": 0.299,
+    "n": 833
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Control",
+    "mean": 7.82,
+    "se": 0.315,
+    "n": 825
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heatwave",
+    "mean": 6.77,
+    "se": 0.29,
+    "n": 861
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heatwave + Handoff",
+    "mean": 5.87,
+    "se": 0.269,
+    "n": 833
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Control",
+    "mean": 7.18,
+    "se": 0.311,
+    "n": 825
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heatwave",
+    "mean": 7.05,
+    "se": 0.291,
+    "n": 861
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heatwave + Handoff",
+    "mean": 6.69,
+    "se": 0.295,
+    "n": 833
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Control",
+    "mean": 7.2,
+    "se": 0.305,
+    "n": 825
+  }
+]

@@ -58,3 +58,28 @@ export const SYSTEM_RESPONSE_CATEGORIES = [
   { key: 'quite_a_bit', label: 'Quite a bit', color: '#7faddd' },
   { key: 'a_great_deal', label: 'A great deal', color: '#196bc1' }
 ]
+
+// Add these to your existing constants.js file
+
+// Climate temporal proximity wave labels
+export const CLIMATE_TEMPORAL_WAVES = [
+  { wave: 1, label: "Baseline\n(3 Days Before)", shortLabel: "Baseline" },
+  { wave: 2, label: "Immediately\nAfter Viewing", shortLabel: "Immediate" },
+  { wave: 3, label: "15 Days\nLater", shortLabel: "15 Days Later" }
+]
+
+// Climate temporal proximity conditions with colors
+export const CLIMATE_CONDITIONS = [
+  { name: "Control", color: "#e879b9" },      // Pink
+  { name: "Heatwave", color: "#60a5fa" },     // Light blue
+  { name: "Heatwave + Handoff", color: "#2563eb" } // Dark blue
+]
+
+// Time point labels for x-axis
+export const TIME_POINTS = [
+  "Baseline\n(3 Days Before)",
+  "Immediately\nAfter Viewing", 
+  "5 days",
+  "10 days",
+  "15 Days\nLater"
+]

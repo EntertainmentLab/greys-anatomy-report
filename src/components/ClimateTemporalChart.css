@@ -1,0 +1,79 @@
+.climate-temporal-container {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 32px;
+  margin-bottom: 32px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chart-title {
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #1f2937;
+}
+
+.chart-subtitle {
+  text-align: center;
+  font-size: 12px;
+  font-style: italic;
+  color: #6b7280;
+  margin-bottom: 24px;
+  font-family: 'Roboto Condensed', sans-serif;
+  line-height: 1.4;
+}
+
+.loading, .error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  font-size: 1.125rem;
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif;
+}
+
+.error {
+  color: #dc2626;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.chart-container svg {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Tooltip styles */
+.d3-tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 8px 12px;
+  font-size: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  border-radius: 4px;
+  pointer-events: none;
+  font-family: 'Roboto Condensed', sans-serif;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .climate-temporal-container {
+    padding: 20px;
+  }
+  
+  .chart-title {
+    font-size: 16px;
+  }
+  
+  .chart-subtitle {
+    font-size: 11px;
+  }
+}

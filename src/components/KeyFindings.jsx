@@ -2,6 +2,7 @@ import KnowledgeAccuracyChart from './KnowledgeAccuracyChart'
 import HealthWorryChart from './HealthWorryChart'
 import SystemImpactsChart from './SystemImpactsChart'
 import PolicySupportChart from './PolicySupportChart'
+import ClimateTemporalChart from './ClimateTemporalChart'
 
 function KeyFindings() {
   return (
@@ -50,10 +51,8 @@ function KeyFindings() {
       </h3>
       <p>
         Participants in the handoff group were more likely to attribute heatwaves to climate change and believed the impacts of climate change would affect their daily lives sooner (over 1 year sooner in Wave 2). They were also more likely to believe others are concerned about climate change. These climate attribution effects were stronger in the handoff condition than in treatment alone and remained significant 15 days later, indicating that the supplemental Instagram videos successfully connected the episode's narrative to broader climate science.
-        (Graph to be added)
-
       </p>
-
+      <ClimateTemporalChart />
 
 
       <h3>
