@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Heat Index × Treatment Interactions</title>
+<style>
+body { font-family: 'Times New Roman', Times, serif; font-size: 12pt; line-height: 1.4; margin: 40px auto; max-width: 1200px; background-color: white; color: #333; }
+h1 { font-size: 18pt; font-weight: bold; text-align: center; margin: 20px 0 30px 0; color: #000; }
+h2 { font-size: 14pt; font-weight: bold; margin: 30px 0 15px 0; color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+h3 { font-size: 11pt; font-weight: bold; margin: 25px 0 10px 0; color: #333; background-color: #f5f5f5; padding: 5px; border-bottom: 1px solid #ddd; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11pt; }
+th { background-color: white; color: #000; padding: 8px 6px; text-align: center; font-weight: bold; border-top: 2px solid #000; border-bottom: 1px solid #000; }
+th.main-header { border-bottom: none; }
+th.sub-header { font-size: 10pt; border-top: none; border-bottom: 1px solid #000; font-style: italic; }
+td { padding: 6px 6px; text-align: center; vertical-align: top; border: none; font-size: 10pt; }
+tr:last-child td { border-bottom: 1px solid #ccc; }
+.outcome-col { text-align: left; font-weight: normal; min-width: 180px; }
+.ci { font-size: 9pt; color: #666; font-style: italic; }
+.fdr { font-size: 8pt; color: #888; font-style: italic; }
+.note { margin-top: 15px; font-size: 10pt; line-height: 1.3; }
+.note-title { font-style: italic; }
+.section-break { margin-top: 40px; }
+.category-row { background-color: #f5f5f5; font-weight: bold; border-top: 1px solid #ccc; }
+.category-row td { text-align: left; }
+.purpose { margin-bottom: 30px; font-size: 11pt; line-height: 1.4; background-color: #f9f9f9; padding: 15px; border-left: 4px solid #ccc; }
+.purpose-title { font-weight: bold; margin-bottom: 10px; }
+.subtitle { text-align: center; font-size: 12pt; font-weight: normal; margin-top: 0; margin-bottom: 30px; color: #444; border-bottom: none; padding-bottom: 0; }
+/* Border styles for improved table readability */
+.contrast-border { border-left: 1px solid #ccc; position: relative; z-index: 20; }
+.wave-border { border-left: none; }
+.subgroup-border { border-left: none; }
+.immediate-section { background-color: #fcfcfc; }
+.followup-section { background-color: #f2f2f2; }
+tr.category-row td { position: relative; z-index: 5; }
+th, td { position: relative; }
+td.contrast-border, th.contrast-border { border-left: 1px solid #ccc !important; }
+</style>
+</head>
+<body>
+<h1>Heat Index × Treatment Interactions</h1>
+<h2 class='subtitle'>Average heat index calculated from 2024-06-01 to 2024-08-31</h2>
+<h2>High-Level Constructs</h2>
+<table>
+<thead>
+<tr>
+<th class='outcome-col main-header'></th>
+<th colspan='2' class='main-header'>handoff × Heat Index</th>
+<th colspan='2' class='main-header'>treatment × Heat Index</th>
+</tr>
+<tr>
+<th class='outcome-col sub-header'></th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>Heatwave Likelihood of Exposure</td>
+<td>-0.04<br><span class='ci'>(-0.10, 0.03)</span></td>
+<td>-0.00<br><span class='ci'>(-0.07, 0.07)</span></td>
+<td>-0.08*<br><span class='ci'>(-0.14, -0.01)</span></td>
+<td>-0.03<br><span class='ci'>(-0.10, 0.03)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Heatwave Threat Severity</td>
+<td>-0.04<br><span class='ci'>(-0.08, 0.01)</span></td>
+<td>-0.00<br><span class='ci'>(-0.05, 0.04)</span></td>
+<td>-0.01<br><span class='ci'>(-0.06, 0.03)</span></td>
+<td>-0.01<br><span class='ci'>(-0.06, 0.03)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Heatwave Threat Health Impact</td>
+<td>0.03<br><span class='ci'>(-0.01, 0.06)</span></td>
+<td>0.01<br><span class='ci'>(-0.03, 0.04)</span></td>
+<td>0.01<br><span class='ci'>(-0.03, 0.04)</span></td>
+<td>-0.01<br><span class='ci'>(-0.05, 0.02)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Heatwave Impact Knowledge</td>
+<td>0.08<br><span class='ci'>(-0.04, 0.21)</span></td>
+<td>-0.00<br><span class='ci'>(-0.13, 0.12)</span></td>
+<td>0.08<br><span class='ci'>(-0.04, 0.20)</span></td>
+<td>-0.07<br><span class='ci'>(-0.19, 0.06)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Heat and Policy Support</td>
+<td>0.00<br><span class='ci'>(-0.03, 0.04)</span></td>
+<td>-0.00<br><span class='ci'>(-0.04, 0.04)</span></td>
+<td>0.01<br><span class='ci'>(-0.02, 0.05)</span></td>
+<td>0.00<br><span class='ci'>(-0.04, 0.04)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Healthcare Worker Responsibility</td>
+<td>0.10**<br><span class='ci'>(0.03, 0.17)</span></td>
+<td>0.02<br><span class='ci'>(-0.05, 0.09)</span></td>
+<td>0.08*<br><span class='ci'>(0.01, 0.15)</span></td>
+<td>0.02<br><span class='ci'>(-0.05, 0.08)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Climate Change Personal Impact</td>
+<td>-0.02<br><span class='ci'>(-0.05, 0.02)</span></td>
+<td>-0.01<br><span class='ci'>(-0.05, 0.02)</span></td>
+<td>-0.02<br><span class='ci'>(-0.05, 0.02)</span></td>
+<td>-0.03†<br><span class='ci'>(-0.06, 0.00)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Climate Change Support for Action</td>
+<td>0.01<br><span class='ci'>(-0.02, 0.04)</span></td>
+<td>-0.01<br><span class='ci'>(-0.04, 0.02)</span></td>
+<td>0.02<br><span class='ci'>(-0.01, 0.04)</span></td>
+<td>-0.01<br><span class='ci'>(-0.04, 0.02)</span></td>
+</tr>
+</tbody>
+</table>
+<div class='section-break'></div>
+<h2>Individual Components</h2>
+<h3>Threat Severity Components</h3>
+<table>
+<thead>
+<tr>
+<th class='outcome-col main-header'></th>
+<th colspan='2' class='main-header'>handoff × Heat Index</th>
+<th colspan='2' class='main-header'>treatment × Heat Index</th>
+</tr>
+<tr>
+<th class='outcome-col sub-header'></th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>Heatwave Worry Score</td>
+<td>-0.04†<br><span class='ci'>(-0.09, 0.01)</span></td>
+<td>-0.01<br><span class='ci'>(-0.06, 0.04)</span></td>
+<td>-0.02<br><span class='ci'>(-0.06, 0.03)</span></td>
+<td>-0.02<br><span class='ci'>(-0.06, 0.03)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Heatwave Harm Score</td>
+<td>-0.03<br><span class='ci'>(-0.08, 0.02)</span></td>
+<td>0.00<br><span class='ci'>(-0.05, 0.05)</span></td>
+<td>0.00<br><span class='ci'>(-0.05, 0.05)</span></td>
+<td>-0.00<br><span class='ci'>(-0.05, 0.05)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Behavioral Intentions Score</td>
+<td>0.00<br><span class='ci'>(-0.03, 0.04)</span></td>
+<td>0.01<br><span class='ci'>(-0.02, 0.05)</span></td>
+<td>0.01<br><span class='ci'>(-0.03, 0.04)</span></td>
+<td>0.01<br><span class='ci'>(-0.03, 0.04)</span></td>
+</tr>
+</tbody>
+</table>
+<h3>Threat Health Impact Components</h3>
+<table>
+<thead>
+<tr>
+<th class='outcome-col main-header'></th>
+<th colspan='2' class='main-header'>handoff × Heat Index</th>
+<th colspan='2' class='main-header'>treatment × Heat Index</th>
+</tr>
+<tr>
+<th class='outcome-col sub-header'></th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>Health Worry Score</td>
+<td>0.02<br><span class='ci'>(-0.03, 0.08)</span></td>
+<td>0.00<br><span class='ci'>(-0.05, 0.06)</span></td>
+<td>0.01<br><span class='ci'>(-0.04, 0.07)</span></td>
+<td>-0.03<br><span class='ci'>(-0.08, 0.02)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>System Impacts Score</td>
+<td>0.05<br><span class='ci'>(-0.01, 0.10)</span></td>
+<td>0.01<br><span class='ci'>(-0.04, 0.07)</span></td>
+<td>0.02<br><span class='ci'>(-0.04, 0.07)</span></td>
+<td>-0.02<br><span class='ci'>(-0.07, 0.04)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Worry about Medical Access</td>
+<td>-0.01<br><span class='ci'>(-0.08, 0.07)</span></td>
+<td>-0.02<br><span class='ci'>(-0.10, 0.05)</span></td>
+<td>0.01<br><span class='ci'>(-0.07, 0.08)</span></td>
+<td>-0.03<br><span class='ci'>(-0.10, 0.05)</span></td>
+</tr>
+</tbody>
+</table>
+<h3>Impact Knowledge Components</h3>
+<table>
+<thead>
+<tr>
+<th class='outcome-col main-header'></th>
+<th colspan='2' class='main-header'>handoff × Heat Index</th>
+<th colspan='2' class='main-header'>treatment × Heat Index</th>
+</tr>
+<tr>
+<th class='outcome-col sub-header'></th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>Knowledge Matrix Score</td>
+<td>0.02†<br><span class='ci'>(-0.00, 0.04)</span></td>
+<td>0.02<br><span class='ci'>(-0.00, 0.04)</span></td>
+<td>0.01<br><span class='ci'>(-0.01, 0.04)</span></td>
+<td>0.01<br><span class='ci'>(-0.01, 0.03)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Self-Efficacy</td>
+<td>-0.05<br><span class='ci'>(-0.12, 0.03)</span></td>
+<td>-0.02<br><span class='ci'>(-0.10, 0.06)</span></td>
+<td>-0.06<br><span class='ci'>(-0.14, 0.01)</span></td>
+<td>0.05<br><span class='ci'>(-0.03, 0.12)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Lower Body Temperature Knowledge</td>
+<td>0.10*<br><span class='ci'>(0.02, 0.18)</span></td>
+<td>0.03<br><span class='ci'>(-0.06, 0.11)</span></td>
+<td>0.06<br><span class='ci'>(-0.02, 0.14)</span></td>
+<td>0.01<br><span class='ci'>(-0.07, 0.09)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Health Risk Knowledge</td>
+<td>0.00<br><span class='ci'>(-0.09, 0.09)</span></td>
+<td>-0.02<br><span class='ci'>(-0.11, 0.07)</span></td>
+<td>0.03<br><span class='ci'>(-0.05, 0.12)</span></td>
+<td>-0.06<br><span class='ci'>(-0.15, 0.02)</span></td>
+</tr>
+</tbody>
+</table>
+<h3>Heat Policy Support Components</h3>
+<table>
+<thead>
+<tr>
+<th class='outcome-col main-header'></th>
+<th colspan='2' class='main-header'>handoff × Heat Index</th>
+<th colspan='2' class='main-header'>treatment × Heat Index</th>
+</tr>
+<tr>
+<th class='outcome-col sub-header'></th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>Policy Supports Score</td>
+<td>0.01<br><span class='ci'>(-0.04, 0.06)</span></td>
+<td>-0.01<br><span class='ci'>(-0.07, 0.05)</span></td>
+<td>0.03<br><span class='ci'>(-0.03, 0.08)</span></td>
+<td>0.00<br><span class='ci'>(-0.05, 0.06)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Tax Increase Support</td>
+<td>-0.02<br><span class='ci'>(-0.10, 0.06)</span></td>
+<td>0.03<br><span class='ci'>(-0.05, 0.11)</span></td>
+<td>-0.02<br><span class='ci'>(-0.09, 0.06)</span></td>
+<td>0.00<br><span class='ci'>(-0.07, 0.08)</span></td>
+</tr>
+</tbody>
+</table>
+<h3>Healthcare Responsibility Components</h3>
+<table>
+<thead>
+<tr>
+<th class='outcome-col main-header'></th>
+<th colspan='2' class='main-header'>handoff × Heat Index</th>
+<th colspan='2' class='main-header'>treatment × Heat Index</th>
+</tr>
+<tr>
+<th class='outcome-col sub-header'></th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>HW Responsibility to Public</td>
+<td>0.11*<br><span class='ci'>(0.02, 0.19)</span></td>
+<td>0.02<br><span class='ci'>(-0.06, 0.11)</span></td>
+<td>0.08†<br><span class='ci'>(-0.00, 0.16)</span></td>
+<td>0.01<br><span class='ci'>(-0.07, 0.09)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>HW Responsibility to Policy Makers</td>
+<td>0.13**<br><span class='ci'>(0.05, 0.21)</span></td>
+<td>0.02<br><span class='ci'>(-0.06, 0.10)</span></td>
+<td>0.11**<br><span class='ci'>(0.03, 0.19)</span></td>
+<td>0.06<br><span class='ci'>(-0.02, 0.14)</span></td>
+</tr>
+</tbody>
+</table>
+<h3>Climate Personal Impact Components</h3>
+<table>
+<thead>
+<tr>
+<th class='outcome-col main-header'></th>
+<th colspan='2' class='main-header'>handoff × Heat Index</th>
+<th colspan='2' class='main-header'>treatment × Heat Index</th>
+</tr>
+<tr>
+<th class='outcome-col sub-header'></th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>Climate Heat Attribution</td>
+<td>-0.03<br><span class='ci'>(-0.08, 0.03)</span></td>
+<td>-0.01<br><span class='ci'>(-0.06, 0.04)</span></td>
+<td>-0.02<br><span class='ci'>(-0.07, 0.04)</span></td>
+<td>-0.03<br><span class='ci'>(-0.08, 0.02)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Temporal Proximity of Climate Impact</td>
+<td>0.05<br><span class='ci'>(-0.02, 0.12)</span></td>
+<td>0.06<br><span class='ci'>(-0.02, 0.13)</span></td>
+<td>0.02<br><span class='ci'>(-0.05, 0.09)</span></td>
+<td>0.06<br><span class='ci'>(-0.01, 0.13)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Social Norms about Climate Impacts</td>
+<td>0.03<br><span class='ci'>(-0.04, 0.09)</span></td>
+<td>0.01<br><span class='ci'>(-0.05, 0.08)</span></td>
+<td>-0.03<br><span class='ci'>(-0.09, 0.04)</span></td>
+<td>-0.02<br><span class='ci'>(-0.08, 0.05)</span></td>
+</tr>
+</tbody>
+</table>
+<h3>Climate Support for Action Components</h3>
+<table>
+<thead>
+<tr>
+<th class='outcome-col main-header'></th>
+<th colspan='2' class='main-header'>handoff × Heat Index</th>
+<th colspan='2' class='main-header'>treatment × Heat Index</th>
+</tr>
+<tr>
+<th class='outcome-col sub-header'></th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+<th class='sub-header'>Immediate</th>
+<th class='sub-header'>+ 15 days</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>Normative Beliefs on Climate Action</td>
+<td>0.02<br><span class='ci'>(-0.04, 0.07)</span></td>
+<td>-0.01<br><span class='ci'>(-0.07, 0.04)</span></td>
+<td>0.03<br><span class='ci'>(-0.02, 0.08)</span></td>
+<td>0.02<br><span class='ci'>(-0.04, 0.07)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Support Government Action</td>
+<td>0.01<br><span class='ci'>(-0.04, 0.07)</span></td>
+<td>-0.00<br><span class='ci'>(-0.05, 0.05)</span></td>
+<td>0.04<br><span class='ci'>(-0.01, 0.09)</span></td>
+<td>-0.00<br><span class='ci'>(-0.06, 0.05)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Action Intention</td>
+<td>-0.04<br><span class='ci'>(-0.09, 0.02)</span></td>
+<td>-0.02<br><span class='ci'>(-0.08, 0.03)</span></td>
+<td>-0.04<br><span class='ci'>(-0.09, 0.02)</span></td>
+<td>-0.05<br><span class='ci'>(-0.11, 0.01)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Receive Information</td>
+<td>0.08*<br><span class='ci'>(0.01, 0.15)</span></td>
+<td>-0.03<br><span class='ci'>(-0.10, 0.05)</span></td>
+<td>0.05<br><span class='ci'>(-0.02, 0.13)</span></td>
+<td>-0.03<br><span class='ci'>(-0.10, 0.04)</span></td>
+</tr>
+<tr>
+<td class='outcome-col'>Audience Demand for Climate Content</td>
+<td>0.01<br><span class='ci'>(-0.05, 0.07)</span></td>
+<td>-0.01<br><span class='ci'>(-0.07, 0.05)</span></td>
+<td>0.01<br><span class='ci'>(-0.05, 0.07)</span></td>
+<td>-0.02<br><span class='ci'>(-0.08, 0.04)</span></td>
+</tr>
+</tbody>
+</table>
+<div class='note'>
+<span class='note-title'>Note:</span> Coefficients represent the change in treatment effect per unit increase in average heat index. Statistical significance: *** <em>p</em> < 0.001, ** <em>p</em> < 0.01, * <em>p</em> < 0.05, † <em>p</em> < 0.10. Immediate = Wave 2 (post-treatment), + 15 days = Wave 3 (15 days post-treatment).
+</div>
+</body>
+</html>

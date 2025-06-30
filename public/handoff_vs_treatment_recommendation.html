@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Handoff vs. Treatment: Show Recommendation Effects</title>
+<style>
+body { font-family: 'Times New Roman', Times, serif; font-size: 12pt; line-height: 1.4; margin: 40px auto; max-width: 1200px; background-color: white; color: #333; }
+h1 { font-size: 18pt; font-weight: bold; text-align: center; margin: 20px 0 30px 0; color: #000; }
+h2 { font-size: 14pt; font-weight: bold; margin: 30px 0 15px 0; color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+h3 { font-size: 11pt; font-weight: bold; margin: 25px 0 10px 0; color: #333; background-color: #f5f5f5; padding: 5px; border-bottom: 1px solid #ddd; }
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11pt; }
+th { background-color: white; color: #000; padding: 8px 6px; text-align: center; font-weight: bold; border-top: 2px solid #000; border-bottom: 1px solid #000; }
+th.main-header { border-bottom: none; }
+th.sub-header { font-size: 10pt; border-top: none; border-bottom: 1px solid #000; font-style: italic; }
+td { padding: 6px 6px; text-align: center; vertical-align: top; border: none; font-size: 10pt; }
+tr:last-child td { border-bottom: 1px solid #ccc; }
+.outcome-col { text-align: left; font-weight: normal; min-width: 180px; }
+.ci { font-size: 9pt; color: #666; font-style: italic; }
+.fdr { font-size: 8pt; color: #888; font-style: italic; }
+.note { margin-top: 15px; font-size: 10pt; line-height: 1.3; }
+.note-title { font-style: italic; }
+.section-break { margin-top: 40px; }
+.category-row { background-color: #f5f5f5; font-weight: bold; border-top: 1px solid #ccc; }
+.category-row td { text-align: left; }
+.purpose { margin-bottom: 30px; font-size: 11pt; line-height: 1.4; background-color: #f9f9f9; padding: 15px; border-left: 4px solid #ccc; }
+.purpose-title { font-weight: bold; margin-bottom: 10px; }
+.subtitle { text-align: center; font-size: 12pt; font-weight: normal; margin-top: 0; margin-bottom: 30px; color: #444; border-bottom: none; padding-bottom: 0; }
+/* Border styles for improved table readability */
+.contrast-border { border-left: 1px solid #ccc; position: relative; z-index: 20; }
+.wave-border { border-left: none; }
+.subgroup-border { border-left: none; }
+.immediate-section { background-color: #fcfcfc; }
+.followup-section { background-color: #f2f2f2; }
+tr.category-row td { position: relative; z-index: 5; }
+th, td { position: relative; }
+td.contrast-border, th.contrast-border { border-left: 1px solid #ccc !important; }
+</style>
+</head>
+<body>
+<h1>Handoff vs. Treatment: Show Recommendation Effects</h1>
+<div class='purpose'>
+<div class='purpose-title'>Analysis Purpose:</div>
+This analysis examines how viewing social media content about a show influences people's enjoyment and willingness to recommend the show, focusing specifically on the comparison between the Handoff and Treatment groups only. The Handoff condition showed participants social media content about Grey's Anatomy after viewing the episode, while the Treatment condition showed only the episode content.
+</div>
+<h2>Show Recommendation: Handoff vs. Treatment</h2>
+<table>
+<thead>
+<tr>
+<th class='outcome-col'>Outcome</th>
+<th>Handoff vs. Treatment Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class='outcome-col'>Show Recommendation</td>
+<td>-0.02<br><span class='ci'>(-0.12, 0.07)</span></td>
+</tr>
+</tbody>
+</table>
+<div class='note'>
+<span class='note-title'>Note:</span> Statistical significance: *** <em>p</em> < 0.001, ** <em>p</em> < 0.01, * <em>p</em> < 0.05, † <em>p</em> < 0.10. Analysis includes only participants in the Handoff and Treatment conditions. 
+</div>
+</body>
+</html>

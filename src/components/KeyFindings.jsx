@@ -72,7 +72,15 @@ function KeyFindings({ isEditMode }) {
         Entertainment Value
       </h3>
       <p contentEditable={isEditMode} suppressContentEditableWarning={true}>
-        Critically, there was no significant difference between the treatment and handoff groups in participants' reported likelihood of recommending Grey's Anatomy after viewing the episode. The addition of impact-focused Instagram content did not reduce or enhance entertainment value, demonstrating that educational supplements can be added without compromising the viewing experience.
+        Critically, there was{' '}
+        <a
+          href={`${import.meta.env.BASE_URL}handoff_vs_treatment_recommendation.html`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          no significant difference
+        </a>
+        {' '}between the treatment and handoff groups in participants' reported likelihood of recommending Grey's Anatomy after viewing the episode. The addition of impact-focused Instagram content did not reduce or enhance entertainment value, demonstrating that educational supplements can be added without compromising the viewing experience.
 
       </p>
 
@@ -83,6 +91,47 @@ function KeyFindings({ isEditMode }) {
         No significant effects were observed on perceptions of healthcare worker responsibility—either toward the public or policymakers—suggesting that the episode did not influence viewers' expectations about the role of medical professionals in addressing climate-health issues.
 
       </p>
+
+      {/* Supplementary Materials Section */}
+      <h3>Supplementary Materials</h3>
+      <ul>
+        <li>
+          <a
+            href={`${import.meta.env.BASE_URL}primary_models.html`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Primary Models
+          </a>
+        </li>
+        <li>
+          <a
+            href={`${import.meta.env.BASE_URL}ame_models.html`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Average Marginal Effects
+          </a>
+        </li>
+        <li>
+          <a
+            href={`${import.meta.env.BASE_URL}individual_matrix_items_effects.html`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Individual Treatment Effects
+          </a>
+        </li>
+        <li>
+          <a
+            href={`${import.meta.env.BASE_URL}heterogeneous_treatment_effects.html`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Heterogeneous Treatment Effects
+          </a>
+        </li>
+      </ul>
 
     </section>
   )
