@@ -28,7 +28,7 @@ function App() {
           </h1>
         </div>
       </div>
-      <div className="report-content">
+      <div className="container">
         <StudyOverview />
         <Methodology />
         <KeyFindings />

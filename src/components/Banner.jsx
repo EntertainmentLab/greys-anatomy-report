@@ -33,15 +33,10 @@ const Banner = () => {
     const banner = d3.select(bannerRef.current);
     const progress = Math.min(scrollY / (bannerHeight * 0.8), 1);
 
-    // Animate banner opacity and transform
+    // Animate banner opacity and transform (removed scale)
     banner
       .style('opacity', 1 - progress * 0.7)
-      .style('transform', `translateY(${progress * -50}px) scale(${1 - progress * 0.1})`);
-
-    // Animate research tab
-    banner.select('.research-tab')
-      .style('transform', `translateY(${progress * 30}px) translateX(${progress * -20}px)`)
-      .style('opacity', 1 - progress * 0.8);
+      .style('transform', `translateY(${progress * -50}px)`);
 
     // Animate rare logo
     banner.select('.rare-logo-container')
@@ -50,7 +45,7 @@ const Banner = () => {
 
   }, [scrollY, bannerHeight]);
 
-  const isSticky = scrollY > bannerHeight * 0.6;
+  const isSticky = scrollY > bannerHeight * 0.9;
 
   return (
     <>
@@ -95,3 +90,4 @@ const Banner = () => {
 };
 
 export default Banner;
+

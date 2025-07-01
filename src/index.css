@@ -64,17 +64,47 @@ body {
 
 /* Adjust main content to account for banner */
 .main-title-section {
-  background: var(--color-background);
+  background: linear-gradient(135deg, #fafafa 0%, #f8fafc 100%);
   padding: 0;
   position: relative;
   z-index: 2;
   margin-top: -1px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .main-title-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px 60px 20px;
+  padding: 60px 20px 80px 20px;
+  text-align: center;
+}
+
+.main-title-container h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #005BBB;
+  margin-bottom: 24px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #00366e 0%, #004b96 50%, #0266ca 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(0, 91, 187, 0.15);
+  position: relative;
+}
+
+.main-title-container h1::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #005BBB 0%, #0080FF 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 91, 187, 0.3);
 }
 
 .loading, .error {
@@ -299,7 +329,7 @@ li strong {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center top;
 }
 
 .banner-overlay {
@@ -318,7 +348,7 @@ li strong {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 40px;
+  padding: 0;
   z-index: 2;
 }
 
@@ -326,85 +356,100 @@ li strong {
   position: absolute;
   top: 0;
   left: 40px;
+  height: auto;
+  width: auto;
   padding: 0;
-  border-radius: 0 0 16px 0;
+  background: none;
+  border-radius: 0;
   transition: all 0.3s ease;
   text-decoration: none;
   overflow: hidden;
+  display: flex;
+  align-items: flex-start;
 }
 
 .rare-logo-container:hover {
-  transform: translateY(-2px);
+  transform: translateX(5px);
   filter: brightness(1.05);
 }
 
 .rare-logo {
-  height: 70px;
+  height: auto;
   width: auto;
+  max-height: 80px;
+  max-width: 200px;
   display: block;
-  border-radius: 0 0 16px 0;
+  border-radius: 0 0 12px 0;
+  background: none;
+  padding: 0;
+  margin: 0;
 }
 
 .research-tab {
   position: absolute;
-  bottom: -2px;
-  left: 60px;
-  background: white !important;
+  bottom: -10px;
+  left: 200px;
+  background: #fafafa !important;
   color: #0369a1 !important;
-  padding: 20px 40px;
+  padding: 15px 40px;
   border-radius: 16px 16px 0 0;
   font-weight: 700;
   font-size: 1.2rem;
-  letter-spacing: 1px;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+  letter-spacing: 1.2px;
   border-bottom: none;
-  transition: transform 0.3s ease;
-  z-index: 3;
+  z-index: 10;
   opacity: 1 !important;
 }
 
 /* Sticky Header */
 .sticky-header {
   position: fixed;
-  top: 0;
+  top: -80px;
   left: 0;
   width: 100%;
-  height: 80px;
-  background: white;
-  border-bottom: 1px solid var(--color-border);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: auto;
+  background: none;
+  border-bottom: none;
+  box-shadow: none;
   z-index: 1000;
   display: flex;
-  align-items: center;
-  padding: 0 40px;
+  align-items: flex-start;
+  padding: 0 0 0 40px;
   opacity: 0;
-  transform: translateY(-100%);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
 .sticky-header.visible {
   opacity: 1;
-  transform: translateY(0);
+  top: 0;
+  pointer-events: auto;
 }
 
 .sticky-rare-logo-container {
-  background: white;
-  padding: 12px 16px;
-  border-radius: 0 0 12px 0;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
   transition: all 0.3s ease;
   text-decoration: none;
+  margin: 0;
 }
 
 .sticky-rare-logo-container:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  filter: brightness(1.1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 .sticky-rare-logo {
-  height: 32px;
+  height: 60px;
   width: auto;
   display: block;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  border-radius: 0 0 8px 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Responsive design */
@@ -414,7 +459,16 @@ li strong {
   }
   
   .main-title-container {
-    padding: 30px 16px 40px 16px;
+    padding: 50px 16px 60px 16px;
+  }
+  
+  .main-title-container h1 {
+    font-size: 2.8rem;
+  }
+  
+  .main-title-container h1::after {
+    width: 100px;
+    height: 3px;
   }
   
   .main-title-section {
@@ -432,7 +486,7 @@ li strong {
   }
   
   .banner-content {
-    padding: 24px;
+    padding: 0;
   }
   
   .rare-logo-container {
@@ -441,13 +495,24 @@ li strong {
   }
   
   .rare-logo {
-    height: 60px;
+    max-height: 60px;
+    max-width: 150px;
+    border-radius: 0 0 8px 0;
   }
   
   .research-tab {
     left: 40px;
     padding: 16px 32px;
     font-size: 1.1rem;
+  }
+  
+  .sticky-header {
+    padding: 0 0 0 24px;
+  }
+  
+  .sticky-rare-logo {
+    height: 50px;
+    border-radius: 0 0 6px 0;
   }
 }
 
@@ -457,7 +522,18 @@ li strong {
   }
   
   .main-title-container {
-    padding: 20px 15px 30px 15px;
+    padding: 40px 15px 50px 15px;
+  }
+  
+  .main-title-container h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  
+  .main-title-container h1::after {
+    width: 80px;
+    height: 3px;
+    bottom: -12px;
   }
   
   .main-title-section {
@@ -475,7 +551,7 @@ li strong {
   }
   
   .banner-content {
-    padding: 20px;
+    padding: 0;
   }
   
   .rare-logo-container {
@@ -484,7 +560,9 @@ li strong {
   }
   
   .rare-logo {
-    height: 50px;
+    max-height: 50px;
+    max-width: 120px;
+    border-radius: 0 0 6px 0;
   }
   
   .research-tab {
@@ -493,5 +571,15 @@ li strong {
     font-size: 1rem;
     letter-spacing: 0.5px;
   }
+  
+  .sticky-header {
+    padding: 0 0 0 20px;
+  }
+  
+  .sticky-rare-logo {
+    height: 45px;
+    border-radius: 0 0 6px 0;
+  }
 }
+
 
