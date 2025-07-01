@@ -1,0 +1,198 @@
+.chart-container-wrapper {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  padding: 32px;
+  margin-bottom: 32px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.political-party-controls, .policy-type-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 24px;
+  background: var(--filter-bg);
+  padding: 16px;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--filter-border);
+}
+
+.political-party-toggle, .policy-type-toggle {
+  padding: 10px 20px;
+  border: 1px solid var(--filter-border);
+  background: var(--color-surface);
+  color: var(--filter-text);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-primary);
+  border-right: none;
+  position: relative;
+}
+
+.political-party-toggle:first-child, .policy-type-toggle:first-child {
+  border-top-left-radius: var(--border-radius-md);
+  border-bottom-left-radius: var(--border-radius-md);
+}
+
+.political-party-toggle:last-child, .policy-type-toggle:last-child {
+  border-top-right-radius: var(--border-radius-md);
+  border-bottom-right-radius: var(--border-radius-md);
+  border-right: 1px solid var(--filter-border);
+}
+
+.political-party-toggle:hover, .policy-type-toggle:hover {
+  background: var(--filter-bg-hover);
+  color: var(--filter-text-active);
+  transform: translateY(-1px);
+  z-index: 1;
+}
+
+.political-party-toggle.active, .policy-type-toggle.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--filter-shadow-active);
+  transform: translateY(-1px);
+  z-index: 2;
+}
+
+.wave-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 32px;
+  background: var(--filter-bg);
+  padding: 12px;
+  border-radius: var(--border-radius-lg);
+  border: 1px solid var(--filter-border);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wave-tab {
+  padding: 12px 24px;
+  border: 1px solid var(--filter-border);
+  background: var(--color-surface);
+  color: var(--filter-text);
+  font-weight: 500;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: var(--font-primary);
+  border-right: none;
+  white-space: nowrap;
+}
+
+.wave-tab:first-child {
+  border-top-left-radius: var(--border-radius-md);
+  border-bottom-left-radius: var(--border-radius-md);
+}
+
+.wave-tab:last-child {
+  border-top-right-radius: var(--border-radius-md);
+  border-bottom-right-radius: var(--border-radius-md);
+  border-right: 1px solid var(--filter-border);
+}
+
+.wave-tab:hover {
+  background: var(--filter-bg-hover);
+  color: var(--filter-text-active);
+  transform: translateY(-1px);
+  z-index: 1;
+}
+
+.wave-tab.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--filter-shadow-active);
+  transform: translateY(-1px);
+  z-index: 2;
+}
+
+.chart-container {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  margin-bottom: 32px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  overflow-x: auto; /* Add horizontal scrolling for smaller screens */
+  display: flex;
+  justify-content: center; /* Center the chart in its container */
+}
+
+.chart-container svg {
+  max-width: 100%; /* Ensure SVG is responsive */
+  height: auto;
+  display: block;
+}
+
+.loading, .error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  font-size: 1.125rem;
+  color: #6b7280;
+  font-family: 'Roboto', sans-serif;
+}
+
+.error {
+  color: #dc2626;
+}
+
+/* Add styling for wrapped y-axis labels */
+.y-axis-label tspan {
+  font-size: 11px;
+  fill: #333;
+}
+
+@media (max-width: 1024px) {
+  .chart-container {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .chart-container-wrapper {
+    padding: 20px;
+  }
+  
+  .political-party-controls, .policy-type-controls {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px;
+  }
+  
+  .political-party-toggle, .policy-type-toggle {
+    border-right: 1px solid var(--filter-border);
+    border-radius: var(--border-radius-md) !important;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+  
+  .wave-controls {
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px;
+  }
+  
+  .wave-tab {
+    border-right: 1px solid var(--filter-border);
+    border-radius: var(--border-radius-md) !important;
+    width: 100%;
+    max-width: 200px;
+    text-align: center;
+  }
+}

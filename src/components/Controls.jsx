@@ -68,7 +68,7 @@ function Controls({ currentWave, currentView, selectedConditions, onWaveChange, 
                 onChange={() => handleConditionChange(condition.id)}
                 className="condition-checkbox"
               />
-              <span className="checkbox-label" style={{ color: condition.color }}>
+              <span className={`checkbox-label checkbox-label--${condition.id}`}>
                 {condition.label}
               </span>
             </label>

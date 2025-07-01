@@ -1,10 +1,20 @@
-.health-worry-container {
-  background: #ffffff;
-  border-radius: 12px;
+.chart-container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.health-worry-container,
+.system-impacts-container {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
   padding: 32px;
   margin-bottom: 32px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.system-impacts-container {
+  margin-bottom: 40px;
 }
 
 .wave-controls {
@@ -16,15 +26,15 @@
 
 .wave-tab {
   padding: 10px 20px;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  background: #ffffff;
-  color: #6b7280;
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
   font-weight: 600;
   font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-primary);
 }
 
 .wave-tab:hover {
@@ -53,7 +63,8 @@
 }
 
 @media (max-width: 768px) {
-  .health-worry-container {
+  .health-worry-container,
+  .system-impacts-container {
     padding: 20px;
   }
   

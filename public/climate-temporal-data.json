@@ -3,49 +3,55 @@
     "wave": 1,
     "wave_label": "Baseline (3 Days Before)",
     "condition": "Heatwave",
-    "mean": 7.88,
+    "mean": 7.85,
     "se": 0.311,
-    "n": 861
+    "n": 864,
+    "political_party": "Overall"
   },
   {
     "wave": 1,
     "wave_label": "Baseline (3 Days Before)",
     "condition": "Heatwave + Handoff",
-    "mean": 7.72,
-    "se": 0.299,
-    "n": 833
+    "mean": 7.71,
+    "se": 0.298,
+    "n": 838,
+    "political_party": "Overall"
   },
   {
     "wave": 1,
     "wave_label": "Baseline (3 Days Before)",
     "condition": "Control",
-    "mean": 7.82,
+    "mean": 7.85,
     "se": 0.315,
-    "n": 825
+    "n": 833,
+    "political_party": "Overall"
   },
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
     "condition": "Heatwave",
-    "mean": 6.77,
-    "se": 0.29,
-    "n": 861
+    "mean": 6.76,
+    "se": 0.289,
+    "n": 864,
+    "political_party": "Overall"
   },
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
     "condition": "Heatwave + Handoff",
-    "mean": 5.87,
+    "mean": 5.9,
     "se": 0.269,
-    "n": 833
+    "n": 838,
+    "political_party": "Overall"
   },
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
     "condition": "Control",
-    "mean": 7.18,
+    "mean": 7.22,
     "se": 0.311,
-    "n": 825
+    "n": 833,
+    "political_party": "Overall"
   },
   {
     "wave": 3,
@@ -53,22 +59,268 @@
     "condition": "Heatwave",
     "mean": 7.05,
     "se": 0.291,
-    "n": 861
+    "n": 864,
+    "political_party": "Overall"
   },
   {
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Heatwave + Handoff",
-    "mean": 6.69,
-    "se": 0.295,
-    "n": 833
+    "mean": 6.68,
+    "se": 0.293,
+    "n": 838,
+    "political_party": "Overall"
   },
   {
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Control",
-    "mean": 7.2,
+    "mean": 7.22,
     "se": 0.305,
-    "n": 825
+    "n": 833,
+    "political_party": "Overall"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Heatwave",
+    "mean": 6.69,
+    "se": 0.367,
+    "n": 458,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Heatwave + Handoff",
+    "mean": 6.66,
+    "se": 0.364,
+    "n": 464,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Control",
+    "mean": 6.71,
+    "se": 0.384,
+    "n": 435,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heatwave",
+    "mean": 5.64,
+    "se": 0.331,
+    "n": 458,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heatwave + Handoff",
+    "mean": 4.68,
+    "se": 0.307,
+    "n": 464,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Control",
+    "mean": 6.29,
+    "se": 0.403,
+    "n": 435,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heatwave",
+    "mean": 5.94,
+    "se": 0.349,
+    "n": 458,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heatwave + Handoff",
+    "mean": 5.58,
+    "se": 0.344,
+    "n": 464,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Control",
+    "mean": 6.24,
+    "se": 0.396,
+    "n": 435,
+    "political_party": "Democrat"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Control",
+    "mean": 8.79,
+    "se": 0.656,
+    "n": 227,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Heatwave",
+    "mean": 8.32,
+    "se": 0.613,
+    "n": 255,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Heatwave + Handoff",
+    "mean": 8.24,
+    "se": 0.599,
+    "n": 224,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Control",
+    "mean": 7.77,
+    "se": 0.633,
+    "n": 227,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heatwave",
+    "mean": 7.36,
+    "se": 0.603,
+    "n": 255,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heatwave + Handoff",
+    "mean": 6.56,
+    "se": 0.568,
+    "n": 224,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Control",
+    "mean": 7.9,
+    "se": 0.623,
+    "n": 227,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heatwave",
+    "mean": 7.81,
+    "se": 0.595,
+    "n": 255,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heatwave + Handoff",
+    "mean": 6.95,
+    "se": 0.553,
+    "n": 224,
+    "political_party": "Independent"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Heatwave",
+    "mean": 12.62,
+    "se": 1.207,
+    "n": 90,
+    "political_party": "Republican"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Control",
+    "mean": 11.57,
+    "se": 1.179,
+    "n": 91,
+    "political_party": "Republican"
+  },
+  {
+    "wave": 1,
+    "wave_label": "Baseline (3 Days Before)",
+    "condition": "Heatwave + Handoff",
+    "mean": 11.36,
+    "se": 1.056,
+    "n": 88,
+    "political_party": "Republican"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heatwave",
+    "mean": 10.86,
+    "se": 1.135,
+    "n": 90,
+    "political_party": "Republican"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Control",
+    "mean": 9.78,
+    "se": 1,
+    "n": 91,
+    "political_party": "Republican"
+  },
+  {
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heatwave + Handoff",
+    "mean": 9.53,
+    "se": 0.905,
+    "n": 88,
+    "political_party": "Republican"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heatwave",
+    "mean": 10.19,
+    "se": 0.997,
+    "n": 90,
+    "political_party": "Republican"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Control",
+    "mean": 10.29,
+    "se": 1.018,
+    "n": 91,
+    "political_party": "Republican"
+  },
+  {
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heatwave + Handoff",
+    "mean": 10.6,
+    "se": 1.12,
+    "n": 88,
+    "political_party": "Republican"
   }
 ]

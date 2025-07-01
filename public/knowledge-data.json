@@ -7,16 +7,19 @@
       ["Heart Attacks"]
     ],
     "mean": [
-      [72.36]
+      [72.41]
     ],
     "se": [
-      [0.832]
+      [0.83]
     ],
     "n": [
-      [1091]
+      [1095]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -27,16 +30,19 @@
       ["Heart Attacks"]
     ],
     "mean": [
-      [76.03]
+      [76.05]
     ],
     "se": [
-      [0.781]
+      [0.779]
     ],
     "n": [
-      [1073]
+      [1079]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -47,16 +53,19 @@
       ["Heart Attacks"]
     ],
     "mean": [
-      [60.4]
+      [60.33]
     ],
     "se": [
-      [0.967]
+      [0.958]
     ],
     "n": [
-      [1040]
+      [1056]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -67,16 +76,19 @@
       ["Organ Failure"]
     ],
     "mean": [
-      [69.03]
+      [69.06]
     ],
     "se": [
-      [0.911]
+      [0.909]
     ],
     "n": [
-      [1091]
+      [1095]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -87,16 +99,19 @@
       ["Organ Failure"]
     ],
     "mean": [
-      [71.01]
+      [70.95]
     ],
     "se": [
-      [0.922]
+      [0.918]
     ],
     "n": [
-      [1073]
+      [1079]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -107,16 +122,19 @@
       ["Organ Failure"]
     ],
     "mean": [
-      [53.36]
+      [53.33]
     ],
     "se": [
-      [1.126]
+      [1.123]
     ],
     "n": [
-      [1040]
+      [1056]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -127,16 +145,19 @@
       ["Premature Labor"]
     ],
     "mean": [
-      [60.38]
+      [60.34]
     ],
     "se": [
-      [1.038]
+      [1.037]
     ],
     "n": [
-      [1091]
+      [1095]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -147,16 +168,19 @@
       ["Premature Labor"]
     ],
     "mean": [
-      [64.87]
+      [64.89]
     ],
     "se": [
-      [1.003]
+      [0.999]
     ],
     "n": [
-      [1073]
+      [1079]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -167,16 +191,19 @@
       ["Premature Labor"]
     ],
     "mean": [
-      [32.15]
+      [32.23]
     ],
     "se": [
-      [1.16]
+      [1.152]
     ],
     "n": [
-      [1040]
+      [1056]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -187,16 +214,19 @@
       ["Violent Crime"]
     ],
     "mean": [
-      [42.66]
+      [42.63]
     ],
     "se": [
-      [1.387]
+      [1.384]
     ],
     "n": [
-      [1091]
+      [1095]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -207,16 +237,19 @@
       ["Violent Crime"]
     ],
     "mean": [
-      [42.93]
+      [43.02]
     ],
     "se": [
-      [1.399]
+      [1.393]
     ],
     "n": [
-      [1073]
+      [1079]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -230,13 +263,16 @@
       [27.18]
     ],
     "se": [
-      [1.566]
+      [1.55]
     ],
     "n": [
-      [1040]
+      [1056]
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -247,16 +283,19 @@
       ["Heart Attacks"]
     ],
     "mean": [
-      [73.07]
+      [74.16]
     ],
     "se": [
-      [0.867]
+      [1.17]
     ],
     "n": [
-      [1089]
+      [484]
     ],
     "wave": [
-      [3]
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
     ]
   },
   {
@@ -267,16 +306,19 @@
       ["Heart Attacks"]
     ],
     "mean": [
-      [74.21]
+      [78.25]
     ],
     "se": [
-      [0.85]
+      [1.067]
     ],
     "n": [
-      [1072]
+      [499]
     ],
     "wave": [
-      [3]
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
     ]
   },
   {
@@ -287,16 +329,19 @@
       ["Heart Attacks"]
     ],
     "mean": [
-      [64.94]
+      [62.74]
     ],
     "se": [
-      [0.964]
+      [1.336]
     ],
     "n": [
-      [1037]
+      [467]
     ],
     "wave": [
-      [3]
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
     ]
   },
   {
@@ -307,16 +352,847 @@
       ["Organ Failure"]
     ],
     "mean": [
-      [64.37]
+      [69.8]
+    ],
+    "se": [
+      [1.392]
+    ],
+    "n": [
+      [484]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [72.66]
+    ],
+    "se": [
+      [1.315]
+    ],
+    "n": [
+      [499]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [56.73]
+    ],
+    "se": [
+      [1.612]
+    ],
+    "n": [
+      [467]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [61.53]
+    ],
+    "se": [
+      [1.502]
+    ],
+    "n": [
+      [484]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [66.15]
+    ],
+    "se": [
+      [1.455]
+    ],
+    "n": [
+      [499]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [34.65]
+    ],
+    "se": [
+      [1.764]
+    ],
+    "n": [
+      [467]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [43.7]
+    ],
+    "se": [
+      [1.997]
+    ],
+    "n": [
+      [484]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [49.67]
+    ],
+    "se": [
+      [1.93]
+    ],
+    "n": [
+      [499]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [29.83]
+    ],
+    "se": [
+      [2.344]
+    ],
+    "n": [
+      [467]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [58.09]
+    ],
+    "se": [
+      [1.865]
+    ],
+    "n": [
+      [290]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [72.49]
+    ],
+    "se": [
+      [1.533]
+    ],
+    "n": [
+      [339]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [73.53]
+    ],
+    "se": [
+      [1.584]
+    ],
+    "n": [
+      [303]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [51.31]
+    ],
+    "se": [
+      [2.152]
+    ],
+    "n": [
+      [290]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [67.74]
+    ],
+    "se": [
+      [1.69]
+    ],
+    "n": [
+      [339]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [69.59]
+    ],
+    "se": [
+      [1.66]
+    ],
+    "n": [
+      [303]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [27.24]
+    ],
+    "se": [
+      [2.144]
+    ],
+    "n": [
+      [290]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [57.99]
+    ],
+    "se": [
+      [1.927]
+    ],
+    "n": [
+      [339]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [63.96]
+    ],
+    "se": [
+      [1.78]
+    ],
+    "n": [
+      [303]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [26.86]
+    ],
+    "se": [
+      [2.758]
+    ],
+    "n": [
+      [290]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [42.39]
+    ],
+    "se": [
+      [2.558]
+    ],
+    "n": [
+      [339]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [36.73]
+    ],
+    "se": [
+      [2.66]
+    ],
+    "n": [
+      [303]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [70.18]
+    ],
+    "se": [
+      [2.196]
+    ],
+    "n": [
+      [193]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [57.52]
+    ],
+    "se": [
+      [2.482]
+    ],
+    "n": [
+      [201]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [73.37]
+    ],
+    "se": [
+      [1.931]
+    ],
+    "n": [
+      [196]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [71.68]
+    ],
+    "se": [
+      [2.023]
+    ],
+    "n": [
+      [193]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [48.04]
+    ],
+    "se": [
+      [2.811]
+    ],
+    "n": [
+      [201]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [67.34]
+    ],
+    "se": [
+      [2.492]
+    ],
+    "n": [
+      [196]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [64.2]
+    ],
+    "se": [
+      [2.439]
+    ],
+    "n": [
+      [193]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [34.23]
+    ],
+    "se": [
+      [2.551]
+    ],
+    "n": [
+      [201]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [63.06]
+    ],
+    "se": [
+      [2.57]
+    ],
+    "n": [
+      [196]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [41.13]
+    ],
+    "se": [
+      [3.521]
+    ],
+    "n": [
+      [193]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [18.93]
+    ],
+    "se": [
+      [3.802]
+    ],
+    "n": [
+      [201]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [35.8]
+    ],
+    "se": [
+      [3.516]
+    ],
+    "n": [
+      [196]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [73.13]
+    ],
+    "se": [
+      [0.864]
+    ],
+    "n": [
+      [1093]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [74.22]
+    ],
+    "se": [
+      [0.846]
+    ],
+    "n": [
+      [1078]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [64.84]
+    ],
+    "se": [
+      [0.959]
+    ],
+    "n": [
+      [1053]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [64.36]
     ],
     "se": [
       [1.031]
     ],
     "n": [
-      [1089]
+      [1093]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -327,16 +1203,19 @@
       ["Organ Failure"]
     ],
     "mean": [
-      [66.13]
+      [66.14]
     ],
     "se": [
-      [1.042]
+      [1.037]
     ],
     "n": [
-      [1072]
+      [1078]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -347,16 +1226,19 @@
       ["Organ Failure"]
     ],
     "mean": [
-      [56.03]
+      [55.87]
     ],
     "se": [
       [1.147]
     ],
     "n": [
-      [1037]
+      [1053]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -367,16 +1249,19 @@
       ["Premature Labor"]
     ],
     "mean": [
-      [58.49]
+      [58.45]
     ],
     "se": [
       [1.118]
     ],
     "n": [
-      [1089]
+      [1093]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -387,16 +1272,19 @@
       ["Premature Labor"]
     ],
     "mean": [
-      [61.01]
+      [60.98]
     ],
     "se": [
-      [1.115]
+      [1.111]
     ],
     "n": [
-      [1072]
+      [1078]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -407,16 +1295,19 @@
       ["Premature Labor"]
     ],
     "mean": [
-      [38.6]
+      [38.66]
     ],
     "se": [
-      [1.238]
+      [1.224]
     ],
     "n": [
-      [1037]
+      [1053]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -427,16 +1318,19 @@
       ["Violent Crime"]
     ],
     "mean": [
-      [47.29]
+      [47.34]
     ],
     "se": [
-      [1.387]
+      [1.383]
     ],
     "n": [
-      [1089]
+      [1093]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -447,16 +1341,19 @@
       ["Violent Crime"]
     ],
     "mean": [
-      [44.73]
+      [44.78]
     ],
     "se": [
-      [1.483]
+      [1.477]
     ],
     "n": [
-      [1072]
+      [1078]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
     ]
   },
   {
@@ -467,16 +1364,847 @@
       ["Violent Crime"]
     ],
     "mean": [
-      [35.67]
+      [35.83]
     ],
     "se": [
-      [1.575]
+      [1.558]
     ],
     "n": [
-      [1037]
+      [1053]
     ],
     "wave": [
       [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [75.47]
+    ],
+    "se": [
+      [1.223]
+    ],
+    "n": [
+      [484]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [76.3]
+    ],
+    "se": [
+      [1.187]
+    ],
+    "n": [
+      [499]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [68.7]
+    ],
+    "se": [
+      [1.371]
+    ],
+    "n": [
+      [465]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [65.52]
+    ],
+    "se": [
+      [1.574]
+    ],
+    "n": [
+      [484]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [68.82]
+    ],
+    "se": [
+      [1.438]
+    ],
+    "n": [
+      [499]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [60.63]
+    ],
+    "se": [
+      [1.676]
+    ],
+    "n": [
+      [465]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [60.6]
+    ],
+    "se": [
+      [1.636]
+    ],
+    "n": [
+      [484]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [62.53]
+    ],
+    "se": [
+      [1.59]
+    ],
+    "n": [
+      [499]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [42.54]
+    ],
+    "se": [
+      [1.806]
+    ],
+    "n": [
+      [465]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [49.39]
+    ],
+    "se": [
+      [2.008]
+    ],
+    "n": [
+      [484]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [51.71]
+    ],
+    "se": [
+      [2.013]
+    ],
+    "n": [
+      [499]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [41.34]
+    ],
+    "se": [
+      [2.339]
+    ],
+    "n": [
+      [465]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [61.8]
+    ],
+    "se": [
+      [1.661]
+    ],
+    "n": [
+      [289]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [72.12]
+    ],
+    "se": [
+      [1.663]
+    ],
+    "n": [
+      [337]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [74.98]
+    ],
+    "se": [
+      [1.556]
+    ],
+    "n": [
+      [303]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [52.02]
+    ],
+    "se": [
+      [2.077]
+    ],
+    "n": [
+      [289]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [64.41]
+    ],
+    "se": [
+      [1.831]
+    ],
+    "n": [
+      [337]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [67.75]
+    ],
+    "se": [
+      [1.894]
+    ],
+    "n": [
+      [303]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [31.7]
+    ],
+    "se": [
+      [2.418]
+    ],
+    "n": [
+      [289]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [55.96]
+    ],
+    "se": [
+      [2.176]
+    ],
+    "n": [
+      [337]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [61.98]
+    ],
+    "se": [
+      [2.025]
+    ],
+    "n": [
+      [303]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [33.59]
+    ],
+    "se": [
+      [2.775]
+    ],
+    "n": [
+      [289]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [47.51]
+    ],
+    "se": [
+      [2.473]
+    ],
+    "n": [
+      [337]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [41.73]
+    ],
+    "se": [
+      [2.82]
+    ],
+    "n": [
+      [303]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Independent"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [70.39]
+    ],
+    "se": [
+      [2.104]
+    ],
+    "n": [
+      [193]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [62.53]
+    ],
+    "se": [
+      [2.523]
+    ],
+    "n": [
+      [201]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Heart Attacks"]
+    ],
+    "mean": [
+      [66.65]
+    ],
+    "se": [
+      [2.25]
+    ],
+    "n": [
+      [195]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [61.84]
+    ],
+    "se": [
+      [2.461]
+    ],
+    "n": [
+      [193]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [48.89]
+    ],
+    "se": [
+      [2.903]
+    ],
+    "n": [
+      [201]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Organ Failure"]
+    ],
+    "mean": [
+      [56.13]
+    ],
+    "se": [
+      [2.835]
+    ],
+    "n": [
+      [195]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [59.33]
+    ],
+    "se": [
+      [2.407]
+    ],
+    "n": [
+      [193]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [39.75]
+    ],
+    "se": [
+      [2.729]
+    ],
+    "n": [
+      [201]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Premature Labor"]
+    ],
+    "mean": [
+      [54.05]
+    ],
+    "se": [
+      [2.902]
+    ],
+    "n": [
+      [195]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [41.23]
+    ],
+    "se": [
+      [3.662]
+    ],
+    "n": [
+      [193]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [24.37]
+    ],
+    "se": [
+      [3.875]
+    ],
+    "n": [
+      [201]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Violent Crime"]
+    ],
+    "mean": [
+      [34.51]
+    ],
+    "se": [
+      [3.705]
+    ],
+    "n": [
+      [195]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
     ]
   }
 ]

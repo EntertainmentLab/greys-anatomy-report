@@ -1,0 +1,37 @@
+.system-impacts-container {
+  width: 100%;
+}
+
+.wave-controls {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.wave-tab {
+  padding: 8px 16px;
+  border: 2px solid var(--color-primary);
+  background: white;
+  color: var(--color-primary);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.wave-tab:hover {
+  background: rgba(0, 91, 187, 0.1);
+}
+
+.wave-tab.active {
+  background: var(--color-primary);
+  color: white;
+}
+
+.d3-tooltip {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  z-index: 1000;
+}

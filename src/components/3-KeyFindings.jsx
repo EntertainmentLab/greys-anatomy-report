@@ -39,7 +39,9 @@ function KeyFindings() {
         Policy Support
       </h3>
       <p>
-        Exposure to the heatwave episode increased support for heat-adaptive policies, including hospital infrastructure investments and public cooling centers. The handoff condition showed significantly stronger effects relative to treatment alone immediately after viewing. However, these policy support effects did not persist at the 15-day follow-up, with no significant differences observed at Wave 3.
+        The heatwave episode effectively increased viewer support for heat-adaptive policies, including hospital infrastructure investments and public cooling centers. However, the effects varied dramatically depending on political party affiliation, revealing important insights about targeted messaging strategies.
+        Republican viewers responded strongly to the treatment episode alone, showing substantial immediate increases in policy support that remained significant two weeks later. This suggests that the narrative content itself—depicting healthcare system strain during extreme heat—resonated powerfully with this audience without requiring additional context. Democratic viewers, by contrast, showed little response to the episode alone but demonstrated much stronger policy support when exposed to the supplemental Instagram videos in the handoff condition. This pattern indicates that explicit connections to climate science and policy solutions enhanced persuasive impact for this group. Most notably, the handoff condition produced backlash among Republican viewers. While the supplemental videos enhanced Democratic support, they actually undermined the positive effects observed among Republicans in the treatment-only condition. This backlash suggests that the climate-focused messaging in the Instagram videos may have triggered partisan resistance, reducing the episode's otherwise persuasive impact.
+        These findings underscore the complexity of cross-partisan climate communication and highlight the critical need for audience-tailored approaches to supplemental impact media. What enhances persuasion for one group may inadvertently diminish it for another, particularly when bridging entertainment content to politically charged topics like climate change.
       </p>
       <PolicySupportChart />
 
@@ -58,14 +60,14 @@ function KeyFindings() {
       <h3>
         Additional Effects
       </h3>
-      <p>
+      <div className="additional-effects">
         <b>Climate Action Support:</b> The handoff condition significantly increased support for climate action, particularly in normative beliefs and intent to act. These effects were modest but consistent.
         <br />
         <b>Perceived Likelihood of Heatwave Exposure:</b> The handoff condition significantly increased perceived risk of experiencing a severe heatwave, compared to both control and treatment conditions. The treatment-only group saw a modest, marginal increase.
         <br />
         <b>Perceived Heatwave Threat Severity:</b> Both treatment and handoff conditions significantly increased perceived threat severity, including greater concern over potential harm and increased behavioral intentions. The handoff condition yielded the largest effects.
 
-      </p>
+      </div>
 
       <h3>
         Entertainment Value

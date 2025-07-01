@@ -1,8 +1,8 @@
 .legend-info {
-  background: #ffffff;
-  border-radius: 12px;
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
   padding: 32px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--color-border);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -26,8 +26,8 @@
   gap: 16px;
   padding: 20px;
   background: #f9fafb;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border);
   transition: all 0.15s ease;
 }
 
@@ -38,7 +38,7 @@
 
 .condition-label {
   padding: 6px 12px;
-  border-radius: 6px;
+  border-radius: var(--border-radius-md);
   font-weight: 600;
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -50,24 +50,24 @@
 
 .condition-label.control {
   background: #fef2f2;
-  color: #dc2626;
+  color: var(--color-control);
   border: 1px solid #fecaca;
 }
 
 .condition-label.treatment {
   background: #f0fdf4;
-  color: #16a34a;
+  color: var(--color-treatment);
   border: 1px solid #bbf7d0;
 }
 
 .condition-label.handoff {
   background: #eff6ff;
-  color: #2563eb;
+  color: var(--color-handoff);
   border: 1px solid #bfdbfe;
 }
 
 .condition-item span:last-child {
-  color: #4b5563;
+  color: var(--color-text-muted);
   font-weight: 400;
   font-size: 0.9375rem;
   line-height: 1.5;
