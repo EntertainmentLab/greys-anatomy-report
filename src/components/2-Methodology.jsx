@@ -37,20 +37,20 @@ function Methodology() {
       
       <TimelineInfographic />
 
-      <ul>
-        <li>
-          <strong>Wave 1 (N = 4,830):</strong> Baseline survey administered 7-12 days prior to viewing, assessing demographics, media habits, and key outcome variables (when applicable).
-        </li>
-        <li>
-          <strong>Wave 2 (N = 3,575):</strong> Participants completed the viewing assignment and then responded to a post-exposure survey assessing perceived heat risk, health system impacts, climate beliefs, policy preferences, and behavioral intentions.
-        </li>
-        <li>
-          <strong>Wave 3 (N = 3XXX):</strong> A follow-up survey, administered 15-20 days post-viewing, assessed the durability of effects.
-        </li>
-      </ul>
-      
       <p>
         All outcome variables were derived from established measures or adapted from prior work on climate and risk communication. Multi-item batteries captured constructs including heatwave threat perception, knowledge of heat-related health risks, confidence in protective action, support for policy interventions, and beliefs about climate change's relevance to daily life. See <a href={`${import.meta.env.BASE_URL}survey-instrument.html`} target="_blank" rel="noopener noreferrer">full survey instrument</a>.
+      </p>
+      <p>
+        Participants who failed comprehension checks, provided non-substantive responses to open-text prompts, or viewed less than 85% of the assigned episode (based on telemetry data) were excluded from analysis. Analyses were <a href="https://osf.io/uv9x3" target="_blank" rel="noopener noreferrer">preregistered</a> and conducted according to a hierarchical model structure, with appropriate corrections for multiple comparisons.
+      </p>
+      <p>
+        This study contributes to a growing body of work assessing the narrative mechanisms through which entertainment media can shift public norms and attitudes related to climate change, particularly in areas—such as extreme heat—where awareness remains low despite increasing risk.
+      </p>
+    </section>
+  )
+}
+
+export default Methodology
       </p>
       <p>
         Participants who failed comprehension checks, provided non-substantive responses to open-text prompts, or viewed less than 85% of the assigned episode (based on telemetry data) were excluded from analysis. Analyses were <a href="https://osf.io/uv9x3" target="_blank" rel="noopener noreferrer">preregistered</a> and conducted according to a hierarchical model structure, with appropriate corrections for multiple comparisons.

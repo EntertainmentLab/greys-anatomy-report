@@ -7,51 +7,30 @@ const TimelineInfographic = () => {
   const waves = [
     {
       id: 1,
-      title: "Wave 1: Baseline",
+      title: "Wave 1",
       date: "7-12 days before viewing",
       participants: "N = 4,830",
-      description: "Baseline survey assessing demographics, media habits, and key outcome variables",
       icon: "📋",
       color: "#005BBB",
-      details: [
-        "Quota-sampled participants",
-        "Demographics collection",
-        "Media consumption habits",
-        "Baseline climate beliefs",
-        "Pre-exposure measurements"
-      ]
+      details: "Baseline survey administered 7-12 days prior to viewing, assessing demographics, media habits, and key outcome variables (when applicable)."
     },
     {
       id: 2,
-      title: "Wave 2: Viewing & Post-Exposure",
+      title: "Wave 2",
       date: "Viewing day + immediate post-survey",
       participants: "N = 3,575",
-      description: "Participants viewed assigned content and completed post-exposure survey",
       icon: "📺",
       color: "#16a34a",
-      details: [
-        "Random assignment to conditions",
-        "Episode viewing (with telemetry)",
-        "Instagram video handoffs (treatment group)",
-        "Immediate post-exposure survey",
-        "Risk perception measurements"
-      ]
+      details: "Participants completed the viewing assignment and then responded to a post-exposure survey assessing perceived heat risk, health system impacts, climate beliefs, policy preferences, and behavioral intentions."
     },
     {
       id: 3,
-      title: "Wave 3: Follow-up",
+      title: "Wave 3",
       date: "15-20 days post-viewing",
-      participants: "N = 3,204",
-      description: "Follow-up survey assessing durability of effects",
+      participants: "N = 3XXX",
       icon: "📊",
       color: "#2563eb",
-      details: [
-        "Delayed effects measurement",
-        "Attitude durability assessment",
-        "Behavioral intention tracking",
-        "Long-term impact evaluation",
-        "Final outcome measures"
-      ]
+      details: "A follow-up survey, administered 15-20 days post-viewing, assessed the durability of effects."
     }
   ];
 
@@ -87,16 +66,9 @@ const TimelineInfographic = () => {
                 </div>
               </div>
               
-              <p className="wave-description">{wave.description}</p>
-              
               {activeWave === wave.id && (
                 <div className="wave-details">
-                  <h5>Key Activities:</h5>
-                  <ul>
-                    {wave.details.map((detail, idx) => (
-                      <li key={idx}>{detail}</li>
-                    ))}
-                  </ul>
+                  <p>{wave.details}</p>
                 </div>
               )}
               
@@ -117,21 +89,6 @@ const TimelineInfographic = () => {
             )}
           </div>
         ))}
-      </div>
-
-      <div className="timeline-summary">
-        <div className="summary-stat">
-          <div className="stat-number">4,830</div>
-          <div className="stat-label">Initial Participants</div>
-        </div>
-        <div className="summary-stat">
-          <div className="stat-number">66%</div>
-          <div className="stat-label">Completion Rate</div>
-        </div>
-        <div className="summary-stat">
-          <div className="stat-number">~3 weeks</div>
-          <div className="stat-label">Total Duration</div>
-        </div>
       </div>
     </div>
   );
