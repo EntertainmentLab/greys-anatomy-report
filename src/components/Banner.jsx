@@ -58,7 +58,7 @@ const Banner = () => {
       <div ref={bannerRef} className="banner-container">
         <div className="banner-background">
           <img 
-            src="/greys-anatomy-banner.jpg" 
+            src="/greys-anatomy-banner.png" 
             alt="Grey's Anatomy Cast"
             className="banner-image"
           />
