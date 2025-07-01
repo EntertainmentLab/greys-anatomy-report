@@ -6,6 +6,7 @@ import StudyOverview from './components/1-StudyOverview'
 import Methodology from './components/2-Methodology'
 import KeyFindings from './components/3-KeyFindings'
 import { useKnowledgeData } from './hooks/useKnowledgeData'
+import Banner from './components/Banner'
 import './App.css'
 
 function App() {
@@ -19,7 +20,14 @@ function App() {
 
   return (
     <div className="report-container">
-      <Header />
+      <Banner />
+      <div className="main-title-section">
+        <div className="main-title-container">
+          <h1>
+            The Impact of Heatwave Storytelling on Climate Beliefs and Health Risk Perceptions
+          </h1>
+        </div>
+      </div>
       <div className="report-content">
         <StudyOverview />
         <Methodology />

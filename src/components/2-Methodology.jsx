@@ -26,6 +26,55 @@ function Methodology() {
         </li>
       </ul>
 
+      <p>
+        The four climate-related Instagram videos used in the handoff condition featured content creators discussing heat-related health impacts and climate adaptation strategies:
+      </p>
+      
+      <div style={{ 
+        display: 'flex', 
+        gap: '20px', 
+        flexWrap: 'wrap', 
+        justifyContent: 'center',
+        margin: '20px 0'
+      }}>
+        <div style={{ flex: '1 1 300px', minWidth: '300px', maxWidth: '400px' }}>
+          <iframe 
+            src={`${import.meta.env.BASE_URL}insta_scotpilie_wx.html`}
+            width="100%" 
+            height="600" 
+            frameBorder="0"
+            title="Instagram post by Scot Pilié"
+          />
+        </div>
+        <div style={{ flex: '1 1 300px', minWidth: '300px', maxWidth: '400px' }}>
+          <iframe 
+            src={`${import.meta.env.BASE_URL}insta_farmernick.html`}
+            width="100%" 
+            height="600" 
+            frameBorder="0"
+            title="Instagram post by Nick Cutsumpas"
+          />
+        </div>
+        <div style={{ flex: '1 1 300px', minWidth: '300px', maxWidth: '400px' }}>
+          <iframe 
+            src={`${import.meta.env.BASE_URL}insta_eyeinspired.html`}
+            width="100%" 
+            height="600" 
+            frameBorder="0"
+            title="Instagram post by Kelly Edelman"
+          />
+        </div>
+        <div style={{ flex: '1 1 300px', minWidth: '300px', maxWidth: '400px' }}>
+          <iframe 
+            src={`${import.meta.env.BASE_URL}insta_becomingdrdevore.html`}
+            width="100%" 
+            height="600" 
+            frameBorder="0"
+            title="Instagram post by Sydney DeVore"
+          />
+        </div>
+      </div>
+
       <h3>
         Timeline and Measures
       </h3>
