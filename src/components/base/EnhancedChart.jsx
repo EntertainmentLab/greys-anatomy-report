@@ -89,9 +89,12 @@ export const useEnhancedChart = ({
 
     // Make chart responsive to container width
     const containerWidth = svgRef.current.parentNode.getBoundingClientRect().width;
-    const margin = { top: 120, right: 120, bottom: 80, left: 150 };
-    const width = Math.min(950, containerWidth) - margin.left - margin.right;
-    const height = 400 - margin.bottom - margin.top;
+    const isMobile = window.innerWidth <= 768;
+    const margin = isMobile 
+      ? { top: 100, right: 60, bottom: 100, left: 120 }
+      : { top: 120, right: 120, bottom: 80, left: 150 };
+    const width = Math.min(isMobile ? containerWidth - 40 : 950, containerWidth) - margin.left - margin.right;
+    const height = isMobile ? Math.max(400, yAxisItems.length * 80) : 400 - margin.bottom - margin.top;
 
     const svg = d3.select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
@@ -156,15 +159,14 @@ export const useEnhancedChart = ({
     g.append("g")
       .call(d3.axisLeft(yScale))
       .selectAll("text")
-      .style("font-size", "12px")
+      .style("font-size", isMobile ? "10px" : "12px")
       .style("font-weight", "bold")
       .each(function(d) {
         if (chartType === 'knowledge') {
-          // Apply text wrapping for knowledge categories which can be longer
           const text = d3.select(this);
           const words = text.text().split(/\s+/).reverse();
           const lineHeight = 1.1;
-          const width = 130;
+          const width = isMobile ? 100 : 130;
           let word;
           let line = [];
           let lineNumber = 0;

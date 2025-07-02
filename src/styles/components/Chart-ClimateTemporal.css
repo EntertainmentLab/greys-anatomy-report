@@ -113,15 +113,27 @@
 
 @media (max-width: 768px) {
   .climate-temporal-container {
-    padding: 20px;
+    padding: 16px;
   }
   
   .chart-title {
-    font-size: 16px;
+    font-size: 14px;
   }
   
   .chart-subtitle {
-    font-size: 11px;
+    font-size: 10px;
+  }
+  
+  .chart-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .chart-container svg {
+    min-width: 400px;
+    width: 100%;
+    height: auto;
   }
   
   .political-party-controls {
@@ -137,5 +149,23 @@
     width: 100%;
     max-width: 200px;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .climate-temporal-container {
+    padding: 12px;
+  }
+  
+  .chart-container svg {
+    min-width: 350px;
+  }
+  
+  .chart-title {
+    font-size: 12px;
+  }
+  
+  .chart-subtitle {
+    font-size: 9px;
   }
 }

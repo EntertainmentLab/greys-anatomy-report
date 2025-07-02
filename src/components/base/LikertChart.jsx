@@ -43,23 +43,29 @@ function LikertChart({
     // Clear previous chart
     d3.select(svgRef.current).selectAll("*").remove()
 
-    // Set up dimensions
-    const margin = { top: 120, right: 40, bottom: 80, left: 60 }
-    const width = 700 - margin.left - margin.right
-    const height = 500 - margin.bottom - margin.top
+    // Responsive dimensions
+    const containerWidth = svgRef.current.parentNode.getBoundingClientRect().width
+    const isMobile = window.innerWidth <= 768
+    const margin = isMobile 
+      ? { top: 100, right: 20, bottom: 120, left: 40 }
+      : { top: 120, right: 40, bottom: 80, left: 60 }
+    const width = Math.min(isMobile ? containerWidth - 40 : 700, containerWidth) - margin.left - margin.right
+    const height = isMobile ? 600 : 500 - margin.bottom - margin.top
 
     const svg = d3.select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
       .attr("height", height + margin.top + margin.bottom)
+      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+      .attr("preserveAspectRatio", "xMidYMid meet")
 
     const g = svg.append("g")
       .attr("transform", `translate(${margin.left},${margin.top})`)
 
-    // Create faceted layout
-    const facetWidth = width / items.length
-    const barWidth = 25
-    const barSpacing = 4
-    const facetPadding = 20
+    // Responsive facet layout
+    const facetWidth = isMobile ? width : width / items.length
+    const barWidth = isMobile ? Math.max(15, width / (items.length * conditions.length) - 8) : 25
+    const barSpacing = isMobile ? 2 : 4
+    const facetPadding = isMobile ? 10 : 20
 
     const yScale = d3.scaleLinear()
       .domain([-60, 60])
@@ -294,15 +300,18 @@ function LikertChart({
     })
 
     // Add legend - centered
-    const legendWidth = categories.length * 120
-    const legendStartX = (width + margin.left + margin.right - legendWidth) / 2
+    const legendWidth = isMobile ? width : categories.length * 120
+    const legendStartX = isMobile ? 0 : (width + margin.left + margin.right - legendWidth) / 2
     
     const legend = svg.append("g")
       .attr("transform", `translate(${legendStartX}, ${height + margin.top + 50})`)
 
     categories.forEach((category, index) => {
       const legendItem = legend.append("g")
-        .attr("transform", `translate(${index * 120}, 0)`)
+        .attr("transform", isMobile 
+          ? `translate(${(index % 2) * (width / 2)}, ${Math.floor(index / 2) * 25})`
+          : `translate(${index * 120}, 0)`
+        )
 
       legendItem.append("rect")
         .attr("width", 15)
