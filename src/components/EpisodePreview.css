@@ -1,0 +1,148 @@
+.episode-preview-trigger {
+  background: none;
+  border: none;
+  color: #005BBB;
+  text-decoration: underline;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.episode-preview-trigger:hover {
+  color: #0080FF;
+}
+
+.episode-preview-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.episode-preview-modal {
+  background: #181818;
+  border-radius: 16px;
+  max-width: 380px;
+  width: 80%;
+  max-height: 80vh;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  animation: slideUp 0.3s ease;
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 24px;
+  font-weight: 300;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+.close-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.episode-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.episode-thumbnail {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #000;
+  overflow: hidden;
+}
+
+.episode-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.episode-info {
+  padding: 24px;
+  color: white;
+}
+
+.episode-info h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 6px 0;
+  color: white;
+}
+
+.episode-meta {
+  font-size: 0.85rem;
+  color: #999;
+  margin: 0 0 16px 0;
+}
+
+.episode-description {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ccc;
+  margin: 0;
+  min-height: 60px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .episode-preview-modal {
+    width: 85%;
+    max-height: 85vh;
+  }
+  
+  .episode-info {
+    padding: 20px;
+  }
+  
+  .episode-info h3 {
+    font-size: 1.125rem;
+  }
+  
+  .episode-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    min-height: 70px;
+  }
+}

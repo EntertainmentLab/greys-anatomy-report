@@ -155,17 +155,18 @@ h2 {
 }
 
 .header_callout {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--color-background);
   background: var(--color-primary);
   font-family: var(--font-primary);
   padding: 8px 20px;
   border-radius: var(--border-radius-sm);
-  display: inline-block;
+  display: block;
   margin-top: auto;
   margin-bottom: 20px;
   line-height: 1.2;
+  text-align: center;
 }
 
 h2:first-child {

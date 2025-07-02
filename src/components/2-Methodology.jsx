@@ -1,7 +1,12 @@
 import InstagramCarousel from './InstagramCarousel';
 import TimelineInfographic from './TimelineInfographic';
+import EpisodePreview from './EpisodePreview';
+import { useState } from 'react';
 
 function Methodology() {
+  const [showEpisodePreview, setShowEpisodePreview] = useState(false);
+  const [showNightMovesPreview, setShowNightMovesPreview] = useState(false);
+
   return (
     <section className="report-section">
       <h2>
@@ -19,21 +24,46 @@ function Methodology() {
       </p>
       <ul>
         <li>
-          <strong>Control Group (N = 1,040):</strong> Viewed Season 21, Episode 6 (<a href="https://www.imdb.com/title/tt33528524/" target="_blank" rel="noopener noreferrer">"Night Moves"</a>)—a narrative episode with no reference to extreme heat or climate.
+          <strong>Control Group (N = 1,040):</strong> Viewed Season 21, Episode 6 (<button 
+            className="episode-preview-trigger"
+            onClick={() => setShowNightMovesPreview(true)}
+          >
+            "Night Moves"
+          </button>)—a narrative episode with no reference to extreme heat or climate.
         </li>
         <li>
-          <strong>Heat Wave Group (N = 1,091):</strong> Viewed Season 21, Episode 8 (<a href="https://www.imdb.com/title/tt33528529/" target="_blank" rel="noopener noreferrer">"Drop it Like it's Hot"</a>), in which a severe heatwave disrupts hospital operations and patient care.
+          <strong>Heat Wave Group (N = 1,091):</strong> Viewed Season 21, Episode 8 (<button 
+            className="episode-preview-trigger"
+            onClick={() => setShowEpisodePreview(true)}
+          >
+            "Drop it Like it's Hot"
+          </button>), in which a severe heatwave disrupts hospital operations and patient care.
         </li>
         <li>
           <strong>Heat Wave + Handoff Group (N = 1,073):</strong> Viewed the same episode as the Heat Wave group, followed by one of four climate-related Instagram videos developed to contextualize the episode's content within broader climate-health dynamics.
         </li>
       </ul>
 
+      <EpisodePreview 
+        isOpen={showEpisodePreview}
+        onClose={() => setShowEpisodePreview(false)}
+        episode="hot"
+      />
+
+      <EpisodePreview 
+        isOpen={showNightMovesPreview}
+        onClose={() => setShowNightMovesPreview(false)}
+        episode="night"
+      />
+
       <InstagramCarousel />
 
       <h3>
         Timeline and Measures
       </h3>
+      <p>
+        We employed a longitudinal design to assess both immediate and sustained effects of the viewing experience. Participants completed surveys at three time points: a baseline assessment prior to viewing, an immediate post-viewing survey, and a follow-up survey approximately two to three weeks later to examine whether any observed effects persisted over time.
+      </p>
       
       <TimelineInfographic />
 
