@@ -149,6 +149,8 @@
   min-width: 300px;
   height: auto;
   display: block;
+  min-height: 200px;
+  max-height: 400px;
 }
 
 /* Add styling for wrapped y-axis labels */
@@ -175,7 +177,10 @@
   }
   
   .chart-container svg {
-    min-width: 400px;
+    min-width: 320px;
+    min-height: 180px;
+    max-height: 280px;
+    width: 100%;
   }
   
   .political-party-controls, .policy-type-controls {
@@ -210,7 +215,9 @@
 
 @media (max-width: 480px) {
   .chart-container svg {
-    min-width: 350px;
+    min-width: 280px;
+    min-height: 160px;
+    max-height: 240px;
   }
   
   .wave-controls {
