@@ -1,14 +1,14 @@
 .instagram-section {
-  /* Inherit from shared base */
+  /* Use shared section styling */
   margin: 40px 0;
-  padding: 0 0 0 0;
+  padding: 0;
   background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
   border-radius: 28px;
   border: 1.5px solid #d1d5db;
   box-shadow: 0 8px 32px rgba(0, 91, 187, 0.07), 0 1.5px 0 #fff inset;
   position: relative;
   overflow: visible;
-  color: #0e57e7; /* softer dark gray for text */
+  color: #0e57e7;
 }
 
 .section-content {
@@ -53,7 +53,7 @@
 .text-content li {
   margin-bottom: 10px;
   font-size: 1rem;
-    line-height: 1.6;
+  line-height: 1.6;
   position: relative;
 }
 
@@ -62,7 +62,7 @@
   background: #000;
   border-radius: 24px;
   padding: 12px;
-  border: 3px solid #18181b; /* subtle dark border, not blue */
+  border: 3px solid #18181b;
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.10),
     0 0 0 1px rgba(255,255,255,0.08);
@@ -80,7 +80,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: #333; /* restore original dark handle */
+  background: #333;
   border-radius: 2px;
   z-index: 10;
 }
@@ -227,12 +227,10 @@
 
 .carousel-nav.prev {
   top: 20px;
-  transform: translateX(-50%);
 }
 
 .carousel-nav.next {
   bottom: 15px;
-  transform: translateX(-50%);
 }
 
 .carousel-nav svg {
@@ -322,9 +320,10 @@
 
 @media (max-width: 768px) {
   .instagram-section {
-    padding: 0 0 0 0;
+    padding: 0;
+    margin: 20px 0;
   }
-  
+
   .section-content {
     gap: 24px;
     padding: 24px 0 16px 0;
@@ -401,3 +400,4 @@
     stroke-dashoffset: 126;
   }
 }
+

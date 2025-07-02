@@ -2,7 +2,7 @@ import { useRef } from 'react'
 import { useClimateTemporalData } from '../hooks/useClimateTemporalData'
 import { COLOR_MAP } from '../constants'
 import { useTemporalChart } from './base/TemporalChart'
-import './3.5-ClimateTemporalChart.css'
+import '../styles/components/Chart-ClimateTemporal.css'
 
 // Define conditions with your color scheme
 const CLIMATE_CONDITIONS = [

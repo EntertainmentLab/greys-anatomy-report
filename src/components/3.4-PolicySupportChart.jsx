@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { usePolicyData } from '../hooks/usePolicyData'
 import { WAVE_LABELS } from '../constants'
 import { useEnhancedChart } from './base/EnhancedChart'
-import './base/DumbbellChart.css'
+import '../styles/components/Chart-Dumbbell.css'
 
 function PolicySupportChart() {
   const [currentWave, setCurrentWave] = useState(2)

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import './EpisodePreview.css';
+import '../styles/components/EpisodePreview.css';
 
 const EpisodePreview = ({ isOpen, onClose, episode }) => {
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { CONDITIONS_CONFIG } from '../constants'
-import './Legend.css'
+import '../styles/components/Legend.css'
 
 function Legend() {
   return (

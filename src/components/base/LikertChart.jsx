@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
-import './LikertChart.css'
+import '../../styles/components/Chart-Likert.css'
 
 function LikertChart({ 
   data, 

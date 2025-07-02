@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useImpactsData } from '../hooks/useImpactsData'
 import { SYSTEM_IMPACT_ISSUES, SYSTEM_RESPONSE_CATEGORIES, WAVE_LABELS } from '../constants'
 import LikertChart from './base/LikertChart'
-import './base/LikertChart.css'
+import '../styles/components/Chart-Likert.css'
 
 const CONDITIONS = ["Control", "Heat Wave", "Heat Wave + Handoff"]
 

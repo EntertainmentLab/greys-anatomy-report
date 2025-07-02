@@ -1,5 +1,5 @@
 import { COLOR_MAP, CONDITION_LABELS } from '../constants'
-import './Controls.css'
+import '../styles/components/Controls.css'
 
 function Controls({ currentWave, currentView, selectedConditions, onWaveChange, onViewChange, onConditionsChange }) {
   const conditions = [

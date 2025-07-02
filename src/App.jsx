@@ -7,7 +7,7 @@ import Methodology from './components/2-Methodology'
 import KeyFindings from './components/3-KeyFindings'
 import { useKnowledgeData } from './hooks/useKnowledgeData'
 import Banner from './components/Banner'
-import './App.css'
+import './styles/global/App.css'
 
 function App() {
   const [currentWave, setCurrentWave] = useState(2)

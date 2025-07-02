@@ -4,6 +4,7 @@
   padding: 0;
   background: none;
   border: none;
+  pointer-events: none;
 }
 
 .header h1 {

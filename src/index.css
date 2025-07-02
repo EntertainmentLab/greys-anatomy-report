@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap');
+@import './styles/shared/sections.css';
+@import './styles/shared/filters.css';
 
 :root {
   /* Fonts */
@@ -49,8 +51,6 @@ body {
   color: var(--color-text);
   min-height: 100vh;
   line-height: 1.6;
-  margin: 0;
-  padding: 0;
 }
 
 .container {
@@ -62,7 +62,7 @@ body {
   background: var(--color-background);
 }
 
-/* Adjust main content to account for banner */
+/* Main title section */
 .main-title-section {
   background: linear-gradient(135deg, #fafafa 0%, #f8fafc 100%);
   padding: 0;
@@ -105,35 +105,6 @@ body {
   background: linear-gradient(90deg, #005BBB 0%, #0080FF 100%);
   border-radius: 2px;
   box-shadow: 0 2px 8px rgba(0, 91, 187, 0.3);
-}
-
-.loading, .error {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 50vh;
-  font-size: 1.125rem;
-  color: var(--color-text-muted);
-  font-family: var(--font-primary);
-}
-
-.error {
-  color: var(--color-error);
-}
-
-/* Card for chart containers and other blocks */
-.card {
-  background: var(--color-surface);
-  border-radius: var(--border-radius-lg);
-  padding: calc(var(--spacing-unit) * 4);
-  margin-bottom: calc(var(--spacing-unit) * 4);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-/* Chart container */
-.chart-container {
-  padding: 32px;
 }
 
 /* Global report typography */
@@ -234,85 +205,6 @@ li strong {
 [contenteditable="true"]:focus {
   outline-color: var(--color-primary);
   background: rgba(0, 91, 187, 0.1);
-}
-
-/* Filter controls */
-.filter-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--spacing-unit);
-  margin-bottom: calc(var(--spacing-unit) * 3);
-}
-
-.filter-button {
-  background: var(--filter-bg);
-  border: 1px solid var(--filter-border);
-  border-radius: var(--border-radius-md);
-  padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--filter-text);
-  cursor: pointer;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.filter-button:hover {
-  background: var(--filter-bg-hover);
-}
-
-.filter-button:active, .filter-button.active {
-  background: var(--filter-bg-active);
-  border-color: var(--filter-border-active);
-  color: var(--filter-text-active);
-  box-shadow: var(--filter-shadow-active);
-}
-
-/* Secondary filter tags - distinct from buttons */
-.filter-tag {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  border: 1px solid #bae6fd;
-  border-radius: var(--border-radius-xl);
-  padding: calc(var(--spacing-unit) * 0.75) calc(var(--spacing-unit) * 1.5);
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: #0369a1;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  box-shadow: 0 1px 2px rgba(3, 105, 161, 0.1);
-}
-
-.filter-tag:hover {
-  background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
-  border-color: #7dd3fc;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(3, 105, 161, 0.15);
-}
-
-.filter-tag:active, .filter-tag.active {
-  background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
-  border-color: #0284c7;
-  color: white;
-  transform: translateY(0);
-  box-shadow: 0 1px 2px rgba(3, 105, 161, 0.2);
-}
-
-.filter-tag::before {
-  content: "◆";
-  font-size: 0.75rem;
-  opacity: 0.7;
-}
-
-.filter-tag.active::before {
-  content: "◆";
-  opacity: 1;
 }
 
 /* Banner Styles */
@@ -487,22 +379,10 @@ li strong {
     height: 3px;
   }
   
-  .main-title-section {
-    padding: 0;
-  }
-  
-  .chart-container {
-    padding: 24px;
-  }
-  
   .banner-container {
     height: 60vh;
     min-height: 400px;
     max-height: 600px;
-  }
-  
-  .banner-content {
-    padding: 0;
   }
   
   .rare-logo-container {
@@ -552,22 +432,10 @@ li strong {
     bottom: -12px;
   }
   
-  .main-title-section {
-    padding: 0;
-  }
-  
-  .chart-container {
-    padding: 20px;
-  }
-  
   .banner-container {
     height: 50vh;
     min-height: 350px;
     max-height: 500px;
-  }
-  
-  .banner-content {
-    padding: 0;
   }
   
   .rare-logo-container {

@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { useKnowledgeData } from '../hooks/useKnowledgeData'
 import { WAVE_LABELS } from '../constants'
 import { useEnhancedChart } from './base/EnhancedChart'
-import './base/DumbbellChart.css'
+import '../styles/components/Chart-Dumbbell.css'
 
 function KnowledgeAccuracyChart() {
   const [currentWave, setCurrentWave] = useState(2)

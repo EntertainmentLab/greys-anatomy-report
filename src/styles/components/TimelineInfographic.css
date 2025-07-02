@@ -1,16 +1,3 @@
-/* Timeline Infographic Section - same as Instagram section */
-.timeline-infographic {
-  /* Use shared section styling - same as Instagram section */
-  margin: 40px 0;
-  padding: 40px;
-  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
-  border-radius: 28px;
-  border: 1.5px solid #d1d5db;
-  box-shadow: 0 8px 32px rgba(0, 91, 187, 0.07), 0 1.5px 0 #fff inset;
-  position: relative;
-  overflow: visible;
-}
-
 /* Header Section */
 .timeline-header {
   text-align: center;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './InstagramCarousel.css';
+import '../styles/components/InstagramCarousel.css';
 
 const InstagramCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
