@@ -38,10 +38,10 @@ const Banner = () => {
       .style('opacity', 1 - progress * 0.7)
       .style('transform', `translateY(${progress * -50}px)`);
 
-
   }, [scrollY, bannerHeight]);
 
-  const isSticky = scrollY > bannerHeight * 0.9;
+  // Improved sticky header logic with better threshold
+  const isSticky = scrollY > bannerHeight * 0.7;
 
   return (
     <>
