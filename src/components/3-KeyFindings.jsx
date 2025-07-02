@@ -73,15 +73,7 @@ function KeyFindings() {
         Entertainment Value
       </h3>
       <p>
-        Critically, there was{' '}
-        <a
-          href={`${import.meta.env.BASE_URL}handoff_vs_treatment_recommendation.html`}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          no significant difference
-        </a>
-        {' '}between the treatment and handoff groups in participants' reported likelihood of recommending Grey's Anatomy after viewing the episode. The addition of impact-focused Instagram content did not reduce or enhance entertainment value, demonstrating that educational supplements can be added without compromising the viewing experience.
+        Critically, there was no significant difference between the treatment and handoff groups in participants' reported likelihood of recommending Grey's Anatomy after viewing the episode. The addition of impact-focused Instagram content did not reduce or enhance entertainment value, demonstrating that educational supplements can be added without compromising the viewing experience.
 
       </p>
 
@@ -98,38 +90,20 @@ function KeyFindings() {
       <ul>
         <li>
           <a
-            href={`${import.meta.env.BASE_URL}primary_models.html`}
+            href={`${import.meta.env.BASE_URL}analysis-report.html`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Primary Models
+            Primary and Supplementary Analyses
           </a>
         </li>
         <li>
           <a
-            href={`${import.meta.env.BASE_URL}ame_models.html`}
+            href={`${import.meta.env.BASE_URL}ate_ame_comparison.html`}
             target="_blank"
             rel="noopener noreferrer"
           >
-            Average Marginal Effects
-          </a>
-        </li>
-        <li>
-          <a
-            href={`${import.meta.env.BASE_URL}individual_matrix_items_effects.html`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Individual Treatment Effects
-          </a>
-        </li>
-        <li>
-          <a
-            href={`${import.meta.env.BASE_URL}heterogeneous_treatment_effects.html`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Heterogeneous Treatment Effects
+            ATE vs. AME Model Comparison
           </a>
         </li>
       </ul>
