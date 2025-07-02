@@ -14,8 +14,8 @@ export const COLOR_MAP = {
 
 export const CONDITION_LABELS = {
   control: 'Control',
-  treatment: 'Heatwave',
-  handoff: 'Heatwave + Handoff'
+  treatment: 'Heat Wave',
+  handoff: 'Heat Wave + Handoff'
 }
 
 export const RESPONSE_CATEGORIES = [
@@ -71,8 +71,8 @@ export const CLIMATE_TEMPORAL_WAVES = [
 // Climate temporal proximity conditions with colors
 export const CLIMATE_CONDITIONS = [
   { name: "Control", color: "#e879b9" },      // Pink
-  { name: "Heatwave", color: "#60a5fa" },     // Light blue
-  { name: "Heatwave + Handoff", color: "#2563eb" } // Dark blue
+  { name: "Heat Wave", color: "#60a5fa" },     // Light blue
+  { name: "Heat Wave + Handoff", color: "#2563eb" } // Dark blue
 ]
 
 // Time point labels for x-axis

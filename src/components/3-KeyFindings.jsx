@@ -15,7 +15,7 @@ function KeyFindings() {
       </p>
 
       <h3>
-        Knowledge of Heatwave Health Impacts
+        Knowledge of Heat Wave Health Impacts
       </h3>
       <p>
         The heatwave episode effectively educated viewers about the serious health risks associated with extreme heat, particularly that it can trigger premature labor in pregnant women—a medical fact introduced early in the episode. While the handoff condition produced comparable or marginally stronger outcomes, the differences between the treatment and handoff groups were minimal and largely statistically nonsignificant. This educational boost persisted 15 days after viewing, demonstrating that the knowledge gained has lasting impact.
@@ -63,9 +63,9 @@ function KeyFindings() {
       <div className="additional-effects">
         <b>Climate Action Support:</b> The handoff condition significantly increased support for climate action, particularly in normative beliefs and intent to act. These effects were modest but consistent.
         <br />
-        <b>Perceived Likelihood of Heatwave Exposure:</b> The handoff condition significantly increased perceived risk of experiencing a severe heatwave, compared to both control and treatment conditions. The treatment-only group saw a modest, marginal increase.
+        <b>Perceived Likelihood of Heat Wave Exposure:</b> The handoff condition significantly increased perceived risk of experiencing a severe heatwave, compared to both control and treatment conditions. The treatment-only group saw a modest, marginal increase.
         <br />
-        <b>Perceived Heatwave Threat Severity:</b> Both treatment and handoff conditions significantly increased perceived threat severity, including greater concern over potential harm and increased behavioral intentions. The handoff condition yielded the largest effects.
+        <b>Perceived Heat Wave Threat Severity:</b> Both treatment and handoff conditions significantly increased perceived threat severity, including greater concern over potential harm and increased behavioral intentions. The handoff condition yielded the largest effects.
 
       </div>
 

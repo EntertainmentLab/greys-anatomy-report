@@ -7,8 +7,8 @@ import './3.5-ClimateTemporalChart.css'
 // Define conditions with your color scheme
 const CLIMATE_CONDITIONS = [
   { name: "Control", color: COLOR_MAP.control },
-  { name: "Heatwave", color: COLOR_MAP.treatment },
-  { name: "Heatwave + Handoff", color: COLOR_MAP.handoff }
+  { name: "Heat Wave", color: COLOR_MAP.treatment },
+  { name: "Heat Wave + Handoff", color: COLOR_MAP.handoff }
 ]
 
 // Define wave mapping including intermediate time points

@@ -1,6 +1,13 @@
 .instagram-section {
-  margin: 20px 0;
-  padding: 0 20px;
+  margin: 40px 0;
+  padding: 0 0 0 0;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  border-radius: 28px;
+  border: 1.5px solid #d1d5db;
+  box-shadow: 0 8px 32px rgba(0, 91, 187, 0.07), 0 1.5px 0 #fff inset;
+  position: relative;
+  overflow: visible;
+  color: #0e57e7; /* softer dark gray for text */
 }
 
 .section-content {
@@ -9,6 +16,7 @@
   align-items: flex-start;
   max-width: 1400px;
   margin: 0 auto;
+  padding: 40px 32px 32px 32px;
 }
 
 .text-content {
@@ -18,11 +26,11 @@
 }
 
 .text-content p {
-  font-size: 1.1rem;
-  line-height: 1.7;
+  font-size: 1rem;
+  line-height: 1.5;
   color: var(--color-text-secondary, #4a5568);
   margin-bottom: 24px;
-  text-align: justify;
+  text-align: left;
 }
 
 .text-content a {
@@ -36,15 +44,27 @@
   text-decoration: underline;
 }
 
+.text-content ul {
+  margin: 0 0 24px 0;
+  padding-left: 1.6em;
+}
+
+.text-content li {
+  margin-bottom: 10px;
+  font-size: 1rem;
+    line-height: 1.6;
+  position: relative;
+}
+
 .carousel-content {
   flex: 0 0 280px;
   background: #000;
   border-radius: 24px;
   padding: 12px;
-  border: 3px solid #1a1a1a;
+  border: 3px solid #18181b; /* subtle dark border, not blue */
   box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.3),
-    0 0 0 1px rgba(255, 255, 255, 0.1);
+    0 20px 40px rgba(0, 0, 0, 0.10),
+    0 0 0 1px rgba(255,255,255,0.08);
   position: relative;
   overflow: hidden;
   aspect-ratio: 9/17;
@@ -59,7 +79,7 @@
   transform: translateX(-50%);
   width: 60px;
   height: 4px;
-  background: #333;
+  background: #333; /* restore original dark handle */
   border-radius: 2px;
   z-index: 10;
 }
@@ -270,6 +290,7 @@
 @media (max-width: 1200px) {
   .section-content {
     gap: 30px;
+    padding: 32px 16px 24px 16px;
   }
   
   .carousel-content {
@@ -283,6 +304,7 @@
     flex-direction: column;
     gap: 30px;
     align-items: center;
+    padding: 32px 8px 20px 8px;
   }
   
   .text-content {
@@ -299,11 +321,12 @@
 
 @media (max-width: 768px) {
   .instagram-section {
-    padding: 0 16px;
+    padding: 0 0 0 0;
   }
   
   .section-content {
     gap: 24px;
+    padding: 24px 0 16px 0;
   }
   
   .carousel-content {

@@ -72,12 +72,21 @@ const InstagramCarousel = () => {
     <div className="instagram-section">
       <div className="section-content">
         <div className="text-content">
+          <div className="header_callout">Handoff Content: Instagram Videos</div>
           <p>
-            The four climate-related Instagram videos used in the handoff condition featured content creators discussing heat-related health impacts and climate adaptation strategies. These videos were developed in partnership with <a href="https://www.acecomms.org/" target="_blank" rel="noopener noreferrer"><strong>ACE (ecoAmerica)</strong></a>, a research and communications organization that uses data-driven insights to shift American attitudes and behaviors on climate change and environmental issues.
+            The four climate-related Instagram videos used in the handoff condition were commissioned and distributed by Action for the Climate Emergency (ACE), a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's #DangerDome impact campaign, which was specifically designed to:
           </p>
-          <p>
-            Each video was designed to seamlessly connect the fictional narrative of Grey's Anatomy with real-world climate science and health implications, helping viewers understand how extreme heat events depicted in entertainment reflect genuine public health challenges facing communities across the United States.
-          </p>
+          <ul>
+            <li>
+              Amplify Grey’s Anatomy’s Season 21 “heat‑dome” storyline for viewers who had just watched the episode;
+            </li>
+            <li>
+              Translate the drama into clear climate‑science take‑aways about extreme heat, health risks, and community preparedness; and
+            </li>
+            <li>
+              Test whether this supplemental, creator‑driven content could deepen knowledge and concern in tandem with the show’s narrative.
+            </li>
+          </ul>
         </div>
 
         <div className="carousel-content">
@@ -92,8 +101,8 @@ const InstagramCarousel = () => {
               >
                 <div className="profile-inner">
                   {image.profileImage ? (
-                    <img 
-                      src={image.profileImage} 
+                    <img
+                      src={image.profileImage}
                       alt={`Profile of ${image.creator}`}
                       loading="lazy"
                       onError={(e) => {
@@ -116,19 +125,19 @@ const InstagramCarousel = () => {
           </div>
 
           <div className="carousel-container">
-            <button 
-              className="carousel-nav prev" 
-              onClick={prevSlide} 
+            <button
+              className="carousel-nav prev"
+              onClick={prevSlide}
               aria-label="Previous image"
               type="button"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
 
             <div className="carousel-track">
-              <div 
+              <div
                 className="carousel-slides"
                 style={{ transform: `translateY(-${currentSlide * 25}%)` }}
               >
@@ -140,7 +149,7 @@ const InstagramCarousel = () => {
                       rel="noopener noreferrer"
                       aria-label={`View ${image.title} on Instagram`}
                     >
-                      <img 
+                      <img
                         src={image.src}
                         alt={image.alt}
                         title={image.title}
@@ -152,14 +161,14 @@ const InstagramCarousel = () => {
               </div>
             </div>
 
-            <button 
-              className="carousel-nav next" 
-              onClick={nextSlide} 
+            <button
+              className="carousel-nav next"
+              onClick={nextSlide}
               aria-label="Next image"
               type="button"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
           </div>

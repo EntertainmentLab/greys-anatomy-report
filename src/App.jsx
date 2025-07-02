@@ -24,7 +24,7 @@ function App() {
       <div className="main-title-section">
         <div className="main-title-container">
           <h1>
-            The Impact of Heatwave Storytelling on Climate Beliefs and Health Risk Perceptions
+            The Impact of Heat Wave Storytelling on Climate Beliefs and Health Risk Perceptions
           </h1>
         </div>
       </div>

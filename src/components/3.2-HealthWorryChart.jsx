@@ -4,7 +4,7 @@ import { HEALTH_ISSUES, RESPONSE_CATEGORIES, WAVE_LABELS } from '../constants'
 import LikertChart from './base/LikertChart'
 import './base/LikertChart.css'
 
-const CONDITIONS = ["Control", "Heatwave", "Heatwave + Handoff"]
+const CONDITIONS = ["Control", "Heat Wave", "Heat Wave + Handoff"]
 
 const HEALTH_ITEMS = HEALTH_ISSUES.map(issue => ({
   label: issue,
@@ -42,7 +42,7 @@ function HealthWorryChart() {
         categories={RESPONSE_CATEGORIES}
         items={HEALTH_ITEMS}
         conditions={CONDITIONS}
-        title="Perceived Threat of Heatwaves on Health Issues"
+        title="Perceived Threat of Heat Waves on Health Issues"
         subtitle='"If you were experiencing a severe heat wave, how worried would you be about the following health issues harming you, your family, or people in your community?"'
         currentWave={currentWave}
         waveLabels={WAVE_LABELS}

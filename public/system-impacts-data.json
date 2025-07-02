@@ -1,7 +1,7 @@
 [
   {
     "wave": 2,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Surgery Cancellation",
     "a_great_deal": 10.6,
     "quite_a_bit": 15.3,
@@ -11,7 +11,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Surgery Cancellation",
     "a_great_deal": 10.1,
     "quite_a_bit": 19.4,
@@ -31,7 +31,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Losing Power",
     "a_great_deal": 13.2,
     "quite_a_bit": 20.3,
@@ -41,7 +41,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Losing Power",
     "a_great_deal": 13.1,
     "quite_a_bit": 19.9,
@@ -61,7 +61,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Resource Shortage",
     "a_great_deal": 16.2,
     "quite_a_bit": 24,
@@ -71,7 +71,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Resource Shortage",
     "a_great_deal": 18.2,
     "quite_a_bit": 22.5,
@@ -91,7 +91,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Overcrowding",
     "a_great_deal": 15.7,
     "quite_a_bit": 23.7,
@@ -101,7 +101,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Overcrowding",
     "a_great_deal": 18.4,
     "quite_a_bit": 22.9,
@@ -121,7 +121,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Er Visits",
     "a_great_deal": 16.9,
     "quite_a_bit": 25.6,
@@ -131,7 +131,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Er Visits",
     "a_great_deal": 19.1,
     "quite_a_bit": 26.7,
@@ -151,7 +151,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Response Times",
     "a_great_deal": 18.9,
     "quite_a_bit": 25.2,
@@ -161,7 +161,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Response Times",
     "a_great_deal": 20.4,
     "quite_a_bit": 26.6,
@@ -181,7 +181,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Surgery Cancellation",
     "a_great_deal": 7.7,
     "quite_a_bit": 13.4,
@@ -191,7 +191,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Surgery Cancellation",
     "a_great_deal": 9.4,
     "quite_a_bit": 14.4,
@@ -211,7 +211,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Losing Power",
     "a_great_deal": 10.6,
     "quite_a_bit": 15.6,
@@ -221,7 +221,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Losing Power",
     "a_great_deal": 11.9,
     "quite_a_bit": 15.8,
@@ -241,7 +241,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Resource Shortage",
     "a_great_deal": 13,
     "quite_a_bit": 18.8,
@@ -251,7 +251,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Resource Shortage",
     "a_great_deal": 14.7,
     "quite_a_bit": 19.5,
@@ -271,7 +271,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Overcrowding",
     "a_great_deal": 12.5,
     "quite_a_bit": 18.3,
@@ -281,7 +281,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Overcrowding",
     "a_great_deal": 15.6,
     "quite_a_bit": 18.9,
@@ -301,7 +301,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Er Visits",
     "a_great_deal": 15.4,
     "quite_a_bit": 21.6,
@@ -311,7 +311,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Er Visits",
     "a_great_deal": 16,
     "quite_a_bit": 23.5,
@@ -331,7 +331,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave",
+    "condition": "Heat Wave",
     "impact_issue": "Response Times",
     "a_great_deal": 14,
     "quite_a_bit": 22.9,
@@ -341,7 +341,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heatwave + Handoff",
+    "condition": "Heat Wave + Handoff",
     "impact_issue": "Response Times",
     "a_great_deal": 16.5,
     "quite_a_bit": 22.3,

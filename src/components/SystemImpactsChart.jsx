@@ -4,7 +4,7 @@ import { SYSTEM_IMPACTS, IMPACT_CATEGORIES, WAVE_LABELS } from '../constants'
 import LikertChart from './base/LikertChart'
 import './SystemImpactsChart.css'
 
-const CONDITIONS = ["Control", "Heatwave", "Heatwave + Handoff"]
+const CONDITIONS = ["Control", "Heat Wave", "Heat Wave + Handoff"]
 
 const SYSTEM_ITEMS = SYSTEM_IMPACTS.map(impact => ({
   label: impact,
@@ -42,7 +42,7 @@ function SystemImpactsChart() {
         categories={IMPACT_CATEGORIES}
         items={SYSTEM_ITEMS}
         conditions={CONDITIONS}
-        title="Perceived System Impacts of Heatwaves"
+        title="Perceived System Impacts of Heat Waves"
         subtitle='"How much do you think heatwaves would impact the following systems in your community?"'
         currentWave={currentWave}
         waveLabels={WAVE_LABELS}

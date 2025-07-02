@@ -22,31 +22,6 @@
   border-bottom: 2px solid var(--color-border);
 }
 
-.edit-controls {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-}
-
-.edit-btn {
-  padding: 8px 16px;
-  border: 1px solid var(--color-primary);
-  border-radius: var(--border-radius-md);
-  background: transparent;
-  color: var(--color-primary);
-  font-weight: 600;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: var(--font-primary);
-}
-
-.edit-btn:hover,
-.edit-btn.active {
-  background: var(--color-primary);
-  color: white;
-}
-
 @media (max-width: 768px) {
   .report-container {
     padding: 20px 20px;
@@ -97,52 +72,6 @@
   color: #dc2626;
 }
 
-.edit-controls {
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 20px;
-}
-
-.edit-btn {
-  padding: 8px 16px;
-  border: 1px solid var(--color-primary);
-  border-radius: var(--border-radius-md);
-  background: transparent;
-  color: var(--color-primary);
-  font-weight: 600;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-family: var(--font-primary);
-}
-
-.edit-btn:hover {
-  background: var(--color-primary);
-  color: white;
-}
-
-.edit-btn.active {
-  background: var(--color-primary);
-  color: white;
-}
-
-/* Editable content styling */
-[contenteditable="true"] {
-  outline: 2px dashed transparent;
-  transition: outline 0.2s ease;
-  padding: 4px;
-  border-radius: 3px;
-}
-
-[contenteditable="true"]:hover {
-  outline-color: #005BBB;
-  background: rgba(0, 91, 187, 0.05);
-}
-
-[contenteditable="true"]:focus {
-  outline-color: #005BBB;
-  background: rgba(0, 91, 187, 0.1);
-}
 
 @media (max-width: 768px) {
   .report-container {

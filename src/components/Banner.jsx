@@ -38,10 +38,6 @@ const Banner = () => {
       .style('opacity', 1 - progress * 0.7)
       .style('transform', `translateY(${progress * -50}px)`);
 
-    // Animate rare logo
-    banner.select('.rare-logo-container')
-      .style('transform', `translateY(${progress * 20}px)`)
-      .style('opacity', 1 - progress * 0.5);
 
   }, [scrollY, bannerHeight]);
 
