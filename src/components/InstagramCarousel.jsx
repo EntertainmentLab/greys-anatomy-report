@@ -5,22 +5,38 @@ const InstagramCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
-  const videos = [
+  const images = [
     {
-      src: `${import.meta.env.BASE_URL}insta_scotpilie_wx.html`,
-      title: "Instagram post by Scot Pilié"
+      src: `${import.meta.env.BASE_URL}insta_scotpilie_wx.png`,
+      title: "Instagram post by Scot Pilié",
+      alt: "Instagram post by meteorologist Scot Pilié discussing heat-related health impacts",
+      creator: "SP",
+      profileImage: `${import.meta.env.BASE_URL}scotpilie_wx.jpg`,
+      instagramUrl: "https://www.instagram.com/reel/DG6BgVAxhij/?utm_source=ig_web_button_share_sheet"
     },
     {
-      src: `${import.meta.env.BASE_URL}insta_farmernick.html`,
-      title: "Instagram post by Nick Cutsumpas"
+      src: `${import.meta.env.BASE_URL}insta_farmernick.png`,
+      title: "Instagram post by Nick Cutsumpas",
+      alt: "Instagram post by Nick Cutsumpas about climate adaptation strategies",
+      creator: "NC",
+      profileImage: `${import.meta.env.BASE_URL}farmernick.jpg`,
+      instagramUrl: "https://www.instagram.com/reel/DG5o77lAYV4/?utm_source=ig_web_button_share_sheet"
     },
     {
-      src: `${import.meta.env.BASE_URL}insta_eyeinspired.html`,
-      title: "Instagram post by Kelly Edelman"
+      src: `${import.meta.env.BASE_URL}insta_eyeinspired.png`,
+      title: "Instagram post by Kelly Edelman",
+      alt: "Instagram post by Kelly Edelman on heat safety and prevention",
+      creator: "KE",
+      profileImage: `${import.meta.env.BASE_URL}eyeinspired.jpg`,
+      instagramUrl: "https://www.instagram.com/reel/DG8WJFNuxwm/?utm_source=ig_web_button_share_sheet"
     },
     {
-      src: `${import.meta.env.BASE_URL}insta_becomingdrdevore.html`,
-      title: "Instagram post by Sydney DeVore"
+      src: `${import.meta.env.BASE_URL}insta_becomingdrdevore.png`,
+      title: "Instagram post by Sydney DeVore",
+      alt: "Instagram post by Dr. Sydney DeVore on heat-related health risks",
+      creator: "SD",
+      profileImage: `${import.meta.env.BASE_URL}becomingdrdevore.jpg`,
+      instagramUrl: "https://www.instagram.com/reel/DG_myvfBnLC/"
     }
   ];
 
@@ -28,11 +44,11 @@ const InstagramCarousel = () => {
     if (!isAutoPlaying) return;
 
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % videos.length);
+      setCurrentSlide((prev) => (prev + 1) % images.length);
     }, 6000);
 
     return () => clearInterval(interval);
-  }, [isAutoPlaying, videos.length]);
+  }, [isAutoPlaying, images.length]);
 
   const goToSlide = (index) => {
     setCurrentSlide(index);
@@ -41,13 +57,13 @@ const InstagramCarousel = () => {
   };
 
   const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % videos.length);
+    setCurrentSlide((prev) => (prev + 1) % images.length);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 3000);
   };
 
   const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + videos.length) % videos.length);
+    setCurrentSlide((prev) => (prev - 1 + images.length) % images.length);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 3000);
   };
@@ -65,58 +81,87 @@ const InstagramCarousel = () => {
         </div>
 
         <div className="carousel-content">
+          <div className="profile-circles">
+            {images.map((image, index) => (
+              <button
+                key={index}
+                className={`profile-circle ${index === currentSlide ? 'active' : ''}`}
+                onClick={() => goToSlide(index)}
+                aria-label={`Go to ${image.creator}'s post`}
+                type="button"
+              >
+                <div className="profile-inner">
+                  {image.profileImage ? (
+                    <img 
+                      src={image.profileImage} 
+                      alt={`Profile of ${image.creator}`}
+                      loading="lazy"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                  ) : null}
+                  <span style={{ display: 'none' }}>{image.creator}</span>
+                </div>
+                {isAutoPlaying && index === currentSlide && (
+                  <div className="progress-ring">
+                    <svg width="54" height="54">
+                      <circle cx="27" cy="27" r="25" />
+                    </svg>
+                  </div>
+                )}
+              </button>
+            ))}
+          </div>
+
           <div className="carousel-container">
-            <button className="carousel-nav prev" onClick={prevSlide} aria-label="Previous video">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <button 
+              className="carousel-nav prev" 
+              onClick={prevSlide} 
+              aria-label="Previous image"
+              type="button"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M18 15L12 9L6 15" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
 
             <div className="carousel-track">
               <div 
                 className="carousel-slides"
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                style={{ transform: `translateY(-${currentSlide * 25}%)` }}
               >
-                {videos.map((video, index) => (
+                {images.map((image, index) => (
                   <div key={index} className="carousel-slide">
-                    <iframe 
-                      src={video.src}
-                      width="100%" 
-                      height="750" 
-                      frameBorder="0"
-                      title={video.title}
-                      loading={index === currentSlide ? "eager" : "lazy"}
-                    />
+                    <a
+                      href={image.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`View ${image.title} on Instagram`}
+                    >
+                      <img 
+                        src={image.src}
+                        alt={image.alt}
+                        title={image.title}
+                        loading={index === currentSlide ? "eager" : "lazy"}
+                      />
+                    </a>
                   </div>
                 ))}
               </div>
             </div>
 
-            <button className="carousel-nav next" onClick={nextSlide} aria-label="Next video">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M9 18L15 12L9 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <button 
+              className="carousel-nav next" 
+              onClick={nextSlide} 
+              aria-label="Next image"
+              type="button"
+            >
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                <path d="M6 9L12 15L18 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </button>
-          </div>
-
-          <div className="carousel-indicators">
-            {videos.map((_, index) => (
-              <button
-                key={index}
-                className={`indicator ${index === currentSlide ? 'active' : ''}`}
-                onClick={() => goToSlide(index)}
-                aria-label={`Go to video ${index + 1}`}
-              >
-                <span className="indicator-dot"></span>
-                {isAutoPlaying && index === currentSlide && (
-                  <div className="progress-ring">
-                    <svg width="24" height="24">
-                      <circle cx="12" cy="12" r="10" />
-                    </svg>
-                  </div>
-                )}
-              </button>
-            ))}
           </div>
         </div>
       </div>
