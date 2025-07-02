@@ -90,7 +90,7 @@ function KeyFindings() {
       <ul>
         <li>
           <a
-            href={`${import.meta.env.BASE_URL}analysis-report.html`}
+            href={`${import.meta.env.BASE_URL}analysis_report.html`}
             target="_blank"
             rel="noopener noreferrer"
           >
