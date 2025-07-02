@@ -6,21 +6,19 @@ import '../styles/components/Chart-Dumbbell.css'
 
 function KnowledgeAccuracyChart() {
   const [currentWave, setCurrentWave] = useState(2)
-  const [currentPoliticalParty, setCurrentPoliticalParty] = useState('Overall')
   const { data: knowledgeData, loading, error } = useKnowledgeData()
   const svgRef = useRef()
 
-  const politicalParties = ['Overall', 'Democrat', 'Republican', 'Independent']
   const knowledgeCategories = ['Heart Attacks', 'Organ Failure', 'Premature Labor', 'Violent Crime']
 
   useEnhancedChart({
     svgRef,
     data: knowledgeData,
     currentWave,
-    currentPoliticalParty,
+    currentPoliticalParty: 'Overall',
     xDomain: [20, 90],
     title: 'Knowledge Accuracy Across Conditions',
-    subtitle: `Average accuracy scores for health-related knowledge questions (${currentPoliticalParty})`,
+    subtitle: `Average accuracy scores for health-related knowledge questions`,
     xAxisLabel: 'Average Accuracy (%)',
     chartType: 'knowledge',
     yAxisItems: knowledgeCategories,
@@ -36,18 +34,6 @@ function KnowledgeAccuracyChart() {
 
   return (
     <div className="chart-container-wrapper">
-      <div className="political-party-controls">
-        {politicalParties.map(party => (
-          <button
-            key={party}
-            className={`political-party-toggle ${currentPoliticalParty === party ? 'active' : ''}`}
-            onClick={() => setCurrentPoliticalParty(party)}
-          >
-            {party}
-          </button>
-        ))}
-      </div>
-
       <div className="wave-controls">
         <button 
           className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
