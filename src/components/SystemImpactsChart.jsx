@@ -43,7 +43,7 @@ function SystemImpactsChart() {
         items={SYSTEM_ITEMS}
         conditions={CONDITIONS}
         title="Perceived System Impacts of Heat Waves"
-        subtitle='"How much do you think heatwaves would impact the following systems in your community?"'
+        subtitle='"How much do you think heat waves would impact the following systems in your community?"'
         currentWave={currentWave}
         waveLabels={WAVE_LABELS}
         className="chart-container"

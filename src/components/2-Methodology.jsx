@@ -37,7 +37,7 @@ function Methodology() {
             onClick={() => setShowEpisodePreview(true)}
           >
             "Drop it Like it's Hot"
-          </button>), in which a severe heatwave disrupts hospital operations and patient care.
+          </button>), in which a severe heat wave disrupts hospital operations and patient care.
         </li>
         <li>
           <strong>Heat Wave + Handoff Group (N = 1,073):</strong> Viewed the same episode as the Heat Wave group, followed by one of four climate-related Instagram videos developed to contextualize the episode's content within broader climate-health dynamics.
@@ -68,7 +68,7 @@ function Methodology() {
       <TimelineInfographic />
 
       <p>
-        All outcome variables were derived from established measures or adapted from prior work on climate and risk communication. Multi-item batteries captured constructs including heatwave threat perception, knowledge of heat-related health risks, confidence in protective action, support for policy interventions, and beliefs about climate change's relevance to daily life. See <a href={`${import.meta.env.BASE_URL}survey-instrument.html`} target="_blank" rel="noopener noreferrer">full survey instrument</a>.
+        All outcome variables were derived from established measures or adapted from prior work on climate and risk communication. Multi-item batteries captured constructs including heat wave threat perception, knowledge of heat-related health risks, confidence in protective action, support for policy interventions, and beliefs about climate change's relevance to daily life. See <a href={`${import.meta.env.BASE_URL}survey-instrument.html`} target="_blank" rel="noopener noreferrer">full survey instrument</a>.
       </p>
       <p>
         Participants who failed comprehension checks, provided non-substantive responses to open-text prompts, or viewed less than 85% of the assigned episode (based on telemetry data) were excluded from analysis. Analyses were <a href="https://osf.io/uv9x3" target="_blank" rel="noopener noreferrer">preregistered</a> and conducted according to a hierarchical model structure, with appropriate corrections for multiple comparisons.

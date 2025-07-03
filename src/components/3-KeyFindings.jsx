@@ -11,14 +11,14 @@ function KeyFindings() {
         Key Findings
       </h2>
       <p>
-        Overall, the heatwave episode of Grey's Anatomy effectively educated viewers about heat-related health risks and significantly increased concern about heatwave impacts, with the handoff condition (episode + Instagram videos) showing the strongest and most sustained effects. Importantly, these impacts occurred without compromising entertainment value.
+        Overall, the heat wave episode of Grey's Anatomy effectively educated viewers about heat-related health risks and significantly increased concern about heat wave impacts, with the handoff condition (episode + Instagram videos) showing the strongest and most sustained effects. Importantly, these impacts occurred without compromising entertainment value.
       </p>
 
       <h3>
         Knowledge of Heat Wave Health Impacts
       </h3>
       <p>
-        The heatwave episode effectively educated viewers about the serious health risks associated with extreme heat, particularly that it can trigger premature labor in pregnant women—a medical fact introduced early in the episode. While the handoff condition produced comparable or marginally stronger outcomes, the differences between the treatment and handoff groups were minimal and largely statistically nonsignificant. This educational boost persisted 15 days after viewing, demonstrating that the knowledge gained has lasting impact.
+        The heat wave episode effectively educated viewers about the serious health risks associated with extreme heat, particularly that it can trigger premature labor in pregnant women—a medical fact introduced early in the episode. While the handoff condition produced comparable or marginally stronger outcomes, the differences between the treatment and handoff groups were minimal and largely statistically nonsignificant. This educational boost persisted 15 days after viewing, demonstrating that the knowledge gained has lasting impact.
       </p>
 
       <KnowledgeAccuracyChart />
@@ -28,7 +28,7 @@ function KeyFindings() {
         Perceived Threat and Personal Concern
       </h3>
       <p>
-        Participants who watched the episode (particularly those in the handoff condition) demonstrated significantly greater concern about the health consequences of heatwaves, including increased worry about potential effects on their own health and that of their loved ones, as well as greater awareness of how extreme heat events could strain their local hospital systems. This heightened awareness and concern remained 15 days later, suggesting that the episode created lasting changes that could translate into better preparedness and protective actions during future heatwave events.
+        Participants who watched the episode (particularly those in the handoff condition) demonstrated significantly greater concern about the health consequences of heat waves, including increased worry about potential effects on their own health and that of their loved ones, as well as greater awareness of how extreme heat events could strain their local hospital systems. This heightened awareness and concern remained 15 days later, suggesting that the episode created lasting changes that could translate into better preparedness and protective actions during future heat wave events.
       </p>
       <HealthWorryChart />
       <SystemImpactsChart />
@@ -39,7 +39,7 @@ function KeyFindings() {
         Policy Support
       </h3>
       <p>
-        The heatwave episode effectively increased viewer support for heat-adaptive policies, including hospital infrastructure investments and public cooling centers. However, the effects varied dramatically depending on political party affiliation, revealing important insights about targeted messaging strategies.
+        The heat wave episode effectively increased viewer support for heat-adaptive policies, including hospital infrastructure investments and public cooling centers. However, the effects varied dramatically depending on political party affiliation, revealing important insights about targeted messaging strategies.
         Republican viewers responded strongly to the treatment episode alone, showing substantial immediate increases in policy support that remained significant two weeks later. This suggests that the narrative content itself—depicting healthcare system strain during extreme heat—resonated powerfully with this audience without requiring additional context. Democratic viewers, by contrast, showed little response to the episode alone but demonstrated much stronger policy support when exposed to the supplemental Instagram videos in the handoff condition. This pattern indicates that explicit connections to climate science and policy solutions enhanced persuasive impact for this group. Most notably, the handoff condition produced backlash among Republican viewers. While the supplemental videos enhanced Democratic support, they actually undermined the positive effects observed among Republicans in the treatment-only condition. This backlash suggests that the climate-focused messaging in the Instagram videos may have triggered partisan resistance, reducing the episode's otherwise persuasive impact.
         These findings underscore the complexity of cross-partisan climate communication and highlight the critical need for audience-tailored approaches to supplemental impact media. What enhances persuasion for one group may inadvertently diminish it for another, particularly when bridging entertainment content to politically charged topics like climate change.
       </p>
@@ -52,7 +52,7 @@ function KeyFindings() {
         Climate Change Connections
       </h3>
       <p>
-        Participants in the handoff group were more likely to attribute heatwaves to climate change and believed the impacts of climate change would affect their daily lives sooner (over 1 year sooner in Wave 2). They were also more likely to believe others are concerned about climate change. These climate attribution effects were stronger in the handoff condition than in treatment alone and remained significant 15 days later, indicating that the supplemental Instagram videos successfully connected the episode's narrative to broader climate science.
+        Participants in the handoff group were more likely to attribute heat waves to climate change and believed the impacts of climate change would affect their daily lives sooner (over 1 year sooner in Wave 2). They were also more likely to believe others are concerned about climate change. These climate attribution effects were stronger in the handoff condition than in treatment alone and remained significant 15 days later, indicating that the supplemental Instagram videos successfully connected the episode's narrative to broader climate science.
       </p>
       <ClimateTemporalChart />
 
@@ -63,7 +63,7 @@ function KeyFindings() {
       <div className="additional-effects">
         <b>Climate Action Support:</b> The handoff condition significantly increased support for climate action, particularly in normative beliefs and intent to act. These effects were modest but consistent.
         <br />
-        <b>Perceived Likelihood of Heat Wave Exposure:</b> The handoff condition significantly increased perceived risk of experiencing a severe heatwave, compared to both control and treatment conditions. The treatment-only group saw a modest, marginal increase.
+        <b>Perceived Likelihood of Heat Wave Exposure:</b> The handoff condition significantly increased perceived risk of experiencing a severe heat wave, compared to both control and treatment conditions. The treatment-only group saw a modest, marginal increase.
         <br />
         <b>Perceived Heat Wave Threat Severity:</b> Both treatment and handoff conditions significantly increased perceived threat severity, including greater concern over potential harm and increased behavioral intentions. The handoff condition yielded the largest effects.
 
