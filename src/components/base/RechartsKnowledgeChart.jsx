@@ -1,13 +1,76 @@
-import React, { useMemo, useState } from 'react'
-import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ZAxis, Cell } from 'recharts'
+import React, { useMemo, useState, useEffect } from 'react'
+import { ResponsiveContainer, ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, Cell } from 'recharts'
 import { COLOR_MAP, CONDITION_LABELS, KNOWLEDGE_CATEGORIES, WAVE_LABELS } from '../../constants'
 
+// Custom dot shape with number inside
+const CustomizedShape = (props) => {
+  const { cx, cy, payload, fill } = props;
+  const value = payload.value;
+  
+  // Only render if we have position data
+  if (!cx || !cy || value === undefined) return null;
+  
+  // Size of the circle (much larger)
+  const radius = 15;
+  
+  return (
+    <g>
+      {/* Larger circle */}
+      <circle 
+        cx={cx} 
+        cy={cy} 
+        r={radius} 
+        fill={fill} 
+        stroke="white" 
+        strokeWidth={2}
+      />
+      
+      {/* Text inside the circle */}
+      <text 
+        x={cx} 
+        y={cy} 
+        dy={1} 
+        fill="white" 
+        fontSize={12}
+        fontWeight="bold"
+        textAnchor="middle"
+        dominantBaseline="middle"
+      >
+        {`${Math.round(value)}%`}
+      </text>
+    </g>
+  );
+};
+
+// Add a custom SVG line component for connecting dots
+const CustomLineConnector = ({ points, color }) => {
+  if (!points || points.length < 2) return null;
+  
+  // Generate the path for the line
+  let pathData = `M ${points[0].x} ${points[0].y}`;
+  for (let i = 1; i < points.length; i++) {
+    pathData += ` L ${points[i].x} ${points[i].y}`;
+  }
+  
+  return (
+    <path 
+      d={pathData}
+      stroke={color}
+      strokeWidth={2.5}
+      fill="none"
+      strokeOpacity={0.7}
+    />
+  );
+};
+
 function RechartsKnowledgeChart({ data }) {
-  const [currentWave, setCurrentWave] = useState(2)
+  const [currentWave, setCurrentWave] = useState(2);
+  const [linePoints, setLinePoints] = useState({});
+  const chartRef = React.useRef(null);
   
   // Process and filter the data
   const chartData = useMemo(() => {
-    if (!data || data.length === 0) return []
+    if (!data || data.length === 0) return { data: [], xMin: 20, xMax: 90, conditionGroups: {} }
     
     console.log('RechartsKnowledgeChart - Raw data:', data.slice(0, 5))
     console.log('RechartsKnowledgeChart - Current wave:', currentWave)
@@ -61,8 +124,89 @@ function RechartsKnowledgeChart({ data }) {
     
     console.log('RechartsKnowledgeChart - Scatter data:', scatterData)
     console.log('Unique conditions in scatter data:', [...new Set(scatterData.map(d => d.condition))])
-    return scatterData
-  }, [data, currentWave])
+    
+    // Calculate min and max values for X axis
+    const allValues = scatterData.map(d => d.value);
+    const minValue = Math.max(20, Math.floor(Math.min(...allValues)) - 5);
+    const maxValue = Math.min(100, Math.ceil(Math.max(...allValues)) + 5);
+    
+    // Group by condition for tracking
+    const conditionGroups = {
+      'control': [],
+      'treatment': [],
+      'handoff': []
+    };
+    
+    // Group points by condition
+    scatterData.forEach(entry => {
+      if (conditionGroups[entry.condition]) {
+        conditionGroups[entry.condition].push(entry);
+      }
+    });
+    
+    // Sort each condition array by categoryIndex
+    Object.keys(conditionGroups).forEach(condition => {
+      conditionGroups[condition].sort((a, b) => a.categoryIndex - b.categoryIndex);
+    });
+    
+    return { 
+      data: scatterData, 
+      xMin: minValue, 
+      xMax: maxValue,
+      conditionGroups: conditionGroups
+    };
+  }, [data, currentWave]);
+
+  // Find dot positions for lines after rendering
+  useEffect(() => {
+    // Wait for chart to render
+    setTimeout(() => {
+      // Find all scatter point elements
+      if (!chartRef.current) return;
+      
+      const dotElements = chartRef.current.querySelectorAll('.recharts-scatter-symbol');
+      
+      // Map them to their data points
+      const pointPositions = Array.from(dotElements).map(dot => {
+        const cx = parseFloat(dot.getAttribute('cx'));
+        const cy = parseFloat(dot.getAttribute('cy'));
+        
+        // Get the data index from the dot if possible
+        const index = dot.getAttribute('data-index') || -1;
+        const dataPoint = chartData.data[index] || {};
+        
+        return {
+          x: cx,
+          y: cy,
+          condition: dataPoint.condition,
+          category: dataPoint.category,
+          categoryIndex: dataPoint.categoryIndex
+        };
+      }).filter(p => p.condition && !isNaN(p.x) && !isNaN(p.y));
+      
+      // Group by condition
+      const pointsByCondition = {
+        'control': [],
+        'treatment': [],
+        'handoff': []
+      };
+      
+      pointPositions.forEach(point => {
+        if (pointsByCondition[point.condition]) {
+          pointsByCondition[point.condition].push(point);
+        }
+      });
+      
+      // Sort points by category for each condition
+      Object.keys(pointsByCondition).forEach(condition => {
+        pointsByCondition[condition].sort((a, b) => a.categoryIndex - b.categoryIndex);
+      });
+      
+      // Set the positions for drawing lines
+      setLinePoints(pointsByCondition);
+      
+    }, 500); // Give chart time to render
+  }, [chartData.data]);
 
   // Custom tooltip - now this will work correctly!
   const CustomTooltip = ({ active, payload, label }) => {
@@ -145,7 +289,7 @@ function RechartsKnowledgeChart({ data }) {
     )
   }
 
-  if (!chartData || chartData.length === 0) {
+  if (!chartData.data || chartData.data.length === 0) {
     return (
       <div style={{ 
         padding: '40px 20px', 
@@ -259,15 +403,16 @@ function RechartsKnowledgeChart({ data }) {
       
       <ResponsiveContainer width="100%" height={400}>
         <ScatterChart
-          data={chartData}
-          margin={{ top: 20, right: 80, bottom: 60, left: 120 }}
+          margin={{ top: 40, right: 80, bottom: 60, left: 120 }}
+          ref={chartRef}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" strokeWidth={1} />
+          
+          {/* X-axis for percentage values */}
           <XAxis 
             type="number" 
             dataKey="value"
-            allowDuplicatedCategory={false}
-            domain={[20, 90]}
+            domain={[chartData.xMin, chartData.xMax]}
             tickFormatter={(value) => `${value}%`}
             label={{ 
               value: 'Average Accuracy (%)', 
@@ -280,6 +425,7 @@ function RechartsKnowledgeChart({ data }) {
             tickLine={{ stroke: '#d1d5db', strokeWidth: 1 }}
           />
 
+          {/* Y-axis for categories */}
           <YAxis 
             type="number" 
             dataKey="yPosition"
@@ -291,12 +437,36 @@ function RechartsKnowledgeChart({ data }) {
             axisLine={{ stroke: '#d1d5db', strokeWidth: 1 }}
             tickLine={{ stroke: '#d1d5db', strokeWidth: 1 }}
           />
+          
           <Tooltip content={<CustomTooltip />} />
           
-          {/* Single Scatter component with individual cell colors - THIS IS THE FIX! */}
-          <Scatter dataKey="value" yAxisId={0} stroke="white" strokeWidth={2}>
-            {chartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={COLOR_MAP[entry.condition]} />
+          {/* Custom SVG for lines */}
+          <svg>
+            {Object.keys(linePoints).map(condition => (
+              <CustomLineConnector 
+                key={`line-${condition}`}
+                points={linePoints[condition]}
+                color={COLOR_MAP[condition]} 
+              />
+            ))}
+          </svg>
+          
+          {/* Scatter with custom shape that includes number inside */}
+          <Scatter 
+            name="Knowledge"
+            data={chartData.data}
+            dataKey="value" 
+            yAxisId={0}
+            shape={<CustomizedShape />}
+            zIndex={100}
+          >
+            {chartData.data?.map((entry, index) => (
+              <Cell 
+                key={`cell-${index}`} 
+                fill={COLOR_MAP[entry.condition]} 
+                data-condition={entry.condition}
+                data-category={entry.category}
+              />
             ))}
           </Scatter>
         </ScatterChart>

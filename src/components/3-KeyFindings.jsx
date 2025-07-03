@@ -3,6 +3,7 @@ import HealthWorryChart from './3.2-HealthWorryChart'
 import SystemImpactsChart from './3.3-SystemImpactsChart'
 import PolicySupportChart from './3.4-PolicySupportChart'
 import ClimateTemporalChart from './3.5-ClimateTemporalChart'
+import HeatwaveKnowledgeChart from './rechartsknowledgebars'
 
 function KeyFindings() {
   return (
@@ -22,7 +23,7 @@ function KeyFindings() {
       </p>
 
       <KnowledgeAccuracyChart />
-
+      <HeatwaveKnowledgeChart />
 
       <h3>
         Perceived Threat and Personal Concern
