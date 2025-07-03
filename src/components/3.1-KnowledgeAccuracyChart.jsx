@@ -1,15 +1,14 @@
 import { useState, useRef } from 'react'
 import { useKnowledgeData } from '../hooks/useKnowledgeData'
-import { WAVE_LABELS } from '../constants'
+import { WAVE_LABELS, KNOWLEDGE_CATEGORIES } from '../constants'
 import { useEnhancedChart } from './base/EnhancedChart'
+import RechartsKnowledgeChart from './base/RechartsKnowledgeChart'
 import '../styles/components/Chart-Dumbbell.css'
 
 function KnowledgeAccuracyChart() {
   const [currentWave, setCurrentWave] = useState(2)
   const { data: knowledgeData, loading, error } = useKnowledgeData()
   const svgRef = useRef()
-
-  const knowledgeCategories = ['Heart Attacks', 'Organ Failure', 'Premature Labor', 'Violent Crime']
 
   useEnhancedChart({
     svgRef,
@@ -21,7 +20,7 @@ function KnowledgeAccuracyChart() {
     subtitle: `Average accuracy scores for health-related knowledge questions`,
     xAxisLabel: 'Average Accuracy (%)',
     chartType: 'knowledge',
-    yAxisItems: knowledgeCategories,
+    yAxisItems: KNOWLEDGE_CATEGORIES,
     dataFilter: (data) => data.filter(d => d.category !== 'Cancer'),
   })
 
@@ -52,6 +51,11 @@ function KnowledgeAccuracyChart() {
       <div className="chart-container">
         <svg ref={svgRef}></svg>
       </div>
+
+      {/* Add the Recharts version below */}
+      <RechartsKnowledgeChart 
+        data={knowledgeData}
+      />
     </div>
   )
 }

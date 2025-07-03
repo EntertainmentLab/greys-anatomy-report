@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 
 const IMPACT_MAPPING = {
-  "Surgery Cancellation": "Cancellation of surgeries",
-  "Losing Power": "Hospitals losing power", 
-  "Resource Shortage": "Staff or resource shortages",
-  "Overcrowding": "Hospitals overcrowding",
-  "Er Visits": "Increased ER visits",
-  "Response Times": "Increased response times"
+  'Overcrowding': 'Overcrowded hospitals turning away patients',
+  'Surgery Cancellation': 'Cancellation of surgeries',
+  'Er Visits': 'Increased emergency room visits',
+  'Resource Shortage': 'Shortages of medical staff or resources',
+  'Response Times': 'Increased (delayed) response times for emergency services',
+  'Losing Power': 'Hospitals losing power'
 }
 
 export function useImpactsData() {
