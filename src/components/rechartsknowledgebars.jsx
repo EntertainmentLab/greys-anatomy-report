@@ -260,49 +260,7 @@ const HeatwaveKnowledgeChart = () => {
         ))}
       </div>
 
-      {/* Legend */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        gap: '32px',
-        marginBottom: '32px',
-        flexWrap: 'wrap'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{
-            width: '16px',
-            height: '16px',
-            borderRadius: '50%',
-            backgroundColor: colors.control
-          }} />
-          <span style={{ fontSize: '14px', fontWeight: '500', color: '#374151' }}>
-            Control Group
-          </span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{
-            width: '16px',
-            height: '16px',
-            borderRadius: '50%',
-            backgroundColor: colors.treatment
-          }} />
-          <span style={{ fontSize: '14px', fontWeight: '500', color: '#374151' }}>
-            Treatment Group
-          </span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{
-            width: '16px',
-            height: '16px',
-            borderRadius: '50%',
-            backgroundColor: colors.handoff
-          }} />
-          <span style={{ fontSize: '14px', fontWeight: '500', color: '#374151' }}>
-            Treatment + Handoff
-          </span>
-        </div>
-      </div>
-
+      
       {/* Chart Grid */}
       <div style={{
         display: 'grid',
