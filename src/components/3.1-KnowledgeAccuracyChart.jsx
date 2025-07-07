@@ -2,7 +2,6 @@ import { useState, useRef } from 'react'
 import { useKnowledgeData } from '../hooks/useKnowledgeData'
 import { WAVE_LABELS, KNOWLEDGE_CATEGORIES } from '../constants'
 import { useEnhancedChart } from './base/EnhancedChart'
-import RechartsKnowledgeChart from './base/RechartsKnowledgeChart'
 import '../styles/components/Chart-Dumbbell.css'
 
 function KnowledgeAccuracyChart() {
@@ -15,8 +14,8 @@ function KnowledgeAccuracyChart() {
     data: knowledgeData,
     currentWave,
     xDomain: [20, 90],
-    title: 'Knowledge Accuracy Across Conditions',
-    subtitle: `Average accuracy scores for health-related knowledge questions`,
+    title: 'Post-Viewing Accuracy on Heat-Related Health Risks',
+    subtitle: `"Please indicate how certain you are about whether the following statements are true or false. Extreme heat exposure can…"`,
     xAxisLabel: 'Average Accuracy (%)',
     chartType: 'knowledge',
     yAxisItems: KNOWLEDGE_CATEGORIES,
@@ -50,11 +49,6 @@ function KnowledgeAccuracyChart() {
       <div className="chart-container">
         <svg ref={svgRef}></svg>
       </div>
-
-      {/* Add the Recharts version below */}
-      <RechartsKnowledgeChart 
-        data={knowledgeData}
-      />
     </div>
   )
 }

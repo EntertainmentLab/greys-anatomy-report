@@ -1,4 +1,3 @@
-
 export const CONDITIONS = ["control", "treatment", "handoff"]
 
 export const REGIONS = ["Midwest", "Northeast", "South", "West"]
@@ -46,6 +45,14 @@ export const KNOWLEDGE_CATEGORIES = [
   'Premature Labor',
   'Violent Crime'
 ]
+
+// Knowledge categories labels (mapping for display)
+export const KNOWLEDGE_CATEGORIES_LABELS = {
+  'Heart Attacks': 'trigger heart attacks',
+  'Organ Failure': 'cause organ failure', 
+  'Premature Labor': 'trigger premature labor',
+  'Violent Crime': 'increase violent crime'
+}
 
 // System impact issues for the Likert chart
 export const SYSTEM_IMPACT_ISSUES = [
