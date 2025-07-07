@@ -29,8 +29,7 @@ export function useKnowledgeData() {
           mean: deepUnwrap(d.mean),
           se: deepUnwrap(d.se),
           wave: deepUnwrap(d.wave),
-          n: deepUnwrap(d.n),
-          political_party: deepUnwrap(d.political_party)
+          n: deepUnwrap(d.n)
         }))
         
         console.log('Processed knowledge data:', processedData.slice(0, 3))

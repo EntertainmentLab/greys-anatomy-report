@@ -14,7 +14,6 @@ function KnowledgeAccuracyChart() {
     svgRef,
     data: knowledgeData,
     currentWave,
-    currentPoliticalParty: 'Overall',
     xDomain: [20, 90],
     title: 'Knowledge Accuracy Across Conditions',
     subtitle: `Average accuracy scores for health-related knowledge questions`,

@@ -4,6 +4,7 @@ import SystemImpactsChart from './3.3-SystemImpactsChart'
 import PolicySupportChart from './3.4-PolicySupportChart'
 import ClimateTemporalChart from './3.5-ClimateTemporalChart'
 import HeatwaveKnowledgeChart from './rechartsknowledgebars'
+import GreysAnatomyKnowledgeViz from './NYTKnowledgeChart'
 
 function KeyFindings() {
   return (
@@ -24,6 +25,7 @@ function KeyFindings() {
 
       <KnowledgeAccuracyChart />
       <HeatwaveKnowledgeChart />
+      <GreysAnatomyKnowledgeViz />
 
       <h3>
         Perceived Threat and Personal Concern
