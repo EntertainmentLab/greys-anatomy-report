@@ -18,10 +18,10 @@ function PolicySupportChart() {
     data: policyData,
     currentWave,
     currentCategory: currentPolicyType,
-    xDomain: [45, 90],
-    title: 'Policy Support by Political Affiliation',
-    subtitle: 'Average support scores for heat-adaptive policies by condition',
-    xAxisLabel: 'Average Support (%)',
+    xDomain: [-10, 15],
+    title: 'Heat Episode Impact on Policy Support',
+    subtitle: 'Percentage point difference from control group by political affiliation',
+    xAxisLabel: 'Difference from Control (percentage points)',
     chartType: 'policy',
     yAxisItems: politicalParties
   })

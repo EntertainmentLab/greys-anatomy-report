@@ -51,13 +51,38 @@ export const useEnhancedChart = ({
       political_party: extractValue(item, 'political_party')
     }));
 
-    // Calculate global min/max from ALL data before filtering
-    const globalMin = d3.min(processedData, d => d.mean);
-    const globalMax = d3.max(processedData, d => d.mean);
+    // Calculate global differences from ALL data before any filtering
+    const globalDifferenceData = [];
     
-    // Round min down and max up to nearest 5
-    const roundedMin = Math.floor(globalMin / 5) * 5;
-    const roundedMax = Math.ceil(globalMax / 5) * 5;
+    yAxisItems.forEach(item => {
+      let itemData;
+      if (chartType === 'policy') {
+        itemData = processedData.filter(d => d.political_party === item);
+      } else {
+        itemData = processedData.filter(d => d.category === item);
+      }
+      
+      // Find control group value for this item
+      const controlPoint = itemData.find(d => d.condition === 'control');
+      if (!controlPoint) return; // Skip if no control data
+      
+      // Calculate differences for treatment and handoff
+      ['treatment', 'handoff'].forEach(condition => {
+        const conditionPoint = itemData.find(d => d.condition === condition);
+        if (conditionPoint) {
+          const difference = conditionPoint.mean - controlPoint.mean;
+          globalDifferenceData.push({ mean: difference });
+        }
+      });
+    });
+
+    // Calculate global min/max from ALL difference values
+    const globalDiffMin = d3.min(globalDifferenceData, d => d.mean);
+    const globalDiffMax = d3.max(globalDifferenceData, d => d.mean);
+    
+    // Extend domain to include zero and add padding
+    const globalDomainMin = Math.min(0, Math.floor(globalDiffMin) - 2);
+    const globalDomainMax = Math.max(0, Math.ceil(globalDiffMax) + 2);
 
     // Apply filters based on chart type
     let filteredData;
@@ -84,8 +109,58 @@ export const useEnhancedChart = ({
       return;
     }
 
-    // Remove previous chart elements
-    d3.select(svgRef.current).selectAll("*").remove();
+    // Calculate differences from control group
+    const calculateDifferences = (data) => {
+      const differenceData = [];
+      
+      yAxisItems.forEach(item => {
+        let itemData;
+        if (chartType === 'policy') {
+          itemData = data.filter(d => d.political_party === item);
+        } else {
+          itemData = data.filter(d => d.category === item);
+        }
+        
+        // Find control group value for this item
+        const controlPoint = itemData.find(d => d.condition === 'control');
+        if (!controlPoint) return; // Skip if no control data
+        
+        // Calculate differences for treatment and handoff
+        ['treatment', 'handoff'].forEach(condition => {
+          const conditionPoint = itemData.find(d => d.condition === condition);
+          if (conditionPoint) {
+            const difference = conditionPoint.mean - controlPoint.mean;
+            // Calculate standard error for difference (assuming independence)
+            const diffSE = Math.sqrt(Math.pow(conditionPoint.se, 2) + Math.pow(controlPoint.se, 2));
+            
+            differenceData.push({
+              ...conditionPoint,
+              mean: difference,
+              se: diffSE,
+              originalMean: conditionPoint.mean,
+              controlMean: controlPoint.mean
+            });
+          }
+        });
+      });
+      
+      return differenceData;
+    };
+
+    // Transform data to show differences from control
+    const differenceData = calculateDifferences(filteredData);
+    
+    if (differenceData.length === 0) {
+      d3.select(svgRef.current).selectAll("*").remove();
+      return;
+    }
+
+    // Update filtered data to use difference data
+    filteredData = differenceData;
+
+    // Check if this is an update (for transitions) or initial render
+    const existingSvg = d3.select(svgRef.current);
+    const isUpdate = existingSvg.select("g.chart-group").size() > 0;
 
     // Make chart responsive to container width
     const containerWidth = svgRef.current.parentNode.getBoundingClientRect().width;
@@ -124,10 +199,14 @@ export const useEnhancedChart = ({
     }
     
     // Calculate heights for title, subtitle, and legend positioning
-    const titleText = `${title} (${WAVE_LABELS[currentWave]})`;
+    // Use the LONGEST possible wave label for consistent spacing
+    const allWaveLabels = Object.values(WAVE_LABELS);
+    const longestWaveLabel = allWaveLabels.reduce((longest, current) => 
+      current.length > longest.length ? current : longest, '');
+    const titleTextForSpacing = `${title} (${longestWaveLabel})`;
     const subtitleText = subtitle;
     const charsPerLine = Math.floor(width / 13); // ~13px per char at 20-28px font
-    const titleLines = estimateLineCount(titleText, charsPerLine);
+    const titleLines = estimateLineCount(titleTextForSpacing, charsPerLine);
     const subtitleLines = estimateLineCount(subtitleText, charsPerLine);
 
     // Font sizes
@@ -135,13 +214,14 @@ export const useEnhancedChart = ({
     const subtitleFontSize = isMobile ? 16 : isTablet ? 18 : 20;
     const lineGap = isMobile ? 4 : isTablet ? 6 : 8;
 
-    // Calculate heights with proper spacing for legend
+    // Calculate heights with proper spacing for legend (using longest wave label)
     const titleHeight = titleLines * titleFontSize + (titleLines - 1) * lineGap;
     const subtitleHeight = subtitleLines * subtitleFontSize + (subtitleLines - 1) * lineGap;
     const topPadding = 10;
-    const subtitleY = topPadding + titleHeight + 7;
+    const waveLabelHeight = Math.round(titleFontSize * 0.75) + 4; // Height for wave label
+    const subtitleY = topPadding + titleHeight + waveLabelHeight + 15; // Account for wave label
     const legendHeight = isMobile ? 30 : isTablet ? 35 : 40; // Height needed for legend
-    const legendY = subtitleY + subtitleHeight + 10; // More space before legend
+    const legendY = subtitleY + subtitleHeight + 15; // More space before legend
     const chartStartY = legendY + legendHeight + 15; // Space after legend before chart
     
     const totalHeight = chartStartY + chartHeight + margin.bottom;
@@ -154,14 +234,26 @@ export const useEnhancedChart = ({
       .style("display", "block")
       .style("margin", "0 auto");
 
-    const g = svg.append("g")
-      .attr("transform", `translate(${margin.left},${chartStartY})`);
-
-    const conditions = ['control', 'treatment', 'handoff'];
+    // Handle SVG setup based on whether this is an update or initial render
+    let g;
+    const transitionDuration = 600;
     
-    // Set up scales using the GLOBAL min/max for x-axis
+    if (isUpdate) {
+      // Keep existing structure for transitions
+      g = svg.select("g.chart-group");
+    } else {
+      // Clear all content for initial render
+      svg.selectAll("*").remove();
+      g = svg.append("g")
+        .attr("class", "chart-group")
+        .attr("transform", `translate(${margin.left},${chartStartY})`);
+    }
+
+    const conditions = ['treatment', 'handoff'];
+    
+    // Set up scales using GLOBAL difference domain (consistent across all filtering)
     const xScale = d3.scaleLinear()
-      .domain([roundedMin, roundedMax])
+      .domain([globalDomainMin, globalDomainMax])
       .range([0, width]);
 
     const yScale = d3.scaleBand()
@@ -170,12 +262,16 @@ export const useEnhancedChart = ({
       .padding(0.2);
 
 
-    // Add title using foreignObject for wrapping
-    svg.append("foreignObject")
+    // Add static elements only on initial render
+    if (!isUpdate) {
+      // Add title using foreignObject for wrapping
+      const waveLabel = WAVE_LABELS[currentWave] ? WAVE_LABELS[currentWave] : '';
+      
+      svg.append("foreignObject")
       .attr("x", margin.left)
       .attr("y", topPadding)
       .attr("width", width)
-      .attr("height", titleHeight + 30) // add extra height for subtitle line
+      .attr("height", titleHeight + waveLabelHeight + 5) // Proper height calculation
       .append("xhtml:div")
       .style("font-size", `${titleFontSize}px`)
       .style("font-weight", "bold")
@@ -185,15 +281,13 @@ export const useEnhancedChart = ({
       .style("width", "100%")
       .style("line-height", "1.2")
       .html(() => {
-        // Split title and wave label
-        const waveLabel = WAVE_LABELS[currentWave] ? WAVE_LABELS[currentWave] : '';
         return `
           <div>${title}</div>
           <div style="
             font-size: ${Math.round(titleFontSize * 0.75)}px;
             font-weight: 500;
             color: #64748b;
-            margin-top: 2px;
+            margin-top: 4px;
             line-height: 1.2;
           ">(${waveLabel})</div>
         `;
@@ -240,10 +334,37 @@ export const useEnhancedChart = ({
         .text(CONDITION_LABELS[condition]);
     });
 
-    // Add x-axis
+    // Add zero reference line
+    g.append("line")
+      .attr("x1", xScale(0))
+      .attr("y1", 0)
+      .attr("x2", xScale(0))
+      .attr("y2", chartHeight)
+      .attr("stroke", "#666")
+      .attr("stroke-width", 2)
+      .attr("stroke-dasharray", "4,4")
+      .attr("opacity", 0.7);
+
+    // Add rotated text along zero line
+    g.append("text")
+      .attr("x", xScale(0) - 12)
+      .attr("y", chartHeight / 2)
+      .attr("text-anchor", "middle")
+      .attr("dominant-baseline", "middle")
+      .style("font-size", isMobile ? "12px" : isTablet ? "13px" : "14px")
+      .style("font-weight", "500")
+      .style("fill", "#666")
+      .style("font-family", "Roboto Condensed, sans-serif")
+      .attr("transform", `rotate(-90, ${xScale(0) - 12}, ${chartHeight / 2})`)
+      .text("No change from control");
+
+    // Add x-axis with difference formatting
     g.append("g")
       .attr("transform", `translate(0,${chartHeight})`)
-      .call(d3.axisBottom(xScale).ticks(8).tickFormat(d => `${d}%`))
+      .call(d3.axisBottom(xScale).ticks(8).tickFormat(d => {
+        if (d === 0) return '0';
+        return d > 0 ? `+${d}` : `${d}`;
+      }))
       .selectAll("text")
       .style("font-size", isMobile ? "15px" : isTablet ? "16px" : "18px")
       .style("font-weight", "500")
@@ -260,24 +381,35 @@ export const useEnhancedChart = ({
       .style("font-family", "Roboto Condensed, sans-serif")
       .text(xAxisLabel);
 
-    // Add y-axis without any visual elements (no line, no ticks)
-    g.append("g")
-      .call(d3.axisLeft(yScale).tickFormat("").tickSize(0))
-      .select(".domain")
-      .remove();
+      // Add y-axis without any visual elements (no line, no ticks)
+      g.append("g")
+        .call(d3.axisLeft(yScale).tickFormat("").tickSize(0))
+        .select(".domain")
+        .remove();
+    } else {
+      // Update wave label for existing title
+      const waveLabel = WAVE_LABELS[currentWave] ? WAVE_LABELS[currentWave] : '';
+      svg.select("foreignObject").select("div").select("div:last-child")
+        .html(`(${waveLabel})`);
+    }
+
+    // Collect data for connecting lines
+    const lineData = [];
 
     // For each y-axis item (category or political party)
     yAxisItems.forEach(item => {
       const yPos = yScale(item) + yScale.bandwidth() / 2;
 
-      // Draw light horizontal line
-      g.append("line")
-        .attr("x1", 0)
-        .attr("y1", yPos)
-        .attr("x2", width)
-        .attr("y2", yPos)
-        .attr("stroke", "#f0f0f0")
-        .attr("stroke-width", 1);
+      // Draw light horizontal line (only on initial render)
+      if (!isUpdate) {
+        g.append("line")
+          .attr("x1", 0)
+          .attr("y1", yPos)
+          .attr("x2", width)
+          .attr("y2", yPos)
+          .attr("stroke", "#f0f0f0")
+          .attr("stroke-width", 1);
+      }
 
       // Do NOT draw any y-axis label
 
@@ -291,149 +423,246 @@ export const useEnhancedChart = ({
         itemData = filteredData.filter(d => d.category === item);
       }
       
-      // Sort by condition in the order: control, treatment, handoff
-      const sortedData = ['control', 'treatment', 'handoff']
+      // Sort by condition in the order: treatment, handoff (no control in difference data)
+      const sortedData = ['treatment', 'handoff']
         .map(condition => itemData.find(d => d.condition === condition))
         .filter(d => d !== undefined);
       
-      // Draw connecting lines between dots if we have at least 2 dots
-      if (sortedData.length >= 2) {
-        // Draw line from control to treatment
-        if (sortedData[0] && sortedData[1]) {
-          g.append("line")
-            .attr("x1", xScale(sortedData[0].mean))
-            .attr("y1", yPos)
-            .attr("x2", xScale(sortedData[1].mean))
-            .attr("y2", yPos)
-            .attr("stroke", COLOR_MAP.treatment)
-            .attr("stroke-width", 2)
-            .attr("opacity", 0.6);
-        }
+      // Collect line data for this item
+      if (sortedData.length >= 1) {
+        // Line from zero to treatment
+        lineData.push({
+          key: `${item}-treatment`,
+          x1: xScale(0),
+          y1: yPos,
+          x2: xScale(sortedData[0].mean),
+          y2: yPos,
+          stroke: COLOR_MAP.treatment,
+          item: item
+        });
         
-        // Draw line from treatment to handoff
-        if (sortedData[1] && sortedData[2]) {
-          g.append("line")
-            .attr("x1", xScale(sortedData[1].mean))
-            .attr("y1", yPos)
-            .attr("x2", xScale(sortedData[2].mean))
-            .attr("y2", yPos)
-            .attr("stroke", COLOR_MAP.handoff)
-            .attr("stroke-width", 2)
-            .attr("opacity", 0.6);
+        // Line from treatment to handoff if handoff exists
+        if (sortedData.length === 2) {
+          lineData.push({
+            key: `${item}-handoff`,
+            x1: xScale(sortedData[0].mean),
+            y1: yPos,
+            x2: xScale(sortedData[1].mean),
+            y2: yPos,
+            stroke: COLOR_MAP.handoff,
+            item: item
+          });
         }
       }
     });
 
-    // Add dots for each condition
+    // Data join for connecting lines with transitions
+    const lines = g.selectAll(".connecting-line")
+      .data(lineData, d => d.key);
+
+    // Remove old lines
+    lines.exit()
+      .transition()
+      .duration(transitionDuration)
+      .style("opacity", 0)
+      .remove();
+
+    // Add new lines
+    const linesEnter = lines.enter()
+      .append("line")
+      .attr("class", "connecting-line")
+      .attr("stroke-width", 2)
+      .attr("opacity", 0);
+
+    // Update all lines
+    lines.merge(linesEnter)
+      .transition()
+      .duration(transitionDuration)
+      .attr("x1", d => d.x1)
+      .attr("y1", d => d.y1)
+      .attr("x2", d => d.x2)
+      .attr("y2", d => d.y2)
+      .attr("stroke", d => d.stroke)
+      .attr("opacity", 0.6);
+
+    // Create data for dots with unique keys for transitions
+    const dotData = [];
     conditions.forEach(condition => {
-      let conditionData;
-      
-      // Filter data differently based on chart type
       if (chartType === 'policy') {
-        // For each y-axis item (political party), find the data point for this condition
         yAxisItems.forEach(party => {
           const dataPoint = filteredData.find(d => 
             d.condition === condition && 
             d.political_party === party
           );
-          
           if (dataPoint) {
-            addDotWithLabel(dataPoint, party, condition);
+            dotData.push({
+              ...dataPoint,
+              yItem: party,
+              key: `${party}-${condition}`,
+              x: xScale(dataPoint.mean),
+              y: yScale(party) + yScale.bandwidth() / 2
+            });
           }
         });
       } else {
-        // For each y-axis item (category), find the data point for this condition
         yAxisItems.forEach(category => {
           const dataPoint = filteredData.find(d => 
             d.condition === condition && 
             d.category === category
           );
-          
           if (dataPoint) {
-            addDotWithLabel(dataPoint, category, condition);
+            dotData.push({
+              ...dataPoint,
+              yItem: category,
+              key: `${category}-${condition}`,
+              x: xScale(dataPoint.mean),
+              y: yScale(category) + yScale.bandwidth() / 2
+            });
           }
         });
       }
     });
 
-    // Helper function to add a dot with a label
-    function addDotWithLabel(dataPoint, yItem, condition) {
-      const xPos = xScale(dataPoint.mean);
-      const yPos = yScale(yItem) + yScale.bandwidth() / 2;
-      
-      // Add dot
-      g.append("circle")
-        .attr("cx", xPos)
-        .attr("cy", yPos)
-        .attr("r", isMobile ? 8 : isTablet ? 9 : 10) // was 11/12/14, now smaller
-        .attr("fill", COLOR_MAP[condition])
-        .attr("stroke", "white")
-        .attr("stroke-width", 2)
-        .on("mouseover", function(event) {
-          const tooltip = d3.select("body").append("div")
-            .attr("class", "d3-tooltip")
-            .style("opacity", 0)
-            .style("position", "absolute")
-            .style("background", "rgba(0,0,0,0.8)")
-            .style("color", "white")
-            .style("padding", "10px")
-            .style("border-radius", "5px")
-            .style("pointer-events", "none");
+    // Data join for dots with transitions
+    const dots = g.selectAll(".chart-dot")
+      .data(dotData, d => d.key);
 
-          tooltip.transition()
-            .duration(200)
-            .style("opacity", .9);
-          
-          const tooltipContent = chartType === 'policy'
-            ? `<strong>${CONDITION_LABELS[condition]}</strong><br/>${yItem}: ${dataPoint.mean.toFixed(1)}%<br/>N = ${dataPoint.n}`
-            : `<strong>${CONDITION_LABELS[condition]}</strong><br/>${yItem}: ${dataPoint.mean.toFixed(1)}%<br/>N = ${dataPoint.n}`;
-          
-          tooltip.html(tooltipContent)
-            .style("left", (event.pageX + 10) + "px")
-            .style("top", (event.pageY - 28) + "px");
-        })
-        .on("mouseout", function() {
-          d3.selectAll(".d3-tooltip").remove();
-        });
-      
-      // Add label
-      const labelYPos = yPos - (isMobile ? 16 : isTablet ? 18 : 20); // was 22/25/28, now smaller
-      const labelWidth = isMobile ? 24 : isTablet ? 28 : 32; // was 32/36/42, now smaller
-      const labelHeight = isMobile ? 16 : isTablet ? 18 : 20; // was 22/25/28, now smaller
-      
-      const labelGroup = g.append("g")
-        .attr("class", `label-${condition}`);
-      
-      // Add background rectangle
-      labelGroup.append("rect")
-        .attr("x", xPos - labelWidth/2)
-        .attr("y", labelYPos - labelHeight/2)
-        .attr("width", labelWidth)
-        .attr("height", labelHeight)
-        .attr("fill", COLOR_MAP[condition])
-        .attr("rx", 4)
-        .attr("ry", 4);
-      
-      // Add pointer triangle
-      labelGroup.append("path")
-        .attr("d", `M${xPos - 4},${labelYPos + labelHeight/2} L${xPos + 4},${labelYPos + labelHeight/2} L${xPos},${labelYPos + labelHeight/2 + 6} Z`)
-        .attr("fill", COLOR_MAP[condition]);
-      
-      // Add text
-      labelGroup.append("text")
-        .attr("x", xPos)
-        .attr("y", labelYPos)
-        .attr("text-anchor", "middle")
-        .attr("dominant-baseline", "middle")
-        .style("font-size", isMobile ? "11px" : isTablet ? "12px" : "13px") // was 13/14/16, now smaller
-        .style("fill", "white")
-        .style("font-weight", "bold")
-        .style("font-family", "Roboto Condensed, sans-serif")
-        .text(Math.round(dataPoint.mean));
-    }
+    // Remove old dots
+    dots.exit()
+      .transition()
+      .duration(transitionDuration)
+      .style("opacity", 0)
+      .remove();
 
-    // Add category labels on the right side at max value positions
-    yAxisItems.forEach(item => {
+    // Add new dots
+    const dotsEnter = dots.enter()
+      .append("circle")
+      .attr("class", "chart-dot")
+      .attr("cx", d => d.x)
+      .attr("cy", d => d.y)
+      .attr("r", isMobile ? 8 : isTablet ? 9 : 10)
+      .attr("fill", d => COLOR_MAP[d.condition])
+      .attr("stroke", "white")
+      .attr("stroke-width", 2)
+      .style("opacity", 0);
+
+    // Update existing dots
+    dots.merge(dotsEnter)
+      .on("mouseover", function(event, d) {
+        const tooltip = d3.select("body").append("div")
+          .attr("class", "d3-tooltip")
+          .style("opacity", 0)
+          .style("position", "absolute")
+          .style("background", "rgba(0,0,0,0.8)")
+          .style("color", "white")
+          .style("padding", "10px")
+          .style("border-radius", "5px")
+          .style("pointer-events", "none");
+
+        tooltip.transition()
+          .duration(200)
+          .style("opacity", .9);
+        
+        const differenceText = d.mean >= 0 ? `+${d.mean.toFixed(1)}` : `${d.mean.toFixed(1)}`;
+        const tooltipContent = chartType === 'policy'
+          ? `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${differenceText} vs Control<br/>N = ${d.n}`
+          : `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${differenceText} vs Control<br/>N = ${d.n}`;
+        
+        tooltip.html(tooltipContent)
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY - 28) + "px");
+      })
+      .on("mouseout", function() {
+        d3.selectAll(".d3-tooltip").remove();
+      })
+      .transition()
+      .duration(transitionDuration)
+      .attr("cx", d => d.x)
+      .attr("cy", d => d.y)
+      .style("opacity", 1);
+
+    // Create data for labels with unique keys for transitions
+    const labelData = dotData.map(d => {
+      const labelYPos = d.y - (isMobile ? 16 : isTablet ? 18 : 20);
+      const labelWidth = isMobile ? 24 : isTablet ? 28 : 32;
+      const labelHeight = isMobile ? 16 : isTablet ? 18 : 20;
+      const labelText = d.mean >= 0 ? `+${Math.round(d.mean)}` : `${Math.round(d.mean)}`;
+      
+      return {
+        ...d,
+        labelYPos,
+        labelWidth,
+        labelHeight,
+        labelText
+      };
+    });
+
+    // Data join for labels with transitions
+    const labels = g.selectAll(".dot-label")
+      .data(labelData, d => d.key);
+
+    // Remove old labels
+    labels.exit()
+      .transition()
+      .duration(transitionDuration)
+      .style("opacity", 0)
+      .remove();
+
+    // Add new labels
+    const labelsEnter = labels.enter()
+      .append("g")
+      .attr("class", "dot-label")
+      .style("opacity", 0);
+
+    // Add background rectangle
+    labelsEnter.append("rect")
+      .attr("rx", 4)
+      .attr("ry", 4);
+
+    // Add pointer triangle
+    labelsEnter.append("path");
+
+    // Add text
+    labelsEnter.append("text")
+      .attr("text-anchor", "middle")
+      .attr("dominant-baseline", "middle")
+      .style("fill", "white")
+      .style("font-weight", "bold")
+      .style("font-family", "Roboto Condensed, sans-serif");
+
+    // Update all labels
+    const labelsUpdate = labels.merge(labelsEnter);
+
+    labelsUpdate.select("rect")
+      .transition()
+      .duration(transitionDuration)
+      .attr("x", d => d.x - d.labelWidth/2)
+      .attr("y", d => d.labelYPos - d.labelHeight/2)
+      .attr("width", d => d.labelWidth)
+      .attr("height", d => d.labelHeight)
+      .attr("fill", d => COLOR_MAP[d.condition]);
+
+    labelsUpdate.select("path")
+      .transition()
+      .duration(transitionDuration)
+      .attr("d", d => `M${d.x - 4},${d.labelYPos + d.labelHeight/2} L${d.x + 4},${d.labelYPos + d.labelHeight/2} L${d.x},${d.labelYPos + d.labelHeight/2 + 6} Z`)
+      .attr("fill", d => COLOR_MAP[d.condition]);
+
+    labelsUpdate.select("text")
+      .transition()
+      .duration(transitionDuration)
+      .attr("x", d => d.x)
+      .attr("y", d => d.labelYPos)
+      .style("font-size", isMobile ? "11px" : isTablet ? "12px" : "13px")
+      .text(d => d.labelText);
+
+    labelsUpdate
+      .transition()
+      .duration(transitionDuration)
+      .style("opacity", 1);
+
+    // Create data for category labels on the right side at max value positions
+    const categoryLabelData = yAxisItems.map(item => {
       const yPos = yScale(item) + yScale.bandwidth() / 2;
       
       // Find the maximum value for this category/item across all conditions
@@ -470,12 +699,46 @@ export const useEnhancedChart = ({
         });
         if (currentLine) labelLines.push(currentLine.trim());
 
-        // Create a professional label group
-        const labelGroup = g.append("g")
-          .attr("class", "right-side-label");
+        return {
+          key: item,
+          item,
+          yPos,
+          maxXPos,
+          labelLines,
+          labelText
+        };
+      }
+      return null;
+    }).filter(d => d !== null);
 
-        // Add background rectangle with subtle styling
-        // Dynamically measure text width using SVG for accurate sizing
+    // Data join for category labels with transitions
+    const categoryLabels = g.selectAll(".category-label")
+      .data(categoryLabelData, d => d.key);
+
+    // Remove old category labels
+    categoryLabels.exit()
+      .transition()
+      .duration(transitionDuration)
+      .style("opacity", 0)
+      .remove();
+
+    // Add new category labels
+    const categoryLabelsEnter = categoryLabels.enter()
+      .append("g")
+      .attr("class", "category-label")
+      .style("opacity", 0);
+
+    // Update all category labels
+    const categoryLabelsUpdate = categoryLabels.merge(categoryLabelsEnter);
+
+    categoryLabelsUpdate.each(function(d) {
+      const labelGroup = d3.select(this);
+      
+      // Check if this is a new label (needs to be created) or existing (needs to be updated)
+      const isNewLabel = labelGroup.selectAll("rect").empty();
+      
+      if (isNewLabel) {
+        // Create new label elements for first-time render
         const tempText = g.append("text")
           .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
           .style("font-family", "Roboto Condensed, sans-serif")
@@ -483,19 +746,22 @@ export const useEnhancedChart = ({
           .style("visibility", "hidden");
 
         let maxTextWidth = 0;
-        labelLines.forEach(line => {
+        d.labelLines.forEach(line => {
           tempText.text(line);
           const bbox = tempText.node().getBBox();
           if (bbox.width > maxTextWidth) maxTextWidth = bbox.width;
         });
         tempText.remove();
+        
         const textWidth = maxTextWidth;
         const labelPadding = isMobile ? 8 : isTablet ? 10 : 12;
-        const labelHeight = (isMobile ? 24 : isTablet ? 26 : 28) * labelLines.length;
+        const labelHeight = (isMobile ? 24 : isTablet ? 26 : 28) * d.labelLines.length;
 
+        // Create background rectangle
         labelGroup.append("rect")
-          .attr("x", maxXPos + 15)
-          .attr("y", yPos - labelHeight/2)
+          .attr("class", "label-background")
+          .attr("x", d.maxXPos + 15)
+          .attr("y", d.yPos - labelHeight/2)
           .attr("width", textWidth + labelPadding * 2)
           .attr("height", labelHeight)
           .attr("rx", 6)
@@ -506,21 +772,23 @@ export const useEnhancedChart = ({
           .style("filter", "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))")
           .style("backdrop-filter", "blur(4px)");
 
-        // Add connecting line from max point to label
+        // Create connecting line
         labelGroup.append("line")
-          .attr("x1", maxXPos + 2)
-          .attr("y1", yPos)
-          .attr("x2", maxXPos + 12)
-          .attr("y2", yPos)
+          .attr("class", "label-connector")
+          .attr("x1", d.maxXPos + 2)
+          .attr("y1", d.yPos)
+          .attr("x2", d.maxXPos + 12)
+          .attr("y2", d.yPos)
           .style("stroke", "#94a3b8")
           .style("stroke-width", 1.5)
           .style("stroke-dasharray", "2,2");
 
-        // Add the label text (with wrapping)
-        labelLines.forEach((line, i) => {
+        // Create text elements
+        d.labelLines.forEach((line, i) => {
           labelGroup.append("text")
-            .attr("x", maxXPos + 15 + labelPadding)
-            .attr("y", yPos - (labelLines.length - 1) * 10 + i * 20)
+            .attr("class", `label-text-${i}`)
+            .attr("x", d.maxXPos + 15 + labelPadding)
+            .attr("y", d.yPos - (d.labelLines.length - 1) * 10 + i * 20)
             .attr("dominant-baseline", "middle")
             .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
             .style("font-weight", "600")
@@ -529,8 +797,36 @@ export const useEnhancedChart = ({
             .style("letter-spacing", "-0.025em")
             .text(line);
         });
+      } else {
+        // Update existing label elements with smooth transitions
+        const labelPadding = isMobile ? 8 : isTablet ? 10 : 12;
+        
+        // Smoothly move background rectangle
+        labelGroup.select(".label-background")
+          .transition()
+          .duration(transitionDuration)
+          .attr("x", d.maxXPos + 15);
+
+        // Smoothly move connecting line
+        labelGroup.select(".label-connector")
+          .transition()
+          .duration(transitionDuration)
+          .attr("x1", d.maxXPos + 2)
+          .attr("x2", d.maxXPos + 12);
+
+        // Smoothly move text elements
+        d.labelLines.forEach((line, i) => {
+          labelGroup.select(`.label-text-${i}`)
+            .transition()
+            .duration(transitionDuration)
+            .attr("x", d.maxXPos + 15 + labelPadding);
+        });
       }
     });
+
+    // Show labels immediately (no delay, move with data)
+    categoryLabelsUpdate
+      .style("opacity", 1);
 
   }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter]);
 };

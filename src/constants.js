@@ -1,25 +1,18 @@
-export const CONDITIONS = ["control", "treatment", "handoff"]
+export const CONDITIONS = ["treatment", "handoff"]
 
 export const REGIONS = ["Midwest", "Northeast", "South", "West"]
 
 export const COLOR_MAP = {
-  control: '#f0c4a0',
   treatment: '#a8c4a2', 
   handoff: '#5a7c47'
 }
 
 export const CONDITION_LABELS = {
-  control: 'Control',
   treatment: 'Heat Wave',
   handoff: 'Heat Wave + Handoff'
 }
 
 export const CONDITIONS_CONFIG = [
-  {
-    id: 'control',
-    label: 'Control',
-    description: 'No intervention - baseline knowledge measurement'
-  },
   {
     id: 'treatment',
     label: 'Treatment',
