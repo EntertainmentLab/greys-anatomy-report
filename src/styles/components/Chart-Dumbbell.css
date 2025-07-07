@@ -170,6 +170,17 @@
   backdrop-filter: blur(10px);
 }
 
+.wave-controls.embedded {
+  /* Embedded controls styling - much more subtle */
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  backdrop-filter: none;
+}
+
 .wave-tab {
   /* Modern toggle button styling */
   padding: 14px 28px;
@@ -186,6 +197,16 @@
   position: relative;
   overflow: hidden;
   letter-spacing: -0.025em;
+}
+
+.wave-controls.embedded .wave-tab {
+  /* Embedded wave tab styling - subtle and integrated */
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #6b7280;
+  border-radius: 6px;
+  margin: 0 4px;
 }
 
 .wave-tab:first-child {
@@ -217,6 +238,20 @@
   z-index: 2;
 }
 
+.wave-controls.embedded .wave-tab:hover {
+  background: rgba(59, 130, 246, 0.08);
+  color: #3b82f6;
+  transform: none;
+}
+
+.wave-controls.embedded .wave-tab.active {
+  background: rgba(59, 130, 246, 0.15);
+  color: #1d4ed8;
+  font-weight: 600;
+  box-shadow: none;
+  transform: none;
+}
+
 .chart-container {
   /* Enhanced chart container styling */
   background: var(--color-surface);
@@ -236,13 +271,10 @@
 }
 
 .chart-container svg {
-  max-width: 100%;
-  min-width: 400px;
+  width: 100%;
   height: auto;
   display: block;
-  min-height: 300px;
-  max-height: 500px;
-  width: 100%;
+  max-width: 100%;
 }
 
 /* Add styling for wrapped y-axis labels */
@@ -258,9 +290,8 @@
   }
   
   .chart-container svg {
-    min-width: 500px;
-    min-height: 320px;
-    max-height: 450px;
+    width: 100%;
+    height: auto;
   }
   
   .wave-controls {
@@ -280,17 +311,15 @@
   
   .chart-container {
     padding: 12px;
-    overflow-x: scroll;
+    overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     min-height: 350px;
   }
   
   .chart-container svg {
-    min-width: 100%;
-    width: 100vw;
-    max-width: none;
-    min-height: 350px;
-    max-height: 450px;
+    width: 100%;
+    height: auto;
+    min-width: 500px;
   }
   
   .political-party-controls, .policy-type-controls {
@@ -329,11 +358,9 @@
   }
   
   .chart-container svg {
-    min-width: 100%;
-    width: 100vw;
-    max-width: none;
-    min-height: 320px;
-    max-height: 400px;
+    width: 100%;
+    height: auto;
+    min-width: 450px;
   }
   
   .wave-controls {

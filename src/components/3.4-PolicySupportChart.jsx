@@ -9,6 +9,7 @@ function PolicySupportChart() {
   const [currentPolicyType, setPolicyType] = useState("Government Investment")
   const { data: policyData, loading, error } = usePolicyData()
   const svgRef = useRef()
+  const waveControlsRef = useRef()
 
   const policyTypes = ["Government Investment", "Cooling Centers"]
   const politicalParties = ['Overall', 'Democrat', 'Independent', 'Republican']
@@ -23,7 +24,8 @@ function PolicySupportChart() {
     subtitle: 'Percentage point difference from control group by political affiliation',
     xAxisLabel: 'Difference from Control (percentage points)',
     chartType: 'policy',
-    yAxisItems: politicalParties
+    yAxisItems: politicalParties,
+    waveControlsRef,
   })
 
   if (loading) return <div className="loading">Loading policy support data...</div>
@@ -47,23 +49,22 @@ function PolicySupportChart() {
         ))}
       </div>
 
-      <div className="wave-controls">
-        <button 
-          className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
-          onClick={() => setCurrentWave(2)}
-        >
-          {WAVE_LABELS[2]}
-        </button>
-        <button 
-          className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
-          onClick={() => setCurrentWave(3)}
-        >
-          {WAVE_LABELS[3]}
-        </button>
-      </div>
-      
-      <div className="chart-container">
+      <div className="chart-container" style={{ position: 'relative' }}>
         <svg ref={svgRef}></svg>
+        <div ref={waveControlsRef} className="wave-controls embedded">
+          <button 
+            className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
+            onClick={() => setCurrentWave(2)}
+          >
+            {WAVE_LABELS[2]}
+          </button>
+          <button 
+            className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
+            onClick={() => setCurrentWave(3)}
+          >
+            {WAVE_LABELS[3]}
+          </button>
+        </div>
       </div>
     </div>
   )

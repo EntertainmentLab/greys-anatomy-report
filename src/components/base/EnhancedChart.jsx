@@ -15,6 +15,7 @@ export const useEnhancedChart = ({
   chartType, // 'policy' or 'knowledge'
   yAxisItems, // Array of items to display on Y-axis (categories or political parties)
   dataFilter,
+  waveControlsRef, // Ref to where wave controls should be rendered
 }) => {
   useEffect(() => {
     if (!data || data.length === 0) {
@@ -166,12 +167,12 @@ export const useEnhancedChart = ({
     const containerWidth = svgRef.current.parentNode.getBoundingClientRect().width;
     const isMobile = window.innerWidth <= 768;
     const isTablet = window.innerWidth <= 1024;
-    // Set left/right margins equal for centering
+    // Set larger right margins to accommodate category labels
     const margin = isMobile 
-      ? { top: 120, right: 40, bottom: 60, left: 40 }
+      ? { top: 120, right: 140, bottom: 70, left: 60 }
       : isTablet 
-      ? { top: 140, right: 60, bottom: 70, left: 60 }
-      : { top: 160, right: 80, bottom: 80, left: 80 };
+      ? { top: 140, right: 160, bottom: 80, left: 80 }
+      : { top: 160, right: 180, bottom: 90, left: 100 };
     const width = Math.max(containerWidth - margin.left - margin.right, isMobile ? 500 : 700);
     const chartHeight = isMobile ? Math.max(300, yAxisItems.length * 60) : isTablet ? 350 : 400;
     
@@ -214,23 +215,26 @@ export const useEnhancedChart = ({
     const subtitleFontSize = isMobile ? 16 : isTablet ? 18 : 20;
     const lineGap = isMobile ? 4 : isTablet ? 6 : 8;
 
-    // Calculate heights with proper spacing for legend (using longest wave label)
+    // Calculate heights with MINIMAL spacing for tight layout
     const titleHeight = titleLines * titleFontSize + (titleLines - 1) * lineGap;
     const subtitleHeight = subtitleLines * subtitleFontSize + (subtitleLines - 1) * lineGap;
-    const topPadding = 10;
-    const waveLabelHeight = Math.round(titleFontSize * 0.75) + 4; // Height for wave label
-    const subtitleY = topPadding + titleHeight + waveLabelHeight + 15; // Account for wave label
-    const legendHeight = isMobile ? 30 : isTablet ? 35 : 40; // Height needed for legend
-    const legendY = subtitleY + subtitleHeight + 15; // More space before legend
-    const chartStartY = legendY + legendHeight + 15; // Space after legend before chart
+    const topPadding = 5; // Much smaller
+    const subtitleY = topPadding + titleHeight + 3; // Very tight gap
+    const waveControlsHeight = isMobile ? 28 : isTablet ? 32 : 36; // Even smaller
+    const waveControlsY = subtitleY + subtitleHeight + 4; // Tight gap
+    const chartStartY = waveControlsY + waveControlsHeight + 8; // Start chart after wave controls
+    const xAxisLabelY = chartStartY + chartHeight + 54; // X-axis label position
+    const legendHeight = isMobile ? 20 : isTablet ? 24 : 28; // Smaller
+    const legendY = xAxisLabelY + 25; // Legend below x-axis label
     
-    const totalHeight = chartStartY + chartHeight + margin.bottom;
+    const totalHeight = legendY + legendHeight + 20; // Include legend at bottom
 
     const svg = d3.select(svgRef.current)
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", totalHeight)
       .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${totalHeight}`)
       .attr("preserveAspectRatio", "xMidYMid meet")
+      .style("width", "100%")
+      .style("height", "auto")
+      .style("max-width", `${width + margin.left + margin.right}px`)
       .style("display", "block")
       .style("margin", "0 auto");
 
@@ -264,14 +268,12 @@ export const useEnhancedChart = ({
 
     // Add static elements only on initial render
     if (!isUpdate) {
-      // Add title using foreignObject for wrapping
-      const waveLabel = WAVE_LABELS[currentWave] ? WAVE_LABELS[currentWave] : '';
-      
+      // Add title using foreignObject for wrapping (no wave label)
       svg.append("foreignObject")
       .attr("x", margin.left)
       .attr("y", topPadding)
       .attr("width", width)
-      .attr("height", titleHeight + waveLabelHeight + 5) // Proper height calculation
+      .attr("height", titleHeight + 5)
       .append("xhtml:div")
       .style("font-size", `${titleFontSize}px`)
       .style("font-weight", "bold")
@@ -280,18 +282,7 @@ export const useEnhancedChart = ({
       .style("text-align", "center")
       .style("width", "100%")
       .style("line-height", "1.2")
-      .html(() => {
-        return `
-          <div>${title}</div>
-          <div style="
-            font-size: ${Math.round(titleFontSize * 0.75)}px;
-            font-weight: 500;
-            color: #64748b;
-            margin-top: 4px;
-            line-height: 1.2;
-          ">(${waveLabel})</div>
-        `;
-      });
+      .text(title);
 
     // Add subtitle using foreignObject for wrapping
     svg.append("foreignObject")
@@ -309,30 +300,6 @@ export const useEnhancedChart = ({
       .style("line-height", "1.2")
       .text(subtitleText);
 
-    // Add legend at the top underneath subtitle
-    const legendSpacing = isMobile ? 100 : isTablet ? 110 : 140;
-    const legend = svg.append("g")
-      .attr("transform", `translate(${margin.left + width / 2 - (conditions.length * legendSpacing) / 2}, ${legendY})`);
-
-    conditions.forEach((condition, index) => {
-      const legendItem = legend.append("g")
-        .attr("transform", `translate(${index * legendSpacing}, 0)`);
-
-      legendItem.append("circle")
-        .attr("r", isMobile ? 9 : isTablet ? 10 : 12)
-        .attr("fill", COLOR_MAP[condition])
-        .attr("stroke", "white")
-        .attr("stroke-width", 2);
-
-      legendItem.append("text")
-        .attr("x", isMobile ? 18 : isTablet ? 22 : 25)
-        .attr("y", 5)
-        .style("font-size", isMobile ? "15px" : isTablet ? "16px" : "18px")
-        .style("font-weight", "600")
-        .style("fill", "#1f2937")
-        .style("font-family", "Roboto Condensed, sans-serif")
-        .text(CONDITION_LABELS[condition]);
-    });
 
     // Add zero reference line
     g.append("line")
@@ -386,11 +353,66 @@ export const useEnhancedChart = ({
         .call(d3.axisLeft(yScale).tickFormat("").tickSize(0))
         .select(".domain")
         .remove();
-    } else {
-      // Update wave label for existing title
-      const waveLabel = WAVE_LABELS[currentWave] ? WAVE_LABELS[currentWave] : '';
-      svg.select("foreignObject").select("div").select("div:last-child")
-        .html(`(${waveLabel})`);
+    }
+
+    // Add legend below wave controls (always update for both initial and update renders)
+    const legendSpacing = isMobile ? 100 : isTablet ? 110 : 140;
+    let legend = svg.select("g.legend");
+    
+    if (legend.empty()) {
+      legend = svg.append("g")
+        .attr("class", "legend");
+    }
+    
+    legend.attr("transform", `translate(${margin.left + width / 2 - (conditions.length * legendSpacing) / 2}, ${legendY})`);
+
+    const legendItems = legend.selectAll(".legend-item")
+      .data(conditions, d => d);
+
+    legendItems.exit().remove();
+
+    const legendEnter = legendItems.enter()
+      .append("g")
+      .attr("class", "legend-item");
+
+    legendEnter.append("circle");
+    legendEnter.append("text");
+
+    const legendUpdate = legendEnter.merge(legendItems);
+
+    legendUpdate
+      .attr("transform", (d, i) => `translate(${i * legendSpacing}, 0)`);
+
+    legendUpdate.select("circle")
+      .attr("r", isMobile ? 9 : isTablet ? 10 : 12)
+      .attr("fill", d => COLOR_MAP[d])
+      .attr("stroke", "white")
+      .attr("stroke-width", 2);
+
+    legendUpdate.select("text")
+      .attr("x", isMobile ? 18 : isTablet ? 22 : 25)
+      .attr("y", 5)
+      .style("font-size", isMobile ? "15px" : isTablet ? "16px" : "18px")
+      .style("font-weight", "600")
+      .style("fill", "#1f2937")
+      .style("font-family", "Roboto Condensed, sans-serif")
+      .text(d => CONDITION_LABELS[d]);
+
+    // Position wave controls container if provided (always update)
+    if (waveControlsRef && waveControlsRef.current) {
+      // Position the wave controls container to center with title/subtitle
+      const controlsContainer = waveControlsRef.current;
+      const svgRect = svgRef.current.getBoundingClientRect();
+      
+      controlsContainer.style.position = 'absolute';
+      controlsContainer.style.left = '0px';
+      controlsContainer.style.top = `${waveControlsY}px`;
+      controlsContainer.style.width = '100%'; // Full container width
+      controlsContainer.style.height = `${waveControlsHeight}px`;
+      controlsContainer.style.display = 'flex';
+      controlsContainer.style.justifyContent = 'center';
+      controlsContainer.style.alignItems = 'center';
+      controlsContainer.style.zIndex = '10';
     }
 
     // Collect data for connecting lines
@@ -757,10 +779,11 @@ export const useEnhancedChart = ({
         const labelPadding = isMobile ? 8 : isTablet ? 10 : 12;
         const labelHeight = (isMobile ? 24 : isTablet ? 26 : 28) * d.labelLines.length;
 
-        // Create background rectangle
+        // Create background rectangle - ensure it doesn't exceed chart bounds
+        const labelStartX = Math.min(d.maxXPos + 15, width - textWidth - labelPadding * 2 - 10);
         labelGroup.append("rect")
           .attr("class", "label-background")
-          .attr("x", d.maxXPos + 15)
+          .attr("x", labelStartX)
           .attr("y", d.yPos - labelHeight/2)
           .attr("width", textWidth + labelPadding * 2)
           .attr("height", labelHeight)
@@ -777,7 +800,7 @@ export const useEnhancedChart = ({
           .attr("class", "label-connector")
           .attr("x1", d.maxXPos + 2)
           .attr("y1", d.yPos)
-          .attr("x2", d.maxXPos + 12)
+          .attr("x2", labelStartX - 3)
           .attr("y2", d.yPos)
           .style("stroke", "#94a3b8")
           .style("stroke-width", 1.5)
@@ -787,7 +810,7 @@ export const useEnhancedChart = ({
         d.labelLines.forEach((line, i) => {
           labelGroup.append("text")
             .attr("class", `label-text-${i}`)
-            .attr("x", d.maxXPos + 15 + labelPadding)
+            .attr("x", labelStartX + labelPadding)
             .attr("y", d.yPos - (d.labelLines.length - 1) * 10 + i * 20)
             .attr("dominant-baseline", "middle")
             .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
@@ -801,25 +824,42 @@ export const useEnhancedChart = ({
         // Update existing label elements with smooth transitions
         const labelPadding = isMobile ? 8 : isTablet ? 10 : 12;
         
+        // Calculate constrained label position
+        const tempText = g.append("text")
+          .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
+          .style("font-family", "Roboto Condensed, sans-serif")
+          .style("font-weight", "600")
+          .style("visibility", "hidden");
+
+        let maxTextWidth = 0;
+        d.labelLines.forEach(line => {
+          tempText.text(line);
+          const bbox = tempText.node().getBBox();
+          if (bbox.width > maxTextWidth) maxTextWidth = bbox.width;
+        });
+        tempText.remove();
+        
+        const labelStartX = Math.min(d.maxXPos + 15, width - maxTextWidth - labelPadding * 2 - 10);
+        
         // Smoothly move background rectangle
         labelGroup.select(".label-background")
           .transition()
           .duration(transitionDuration)
-          .attr("x", d.maxXPos + 15);
+          .attr("x", labelStartX);
 
         // Smoothly move connecting line
         labelGroup.select(".label-connector")
           .transition()
           .duration(transitionDuration)
           .attr("x1", d.maxXPos + 2)
-          .attr("x2", d.maxXPos + 12);
+          .attr("x2", labelStartX - 3);
 
         // Smoothly move text elements
         d.labelLines.forEach((line, i) => {
           labelGroup.select(`.label-text-${i}`)
             .transition()
             .duration(transitionDuration)
-            .attr("x", d.maxXPos + 15 + labelPadding);
+            .attr("x", labelStartX + labelPadding);
         });
       }
     });

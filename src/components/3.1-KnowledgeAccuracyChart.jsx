@@ -8,6 +8,7 @@ function KnowledgeAccuracyChart() {
   const [currentWave, setCurrentWave] = useState(2)
   const { data: knowledgeData, loading, error } = useKnowledgeData()
   const svgRef = useRef()
+  const waveControlsRef = useRef()
 
   useEnhancedChart({
     svgRef,
@@ -20,6 +21,7 @@ function KnowledgeAccuracyChart() {
     chartType: 'knowledge',
     yAxisItems: KNOWLEDGE_CATEGORIES,
     dataFilter: (data) => data.filter(d => d.category !== 'Cancer'),
+    waveControlsRef,
   })
 
   if (loading) return <div className="loading">Loading knowledge accuracy data...</div>
@@ -31,23 +33,22 @@ function KnowledgeAccuracyChart() {
 
   return (
     <div className="chart-container-wrapper">
-      <div className="wave-controls">
-        <button 
-          className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
-          onClick={() => setCurrentWave(2)}
-        >
-          {WAVE_LABELS[2]}
-        </button>
-        <button 
-          className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
-          onClick={() => setCurrentWave(3)}
-        >
-          {WAVE_LABELS[3]}
-        </button>
-      </div>
-      
-      <div className="chart-container">
+      <div className="chart-container" style={{ position: 'relative' }}>
         <svg ref={svgRef}></svg>
+        <div ref={waveControlsRef} className="wave-controls embedded">
+          <button 
+            className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
+            onClick={() => setCurrentWave(2)}
+          >
+            {WAVE_LABELS[2]}
+          </button>
+          <button 
+            className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
+            onClick={() => setCurrentWave(3)}
+          >
+            {WAVE_LABELS[3]}
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -9,7 +9,7 @@ function PolicySupportByLeaning() {
   const [currentOrientation, setCurrentOrientation] = useState(0)
   const { data: policyData, loading, error } = usePolicyByLeaningData()
   const svgRef = useRef()
-"Left (0-2)", "Center-Left (3-5)", "Center-Right (6-8)", "Right (9-10)"
+  const waveControlsRef = useRef()
   // Map political orientations to slider values
   const orientationMap = {
     0: 'Left (0-2)',
@@ -34,6 +34,7 @@ function PolicySupportByLeaning() {
     xAxisLabel: 'Difference from Control (percentage points)',
     chartType: 'policy',
     yAxisItems: policyCategories,
+    waveControlsRef,
     dataFilter: (filteredData) => {
       // Filter by current orientation instead of category
       return filteredData.filter(d => d.pol_orientation === currentOrientationLabel)
@@ -72,35 +73,34 @@ function PolicySupportByLeaning() {
         </div>
       </div>
 
-      <div className="wave-controls">
-        <button 
-          className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
-          onClick={() => setCurrentWave(2)}
-        >
-          {WAVE_LABELS[2]}
-        </button>
-        <button 
-          className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
-          onClick={() => setCurrentWave(3)}
-        >
-          {WAVE_LABELS[3]}
-        </button>
-        <button 
-          className={`wave-tab ${currentWave === 4 ? 'active' : ''}`}
-          onClick={() => setCurrentWave(4)}
-        >
-          {WAVE_LABELS[4]}
-        </button>
-        <button 
-          className={`wave-tab ${currentWave === 5 ? 'active' : ''}`}
-          onClick={() => setCurrentWave(5)}
-        >
-          {WAVE_LABELS[5]}
-        </button>
-      </div>
-      
-      <div className="chart-container">
+      <div className="chart-container" style={{ position: 'relative' }}>
         <svg ref={svgRef}></svg>
+        <div ref={waveControlsRef} className="wave-controls embedded">
+          <button 
+            className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
+            onClick={() => setCurrentWave(2)}
+          >
+            {WAVE_LABELS[2]}
+          </button>
+          <button 
+            className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
+            onClick={() => setCurrentWave(3)}
+          >
+            {WAVE_LABELS[3]}
+          </button>
+          <button 
+            className={`wave-tab ${currentWave === 4 ? 'active' : ''}`}
+            onClick={() => setCurrentWave(4)}
+          >
+            {WAVE_LABELS[4]}
+          </button>
+          <button 
+            className={`wave-tab ${currentWave === 5 ? 'active' : ''}`}
+            onClick={() => setCurrentWave(5)}
+          >
+            {WAVE_LABELS[5]}
+          </button>
+        </div>
       </div>
     </div>
   )
