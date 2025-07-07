@@ -98,18 +98,19 @@ export const useEnhancedChart = ({
       ? { top: 140, right: 60, bottom: 70, left: 60 }
       : { top: 160, right: 80, bottom: 80, left: 80 };
     const width = Math.max(containerWidth - margin.left - margin.right, isMobile ? 500 : 700);
-    const height = isMobile ? Math.max(300, yAxisItems.length * 60) : isTablet ? 350 : 400;
+    const chartHeight = isMobile ? Math.max(300, yAxisItems.length * 60) : isTablet ? 350 : 400;
+    const totalHeight = chartStartY + chartHeight + margin.bottom;
 
     const svg = d3.select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+      .attr("height", totalHeight)
+      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${totalHeight}`)
       .attr("preserveAspectRatio", "xMidYMid meet")
       .style("display", "block")
       .style("margin", "0 auto");
 
     const g = svg.append("g")
-      .attr("transform", `translate(${margin.left},${margin.top})`);
+      .attr("transform", `translate(${margin.left},${chartStartY})`);
 
     const conditions = ['control', 'treatment', 'handoff'];
     
@@ -120,7 +121,7 @@ export const useEnhancedChart = ({
 
     const yScale = d3.scaleBand()
       .domain(yAxisItems)
-      .range([0, height])
+      .range([0, chartHeight])
       .padding(0.2);
 
     // Helper to split text into lines for SVG <text>
@@ -158,12 +159,14 @@ export const useEnhancedChart = ({
     const subtitleFontSize = isMobile ? 16 : isTablet ? 18 : 20;
     const lineGap = isMobile ? 4 : isTablet ? 6 : 8;
 
-    // Calculate heights
+    // Calculate heights with proper spacing for legend
     const titleHeight = titleLines * titleFontSize + (titleLines - 1) * lineGap;
     const subtitleHeight = subtitleLines * subtitleFontSize + (subtitleLines - 1) * lineGap;
     const topPadding = 10;
     const subtitleY = topPadding + titleHeight + 7;
-    const legendY = subtitleY + subtitleHeight + 5;
+    const legendHeight = isMobile ? 30 : isTablet ? 35 : 40; // Height needed for legend
+    const legendY = subtitleY + subtitleHeight + 10; // More space before legend
+    const chartStartY = legendY + legendHeight + 15; // Space after legend before chart
 
     // Add title using foreignObject for wrapping
     svg.append("foreignObject")
@@ -237,7 +240,7 @@ export const useEnhancedChart = ({
 
     // Add x-axis
     g.append("g")
-      .attr("transform", `translate(0,${height})`)
+      .attr("transform", `translate(0,${chartHeight})`)
       .call(d3.axisBottom(xScale).ticks(8).tickFormat(d => `${d}%`))
       .selectAll("text")
       .style("font-size", isMobile ? "15px" : isTablet ? "16px" : "18px")
@@ -247,7 +250,7 @@ export const useEnhancedChart = ({
     // Add x-axis label
     g.append("text")
       .attr("x", width / 2)
-      .attr("y", height + 54) // was height + 40, now increased for more space
+      .attr("y", chartHeight + 54) // was height + 40, now increased for more space
       .attr("text-anchor", "middle")
       .style("fill", "#1f2937")
       .style("font-size", isMobile ? "15px" : isTablet ? "17px" : "19px") // slightly smaller

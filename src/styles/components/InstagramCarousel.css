@@ -317,21 +317,24 @@
   }
 
   .section-content {
-    flex-direction: column;
-    gap: 30px;
-    align-items: center;
+    /* Keep side-by-side layout for landscape mobile */
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
     padding: 0;
   }
   
   .text-content {
-    padding-right: 0;
-    max-width: 800px;
+    flex: 1;
+    padding-right: 15px;
+    min-width: 0;
   }
   
   .carousel-content {
-    flex: none;
-    width: 300px;
-    height: 550px;
+    /* Smaller carousel for mobile landscape */
+    flex: 0 0 220px;
+    width: 220px;
+    height: 400px;
   }
 }
 
@@ -342,51 +345,63 @@
   }
 
   .section-content {
-    gap: 24px;
+    /* Keep side-by-side layout for mobile landscape */
+    flex-direction: row;
+    gap: 16px;
+    align-items: flex-start;
     padding: 0;
+  }
+
+  .text-content {
+    flex: 1;
+    padding-right: 10px;
+    min-width: 0;
   }
   
   .carousel-content {
-    width: 280px;
-    height: 520px;
-    padding: 10px;
+    /* Even smaller for mobile */
+    flex: 0 0 180px;
+    width: 180px;
+    height: 330px;
+    padding: 8px;
   }
   
   .profile-circles {
-    gap: 8px;
-    padding: 0 16px;
-    top: 18px;
+    gap: 6px;
+    padding: 0 12px;
+    top: 15px;
     overflow: visible;
   }
   
   .profile-circle {
-    width: 44px;
-    height: 44px;
+    width: 36px;
+    height: 36px;
     flex-shrink: 0;
-    min-width: 44px;
-    min-height: 44px;
+    min-width: 36px;
+    min-height: 36px;
   }
 
   .profile-inner {
-    width: 40px;
-    height: 40px;
+    width: 32px;
+    height: 32px;
+    font-size: 9px;
   }
   
   .carousel-container {
-    top: 75px;
-    bottom: 16px;
+    top: 60px;
+    bottom: 12px;
   }
 
   .progress-ring {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     top: -2px;
     left: -2px;
   }
   
   .progress-ring circle {
-    stroke-dasharray: 138;
-    stroke-dashoffset: 138;
+    stroke-dasharray: 113;
+    stroke-dashoffset: 113;
   }
 }
 
@@ -395,46 +410,76 @@
     padding: 12px;
   }
 
+  .section-content {
+    /* Keep side-by-side layout even on very small screens */
+    flex-direction: row;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 0;
+  }
+
+  .text-content {
+    flex: 1;
+    padding-right: 8px;
+    min-width: 0;
+  }
+
   .carousel-content {
-    width: 260px;
-    height: 480px;
+    /* Smallest size for very small screens */
+    flex: 0 0 150px;
+    width: 150px;
+    height: 275px;
+    padding: 6px;
   }
   
   .profile-circles {
-    gap: 6px;
-    padding: 0 12px;
-    top: 16px;
+    gap: 4px;
+    padding: 0 8px;
+    top: 12px;
     justify-content: center;
     overflow: visible;
   }
   
   .profile-circle {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     flex-shrink: 0;
-    min-width: 40px;
-    min-height: 40px;
+    min-width: 30px;
+    min-height: 30px;
+    padding: 1px;
   }
 
   .profile-inner {
-    width: 36px;
-    height: 36px;
-    font-size: 10px;
+    width: 28px;
+    height: 28px;
+    font-size: 8px;
   }
   
   .carousel-container {
-    top: 70px;
-    bottom: 12px;
+    top: 50px;
+    bottom: 10px;
   }
 
   .progress-ring {
-    width: 44px;
-    height: 44px;
+    width: 34px;
+    height: 34px;
+    top: -2px;
+    left: -2px;
   }
   
   .progress-ring circle {
-    stroke-dasharray: 126;
-    stroke-dashoffset: 126;
+    stroke-dasharray: 94;
+    stroke-dashoffset: 94;
+  }
+
+  .carousel-nav {
+    width: 20px;
+    height: 20px;
+  }
+
+  .carousel-nav svg {
+    width: 10px;
+    height: 10px;
   }
 }
 

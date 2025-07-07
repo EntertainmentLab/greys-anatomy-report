@@ -191,42 +191,43 @@
 /* Responsive Design */
 @media (max-width: 768px) {
   .timeline-infographic {
-    padding: 24px;
+    padding: 16px;
     margin: 20px 0;
   }
 
   .timeline-header h3 {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
 
   .timeline-header {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
 
   .timeline-track {
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
 
   .progress-line {
-    width: 80px;
+    width: 60px;
   }
 
   .checkpoint-marker {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
   }
 
   .checkpoint-number {
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   .waves-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    /* Keep horizontal layout for mobile landscape */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
   }
 
   .wave-card {
-    padding: 24px;
+    padding: 12px;
     min-height: auto;
   }
 
@@ -234,22 +235,61 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 16px;
+    gap: 8px;
   }
 
   .wave-icon-container {
     flex: none;
+    width: 40px;
+    height: 40px;
+  }
+
+  .wave-icon {
+    font-size: 1.25rem;
+  }
+
+  .wave-title {
+    font-size: 0.9rem;
+    min-height: 1.5rem;
+  }
+
+  .wave-subtitle {
+    font-size: 0.7rem;
+    padding: 2px 6px;
+  }
+
+  .details-box {
+    padding: 10px 12px;
+    min-height: 60px;
+  }
+
+  .wave-date {
+    font-size: 0.75rem;
+    margin: 0 0 6px 0;
+  }
+
+  .details-text {
+    font-size: 0.8rem;
+  }
+
+  .participants-section {
+    padding: 8px 12px;
+  }
+
+  .participants-count {
+    font-size: 0.8rem;
   }
 }
 
 @media (max-width: 1024px) {
   .waves-container {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    /* Keep horizontal layout for landscape mobile */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
   }
   
   .wave-card {
-    padding: 24px;
+    padding: 16px;
     min-height: auto;
   }
 
@@ -257,11 +297,101 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 16px;
+    gap: 12px;
   }
 
   .wave-icon-container {
     flex: none;
+    width: 48px;
+    height: 48px;
+  }
+
+  .wave-icon {
+    font-size: 1.5rem;
+  }
+
+  .wave-title {
+    font-size: 1rem;
+  }
+
+  .wave-subtitle {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-infographic {
+    padding: 12px;
+  }
+
+  .progress-line {
+    width: 40px;
+  }
+
+  .checkpoint-marker {
+    width: 32px;
+    height: 32px;
+  }
+
+  .checkpoint-number {
+    font-size: 0.9rem;
+  }
+
+  .waves-container {
+    /* Still keep horizontal layout but with tighter spacing */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+  }
+
+  .wave-card {
+    padding: 8px;
+  }
+
+  .wave-card-header {
+    gap: 6px;
+  }
+
+  .wave-icon-container {
+    width: 32px;
+    height: 32px;
+  }
+
+  .wave-icon {
+    font-size: 1rem;
+  }
+
+  .wave-title {
+    font-size: 0.8rem;
+    min-height: 1.25rem;
+  }
+
+  .wave-subtitle {
+    font-size: 0.6rem;
+    padding: 1px 4px;
+  }
+
+  .details-box {
+    padding: 8px 10px;
+    min-height: 50px;
+  }
+
+  .wave-date {
+    font-size: 0.7rem;
+    margin: 0 0 4px 0;
+  }
+
+  .details-text {
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  .participants-section {
+    padding: 6px 10px;
+  }
+
+  .participants-count {
+    font-size: 0.75rem;
   }
 }
 
