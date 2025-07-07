@@ -2,6 +2,7 @@ import KnowledgeAccuracyChart from './3.1-KnowledgeAccuracyChart'
 import HealthWorryChart from './3.2-HealthWorryChart'
 import SystemImpactsChart from './3.3-SystemImpactsChart'
 import PolicySupportChart from './3.4-PolicySupportChart'
+import PolicySupportByLeaning from './policy-support-by-leaning'
 import ClimateTemporalChart from './3.5-ClimateTemporalChart'
 
 function KeyFindings() {
@@ -47,8 +48,13 @@ function KeyFindings() {
       </p>
       <PolicySupportChart />
 
-
-
+      <h4>
+        Policy Support by Political Orientation
+      </h4>
+      <p>
+        This analysis examines how political orientation (left-leaning to right-leaning) influences support for heat-adaptive policies. The slider allows you to explore support patterns across the political spectrum, with categories displayed on the y-axis to compare government investment versus cooling center support within each orientation group.
+      </p>
+      <PolicySupportByLeaning />
 
       <h3>
         Climate Change Connections

@@ -1,0 +1,1382 @@
+[
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [74.26]
+    ],
+    "se": [
+      [1.004]
+    ],
+    "n": [
+      [1094]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [76.93]
+    ],
+    "se": [
+      [0.996]
+    ],
+    "n": [
+      [1079]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [70.6]
+    ],
+    "se": [
+      [1.076]
+    ],
+    "n": [
+      [1056]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [75.83]
+    ],
+    "se": [
+      [1.029]
+    ],
+    "n": [
+      [1094]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [77.21]
+    ],
+    "se": [
+      [1.002]
+    ],
+    "n": [
+      [1079]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [72.55]
+    ],
+    "se": [
+      [1.117]
+    ],
+    "n": [
+      [1056]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [83.35]
+    ],
+    "se": [
+      [1.135]
+    ],
+    "n": [
+      [493]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [86.99]
+    ],
+    "se": [
+      [1.051]
+    ],
+    "n": [
+      [488]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [82.35]
+    ],
+    "se": [
+      [1.18]
+    ],
+    "n": [
+      [496]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [85.55]
+    ],
+    "se": [
+      [1.068]
+    ],
+    "n": [
+      [493]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [86.13]
+    ],
+    "se": [
+      [1.136]
+    ],
+    "n": [
+      [488]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [85.47]
+    ],
+    "se": [
+      [1.071]
+    ],
+    "n": [
+      [496]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [66.61]
+    ],
+    "se": [
+      [1.967]
+    ],
+    "n": [
+      [280]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [70.88]
+    ],
+    "se": [
+      [1.898]
+    ],
+    "n": [
+      [312]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [74.17]
+    ],
+    "se": [
+      [1.816]
+    ],
+    "n": [
+      [313]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [67.46]
+    ],
+    "se": [
+      [2.152]
+    ],
+    "n": [
+      [280]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [74.91]
+    ],
+    "se": [
+      [1.837]
+    ],
+    "n": [
+      [312]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [76.35]
+    ],
+    "se": [
+      [1.766]
+    ],
+    "n": [
+      [313]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [54.12]
+    ],
+    "se": [
+      [2.92]
+    ],
+    "n": [
+      [176]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [65.2]
+    ],
+    "se": [
+      [2.811]
+    ],
+    "n": [
+      [179]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [65.36]
+    ],
+    "se": [
+      [2.459]
+    ],
+    "n": [
+      [169]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [56.14]
+    ],
+    "se": [
+      [3.208]
+    ],
+    "n": [
+      [176]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [64.23]
+    ],
+    "se": [
+      [2.827]
+    ],
+    "n": [
+      [179]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [59.28]
+    ],
+    "se": [
+      [3.005]
+    ],
+    "n": [
+      [169]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [58.17]
+    ],
+    "se": [
+      [4.443]
+    ],
+    "n": [
+      [120]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [57.26]
+    ],
+    "se": [
+      [4.579]
+    ],
+    "n": [
+      [99]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [53.13]
+    ],
+    "se": [
+      [4.635]
+    ],
+    "n": [
+      [104]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [61.53]
+    ],
+    "se": [
+      [4.487]
+    ],
+    "n": [
+      [120]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [59.42]
+    ],
+    "se": [
+      [4.553]
+    ],
+    "n": [
+      [99]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [52.36]
+    ],
+    "se": [
+      [4.836]
+    ],
+    "n": [
+      [104]
+    ],
+    "wave": [
+      [2]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [70.85]
+    ],
+    "se": [
+      [1.039]
+    ],
+    "n": [
+      [1092]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [71.89]
+    ],
+    "se": [
+      [1.098]
+    ],
+    "n": [
+      [1076]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [69.13]
+    ],
+    "se": [
+      [1.095]
+    ],
+    "n": [
+      [1051]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.47]
+    ],
+    "se": [
+      [1.072]
+    ],
+    "n": [
+      [1092]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.23]
+    ],
+    "se": [
+      [1.102]
+    ],
+    "n": [
+      [1076]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [72.91]
+    ],
+    "se": [
+      [1.078]
+    ],
+    "n": [
+      [1051]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [81.59]
+    ],
+    "se": [
+      [1.122]
+    ],
+    "n": [
+      [494]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [83.43]
+    ],
+    "se": [
+      [1.149]
+    ],
+    "n": [
+      [486]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [82.14]
+    ],
+    "se": [
+      [1.151]
+    ],
+    "n": [
+      [492]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [84.67]
+    ],
+    "se": [
+      [1.044]
+    ],
+    "n": [
+      [494]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [85.65]
+    ],
+    "se": [
+      [1.13]
+    ],
+    "n": [
+      [486]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [85.68]
+    ],
+    "se": [
+      [1.044]
+    ],
+    "n": [
+      [492]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Left (0-2)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [66.25]
+    ],
+    "se": [
+      [2.072]
+    ],
+    "n": [
+      [279]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [68.26]
+    ],
+    "se": [
+      [1.911]
+    ],
+    "n": [
+      [310]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [72.54]
+    ],
+    "se": [
+      [1.849]
+    ],
+    "n": [
+      [313]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [68.88]
+    ],
+    "se": [
+      [2.015]
+    ],
+    "n": [
+      [279]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [71.96]
+    ],
+    "se": [
+      [1.975]
+    ],
+    "n": [
+      [310]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [72.87]
+    ],
+    "se": [
+      [1.892]
+    ],
+    "n": [
+      [313]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Left (3-5)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [49.65]
+    ],
+    "se": [
+      [3.016]
+    ],
+    "n": [
+      [176]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [54.75]
+    ],
+    "se": [
+      [2.984]
+    ],
+    "n": [
+      [178]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [55.34]
+    ],
+    "se": [
+      [2.783]
+    ],
+    "n": [
+      [168]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [55.77]
+    ],
+    "se": [
+      [3.049]
+    ],
+    "n": [
+      [176]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [54.8]
+    ],
+    "se": [
+      [3.082]
+    ],
+    "n": [
+      [178]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [56.98]
+    ],
+    "se": [
+      [3.081]
+    ],
+    "n": [
+      [168]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Center-Right (6-8)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [55.01]
+    ],
+    "se": [
+      [4.444]
+    ],
+    "n": [
+      [120]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [43.97]
+    ],
+    "se": [
+      [5.312]
+    ],
+    "n": [
+      [99]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [48.28]
+    ],
+    "se": [
+      [4.23]
+    ],
+    "n": [
+      [104]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [54.29]
+    ],
+    "se": [
+      [4.671]
+    ],
+    "n": [
+      [120]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [46.48]
+    ],
+    "se": [
+      [5.073]
+    ],
+    "n": [
+      [99]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [52.31]
+    ],
+    "se": [
+      [4.701]
+    ],
+    "n": [
+      [104]
+    ],
+    "wave": [
+      [3]
+    ],
+    "pol_orientation": [
+      ["Right (9-10)"]
+    ]
+  }
+]
