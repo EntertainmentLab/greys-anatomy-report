@@ -3,11 +3,13 @@ export const CONDITIONS = ["treatment", "handoff"]
 export const REGIONS = ["Midwest", "Northeast", "South", "West"]
 
 export const COLOR_MAP = {
+  control: '#e8c49e',
   treatment: '#a8c4a2', 
   handoff: '#5a7c47'
 }
 
 export const CONDITION_LABELS = {
+  control: 'Control',
   treatment: 'Heat Wave',
   handoff: 'Heat Wave + Handoff'
 }
