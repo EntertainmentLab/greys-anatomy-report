@@ -2,36 +2,34 @@ import { useEffect } from 'react'
 
 function PleaseRotatePrompt() {
   useEffect(() => {
-    // Dynamically import pleaserotate.js only in browser
-    if (typeof window !== 'undefined' && /Mobi|Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) {
-      import('pleaserotate.js').then((PleaseRotate) => {
-        // Configure options for landscape mode viewing
-        const options = {
-          forcePortrait: false, // We want landscape for charts
-          message: "For the best experience, please rotate your device.",
-          subMessage: "This report is best viewed in landscape mode.",
-          allowClickBypass: true,
-          onlyMobile: true,
-          // Custom styling to match the app
-          zIndex: 9999
-        }
+    // Check if mobile device
+    const isMobile = typeof window !== 'undefined' && 
+      /Mobi|Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)
+    
+    if (!isMobile) return
 
-        // Initialize pleaserotate.js
-        if (PleaseRotate.default && typeof PleaseRotate.default.start === 'function') {
-          PleaseRotate.default.start(options)
-        } else if (PleaseRotate.default && typeof PleaseRotate.default === 'function') {
-          // Fallback if it's exported differently
-          PleaseRotate.default(options)
-        } else if (typeof PleaseRotate.start === 'function') {
-          PleaseRotate.start(options)
-        }
-      }).catch((error) => {
-        console.warn('Could not load pleaserotate.js:', error)
-      })
-    }
+    // Load pleaserotate.js library
+    import('pleaserotate.js').then((PleaseRotate) => {
+      // Configure options for landscape mode viewing
+      const options = {
+        forcePortrait: false, // We want landscape for charts
+        message: "For the best experience, please rotate your device.",
+        subMessage: "This report is best viewed in landscape mode.",
+        allowClickBypass: true,
+        onlyMobile: true,
+        zIndex: 9999
+      }
+
+      // Initialize pleaserotate
+      if (PleaseRotate.default) {
+        PleaseRotate.default(options)
+      }
+    }).catch((error) => {
+      console.warn('Could not load pleaserotate.js:', error)
+    })
   }, [])
 
-  // This component doesn't render anything - pleaserotate.js handles the UI
+  // This component doesn't render anything - the library handles the UI
   return null
 }
 

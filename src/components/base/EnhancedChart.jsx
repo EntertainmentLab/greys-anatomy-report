@@ -99,6 +99,51 @@ export const useEnhancedChart = ({
       : { top: 160, right: 80, bottom: 80, left: 80 };
     const width = Math.max(containerWidth - margin.left - margin.right, isMobile ? 500 : 700);
     const chartHeight = isMobile ? Math.max(300, yAxisItems.length * 60) : isTablet ? 350 : 400;
+    
+    // Helper to split text into lines for SVG <text>
+    function wrapText(text, maxChars) {
+      if (!text) return [];
+      const words = text.split(' ');
+      const lines = [];
+      let line = '';
+      words.forEach(word => {
+        if ((line + word).length > maxChars) {
+          lines.push(line.trim());
+          line = '';
+        }
+        line += word + ' ';
+      });
+      if (line) lines.push(line.trim());
+      return lines;
+    }
+
+    // Helper to estimate line count for wrapping
+    function estimateLineCount(text, charsPerLine) {
+      if (!text) return 1;
+      return Math.ceil(text.length / charsPerLine);
+    }
+    
+    // Calculate heights for title, subtitle, and legend positioning
+    const titleText = `${title} (${WAVE_LABELS[currentWave]})`;
+    const subtitleText = subtitle;
+    const charsPerLine = Math.floor(width / 13); // ~13px per char at 20-28px font
+    const titleLines = estimateLineCount(titleText, charsPerLine);
+    const subtitleLines = estimateLineCount(subtitleText, charsPerLine);
+
+    // Font sizes
+    const titleFontSize = isMobile ? 20 : isTablet ? 24 : 28;
+    const subtitleFontSize = isMobile ? 16 : isTablet ? 18 : 20;
+    const lineGap = isMobile ? 4 : isTablet ? 6 : 8;
+
+    // Calculate heights with proper spacing for legend
+    const titleHeight = titleLines * titleFontSize + (titleLines - 1) * lineGap;
+    const subtitleHeight = subtitleLines * subtitleFontSize + (subtitleLines - 1) * lineGap;
+    const topPadding = 10;
+    const subtitleY = topPadding + titleHeight + 7;
+    const legendHeight = isMobile ? 30 : isTablet ? 35 : 40; // Height needed for legend
+    const legendY = subtitleY + subtitleHeight + 10; // More space before legend
+    const chartStartY = legendY + legendHeight + 15; // Space after legend before chart
+    
     const totalHeight = chartStartY + chartHeight + margin.bottom;
 
     const svg = d3.select(svgRef.current)
@@ -124,49 +169,6 @@ export const useEnhancedChart = ({
       .range([0, chartHeight])
       .padding(0.2);
 
-    // Helper to split text into lines for SVG <text>
-    function wrapText(text, maxChars) {
-      if (!text) return [];
-      const words = text.split(' ');
-      const lines = [];
-      let line = '';
-      words.forEach(word => {
-        if ((line + word).length > maxChars) {
-          lines.push(line.trim());
-          line = '';
-        }
-        line += word + ' ';
-      });
-      if (line) lines.push(line.trim());
-      return lines;
-    }
-
-    // Helper to estimate line count for wrapping
-    function estimateLineCount(text, charsPerLine) {
-      if (!text) return 1;
-      return Math.ceil(text.length / charsPerLine);
-    }
-
-    // Estimate line counts for title and subtitle
-    const titleText = `${title} (${WAVE_LABELS[currentWave]})`;
-    const subtitleText = subtitle;
-    const charsPerLine = Math.floor(width / 13); // ~13px per char at 20-28px font
-    const titleLines = estimateLineCount(titleText, charsPerLine);
-    const subtitleLines = estimateLineCount(subtitleText, charsPerLine);
-
-    // Font sizes
-    const titleFontSize = isMobile ? 20 : isTablet ? 24 : 28;
-    const subtitleFontSize = isMobile ? 16 : isTablet ? 18 : 20;
-    const lineGap = isMobile ? 4 : isTablet ? 6 : 8;
-
-    // Calculate heights with proper spacing for legend
-    const titleHeight = titleLines * titleFontSize + (titleLines - 1) * lineGap;
-    const subtitleHeight = subtitleLines * subtitleFontSize + (subtitleLines - 1) * lineGap;
-    const topPadding = 10;
-    const subtitleY = topPadding + titleHeight + 7;
-    const legendHeight = isMobile ? 30 : isTablet ? 35 : 40; // Height needed for legend
-    const legendY = subtitleY + subtitleHeight + 10; // More space before legend
-    const chartStartY = legendY + legendHeight + 15; // Space after legend before chart
 
     // Add title using foreignObject for wrapping
     svg.append("foreignObject")
