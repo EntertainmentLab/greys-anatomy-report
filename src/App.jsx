@@ -7,6 +7,7 @@ import Methodology from './components/2-Methodology'
 import KeyFindings from './components/3-KeyFindings'
 import { useKnowledgeData } from './hooks/useKnowledgeData'
 import Banner from './components/Banner'
+import PleaseRotatePrompt from './components/PleaseRotatePrompt'
 import './styles/global/App.css'
 
 function App() {
@@ -19,21 +20,24 @@ function App() {
   if (error) return <div className="error">Error loading data: {error}</div>
 
   return (
-    <div className="report-container">
-      <Banner />
-      <div className="main-title-section">
-        <div className="main-title-container">
-          <h1>
-            The Impact of Heat Wave Storytelling on Climate Beliefs and Health Risk Perceptions
-          </h1>
+    <>
+      <PleaseRotatePrompt />
+      <div className="report-container">
+        <Banner />
+        <div className="main-title-section">
+          <div className="main-title-container">
+            <h1>
+              The Impact of Heat Wave Storytelling on Climate Beliefs and Health Risk Perceptions
+            </h1>
+          </div>
+        </div>
+        <div className="container">
+          <StudyOverview />
+          <Methodology />
+          <KeyFindings />
         </div>
       </div>
-      <div className="container">
-        <StudyOverview />
-        <Methodology />
-        <KeyFindings />
-      </div>
-    </div>
+    </>
   )
 }
 
