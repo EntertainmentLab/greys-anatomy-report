@@ -10,7 +10,7 @@ function PleaseRotatePrompt() {
           forcePortrait: false, // We want landscape for charts
           message: "For the best experience, please rotate your device.",
           subMessage: "This report is best viewed in landscape mode.",
-          allowClickBypass: false,
+          allowClickBypass: true,
           onlyMobile: true,
           // Custom styling to match the app
           zIndex: 9999
