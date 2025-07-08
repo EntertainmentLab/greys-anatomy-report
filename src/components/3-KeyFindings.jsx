@@ -3,6 +3,7 @@ import HealthWorryChart from './3.2-HealthWorryChart'
 import SystemImpactsChart from './3.3-SystemImpactsChart'
 import PolicySupportChart from './3.4-PolicySupportChart'
 import ClimateTemporalChart from './3.5-ClimateTemporalChart'
+import AMEChart from './AMEChart'
 
 function KeyFindings() {
   return (
@@ -13,6 +14,7 @@ function KeyFindings() {
       <p>
         Overall, the heat wave episode of Grey's Anatomy effectively educated viewers about heat-related health risks and significantly increased concern about heat wave impacts, with the handoff condition (episode + Instagram videos) showing the strongest and most sustained effects. Importantly, these impacts occurred without compromising entertainment value.
       </p>
+      <AMEChart />
 
       <h3>
         Knowledge of Heat Wave Health Impacts

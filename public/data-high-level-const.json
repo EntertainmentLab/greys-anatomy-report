@@ -4,22 +4,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Perceived Likelihood of Heat Waves"]
     ],
     "mean": [
-      [74.26]
+      [0]
     ],
     "se": [
-      [1.004]
+      [0.03]
     ],
     "n": [
-      [1094]
+      [1065]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -27,22 +24,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Perceived Likelihood of Heat Waves"]
     ],
     "mean": [
-      [76.93]
+      [0.12]
     ],
     "se": [
-      [0.996]
+      [0.03]
     ],
     "n": [
-      [1079]
+      [1025]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -50,22 +44,19 @@
       ["control"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Perceived Likelihood of Heat Waves"]
     ],
     "mean": [
-      [70.6]
+      [-0.1]
     ],
     "se": [
-      [1.076]
+      [0.033]
     ],
     "n": [
-      [1056]
+      [972]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -73,22 +64,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Threat Severity"]
     ],
     "mean": [
-      [75.83]
+      [0.03]
     ],
     "se": [
-      [1.029]
+      [0.023]
     ],
     "n": [
-      [1094]
+      [1065]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -96,22 +84,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Threat Severity"]
     ],
     "mean": [
-      [77.21]
+      [0.08]
     ],
     "se": [
-      [1.002]
+      [0.024]
     ],
     "n": [
-      [1079]
+      [1025]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -119,22 +104,19 @@
       ["control"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Threat Severity"]
     ],
     "mean": [
-      [72.55]
+      [-0.15]
     ],
     "se": [
-      [1.117]
+      [0.024]
     ],
     "n": [
-      [1056]
+      [972]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -142,22 +124,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat Wave Health Impact"]
     ],
     "mean": [
-      [81.85]
+      [0.08]
     ],
     "se": [
-      [1.144]
+      [0.017]
     ],
     "n": [
-      [483]
+      [1065]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -165,22 +144,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat Wave Health Impact"]
     ],
     "mean": [
-      [85.74]
+      [0.1]
     ],
     "se": [
-      [1.059]
+      [0.017]
     ],
     "n": [
-      [499]
+      [1025]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -188,22 +164,19 @@
       ["control"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat Wave Health Impact"]
     ],
     "mean": [
-      [80.5]
+      [-0.2]
     ],
     "se": [
-      [1.189]
+      [0.017]
     ],
     "n": [
-      [467]
+      [972]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -211,22 +184,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Impact Knowledge"]
     ],
     "mean": [
-      [83.95]
+      [0.01]
     ],
     "se": [
-      [1.148]
+      [0.002]
     ],
     "n": [
-      [483]
+      [1065]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -234,22 +204,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Impact Knowledge"]
     ],
     "mean": [
-      [84.82]
+      [0.02]
     ],
     "se": [
-      [1.119]
+      [0.002]
     ],
     "n": [
-      [499]
+      [1025]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -257,45 +224,19 @@
       ["control"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Impact Knowledge"]
     ],
     "mean": [
-      [82.48]
+      [-0.03]
     ],
     "se": [
-      [1.164]
+      [0.002]
     ],
     "n": [
-      [467]
+      [972]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Democrat"]
-    ]
-  },
-  {
-    "condition": [
-      ["control"]
-    ],
-    "category": [
-      ["Government Investment"]
-    ],
-    "mean": [
-      [66.33]
-    ],
-    "se": [
-      [2.182]
-    ],
-    "n": [
-      [290]
-    ],
-    "wave": [
-      [2]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -303,22 +244,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat and Policy Support"]
     ],
     "mean": [
-      [71.64]
+      [0.01]
     ],
     "se": [
-      [1.925]
+      [0.016]
     ],
     "n": [
-      [339]
+      [1064]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -326,22 +264,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat and Policy Support"]
     ],
     "mean": [
-      [70.17]
+      [0.05]
     ],
     "se": [
-      [2.141]
+      [0.016]
     ],
     "n": [
-      [303]
+      [1025]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -349,22 +284,19 @@
       ["control"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat and Policy Support"]
     ],
     "mean": [
-      [65.72]
+      [-0.05]
     ],
     "se": [
-      [2.455]
+      [0.017]
     ],
     "n": [
-      [290]
+      [972]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -372,22 +304,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Healthcare Worker Responsibility"]
     ],
     "mean": [
-      [71.77]
+      [0.02]
     ],
     "se": [
-      [2.065]
+      [0.026]
     ],
     "n": [
-      [339]
+      [1064]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -395,68 +324,59 @@
       ["handoff"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Healthcare Worker Responsibility"]
     ],
     "mean": [
-      [72.86]
+      [0.03]
     ],
     "se": [
-      [2.082]
+      [0.026]
     ],
     "n": [
-      [303]
+      [1025]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
     "condition": [
-      ["treatment"]
+      ["control"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Healthcare Worker Responsibility"]
     ],
     "mean": [
-      [62.5]
+      [0]
     ],
     "se": [
-      [2.835]
+      [0.027]
     ],
     "n": [
-      [193]
+      [972]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Republican"]
     ]
   },
   {
     "condition": [
-      ["control"]
+      ["treatment"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Climate Change Personal Impact"]
     ],
     "mean": [
-      [52.07]
+      [-0]
     ],
     "se": [
-      [2.954]
+      [0.022]
     ],
     "n": [
-      [201]
+      [1064]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Republican"]
     ]
   },
   {
@@ -464,68 +384,59 @@
       ["handoff"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Climate Change Personal Impact"]
     ],
     "mean": [
-      [63.46]
+      [0.06]
     ],
     "se": [
-      [2.81]
+      [0.023]
     ],
     "n": [
-      [196]
+      [1025]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Republican"]
     ]
   },
   {
     "condition": [
-      ["treatment"]
+      ["control"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Climate Change Personal Impact"]
     ],
     "mean": [
-      [65.15]
+      [-0.03]
     ],
     "se": [
-      [2.944]
+      [0.023]
     ],
     "n": [
-      [193]
+      [972]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Republican"]
     ]
   },
   {
     "condition": [
-      ["control"]
+      ["treatment"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Climate Change Support for Action"]
     ],
     "mean": [
-      [55.38]
+      [-0.01]
     ],
     "se": [
-      [3.149]
+      [0.023]
     ],
     "n": [
-      [201]
+      [1064]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Republican"]
     ]
   },
   {
@@ -533,68 +444,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Climate Change Support for Action"]
     ],
     "mean": [
-      [61.13]
+      [0.03]
     ],
     "se": [
-      [2.899]
+      [0.022]
     ],
     "n": [
-      [196]
+      [1025]
     ],
     "wave": [
       [2]
-    ],
-    "political_party": [
-      ["Republican"]
-    ]
-  },
-  {
-    "condition": [
-      ["treatment"]
-    ],
-    "category": [
-      ["Government Investment"]
-    ],
-    "mean": [
-      [70.85]
-    ],
-    "se": [
-      [1.039]
-    ],
-    "n": [
-      [1092]
-    ],
-    "wave": [
-      [3]
-    ],
-    "political_party": [
-      ["Overall"]
-    ]
-  },
-  {
-    "condition": [
-      ["handoff"]
-    ],
-    "category": [
-      ["Government Investment"]
-    ],
-    "mean": [
-      [71.89]
-    ],
-    "se": [
-      [1.098]
-    ],
-    "n": [
-      [1076]
-    ],
-    "wave": [
-      [3]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -602,22 +464,19 @@
       ["control"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Climate Change Support for Action"]
     ],
     "mean": [
-      [69.13]
+      [-0.01]
     ],
     "se": [
-      [1.095]
+      [0.023]
     ],
     "n": [
-      [1051]
+      [972]
     ],
     "wave": [
-      [3]
-    ],
-    "political_party": [
-      ["Overall"]
+      [2]
     ]
   },
   {
@@ -625,22 +484,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Perceived Likelihood of Heat Waves"]
     ],
     "mean": [
-      [73.47]
+      [-0.01]
     ],
     "se": [
-      [1.072]
+      [0.03]
     ],
     "n": [
-      [1092]
+      [1063]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -648,22 +504,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Perceived Likelihood of Heat Waves"]
     ],
     "mean": [
-      [73.23]
+      [0.02]
     ],
     "se": [
-      [1.102]
+      [0.031]
     ],
     "n": [
-      [1076]
+      [1024]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -671,22 +524,19 @@
       ["control"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Perceived Likelihood of Heat Waves"]
     ],
     "mean": [
-      [72.91]
+      [-0.06]
     ],
     "se": [
-      [1.078]
+      [0.033]
     ],
     "n": [
-      [1051]
+      [969]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Overall"]
     ]
   },
   {
@@ -694,22 +544,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat Wave Threat Severity"]
     ],
     "mean": [
-      [79.41]
+      [0.02]
     ],
     "se": [
-      [1.218]
+      [0.024]
     ],
     "n": [
-      [484]
+      [1063]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -717,22 +564,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat Wave Threat Severity"]
     ],
     "mean": [
-      [82.53]
+      [-0]
     ],
     "se": [
-      [1.122]
+      [0.024]
     ],
     "n": [
-      [498]
+      [1024]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -740,22 +584,19 @@
       ["control"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat Wave Threat Severity"]
     ],
     "mean": [
-      [79.28]
+      [-0.05]
     ],
     "se": [
-      [1.294]
+      [0.024]
     ],
     "n": [
-      [463]
+      [969]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -763,22 +604,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Health Impact"]
     ],
     "mean": [
-      [82.6]
+      [0.05]
     ],
     "se": [
-      [1.139]
+      [0.017]
     ],
     "n": [
-      [484]
+      [1063]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -786,22 +624,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Health Impact"]
     ],
     "mean": [
-      [83.92]
+      [0.05]
     ],
     "se": [
-      [1.142]
+      [0.018]
     ],
     "n": [
-      [498]
+      [1024]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Democrat"]
     ]
   },
   {
@@ -809,45 +644,19 @@
       ["control"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Health Impact"]
     ],
     "mean": [
-      [82.76]
+      [-0.11]
     ],
     "se": [
-      [1.144]
+      [0.017]
     ],
     "n": [
-      [463]
+      [969]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Democrat"]
-    ]
-  },
-  {
-    "condition": [
-      ["control"]
-    ],
-    "category": [
-      ["Government Investment"]
-    ],
-    "mean": [
-      [65.22]
-    ],
-    "se": [
-      [2.178]
-    ],
-    "n": [
-      [289]
-    ],
-    "wave": [
-      [3]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -855,22 +664,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat Wave Impact Knowledge"]
     ],
     "mean": [
-      [68.99]
+      [0.01]
     ],
     "se": [
-      [1.95]
+      [0.002]
     ],
     "n": [
-      [336]
+      [1063]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -878,22 +684,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat Wave Impact Knowledge"]
     ],
     "mean": [
-      [67.96]
+      [0.01]
     ],
     "se": [
-      [2.242]
+      [0.002]
     ],
     "n": [
-      [303]
+      [1024]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -901,22 +704,19 @@
       ["control"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat Wave Impact Knowledge"]
     ],
     "mean": [
-      [67.27]
+      [-0.02]
     ],
     "se": [
-      [2.32]
+      [0.002]
     ],
     "n": [
-      [289]
+      [969]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -924,22 +724,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat and Policy Support"]
     ],
     "mean": [
-      [70.34]
+      [0]
     ],
     "se": [
-      [2.174]
+      [0.016]
     ],
     "n": [
-      [336]
+      [1062]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Independent"]
     ]
   },
   {
@@ -947,45 +744,19 @@
       ["handoff"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Heat and Policy Support"]
     ],
     "mean": [
-      [70.31]
+      [0.02]
     ],
     "se": [
-      [2.216]
+      [0.017]
     ],
     "n": [
-      [303]
+      [1022]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Independent"]
-    ]
-  },
-  {
-    "condition": [
-      ["treatment"]
-    ],
-    "category": [
-      ["Government Investment"]
-    ],
-    "mean": [
-      [56.64]
-    ],
-    "se": [
-      [2.782]
-    ],
-    "n": [
-      [193]
-    ],
-    "wave": [
-      [3]
-    ],
-    "political_party": [
-      ["Republican"]
     ]
   },
   {
@@ -993,45 +764,19 @@
       ["control"]
     ],
     "category": [
-      ["Government Investment"]
+      ["Heat and Policy Support"]
     ],
     "mean": [
-      [48.23]
+      [-0.02]
     ],
     "se": [
-      [2.806]
+      [0.017]
     ],
     "n": [
-      [201]
+      [967]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Republican"]
-    ]
-  },
-  {
-    "condition": [
-      ["handoff"]
-    ],
-    "category": [
-      ["Government Investment"]
-    ],
-    "mean": [
-      [50.13]
-    ],
-    "se": [
-      [3.142]
-    ],
-    "n": [
-      [194]
-    ],
-    "wave": [
-      [3]
-    ],
-    "political_party": [
-      ["Republican"]
     ]
   },
   {
@@ -1039,45 +784,19 @@
       ["treatment"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Healthcare Worker Responsibility"]
     ],
     "mean": [
-      [58.55]
+      [-0.02]
     ],
     "se": [
-      [3.018]
+      [0.026]
     ],
     "n": [
-      [193]
+      [1062]
     ],
     "wave": [
       [3]
-    ],
-    "political_party": [
-      ["Republican"]
-    ]
-  },
-  {
-    "condition": [
-      ["control"]
-    ],
-    "category": [
-      ["Cooling Centers"]
-    ],
-    "mean": [
-      [53.74]
-    ],
-    "se": [
-      [2.923]
-    ],
-    "n": [
-      [201]
-    ],
-    "wave": [
-      [3]
-    ],
-    "political_party": [
-      ["Republican"]
     ]
   },
   {
@@ -1085,22 +804,159 @@
       ["handoff"]
     ],
     "category": [
-      ["Cooling Centers"]
+      ["Healthcare Worker Responsibility"]
     ],
     "mean": [
-      [50.85]
+      [0.02]
     ],
     "se": [
-      [3.221]
+      [0.025]
     ],
     "n": [
-      [194]
+      [1022]
     ],
     "wave": [
       [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
     ],
-    "political_party": [
-      ["Republican"]
+    "category": [
+      ["Healthcare Worker Responsibility"]
+    ],
+    "mean": [
+      [0.01]
+    ],
+    "se": [
+      [0.027]
+    ],
+    "n": [
+      [967]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Climate Change Personal Impact"]
+    ],
+    "mean": [
+      [-0]
+    ],
+    "se": [
+      [0.021]
+    ],
+    "n": [
+      [1062]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Climate Change Personal Impact"]
+    ],
+    "mean": [
+      [0.02]
+    ],
+    "se": [
+      [0.023]
+    ],
+    "n": [
+      [1022]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Climate Change Personal Impact"]
+    ],
+    "mean": [
+      [0]
+    ],
+    "se": [
+      [0.023]
+    ],
+    "n": [
+      [967]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Climate Change Support for Action"]
+    ],
+    "mean": [
+      [-0.01]
+    ],
+    "se": [
+      [0.022]
+    ],
+    "n": [
+      [1062]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Climate Change Support for Action"]
+    ],
+    "mean": [
+      [0.01]
+    ],
+    "se": [
+      [0.023]
+    ],
+    "n": [
+      [1022]
+    ],
+    "wave": [
+      [3]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Climate Change Support for Action"]
+    ],
+    "mean": [
+      [0.01]
+    ],
+    "se": [
+      [0.023]
+    ],
+    "n": [
+      [967]
+    ],
+    "wave": [
+      [3]
     ]
   }
 ]

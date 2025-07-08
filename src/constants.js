@@ -108,3 +108,49 @@ export const TIME_POINTS = [
   "10 days",
   "15 Days\nLater"
 ]
+
+// High-level constructs categories
+export const HIGH_LEVEL_CONSTRUCTS = [
+  'Perceived Likelihood of Heat Waves',
+  'Heat Wave Threat Severity',
+  'Heat Wave Health Impact',
+  'Heat Wave Impact Knowledge'
+]
+
+// High-level constructs labels (mapping for display)
+export const HIGH_LEVEL_CONSTRUCTS_LABELS = {
+  'Perceived Likelihood of Heat Waves': 'Perceived Likelihood of Heat Waves',
+  'Heat Wave Threat Severity': 'Heat Wave Threat Severity',
+  'Heat Wave Health Impact': 'Heat Wave Health Impact',
+  'Heat Wave Impact Knowledge': 'Heat Wave Impact Knowledge'
+}
+
+// AME Chart constants
+export const AME_OUTCOMES = [
+  'Heatwave Likelihood of Exposure',
+  'Heatwave Threat Severity', 
+  'Heatwave Threat Health Impact',
+  'Heatwave Impact Knowledge',
+  'Heat and Policy Support',
+  'Healthcare Worker Responsibility',
+  'Climate Change Personal Impact',
+  'Climate Change Support for Action'
+]
+
+export const AME_CONTRASTS = [
+  'Treatment vs Control',
+  'Handoff vs Control',
+  'Handoff vs Treatment'
+]
+
+export const AME_WAVES = [
+  'Immediate',
+  '15 Days'
+]
+
+// Effect size magnitude thresholds
+export const EFFECT_THRESHOLDS = {
+  LARGE: 0.4,
+  MODERATE: 0.1,
+  SMALL: 0.0
+}

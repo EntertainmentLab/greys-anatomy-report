@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import * as d3 from 'd3'
-import { CONDITION_LABELS, COLOR_MAP, WAVE_LABELS, KNOWLEDGE_CATEGORIES_LABELS } from '../../constants'
+import { CONDITION_LABELS, COLOR_MAP, WAVE_LABELS, KNOWLEDGE_CATEGORIES_LABELS, HIGH_LEVEL_CONSTRUCTS_LABELS } from '../../constants'
 
 export const useEnhancedChart = ({
   svgRef,
@@ -50,7 +50,13 @@ export const useEnhancedChart = ({
       n: parseInt(extractValue(item, 'n'), 10),
       wave: parseInt(extractValue(item, 'wave'), 10),
       political_party: extractValue(item, 'political_party')
-    }));
+    })).filter(item => {
+      // Filter out entries with NaN or invalid values
+      return !isNaN(item.mean) && !isNaN(item.se) && 
+             item.mean !== null && item.se !== null && 
+             item.mean !== undefined && item.se !== undefined &&
+             isFinite(item.mean) && isFinite(item.se)
+    });
 
     // Calculate global differences from ALL data before any filtering
     const globalDifferenceData = [];
@@ -59,6 +65,8 @@ export const useEnhancedChart = ({
       let itemData;
       if (chartType === 'policy') {
         itemData = processedData.filter(d => d.political_party === item);
+      } else if (chartType === 'high-level-constructs') {
+        itemData = processedData.filter(d => d.category === item);
       } else {
         itemData = processedData.filter(d => d.category === item);
       }
@@ -93,6 +101,11 @@ export const useEnhancedChart = ({
         d.wave === currentWave && 
         d.category === currentCategory
       );
+    } else if (chartType === 'high-level-constructs') {
+      // For high-level constructs chart: filter by wave only (no political party)
+      filteredData = processedData.filter(d => 
+        d.wave === currentWave
+      );
     } else {
       // For knowledge chart: filter by wave and political party
       filteredData = processedData.filter(d => 
@@ -118,6 +131,8 @@ export const useEnhancedChart = ({
         let itemData;
         if (chartType === 'policy') {
           itemData = data.filter(d => d.political_party === item);
+        } else if (chartType === 'high-level-constructs') {
+          itemData = data.filter(d => d.category === item);
         } else {
           itemData = data.filter(d => d.category === item);
         }
@@ -441,6 +456,8 @@ export const useEnhancedChart = ({
       
       if (chartType === 'policy') {
         itemData = filteredData.filter(d => d.political_party === item);
+      } else if (chartType === 'high-level-constructs') {
+        itemData = filteredData.filter(d => d.category === item);
       } else {
         itemData = filteredData.filter(d => d.category === item);
       }
@@ -691,6 +708,8 @@ export const useEnhancedChart = ({
       let itemData;
       if (chartType === 'policy') {
         itemData = filteredData.filter(d => d.political_party === item);
+      } else if (chartType === 'high-level-constructs') {
+        itemData = filteredData.filter(d => d.category === item);
       } else {
         itemData = filteredData.filter(d => d.category === item);
       }
@@ -706,6 +725,8 @@ export const useEnhancedChart = ({
         let labelText = item;
         if (chartType === 'knowledge' && KNOWLEDGE_CATEGORIES_LABELS && KNOWLEDGE_CATEGORIES_LABELS[item]) {
           labelText = KNOWLEDGE_CATEGORIES_LABELS[item];
+        } else if (chartType === 'high-level-constructs' && HIGH_LEVEL_CONSTRUCTS_LABELS && HIGH_LEVEL_CONSTRUCTS_LABELS[item]) {
+          labelText = HIGH_LEVEL_CONSTRUCTS_LABELS[item];
         }
 
         // Reasonable wrap: split label into lines of ~32 chars
