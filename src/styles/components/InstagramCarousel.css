@@ -14,7 +14,7 @@
 .section-content {
   display: flex;
   gap: 40px;
-  align-items: flex-start;
+  align-items: center;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0;
@@ -320,7 +320,7 @@
     /* Keep side-by-side layout for landscape mobile */
     flex-direction: row;
     gap: 20px;
-    align-items: flex-start;
+    align-items: center;
     padding: 0;
   }
   
@@ -348,7 +348,7 @@
     /* Keep side-by-side layout for mobile landscape */
     flex-direction: row;
     gap: 16px;
-    align-items: flex-start;
+    align-items: center;
     padding: 0;
   }
 
@@ -414,7 +414,7 @@
     /* Keep side-by-side layout even on very small screens */
     flex-direction: row;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
     padding: 0;
   }
 

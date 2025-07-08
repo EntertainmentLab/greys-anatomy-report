@@ -1,7 +1,10 @@
 import InstagramCarousel from './InstagramCarousel';
 import TimelineInfographic from './TimelineInfographic';
 import EpisodePreview from './EpisodePreview';
+import ExperimentalConditionsInfographic from './ExperimentalConditionsInfographic';
+import InlineEpisodePreview from './InlineEpisodePreview';
 import { useState } from 'react';
+import './2-Methodology.css';
 
 function Methodology() {
   const [showEpisodePreview, setShowEpisodePreview] = useState(false);
@@ -44,6 +47,16 @@ function Methodology() {
         </li>
       </ul>
 
+      <div className="inline-episodes-container">
+        <InlineEpisodePreview episode="night" />
+        <InlineEpisodePreview episode="hot" />
+      </div>
+
+      <ExperimentalConditionsInfographic 
+        onShowNightMovesPreview={() => setShowNightMovesPreview(true)}
+        onShowEpisodePreview={() => setShowEpisodePreview(true)}
+      />
+
       <EpisodePreview 
         isOpen={showEpisodePreview}
         onClose={() => setShowEpisodePreview(false)}
@@ -65,7 +78,7 @@ function Methodology() {
         We employed a longitudinal design to assess both immediate and sustained effects of the viewing experience. Participants completed surveys at three time points: a baseline assessment prior to viewing, an immediate post-viewing survey, and a follow-up survey approximately two to three weeks later to examine whether any observed effects persisted over time.
       </p>
       
-      <TimelineInfographic />
+      <TimelineInfographic />      
 
       <p>
         All outcome variables were derived from established measures or adapted from prior work on climate and risk communication. Multi-item batteries captured constructs including heat wave threat perception, knowledge of heat-related health risks, confidence in protective action, support for policy interventions, and beliefs about climate change's relevance to daily life. See <a href={`${import.meta.env.BASE_URL}survey-instrument.html`} target="_blank" rel="noopener noreferrer">full survey instrument</a>.

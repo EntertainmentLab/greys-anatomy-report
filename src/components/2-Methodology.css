@@ -1,0 +1,21 @@
+.inline-episodes-container {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  justify-content: center;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inline-episodes-container .inline-episode-preview {
+  flex: 1;
+  max-width: 300px;
+}
+
+@media (max-width: 768px) {
+  .inline-episodes-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
