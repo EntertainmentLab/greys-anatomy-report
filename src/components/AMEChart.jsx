@@ -16,7 +16,7 @@ function AMEChart() {
     return "Large increase"
   }
 
-  const processDataForVisualization = (rawData) => {
+  const processDataForVisualization = (rawData, contrastType) => {
     const outcomeMapping = {
       "Heatwave Likelihood of Exposure": "Perceived Likelihood of Heat Wave Exposure",
       "Heatwave Threat Severity": "Perceived Heat Wave Threat Severity",
@@ -40,25 +40,23 @@ function AMEChart() {
     ]
 
     return dataOutcomes.map(dataOutcome => {
-      const outcomeData = rawData.filter(item => item.outcome === dataOutcome)
-      const treatments = outcomeData
-        .filter(item => item.contrast !== "Handoff vs. Treatment")
-        .map(item => ({
-          contrast: item.contrast,
-          estimate: item.estimate,
-          sig: item.sig_raw,
-          ci_lower: item.ci_lower,
-          ci_upper: item.ci_upper,
-          p_value: item.p_value,
-          std_error: item.std_error,
-          effect: getEffectSize(item.estimate, item.sig_raw)
-        }))
+      const outcomeData = rawData.filter(item => item.outcome === dataOutcome && item.contrast === contrastType)
+      const treatment = outcomeData.length > 0 ? {
+        contrast: outcomeData[0].contrast,
+        estimate: outcomeData[0].estimate,
+        sig: outcomeData[0].sig_raw,
+        ci_lower: outcomeData[0].ci_lower,
+        ci_upper: outcomeData[0].ci_upper,
+        p_value: outcomeData[0].p_value,
+        std_error: outcomeData[0].std_error,
+        effect: getEffectSize(outcomeData[0].estimate, outcomeData[0].sig_raw)
+      } : null
 
       return {
         outcome: outcomeMapping[dataOutcome],
-        treatments
+        treatment
       }
-    })
+    }).filter(item => item.treatment) // Remove items without data
   }
 
   if (loading) return <div>Loading...</div>
@@ -66,12 +64,13 @@ function AMEChart() {
 
   // Filter for selected wave and process data
   const waveData = ameData.filter(item => item.wave === currentWave)
-  const data = processDataForVisualization(waveData)
+  const treatmentData = processDataForVisualization(waveData, "Treatment vs. Control")
+  const handoffData = processDataForVisualization(waveData, "Handoff vs. Treatment")
 
-  const maxValue = 0.6
+  const maxValue = 0.7
   
   const getBarWidth = (estimate) => {
-    return Math.abs(estimate) / maxValue * 40 // Reduced from 100% to 40%
+    return Math.abs(estimate) / maxValue * 70 // Increased since no negative values
   }
 
   const getBarColor = (estimate, sig, effect) => {
@@ -99,10 +98,24 @@ function AMEChart() {
     `
   }
 
-  return (
+  const getCategoryTooltip = (outcome) => {
+    const categoryDescriptions = {
+      "Perceived Likelihood of Heat Wave Exposure": "Subconstructs: [PLACEHOLDER - Edit this text to list the subconstructs that make up this category]",
+      "Perceived Heat Wave Threat Severity": "Subconstructs: [PLACEHOLDER - Edit this text to list the subconstructs that make up this category]",
+      "Perceived Threat of Heat Waves on Health": "Subconstructs: [PLACEHOLDER - Edit this text to list the subconstructs that make up this category]",
+      "Knowledge of the Impact of Heat Waves": "Subconstructs: [PLACEHOLDER - Edit this text to list the subconstructs that make up this category]",
+      "Heat and Policy Support": "Subconstructs: [PLACEHOLDER - Edit this text to list the subconstructs that make up this category]",
+      "Perceived Responsibility of Healthcare Workers": "Subconstructs: [PLACEHOLDER - Edit this text to list the subconstructs that make up this category]",
+      "Personal Impact of Climate Change": "Subconstructs: [PLACEHOLDER - Edit this text to list the subconstructs that make up this category]",
+      "Climate Change - Support for Action": "Subconstructs: [PLACEHOLDER - Edit this text to list the subconstructs that make up this category]"
+    }
+    return categoryDescriptions[outcome] || "No description available";
+  }
+
+  const renderChart = (data, title, subtitle) => (
     <div className="ame-chart">
-      <h3 className="chart-title">Impacts of the Heat Wave Episode on Key Measures</h3>
-      <p className="chart-subtitle">Change relative to the control episode</p>
+      <h3 className="chart-title">{title}</h3>
+      <p className="chart-subtitle">{subtitle}</p>
       
       <div className="wave-controls">
         <button 
@@ -119,52 +132,66 @@ function AMEChart() {
         </button>
       </div>
       
-      {data.map((outcome, idx) => (
-        <div key={idx} className="outcome-section">
-          <h4 className="outcome-title">{outcome.outcome}</h4>
-          
-          {outcome.treatments.map((treatment, tidx) => (
-            <div key={tidx} className="treatment-row">
-              <div className="treatment-label">{treatment.contrast === 'Treatment vs. Control' ? 'Heat Wave' : treatment.contrast === 'Handoff vs. Control' ? 'Heat Wave + Handoff' : treatment.contrast}</div>
-              <div className="bar-container">
-                <div className="zero-line"></div>
-                <div 
-                  className="effect-bar"
-                  style={{
-                    width: `${getBarWidth(treatment.estimate)}%`,
-                    backgroundColor: getBarColor(treatment.estimate, treatment.sig, treatment.effect),
-                    marginLeft: treatment.estimate < 0 ? `${50 - getBarWidth(treatment.estimate)}%` : '50%'
-                  }}
-                  onMouseEnter={() => setHoveredItem(`${outcome.outcome}-${tidx}`)}
-                  onMouseLeave={() => setHoveredItem(null)}
-                ></div>
-                
-                {/* Confidence interval error bars */}
-                <div 
-                  className="confidence-interval"
-                  style={{
-                    left: `${50 + (treatment.ci_lower / maxValue * 40)}%`,
-                    width: `${((treatment.ci_upper - treatment.ci_lower) / maxValue * 40)}%`
-                  }}
-                ></div>
-                
-                {/* Tooltip */}
-                {hoveredItem === `${outcome.outcome}-${tidx}` && (
-                  <div className="tooltip">
-                    <pre>{formatTooltip(treatment, outcome.outcome)}</pre>
-                  </div>
-                )}
-              </div>
-              <div className="effect-description">
-                <span className="effect-icon">
-                  {treatment.effect.includes('increase') ? '▲' : '—'}
-                </span>
-                <span className="effect-text">{treatment.effect}</span>
-              </div>
+      <div className="compact-chart">
+        {data.map((outcome, idx) => (
+          <div key={idx} className="compact-row">
+            <div 
+              className="outcome-label"
+              onMouseEnter={() => setHoveredItem(`category-${outcome.outcome}-${title}`)}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              {outcome.outcome}
+              {hoveredItem === `category-${outcome.outcome}-${title}` && (
+                <div className="category-tooltip">
+                  {getCategoryTooltip(outcome.outcome)}
+                </div>
+              )}
             </div>
-          ))}
-        </div>
-      ))}
+            <div className="bar-container">
+              <div className="zero-line"></div>
+              <div 
+                className="effect-bar"
+                style={{
+                  width: `${getBarWidth(outcome.treatment.estimate)}%`,
+                  backgroundColor: getBarColor(outcome.treatment.estimate, outcome.treatment.sig, outcome.treatment.effect),
+                  marginLeft: outcome.treatment.estimate < 0 ? `${20 - getBarWidth(outcome.treatment.estimate)}%` : '20%'
+                }}
+                onMouseEnter={() => setHoveredItem(`${outcome.outcome}-${title}`)}
+                onMouseLeave={() => setHoveredItem(null)}
+              ></div>
+              
+              {/* Confidence interval error bars */}
+              <div 
+                className="confidence-interval"
+                style={{
+                  left: `${Math.max(0, Math.min(100, 20 + (outcome.treatment.ci_lower / maxValue * 70)))}%`,
+                  width: `${Math.max(0, Math.min(80, ((outcome.treatment.ci_upper - outcome.treatment.ci_lower) / maxValue * 70)))}%`
+                }}
+              ></div>
+              
+              {/* Tooltip */}
+              {hoveredItem === `${outcome.outcome}-${title}` && (
+                <div className="tooltip">
+                  <pre>{formatTooltip(outcome.treatment, outcome.outcome)}</pre>
+                </div>
+              )}
+            </div>
+            <div className="effect-description">
+              <span className="effect-icon">
+                {outcome.treatment.effect.includes('increase') ? '▲' : '—'}
+              </span>
+              <span className="effect-text">{outcome.treatment.effect}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+
+  return (
+    <div className="ame-charts-container">
+      {renderChart(treatmentData, "Impacts of the Heat Wave Episode on Key Measures", "Change relative to the control episode (0)")}
+      {renderChart(handoffData, "The Additional Boost of Social Media Content", "Change relative to episode-only (0)")}
     </div>
   )
 }
