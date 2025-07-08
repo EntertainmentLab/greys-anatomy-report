@@ -8,8 +8,8 @@ function AMEChart() {
   const [hoveredItem, setHoveredItem] = useState(null)
   const [currentWave, setCurrentWave] = useState("Immediate")
 
-  const getEffectSize = (estimate, sig) => {
-    if (!sig) return "No clear change"
+  const getEffectSize = (estimate, sig, pValue) => {
+    if (!sig || pValue >= 0.05) return "No clear change"
     const absEstimate = Math.abs(estimate)
     if (absEstimate <= 0.1) return "Small increase"
     if (absEstimate <= 0.3) return "Moderate increase"
@@ -49,7 +49,7 @@ function AMEChart() {
         ci_upper: outcomeData[0].ci_upper,
         p_value: outcomeData[0].p_value,
         std_error: outcomeData[0].std_error,
-        effect: getEffectSize(outcomeData[0].estimate, outcomeData[0].sig_raw)
+        effect: getEffectSize(outcomeData[0].estimate, outcomeData[0].sig_raw, outcomeData[0].p_value)
       } : null
 
       return {
@@ -74,7 +74,7 @@ function AMEChart() {
   }
 
   const getBarColor = (estimate, sig, effect) => {
-    if (!sig) return '#d1d5db' // gray for non-significant
+    if (!sig || effect === "No clear change") return '#d1d5db' // gray for non-significant
     
     if (estimate > 0) {
       if (effect === "Small increase") return '#86efac' // light green
