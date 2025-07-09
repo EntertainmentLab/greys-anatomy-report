@@ -112,8 +112,14 @@ export const useEnhancedChart = ({
       }
     } else {
       // Original logic for difference charts
-      globalDomainMin = Math.min(0, Math.floor(globalDiffMin) - 2);
-      globalDomainMax = Math.max(0, Math.ceil(globalDiffMax) + 2);
+      if (chartType === 'knowledge' || chartType === 'policy') {
+        // For knowledge and policy charts, start at -3 to make dotted line more visible
+        globalDomainMin = Math.min(-3, Math.floor(globalDiffMin) - 2);
+        globalDomainMax = Math.max(0, Math.ceil(globalDiffMax) + 2);
+      } else {
+        globalDomainMin = Math.min(0, Math.floor(globalDiffMin) - 2);
+        globalDomainMax = Math.max(0, Math.ceil(globalDiffMax) + 2);
+      }
     }
 
     // Apply filters based on chart type
@@ -229,7 +235,7 @@ export const useEnhancedChart = ({
         ? { top: 140, right: 160, bottom: 80, left: 80 }
         : { top: 160, right: 180, bottom: 90, left: 100 });
     const width = Math.max(containerWidth - margin.left - margin.right, isMobile ? 500 : 700);
-    const chartHeight = isMobile ? Math.max(300, yAxisItems.length * 60) : isTablet ? 400 : 450; // Slightly taller
+    const chartHeight = isMobile ? Math.max(300, yAxisItems.length * 70) : isTablet ? 450 : plotRawValues ? 550 : 450; // Reduce height
     
     // Helper to split text into lines for SVG <text>
     function wrapText(text, maxChars) {
@@ -274,9 +280,9 @@ export const useEnhancedChart = ({
     const titleHeight = titleLines * titleFontSize + (titleLines - 1) * lineGap;
     const subtitleHeight = subtitleLines * subtitleFontSize + (subtitleLines - 1) * lineGap;
     const topPadding = 10;
-    const subtitleY = topPadding + titleHeight + 8; // Closer to title
+    const subtitleY = titleHeight - 7; // Overlap slightly to reduce gap
     const waveControlsHeight = isMobile ? 28 : isTablet ? 32 : 36;
-    const waveControlsY = subtitleY + subtitleHeight + 12; // More space after subtitle
+    const waveControlsY = subtitleY + subtitleHeight + 4; // Less space after subtitle
     const chartStartY = waveControlsY + waveControlsHeight + 60; // Much more space after controls
     const xAxisLabelY = chartStartY + chartHeight + 54;
     const legendHeight = isMobile ? 20 : isTablet ? 24 : 28;
@@ -318,7 +324,7 @@ export const useEnhancedChart = ({
     const yScale = d3.scaleBand()
       .domain(yAxisItems)
       .range([0, chartHeight])
-      .padding(0.2);
+      .padding(plotRawValues ? 0.1 : 0.2); // Reduce padding to minimize gaps
 
 
     // Add static elements only on initial render
@@ -344,7 +350,7 @@ export const useEnhancedChart = ({
       .attr("x", margin.left)
       .attr("y", subtitleY)
       .attr("width", width)
-      .attr("height", subtitleHeight)
+      .attr("height", subtitleHeight + 8) // Add extra space for descenders
       .append("xhtml:div")
       .style("font-size", `${subtitleFontSize}px`)
       .style("font-style", "italic")
@@ -352,11 +358,50 @@ export const useEnhancedChart = ({
       .style("color", "#6b7280")
       .style("text-align", "center")
       .style("width", "100%")
-      .style("line-height", "1.2")
+      .style("line-height", "1.3") // Increase line height for better spacing
       .text(subtitleText);
 
+    // Position wave controls dynamically based on title center
+    if (waveControlsRef && waveControlsRef.current) {
+      const titleCenterX = margin.left + width / 2;
+      const containerRect = svgRef.current.parentNode.getBoundingClientRect();
+      const svgRect = svgRef.current.getBoundingClientRect();
+      
+      // Calculate the position relative to the container
+      const relativeX = titleCenterX * (containerRect.width / (width + margin.left + margin.right));
+      
+      // For knowledge and policy charts, use a smaller top value to reduce gap
+      const topPosition = (chartType === 'knowledge' || chartType === 'policy') ? 75 : waveControlsY;
+      
+      waveControlsRef.current.style.left = `${relativeX}px`;
+      waveControlsRef.current.style.transform = 'translateX(-50%)';
+      waveControlsRef.current.style.position = 'absolute';
+      waveControlsRef.current.style.top = `${topPosition}px`;
+      waveControlsRef.current.style.zIndex = '10';
+    }
 
-    // Add zero reference line with higher z-index
+    // Add alternating background rectangles for AME charts FIRST (only on initial render)
+    if (plotRawValues && !isUpdate) {
+      yAxisItems.forEach((item, index) => {
+        const bandTop = yScale(item);
+        const bandHeight = yScale.bandwidth();
+        
+        // Only add backgrounds for every other item (odd indices) to create alternating effect
+        if (index % 2 === 1) {
+          g.append("rect")
+            .attr("class", "alternating-background")
+            .attr("x", -200) // Extend far to the left to cover y-axis labels
+            .attr("y", bandTop)
+            .attr("width", width + 200) // Extend past the chart area
+            .attr("height", bandHeight)
+            .attr("fill", "rgba(0, 0, 0, 0.04)") // Match AMEChart even row background
+            .attr("opacity", 1.0)
+            .style("pointer-events", "none");
+        }
+      });
+    }
+
+    // Add zero reference line AFTER background rectangles to ensure it's on top
     if (!plotRawValues || (globalDomainMin <= 0 && globalDomainMax >= 0)) {
       g.append("line")
         .attr("class", "zero-reference-line")
@@ -364,43 +409,44 @@ export const useEnhancedChart = ({
         .attr("y1", 0)
         .attr("x2", xScale(0))
         .attr("y2", chartHeight)
-        .attr("stroke", "#666")
+        .attr("stroke", "#374151")
         .attr("stroke-width", 2)
         .attr("stroke-dasharray", "4,4")
-        .attr("opacity", 0.7)
-        .style("z-index", "1000");
+        .attr("opacity", 0.9)
+        .style("pointer-events", "none");
 
-      // Add rotated text along zero line with higher z-index and background
+      // Add rotated text along zero line with white background
       const zeroLineText = plotRawValues ? "No effect" : "No change from control";
       const textGroup = g.append("g")
-        .attr("class", "zero-line-text-group")
-        .style("z-index", "1001");
+        .attr("class", "zero-line-text-group");
 
-      // Add background rectangle for text
-      const textElement = textGroup.append("text")
+      // Add background rectangle for text first
+      const tempText = g.append("text")
         .attr("x", xScale(0) - 12)
         .attr("y", chartHeight / 2)
         .attr("text-anchor", "middle")
         .attr("dominant-baseline", "middle")
         .style("font-size", isMobile ? "12px" : isTablet ? "13px" : "14px")
         .style("font-weight", "500")
-        .style("fill", "#666")
+        .style("font-family", "Roboto Condensed, sans-serif")
+        .style("visibility", "hidden")
+        .text(zeroLineText);
+
+      const textBBox = tempText.node().getBBox();
+      tempText.remove();
+      
+      // Add text directly without background rectangle
+      textGroup.append("text")
+        .attr("x", xScale(0) - 12)
+        .attr("y", chartHeight / 2)
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "middle")
+        .style("font-size", isMobile ? "12px" : isTablet ? "13px" : "14px")
+        .style("font-weight", "500")
+        .style("fill", "#374151")
         .style("font-family", "Roboto Condensed, sans-serif")
         .attr("transform", `rotate(-90, ${xScale(0) - 12}, ${chartHeight / 2})`)
         .text(zeroLineText);
-
-      // Get text dimensions for background
-      const textBBox = textElement.node().getBBox();
-      
-      // Add background rectangle before text
-      textGroup.insert("rect", "text")
-        .attr("x", xScale(0) - 12 - textBBox.height/2)
-        .attr("y", chartHeight / 2 - textBBox.width/2 - 2)
-        .attr("width", textBBox.height + 4)
-        .attr("height", textBBox.width + 4)
-        .attr("fill", "rgba(255, 255, 255, 0.9)")
-        .attr("stroke", "none")
-        .attr("transform", `rotate(-90, ${xScale(0) - 12}, ${chartHeight / 2})`);
     }
 
     // Add x-axis with difference formatting
@@ -427,8 +473,8 @@ export const useEnhancedChart = ({
       .style("font-family", "Roboto Condensed, sans-serif")
       .text(xAxisLabel);
 
-      // Add y-axis with labels (for AME effects chart)
-      if (plotRawValues) {
+      // Add y-axis with labels (for AME effects, knowledge, and policy charts)
+      if (plotRawValues || chartType === 'knowledge' || chartType === 'policy') {
         const yAxis = g.append("g")
           .call(d3.axisLeft(yScale).tickFormat(""))
           .selectAll("text")
@@ -477,82 +523,30 @@ export const useEnhancedChart = ({
       }
     }
 
-    // Add legend below wave controls (always update for both initial and update renders)
-    const legendSpacing = isMobile ? 100 : isTablet ? 110 : 140;
-    let legend = svg.select("g.legend");
-    
-    if (legend.empty()) {
-      legend = svg.append("g")
-        .attr("class", "legend");
-    }
-    
-    legend.attr("transform", `translate(${margin.left + width / 2 - (conditions.length * legendSpacing) / 2}, ${legendY})`);
-
-    const legendItems = legend.selectAll(".legend-item")
-      .data(conditions, d => d);
-
-    legendItems.exit().remove();
-
-    const legendEnter = legendItems.enter()
-      .append("g")
-      .attr("class", "legend-item");
-
-    legendEnter.append("circle");
-    legendEnter.append("text");
-
-    const legendUpdate = legendEnter.merge(legendItems);
-
-    legendUpdate
-      .attr("transform", (d, i) => `translate(${i * legendSpacing}, 0)`);
-
-    legendUpdate.select("circle")
-      .attr("r", isMobile ? 9 : isTablet ? 10 : 12)
-      .attr("fill", d => COLOR_MAP[d])
-      .attr("stroke", "white")
-      .attr("stroke-width", 2);
-
-    legendUpdate.select("text")
-      .attr("x", isMobile ? 18 : isTablet ? 22 : 25)
-      .attr("y", 5)
-      .style("font-size", isMobile ? "15px" : isTablet ? "16px" : "18px")
-      .style("font-weight", "600")
-      .style("fill", "#1f2937")
-      .style("font-family", "Roboto Condensed, sans-serif")
-      .text(d => CONDITION_LABELS[d]);
-
-    // Position wave controls container if provided (always update)
-    if (waveControlsRef && waveControlsRef.current) {
-      // Position the wave controls container to center with title/subtitle
-      const controlsContainer = waveControlsRef.current;
-      const svgRect = svgRef.current.getBoundingClientRect();
-      
-      controlsContainer.style.position = 'absolute';
-      controlsContainer.style.left = '0px';
-      controlsContainer.style.top = `${waveControlsY}px`;
-      controlsContainer.style.width = '100%'; // Full container width
-      controlsContainer.style.height = `${waveControlsHeight}px`;
-      controlsContainer.style.display = 'flex';
-      controlsContainer.style.justifyContent = 'center';
-      controlsContainer.style.alignItems = 'center';
-      controlsContainer.style.zIndex = '10';
-    }
+    // ...existing code...
 
     // Collect data for connecting lines
     const lineData = [];
+    
+    // Define dodge offset here, before it's used - apply to ALL chart types
+    const dotRadius = isMobile ? 8 : isTablet ? 9 : 10;
+    const dodgeOffset = dotRadius * 1.2; // Vertical offset for dodging - apply to all charts
 
     // For each y-axis item (category or political party)
-    yAxisItems.forEach(item => {
+    yAxisItems.forEach((item, index) => {
       const yPos = yScale(item) + yScale.bandwidth() / 2;
 
-      // Draw light horizontal line (only on initial render)
+      // Draw light horizontal line (only on initial render) - higher z-index than background
       if (!isUpdate) {
         g.append("line")
+          .attr("class", "horizontal-grid-line")
           .attr("x1", 0)
           .attr("y1", yPos)
           .attr("x2", width)
           .attr("y2", yPos)
-          .attr("stroke", "#f0f0f0")
-          .attr("stroke-width", 1);
+          .attr("stroke", "#f3f4f6")
+          .attr("stroke-width", 1)
+          .attr("opacity", 0.7);
       }
 
       // For AME effects: connect dots from zero baseline to each condition
@@ -568,51 +562,38 @@ export const useEnhancedChart = ({
       }
       
       if (plotRawValues) {
-        // For AME effects: draw lines from zero to each effect size
+        // For AME effects: draw lines from zero to each effect size with dodged endpoints
         itemData.forEach(d => {
+          const dodgedY = d.condition === 'treatment' ? yPos - dodgeOffset : yPos + dodgeOffset;
           lineData.push({
             key: `${item}-${d.condition}`,
             x1: xScale(0),
-            y1: yPos,
+            y1: dodgedY,
             x2: xScale(d.mean),
-            y2: yPos,
+            y2: dodgedY,
             stroke: COLOR_MAP[d.condition],
             item: item
           });
         });
       } else {
-        // Original connecting line logic for other charts
-        // Sort by condition in the order: treatment, handoff (no control in difference data)
+        // Apply dodging to all other chart types too
         const sortedData = ['treatment', 'handoff']
           .map(condition => itemData.find(d => d.condition === condition))
           .filter(d => d !== undefined);
         
-        // Collect line data for this item
-        if (sortedData.length >= 1) {
-          // Line from zero to treatment
+        // For non-AME charts: both treatment and handoff lines should start from zero
+        sortedData.forEach(d => {
+          const dodgedY = d.condition === 'treatment' ? yPos - dodgeOffset : yPos + dodgeOffset;
           lineData.push({
-            key: `${item}-treatment`,
+            key: `${item}-${d.condition}`,
             x1: xScale(0),
-            y1: yPos,
-            x2: xScale(sortedData[0].mean),
-            y2: yPos,
-            stroke: COLOR_MAP.treatment,
+            y1: dodgedY,
+            x2: xScale(d.mean),
+            y2: dodgedY,
+            stroke: COLOR_MAP[d.condition],
             item: item
           });
-          
-          // Line from treatment to handoff if handoff exists
-          if (sortedData.length === 2) {
-            lineData.push({
-              key: `${item}-handoff`,
-              x1: xScale(sortedData[0].mean),
-              y1: yPos,
-              x2: xScale(sortedData[1].mean),
-              y2: yPos,
-              stroke: COLOR_MAP.handoff,
-              item: item
-            });
-          }
-        }
+        });
       }
     });
 
@@ -647,6 +628,8 @@ export const useEnhancedChart = ({
 
     // Create data for dots with unique keys for transitions
     const dotData = [];
+    // Note: dotRadius and dodgeOffset are already declared above
+    
     conditions.forEach(condition => {
       if (chartType === 'policy') {
         yAxisItems.forEach(party => {
@@ -655,12 +638,16 @@ export const useEnhancedChart = ({
             d.political_party === party
           );
           if (dataPoint) {
+            const baseY = yScale(party) + yScale.bandwidth() / 2;
+            // Apply dodging to ALL chart types
+            const dodgedY = condition === 'treatment' ? baseY - dodgeOffset : baseY + dodgeOffset;
+            
             dotData.push({
               ...dataPoint,
               yItem: party,
               key: `${party}-${condition}`,
               x: xScale(dataPoint.mean),
-              y: yScale(party) + yScale.bandwidth() / 2
+              y: dodgedY
             });
           }
         });
@@ -671,12 +658,16 @@ export const useEnhancedChart = ({
             d.category === category
           );
           if (dataPoint) {
+            const baseY = yScale(category) + yScale.bandwidth() / 2;
+            // Apply dodging to ALL chart types
+            const dodgedY = condition === 'treatment' ? baseY - dodgeOffset : baseY + dodgeOffset;
+            
             dotData.push({
               ...dataPoint,
               yItem: category,
               key: `${category}-${condition}`,
               x: xScale(dataPoint.mean),
-              y: yScale(category) + yScale.bandwidth() / 2
+              y: dodgedY
             });
           }
         });
@@ -700,7 +691,7 @@ export const useEnhancedChart = ({
       .attr("class", "chart-dot")
       .attr("cx", d => d.x)
       .attr("cy", d => d.y)
-      .attr("r", isMobile ? 8 : isTablet ? 9 : 10)
+      .attr("r", dotRadius)
       .attr("fill", d => COLOR_MAP[d.condition])
       .attr("stroke", "white")
       .attr("stroke-width", 2)
@@ -746,7 +737,8 @@ export const useEnhancedChart = ({
       .attr("cy", d => d.y)
       .style("opacity", 1);
 
-    // Create data for labels with unique keys for transitions
+    // Create data for labels with unique keys for transitions (skip for AME charts)
+    if (!plotRawValues) {
     const labelData = dotData.map(d => {
       const labelYPos = d.y - (isMobile ? 16 : isTablet ? 18 : 20);
       const labelWidth = isMobile ? 24 : isTablet ? 28 : 32;
@@ -833,9 +825,10 @@ export const useEnhancedChart = ({
       .transition()
       .duration(transitionDuration)
       .style("opacity", 1);
+    }
 
-    // Create data for category labels on the right side (only for non-AME charts)
-    if (!plotRawValues) {
+    // Create data for category labels on the right side (only for non-AME charts that don't have y-axis labels)
+    if (!plotRawValues && chartType !== 'knowledge' && chartType !== 'policy') {
       const categoryLabelData = yAxisItems.map(item => {
         const yPos = yScale(item) + yScale.bandwidth() / 2;
         
@@ -889,7 +882,7 @@ export const useEnhancedChart = ({
         return null;
       }).filter(d => d !== null);
 
-      // Data join for category labels with transitions (same as before)
+      // Data join for category labels with transitions
       const categoryLabels = g.selectAll(".category-label")
         .data(categoryLabelData, d => d.key);
 
@@ -1027,4 +1020,3 @@ export const useEnhancedChart = ({
 
   }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues]);
 };
-

@@ -131,12 +131,12 @@ function AMEChartDumbbell() {
 
   return (
     <div className="chart-container-wrapper">
-      <div style={{ position: 'relative' }}>
+      <div className="dumbbell-chart-container">
         <svg 
           ref={svgRef} 
           width="100%" 
           height="600"
-          style={{ display: 'block', margin: '0 auto' }}
+          className="dumbbell-chart-svg"
         />
         
         {/* Wave Controls */}

@@ -132,20 +132,16 @@ function AMEChartDumbbellSimple() {
 
   return (
     <div className="chart-container-wrapper">
-      <div style={{ position: 'relative', width: '100%', display: 'flex', justifyContent: 'center' }}>
+      <div className="dumbbell-chart-container">
         <svg 
           ref={svgRef} 
           width="100%" 
-          height="700"
-          style={{ 
-            display: 'block', 
-            margin: '0 auto',
-            maxWidth: '1200px' // Constrain maximum width
-          }}
+          height="800"
+          className="dumbbell-chart-svg"
         />
         
         {/* Wave Controls */}
-        <div ref={waveControlsRef} className="wave-controls-container">
+        <div ref={waveControlsRef} className="wave-controls-container simple-chart">
           <div className="wave-controls">
             <button 
               className={`wave-tab ${currentWave === "Immediate" ? 'active' : ''}`}

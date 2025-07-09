@@ -33,21 +33,23 @@ function KnowledgeAccuracyChart() {
 
   return (
     <div className="chart-container-wrapper">
-      <div className="chart-container" style={{ position: 'relative' }}>
-        <svg ref={svgRef}></svg>
-        <div ref={waveControlsRef} className="wave-controls embedded">
-          <button 
-            className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
-            onClick={() => setCurrentWave(2)}
-          >
-            {WAVE_LABELS[2]}
-          </button>
-          <button 
-            className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
-            onClick={() => setCurrentWave(3)}
-          >
-            {WAVE_LABELS[3]}
-          </button>
+      <div className="dumbbell-chart-container">
+        <svg ref={svgRef} className="dumbbell-chart-svg"></svg>
+        <div ref={waveControlsRef} className="wave-controls-container">
+          <div className="wave-controls">
+            <button 
+              className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
+              onClick={() => setCurrentWave(2)}
+            >
+              {WAVE_LABELS[2]}
+            </button>
+            <button 
+              className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
+              onClick={() => setCurrentWave(3)}
+            >
+              {WAVE_LABELS[3]}
+            </button>
+          </div>
         </div>
       </div>
     </div>

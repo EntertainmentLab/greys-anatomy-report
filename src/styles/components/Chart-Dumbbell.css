@@ -378,7 +378,19 @@
 
 /* Additional styling for AMEChartDumbbell */
 .wave-controls-container {
-  z-index: 10;
+  /* Position is now handled dynamically by EnhancedChart */
+  width: auto;
+}
+
+.dumbbell-chart-container {
+  position: relative;
+  width: 100%;
+}
+
+.dumbbell-chart-svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 1200px;
 }
 
 .wave-controls {
