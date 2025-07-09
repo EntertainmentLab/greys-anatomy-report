@@ -112,7 +112,11 @@ export const useEnhancedChart = ({
       }
     } else {
       // Original logic for difference charts
-      if (chartType === 'knowledge' || chartType === 'policy') {
+      if (xDomain) {
+        // Use provided xDomain if available
+        globalDomainMin = xDomain[0];
+        globalDomainMax = xDomain[1];
+      } else if (chartType === 'knowledge' || chartType === 'policy') {
         // For knowledge and policy charts, start at -3 to make dotted line more visible
         globalDomainMin = Math.min(-3, Math.floor(globalDiffMin) - 2);
         globalDomainMax = Math.max(0, Math.ceil(globalDiffMax) + 2);

@@ -6,22 +6,20 @@ import '../styles/components/Chart-Dumbbell.css'
 
 function PolicySupportChart() {
   const [currentWave, setCurrentWave] = useState(2)
-  const [currentPolicyType, setPolicyType] = useState("Government Investment")
   const { data: policyData, loading, error } = usePolicyData()
   const svgRef = useRef()
   const waveControlsRef = useRef()
 
-  const policyTypes = ["Government Investment", "Cooling Centers"]
   const politicalParties = ['Overall', 'Democrat', 'Independent', 'Republican']
 
   useEnhancedChart({
     svgRef,
     data: policyData,
     currentWave,
-    currentCategory: currentPolicyType,
-    xDomain: [-10, 15],
+    currentCategory: "Policy Support Average", // Use the new averaged category
+    xDomain: [-4, 10],
     title: 'Heat Episode Impact on Policy Support',
-    subtitle: 'Percentage point difference from control group by political affiliation',
+    subtitle: 'Average of government investment and cooling center support by political affiliation',
     xAxisLabel: 'Difference from Control (percentage points)',
     chartType: 'policy',
     yAxisItems: politicalParties,
@@ -37,18 +35,6 @@ function PolicySupportChart() {
 
   return (
     <div className="chart-container-wrapper">
-      <div className="policy-type-controls">
-        {policyTypes.map(policy => (
-          <button
-            key={policy}
-            className={`policy-type-toggle ${currentPolicyType === policy ? 'active' : ''}`}
-            onClick={() => setPolicyType(policy)}
-          >
-            {policy}
-          </button>
-        ))}
-      </div>
-
       <div className="dumbbell-chart-container">
         <svg ref={svgRef} className="dumbbell-chart-svg"></svg>
         <div ref={waveControlsRef} className="wave-controls-container">

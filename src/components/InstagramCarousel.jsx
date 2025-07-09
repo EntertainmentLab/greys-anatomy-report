@@ -115,8 +115,8 @@ const InstagramCarousel = () => {
                 </div>
                 {isAutoPlaying && index === currentSlide && (
                   <div className="progress-ring">
-                    <svg width="54" height="54">
-                      <circle cx="27" cy="27" r="25" />
+                    <svg className="progress-ring-svg">
+                      <circle className="progress-ring-circle" />
                     </svg>
                   </div>
                 )}

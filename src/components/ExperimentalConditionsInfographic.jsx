@@ -15,7 +15,7 @@ function ExperimentalConditionsInfographic({ onShowNightMovesPreview, onShowEpis
           >
             "Night Moves"
           </button>
-          <div className="episode-description">No climate content</div>
+          <div className="episode-description">Episode unrelated to climate or severe weather</div>
         </div>
       </div>
       
@@ -38,7 +38,7 @@ function ExperimentalConditionsInfographic({ onShowNightMovesPreview, onShowEpis
       <div className="condition-group">
         <div className="condition-header">
           <div className="condition-number">1,073</div>
-          <div className="condition-label">Heat Wave + Handoff</div>
+          <div className="condition-label">Heat Wave + Social</div>
         </div>
         <div className="condition-content">
           <button 
@@ -47,7 +47,7 @@ function ExperimentalConditionsInfographic({ onShowNightMovesPreview, onShowEpis
           >
             "Drop it Like it's Hot"
           </button>
-          <div className="episode-description">+ Instagram videos</div>
+          <div className="episode-description">Heat wave episode<br></br>+ Instagram video</div>
         </div>
       </div>
     </div>

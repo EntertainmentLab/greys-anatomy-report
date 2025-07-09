@@ -36,7 +36,7 @@ const TimelineInfographic = () => {
       date: "15-20 days post-viewing",
       participants: 3219,
       participantsLabel: "N = 3,219",
-      icon: "📊",
+      icon: "⏳",
       color: "#059669",
       lightColor: "#d1fae5",
       details: "Assessed durability of effects"

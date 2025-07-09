@@ -3,18 +3,18 @@
     "wave": 1,
     "wave_label": "Baseline (3 Days Before)",
     "condition": "Heat Wave",
-    "mean": 7.81,
-    "se": 0.311,
-    "n": 842,
+    "mean": 7.78,
+    "se": 0.31,
+    "n": 841,
     "political_party": "Overall"
   },
   {
     "wave": 1,
     "wave_label": "Baseline (3 Days Before)",
     "condition": "Heat Wave + Handoff",
-    "mean": 7.65,
+    "mean": 7.66,
     "se": 0.307,
-    "n": 791,
+    "n": 790,
     "political_party": "Overall"
   },
   {
@@ -32,7 +32,7 @@
     "condition": "Heat Wave",
     "mean": 6.71,
     "se": 0.289,
-    "n": 842,
+    "n": 841,
     "political_party": "Overall"
   },
   {
@@ -41,7 +41,7 @@
     "condition": "Heat Wave + Handoff",
     "mean": 5.85,
     "se": 0.276,
-    "n": 791,
+    "n": 790,
     "political_party": "Overall"
   },
   {
@@ -57,18 +57,18 @@
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Heat Wave",
-    "mean": 6.99,
-    "se": 0.292,
-    "n": 842,
+    "mean": 6.97,
+    "se": 0.291,
+    "n": 841,
     "political_party": "Overall"
   },
   {
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Heat Wave + Handoff",
-    "mean": 6.71,
+    "mean": 6.72,
     "se": 0.304,
-    "n": 791,
+    "n": 790,
     "political_party": "Overall"
   },
   {
@@ -94,8 +94,8 @@
     "wave_label": "Baseline (3 Days Before)",
     "condition": "Heat Wave + Handoff",
     "mean": 6.56,
-    "se": 0.375,
-    "n": 434,
+    "se": 0.376,
+    "n": 433,
     "political_party": "Democrat"
   },
   {
@@ -120,9 +120,9 @@
     "wave": 2,
     "wave_label": "Immediately After Viewing",
     "condition": "Heat Wave + Handoff",
-    "mean": 4.57,
-    "se": 0.315,
-    "n": 434,
+    "mean": 4.58,
+    "se": 0.316,
+    "n": 433,
     "political_party": "Democrat"
   },
   {
@@ -147,9 +147,9 @@
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Heat Wave + Handoff",
-    "mean": 5.59,
+    "mean": 5.6,
     "se": 0.355,
-    "n": 434,
+    "n": 433,
     "political_party": "Democrat"
   },
   {
@@ -174,9 +174,9 @@
     "wave": 1,
     "wave_label": "Baseline (3 Days Before)",
     "condition": "Heat Wave",
-    "mean": 8.14,
-    "se": 0.601,
-    "n": 245,
+    "mean": 8.04,
+    "se": 0.595,
+    "n": 244,
     "political_party": "Independent"
   },
   {
@@ -201,9 +201,9 @@
     "wave": 2,
     "wave_label": "Immediately After Viewing",
     "condition": "Heat Wave",
-    "mean": 7.11,
-    "se": 0.592,
-    "n": 245,
+    "mean": 7.12,
+    "se": 0.595,
+    "n": 244,
     "political_party": "Independent"
   },
   {
@@ -228,9 +228,9 @@
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Heat Wave",
-    "mean": 7.58,
-    "se": 0.588,
-    "n": 245,
+    "mean": 7.52,
+    "se": 0.587,
+    "n": 244,
     "political_party": "Independent"
   },
   {

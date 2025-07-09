@@ -290,7 +290,7 @@ function AMEChart1() {
           <div className="dual-bar-x-axis">
             <div></div>
             <div></div>
-            <div className="x-axis-label">Standard Treatment Effect</div>
+            <div className="x-axis-label">Standardized Treatment Effect</div>
             <div></div>
           </div>
         </div>

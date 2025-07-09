@@ -101,13 +101,6 @@
   margin: 0 0 16px 0;
 }
 
-.episode-description {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #ccc;
-  margin: 0;
-  min-height: 60px;
-}
 
 @keyframes fadeIn {
   from { opacity: 0; }
@@ -138,11 +131,5 @@
   
   .episode-info h3 {
     font-size: 1.125rem;
-  }
-  
-  .episode-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    min-height: 70px;
   }
 }
