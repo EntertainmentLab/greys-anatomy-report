@@ -7,6 +7,7 @@ import AMEChart from './AMEChart'
 import AMEChart1 from './AMEChart1'
 import AMEChart2 from './AMEChart2'
 import AMEChart3 from './AMEChart3'
+import AMEChartDumbbellSimple from './AMEChartDumbbellSimple'
 
 function KeyFindings() {
   return (
@@ -17,13 +18,20 @@ function KeyFindings() {
       <p>
         Overall, the heat wave episode of Grey's Anatomy effectively educated viewers about heat-related health risks and significantly increased concern about heat wave impacts, with the handoff condition (episode + Instagram videos) showing the strongest and most sustained effects. Importantly, these impacts occurred without compromising entertainment value.
       </p>
+      <h3>
+        [Option 1 of Key Findings]
+      </h3>
       <AMEChart />
       <h3>
-        [Option 2 of Key Findings Graphs]
+        [Option 2 of Key Findings]
       </h3>
       <AMEChart1 />
       <AMEChart2 />
       <AMEChart3 />
+      <h3>
+        [Option 3 of Key Findings]
+      </h3>
+      <AMEChartDumbbellSimple />
       <h3>
         Knowledge of Heat Wave Health Impacts
       </h3>

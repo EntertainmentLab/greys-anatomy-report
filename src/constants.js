@@ -154,3 +154,12 @@ export const EFFECT_THRESHOLDS = {
   MODERATE: 0.1,
   SMALL: 0.0
 }
+
+// Effect size labeling function
+export const getEffectSize = (estimate, sig, pValue) => {
+  if (!sig || pValue >= 0.05) return "No clear change"
+  const absEstimate = Math.abs(estimate)
+  if (absEstimate <= 0.1) return "Small increase"
+  if (absEstimate <= 0.3) return "Moderate increase"
+  return "Large increase"
+}

@@ -11,7 +11,7 @@ function AMEChart() {
   const getEffectSize = (estimate, sig, pValue) => {
     if (!sig || pValue >= 0.05) return "No clear change"
     const absEstimate = Math.abs(estimate)
-    if (absEstimate <= 0.1) return "Small increase"
+    if (absEstimate < 0.1) return "Small increase"
     if (absEstimate <= 0.3) return "Moderate increase"
     return "Large increase"
   }
@@ -133,6 +133,31 @@ function AMEChart() {
       </div>
       
       <div className="compact-chart">
+        {/* Treatment Effect Header */}
+        <div className="compact-row" style={{ marginBottom: '0', borderBottom: 'none', background: 'transparent' }}>
+          <div></div>
+          <div></div>
+          <div className="treatment-effect-header">
+            Effect Size
+            <span 
+              className="info-button"
+              onMouseEnter={() => setHoveredItem('effect-size-info')}
+              onMouseLeave={() => setHoveredItem(null)}
+            >
+              ⓘ
+              {hoveredItem === 'effect-size-info' && (
+                <div className="info-tooltip">
+                  <div><strong>Effect Size Mapping:</strong></div>
+                  <div>• Small: {'<'}0.1 standard deviations</div>
+                  <div>• Moderate: 0.1-0.3 standard deviations</div>
+                  <div>• Large: {'>'}0.3 standard deviations</div>
+                  <div>• No clear change: p-value ≥ 0.05</div>
+                </div>
+              )}
+            </span>
+          </div>
+        </div>
+        
         {data.map((outcome, idx) => (
           <div key={idx} className="compact-row">
             <div 
@@ -184,6 +209,34 @@ function AMEChart() {
             </div>
           </div>
         ))}
+        
+        {/* X-axis with tick marks */}
+        <div className="x-axis-container">
+          <div></div>
+          <div className="x-axis-ticks">
+            {[-0.2, 0, 0.2, 0.4, 0.6, 0.8].map(value => (
+              <div key={value}>
+                <div 
+                  className={value === 0 ? "x-axis-zero-line" : "x-axis-tick"}
+                  style={{ left: `${20 + (value / maxValue * 70)}%` }}
+                />
+                <div 
+                  className="x-axis-tick-label"
+                  style={{ left: `${20 + (value / maxValue * 70)}%` }}
+                >
+                  {value}
+                </div>
+              </div>
+            ))}
+          </div>
+          <div></div>
+        </div>
+        
+        <div className="x-axis-container">
+          <div></div>
+          <div className="x-axis-label">Standard Treatment Effect</div>
+          <div></div>
+        </div>
       </div>
     </div>
   )
