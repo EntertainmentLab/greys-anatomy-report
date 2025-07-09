@@ -188,7 +188,7 @@ function AMEChart1() {
                         style={{
                           width: `${getBarWidth(outcome.treatment.estimate)}%`,
                           backgroundColor: getBarColor(outcome.treatment.estimate, outcome.treatment.sig, outcome.treatment.effect),
-                          marginLeft: outcome.treatment.estimate < 0 ? `${20 - getBarWidth(outcome.treatment.estimate)}%` : `${20 + (0 / maxValue * 60)}%`
+                          marginLeft: outcome.treatment.estimate < 0 ? `${20 - getBarWidth(outcome.treatment.estimate)}%` : `20%`
                         }}
                         onMouseEnter={() => setHoveredItem(`${outcome.outcome}-treatment`)}
                         onMouseLeave={() => setHoveredItem(null)}
@@ -228,7 +228,7 @@ function AMEChart1() {
                         style={{
                           width: `${getBarWidth(outcome.handoff.estimate)}%`,
                           backgroundColor: getBarColor(outcome.handoff.estimate, outcome.handoff.sig, outcome.handoff.effect),
-                          marginLeft: outcome.handoff.estimate < 0 ? `${20 - getBarWidth(outcome.handoff.estimate)}%` : `${20 + (0 / maxValue * 60)}%`
+                          marginLeft: outcome.handoff.estimate < 0 ? `${20 - getBarWidth(outcome.handoff.estimate)}%` : `20%`
                         }}
                         onMouseEnter={() => setHoveredItem(`${outcome.outcome}-handoff`)}
                         onMouseLeave={() => setHoveredItem(null)}

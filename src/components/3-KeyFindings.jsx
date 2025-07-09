@@ -48,8 +48,6 @@ function KeyFindings() {
       <p>
         Participants who watched the episode (particularly those in the handoff condition) demonstrated significantly greater concern about the health consequences of heat waves, including increased worry about potential effects on their own health and that of their loved ones, as well as greater awareness of how extreme heat events could strain their local hospital systems. This heightened awareness and concern remained 15 days later, suggesting that the episode created lasting changes that could translate into better preparedness and protective actions during future heat wave events.
       </p>
-      <HealthWorryChart />
-      <SystemImpactsChart />
 
 
 
