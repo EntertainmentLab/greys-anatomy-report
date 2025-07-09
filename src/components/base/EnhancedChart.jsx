@@ -112,8 +112,8 @@ export const useEnhancedChart = ({
       }
     } else {
       // Original logic for difference charts
-      if (xDomain) {
-        // Use provided xDomain if available
+      if (xDomain && chartType === 'policy') {
+        // Use provided xDomain only for policy charts
         globalDomainMin = xDomain[0];
         globalDomainMax = xDomain[1];
       } else if (chartType === 'knowledge' || chartType === 'policy') {
