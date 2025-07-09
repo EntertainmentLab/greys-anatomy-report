@@ -12,10 +12,11 @@ export const useEnhancedChart = ({
   title,
   subtitle,
   xAxisLabel,
-  chartType, // 'policy' or 'knowledge'
+  chartType, // 'policy' or 'knowledge' or 'ame-effects'
   yAxisItems, // Array of items to display on Y-axis (categories or political parties)
   dataFilter,
   waveControlsRef, // Ref to where wave controls should be rendered
+  plotRawValues = false // New prop: if true, plot raw values instead of calculating differences
 }) => {
   useEffect(() => {
     if (!data || data.length === 0) {
@@ -59,39 +60,61 @@ export const useEnhancedChart = ({
     });
 
     // Calculate global differences from ALL data before any filtering
-    const globalDifferenceData = [];
+    let globalDifferenceData = [];
     
-    yAxisItems.forEach(item => {
-      let itemData;
-      if (chartType === 'policy') {
-        itemData = processedData.filter(d => d.political_party === item);
-      } else if (chartType === 'high-level-constructs') {
-        itemData = processedData.filter(d => d.category === item);
-      } else {
-        itemData = processedData.filter(d => d.category === item);
-      }
-      
-      // Find control group value for this item
-      const controlPoint = itemData.find(d => d.condition === 'control');
-      if (!controlPoint) return; // Skip if no control data
-      
-      // Calculate differences for treatment and handoff
-      ['treatment', 'handoff'].forEach(condition => {
-        const conditionPoint = itemData.find(d => d.condition === condition);
-        if (conditionPoint) {
-          const difference = conditionPoint.mean - controlPoint.mean;
-          globalDifferenceData.push({ mean: difference });
+    if (plotRawValues) {
+      // For raw values (AME effects), use all the effect size values directly
+      globalDifferenceData = processedData.map(d => ({ mean: d.mean }));
+    } else {
+      // Original logic for calculating differences from control
+      yAxisItems.forEach(item => {
+        let itemData;
+        if (chartType === 'policy') {
+          itemData = processedData.filter(d => d.political_party === item);
+        } else if (chartType === 'high-level-constructs') {
+          itemData = processedData.filter(d => d.category === item);
+        } else {
+          itemData = processedData.filter(d => d.category === item);
         }
+        
+        // Find control group value for this item
+        const controlPoint = itemData.find(d => d.condition === 'control');
+        if (!controlPoint) return; // Skip if no control data
+        
+        // Calculate differences for treatment and handoff
+        ['treatment', 'handoff'].forEach(condition => {
+          const conditionPoint = itemData.find(d => d.condition === condition);
+          if (conditionPoint) {
+            const difference = conditionPoint.mean - controlPoint.mean;
+            globalDifferenceData.push({ mean: difference });
+          }
+        });
       });
-    });
+    }
 
     // Calculate global min/max from ALL difference values
     const globalDiffMin = d3.min(globalDifferenceData, d => d.mean);
     const globalDiffMax = d3.max(globalDifferenceData, d => d.mean);
     
     // Extend domain to include zero and add padding
-    const globalDomainMin = Math.min(0, Math.floor(globalDiffMin) - 2);
-    const globalDomainMax = Math.max(0, Math.ceil(globalDiffMax) + 2);
+    let globalDomainMin, globalDomainMax;
+    if (plotRawValues) {
+      // For raw values, calculate from actual data with proper padding
+      if (xDomain) {
+        globalDomainMin = xDomain[0];
+        globalDomainMax = xDomain[1];
+      } else {
+        // Calculate from actual data range with padding
+        const range = globalDiffMax - globalDiffMin;
+        const padding = Math.max(range * 0.15, 0.05); // At least 15% padding or 0.05 minimum
+        globalDomainMin = Math.min(globalDiffMin - padding, 0 - padding * 0.5);
+        globalDomainMax = globalDiffMax + padding;
+      }
+    } else {
+      // Original logic for difference charts
+      globalDomainMin = Math.min(0, Math.floor(globalDiffMin) - 2);
+      globalDomainMax = Math.max(0, Math.ceil(globalDiffMax) + 2);
+    }
 
     // Apply filters based on chart type
     let filteredData;
@@ -103,6 +126,11 @@ export const useEnhancedChart = ({
       );
     } else if (chartType === 'high-level-constructs') {
       // For high-level constructs chart: filter by wave only (no political party)
+      filteredData = processedData.filter(d => 
+        d.wave === currentWave
+      );
+    } else if (chartType === 'ame-effects') {
+      // For AME effects: filter by wave only
       filteredData = processedData.filter(d => 
         d.wave === currentWave
       );
@@ -123,8 +151,14 @@ export const useEnhancedChart = ({
       return;
     }
 
-    // Calculate differences from control group
+    // Calculate differences from control group OR use raw values
     const calculateDifferences = (data) => {
+      if (plotRawValues) {
+        // For AME effect sizes, use raw values without calculating differences
+        return data.filter(d => d.condition !== 'control');
+      }
+      
+      // Original difference calculation for other chart types
       const differenceData = [];
       
       yAxisItems.forEach(item => {
@@ -163,7 +197,7 @@ export const useEnhancedChart = ({
       return differenceData;
     };
 
-    // Transform data to show differences from control
+    // Transform data to show differences from control OR raw values
     const differenceData = calculateDifferences(filteredData);
     
     if (differenceData.length === 0) {
@@ -171,7 +205,7 @@ export const useEnhancedChart = ({
       return;
     }
 
-    // Update filtered data to use difference data
+    // Update filtered data to use difference data or raw data
     filteredData = differenceData;
 
     // Check if this is an update (for transitions) or initial render
@@ -182,14 +216,20 @@ export const useEnhancedChart = ({
     const containerWidth = svgRef.current.parentNode.getBoundingClientRect().width;
     const isMobile = window.innerWidth <= 768;
     const isTablet = window.innerWidth <= 1024;
-    // Set larger right margins to accommodate category labels
-    const margin = isMobile 
-      ? { top: 120, right: 140, bottom: 70, left: 60 }
-      : isTablet 
-      ? { top: 140, right: 160, bottom: 80, left: 80 }
-      : { top: 160, right: 180, bottom: 90, left: 100 };
+    // Adjust margins for better balance - reduce excessive left margin for AME charts
+    const margin = plotRawValues 
+      ? (isMobile 
+        ? { top: 120, right: 60, bottom: 70, left: 160 }
+        : isTablet 
+        ? { top: 140, right: 80, bottom: 80, left: 180 }
+        : { top: 160, right: 100, bottom: 90, left: 200 })
+      : (isMobile 
+        ? { top: 120, right: 140, bottom: 70, left: 60 }
+        : isTablet 
+        ? { top: 140, right: 160, bottom: 80, left: 80 }
+        : { top: 160, right: 180, bottom: 90, left: 100 });
     const width = Math.max(containerWidth - margin.left - margin.right, isMobile ? 500 : 700);
-    const chartHeight = isMobile ? Math.max(300, yAxisItems.length * 60) : isTablet ? 350 : 400;
+    const chartHeight = isMobile ? Math.max(300, yAxisItems.length * 60) : isTablet ? 400 : 450; // Slightly taller
     
     // Helper to split text into lines for SVG <text>
     function wrapText(text, maxChars) {
@@ -230,17 +270,17 @@ export const useEnhancedChart = ({
     const subtitleFontSize = isMobile ? 16 : isTablet ? 18 : 20;
     const lineGap = isMobile ? 4 : isTablet ? 6 : 8;
 
-    // Calculate heights with MINIMAL spacing for tight layout
+    // Calculate heights with properly balanced spacing
     const titleHeight = titleLines * titleFontSize + (titleLines - 1) * lineGap;
     const subtitleHeight = subtitleLines * subtitleFontSize + (subtitleLines - 1) * lineGap;
-    const topPadding = 5; // Much smaller
-    const subtitleY = topPadding + titleHeight + 3; // Very tight gap
-    const waveControlsHeight = isMobile ? 28 : isTablet ? 32 : 36; // Even smaller
-    const waveControlsY = subtitleY + subtitleHeight + 4; // Tight gap
-    const chartStartY = waveControlsY + waveControlsHeight + 8; // Start chart after wave controls
-    const xAxisLabelY = chartStartY + chartHeight + 54; // X-axis label position
-    const legendHeight = isMobile ? 20 : isTablet ? 24 : 28; // Smaller
-    const legendY = xAxisLabelY + 25; // Legend below x-axis label
+    const topPadding = 10;
+    const subtitleY = topPadding + titleHeight + 8; // Closer to title
+    const waveControlsHeight = isMobile ? 28 : isTablet ? 32 : 36;
+    const waveControlsY = subtitleY + subtitleHeight + 12; // More space after subtitle
+    const chartStartY = waveControlsY + waveControlsHeight + 60; // Much more space after controls
+    const xAxisLabelY = chartStartY + chartHeight + 54;
+    const legendHeight = isMobile ? 20 : isTablet ? 24 : 28;
+    const legendY = xAxisLabelY + 25;
     
     const totalHeight = legendY + legendHeight + 20; // Include legend at bottom
 
@@ -316,34 +356,58 @@ export const useEnhancedChart = ({
       .text(subtitleText);
 
 
-    // Add zero reference line
-    g.append("line")
-      .attr("x1", xScale(0))
-      .attr("y1", 0)
-      .attr("x2", xScale(0))
-      .attr("y2", chartHeight)
-      .attr("stroke", "#666")
-      .attr("stroke-width", 2)
-      .attr("stroke-dasharray", "4,4")
-      .attr("opacity", 0.7);
+    // Add zero reference line with higher z-index
+    if (!plotRawValues || (globalDomainMin <= 0 && globalDomainMax >= 0)) {
+      g.append("line")
+        .attr("class", "zero-reference-line")
+        .attr("x1", xScale(0))
+        .attr("y1", 0)
+        .attr("x2", xScale(0))
+        .attr("y2", chartHeight)
+        .attr("stroke", "#666")
+        .attr("stroke-width", 2)
+        .attr("stroke-dasharray", "4,4")
+        .attr("opacity", 0.7)
+        .style("z-index", "1000");
 
-    // Add rotated text along zero line
-    g.append("text")
-      .attr("x", xScale(0) - 12)
-      .attr("y", chartHeight / 2)
-      .attr("text-anchor", "middle")
-      .attr("dominant-baseline", "middle")
-      .style("font-size", isMobile ? "12px" : isTablet ? "13px" : "14px")
-      .style("font-weight", "500")
-      .style("fill", "#666")
-      .style("font-family", "Roboto Condensed, sans-serif")
-      .attr("transform", `rotate(-90, ${xScale(0) - 12}, ${chartHeight / 2})`)
-      .text("No change from control");
+      // Add rotated text along zero line with higher z-index and background
+      const zeroLineText = plotRawValues ? "No effect" : "No change from control";
+      const textGroup = g.append("g")
+        .attr("class", "zero-line-text-group")
+        .style("z-index", "1001");
+
+      // Add background rectangle for text
+      const textElement = textGroup.append("text")
+        .attr("x", xScale(0) - 12)
+        .attr("y", chartHeight / 2)
+        .attr("text-anchor", "middle")
+        .attr("dominant-baseline", "middle")
+        .style("font-size", isMobile ? "12px" : isTablet ? "13px" : "14px")
+        .style("font-weight", "500")
+        .style("fill", "#666")
+        .style("font-family", "Roboto Condensed, sans-serif")
+        .attr("transform", `rotate(-90, ${xScale(0) - 12}, ${chartHeight / 2})`)
+        .text(zeroLineText);
+
+      // Get text dimensions for background
+      const textBBox = textElement.node().getBBox();
+      
+      // Add background rectangle before text
+      textGroup.insert("rect", "text")
+        .attr("x", xScale(0) - 12 - textBBox.height/2)
+        .attr("y", chartHeight / 2 - textBBox.width/2 - 2)
+        .attr("width", textBBox.height + 4)
+        .attr("height", textBBox.width + 4)
+        .attr("fill", "rgba(255, 255, 255, 0.9)")
+        .attr("stroke", "none")
+        .attr("transform", `rotate(-90, ${xScale(0) - 12}, ${chartHeight / 2})`);
+    }
 
     // Add x-axis with difference formatting
     g.append("g")
       .attr("transform", `translate(0,${chartHeight})`)
       .call(d3.axisBottom(xScale).ticks(8).tickFormat(d => {
+        if (plotRawValues) return d; // For raw values, just show the number
         if (d === 0) return '0';
         return d > 0 ? `+${d}` : `${d}`;
       }))
@@ -363,11 +427,54 @@ export const useEnhancedChart = ({
       .style("font-family", "Roboto Condensed, sans-serif")
       .text(xAxisLabel);
 
-      // Add y-axis without any visual elements (no line, no ticks)
-      g.append("g")
-        .call(d3.axisLeft(yScale).tickFormat("").tickSize(0))
-        .select(".domain")
-        .remove();
+      // Add y-axis with labels (for AME effects chart)
+      if (plotRawValues) {
+        const yAxis = g.append("g")
+          .call(d3.axisLeft(yScale).tickFormat(""))
+          .selectAll("text")
+          .remove();
+
+        // Add custom wrapped text labels
+        yAxisItems.forEach(item => {
+          const yPos = yScale(item) + yScale.bandwidth() / 2;
+          
+          // Wrap text for long labels - more aggressive wrapping
+          const words = item.split(' ');
+          const maxCharsPerLine = 22; // Slightly longer lines but still reasonable
+          const lines = [];
+          let currentLine = '';
+          
+          words.forEach(word => {
+            if ((currentLine + ' ' + word).length <= maxCharsPerLine) {
+              currentLine += (currentLine ? ' ' : '') + word;
+            } else {
+              if (currentLine) lines.push(currentLine);
+              currentLine = word;
+            }
+          });
+          if (currentLine) lines.push(currentLine);
+
+          // Add each line of text
+          lines.forEach((line, i) => {
+            g.append("text")
+              .attr("x", -10) // Closer to chart
+              .attr("y", yPos + (i - (lines.length - 1) / 2) * 15) // Better line spacing
+              .attr("text-anchor", "end")
+              .attr("dominant-baseline", "middle")
+              .style("font-size", isMobile ? "12px" : isTablet ? "13px" : "14px")
+              .style("font-weight", "500")
+              .style("fill", "#374151")
+              .style("font-family", "Roboto Condensed, sans-serif")
+              .text(line);
+          });
+        });
+      } else {
+        // Add y-axis without any visual elements (no line, no ticks) for other charts
+        g.append("g")
+          .call(d3.axisLeft(yScale).tickFormat("").tickSize(0))
+          .select(".domain")
+          .remove();
+      }
     }
 
     // Add legend below wave controls (always update for both initial and update renders)
@@ -448,10 +555,8 @@ export const useEnhancedChart = ({
           .attr("stroke-width", 1);
       }
 
-      // Do NOT draw any y-axis label
-
-      // For policy chart: connect dots for each political party
-      // For knowledge chart: connect dots across different conditions for each category
+      // For AME effects: connect dots from zero baseline to each condition
+      // For other charts: connect dots across different conditions
       let itemData;
       
       if (chartType === 'policy') {
@@ -462,35 +567,51 @@ export const useEnhancedChart = ({
         itemData = filteredData.filter(d => d.category === item);
       }
       
-      // Sort by condition in the order: treatment, handoff (no control in difference data)
-      const sortedData = ['treatment', 'handoff']
-        .map(condition => itemData.find(d => d.condition === condition))
-        .filter(d => d !== undefined);
-      
-      // Collect line data for this item
-      if (sortedData.length >= 1) {
-        // Line from zero to treatment
-        lineData.push({
-          key: `${item}-treatment`,
-          x1: xScale(0),
-          y1: yPos,
-          x2: xScale(sortedData[0].mean),
-          y2: yPos,
-          stroke: COLOR_MAP.treatment,
-          item: item
-        });
-        
-        // Line from treatment to handoff if handoff exists
-        if (sortedData.length === 2) {
+      if (plotRawValues) {
+        // For AME effects: draw lines from zero to each effect size
+        itemData.forEach(d => {
           lineData.push({
-            key: `${item}-handoff`,
-            x1: xScale(sortedData[0].mean),
+            key: `${item}-${d.condition}`,
+            x1: xScale(0),
             y1: yPos,
-            x2: xScale(sortedData[1].mean),
+            x2: xScale(d.mean),
             y2: yPos,
-            stroke: COLOR_MAP.handoff,
+            stroke: COLOR_MAP[d.condition],
             item: item
           });
+        });
+      } else {
+        // Original connecting line logic for other charts
+        // Sort by condition in the order: treatment, handoff (no control in difference data)
+        const sortedData = ['treatment', 'handoff']
+          .map(condition => itemData.find(d => d.condition === condition))
+          .filter(d => d !== undefined);
+        
+        // Collect line data for this item
+        if (sortedData.length >= 1) {
+          // Line from zero to treatment
+          lineData.push({
+            key: `${item}-treatment`,
+            x1: xScale(0),
+            y1: yPos,
+            x2: xScale(sortedData[0].mean),
+            y2: yPos,
+            stroke: COLOR_MAP.treatment,
+            item: item
+          });
+          
+          // Line from treatment to handoff if handoff exists
+          if (sortedData.length === 2) {
+            lineData.push({
+              key: `${item}-handoff`,
+              x1: xScale(sortedData[0].mean),
+              y1: yPos,
+              x2: xScale(sortedData[1].mean),
+              y2: yPos,
+              stroke: COLOR_MAP.handoff,
+              item: item
+            });
+          }
         }
       }
     });
@@ -602,10 +723,15 @@ export const useEnhancedChart = ({
           .duration(200)
           .style("opacity", .9);
         
-        const differenceText = d.mean >= 0 ? `+${d.mean.toFixed(1)}` : `${d.mean.toFixed(1)}`;
-        const tooltipContent = chartType === 'policy'
-          ? `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${differenceText} vs Control<br/>N = ${d.n}`
-          : `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${differenceText} vs Control<br/>N = ${d.n}`;
+        const valueText = plotRawValues 
+          ? d.mean.toFixed(3) 
+          : (d.mean >= 0 ? `+${d.mean.toFixed(1)}` : `${d.mean.toFixed(1)}`);
+        
+        const tooltipContent = plotRawValues
+          ? `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${valueText}<br/>N = ${d.n}`
+          : chartType === 'policy'
+          ? `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${valueText} vs Control<br/>N = ${d.n}`
+          : `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${valueText} vs Control<br/>N = ${d.n}`;
         
         tooltip.html(tooltipContent)
           .style("left", (event.pageX + 10) + "px")
@@ -625,7 +751,15 @@ export const useEnhancedChart = ({
       const labelYPos = d.y - (isMobile ? 16 : isTablet ? 18 : 20);
       const labelWidth = isMobile ? 24 : isTablet ? 28 : 32;
       const labelHeight = isMobile ? 16 : isTablet ? 18 : 20;
-      const labelText = d.mean >= 0 ? `+${Math.round(d.mean)}` : `${Math.round(d.mean)}`;
+      
+      let labelText;
+      if (plotRawValues) {
+        // For raw values, show the actual value with appropriate precision
+        labelText = d.mean.toFixed(2);
+      } else {
+        // For difference values, show with + sign for positive
+        labelText = d.mean >= 0 ? `+${Math.round(d.mean)}` : `${Math.round(d.mean)}`;
+      }
       
       return {
         ...d,
@@ -700,195 +834,197 @@ export const useEnhancedChart = ({
       .duration(transitionDuration)
       .style("opacity", 1);
 
-    // Create data for category labels on the right side at max value positions
-    const categoryLabelData = yAxisItems.map(item => {
-      const yPos = yScale(item) + yScale.bandwidth() / 2;
-      
-      // Find the maximum value for this category/item across all conditions
-      let itemData;
-      if (chartType === 'policy') {
-        itemData = filteredData.filter(d => d.political_party === item);
-      } else if (chartType === 'high-level-constructs') {
-        itemData = filteredData.filter(d => d.category === item);
-      } else {
-        itemData = filteredData.filter(d => d.category === item);
-      }
-      
-      if (itemData.length > 0) {
-        const maxDataPoint = itemData.reduce((max, current) => 
-          current.mean > max.mean ? current : max
-        );
+    // Create data for category labels on the right side (only for non-AME charts)
+    if (!plotRawValues) {
+      const categoryLabelData = yAxisItems.map(item => {
+        const yPos = yScale(item) + yScale.bandwidth() / 2;
         
-        const maxXPos = xScale(maxDataPoint.mean);
-        
-        // Use descriptive label for knowledge chart, otherwise use item
-        let labelText = item;
-        if (chartType === 'knowledge' && KNOWLEDGE_CATEGORIES_LABELS && KNOWLEDGE_CATEGORIES_LABELS[item]) {
-          labelText = KNOWLEDGE_CATEGORIES_LABELS[item];
-        } else if (chartType === 'high-level-constructs' && HIGH_LEVEL_CONSTRUCTS_LABELS && HIGH_LEVEL_CONSTRUCTS_LABELS[item]) {
-          labelText = HIGH_LEVEL_CONSTRUCTS_LABELS[item];
+        // Find the maximum value for this category/item across all conditions
+        let itemData;
+        if (chartType === 'policy') {
+          itemData = filteredData.filter(d => d.political_party === item);
+        } else if (chartType === 'high-level-constructs') {
+          itemData = filteredData.filter(d => d.category === item);
+        } else {
+          itemData = filteredData.filter(d => d.category === item);
         }
-
-        // Reasonable wrap: split label into lines of ~32 chars
-        const wrapLength = 32;
-        const labelLines = [];
-        let currentLine = '';
-        labelText.split(' ').forEach(word => {
-          if ((currentLine + ' ' + word).trim().length > wrapLength) {
-            labelLines.push(currentLine.trim());
-            currentLine = '';
+        
+        if (itemData.length > 0) {
+          const maxDataPoint = itemData.reduce((max, current) => 
+            current.mean > max.mean ? current : max
+          );
+          
+          const maxXPos = xScale(maxDataPoint.mean);
+          
+          // Use descriptive label for knowledge chart, otherwise use item
+          let labelText = item;
+          if (chartType === 'knowledge' && KNOWLEDGE_CATEGORIES_LABELS && KNOWLEDGE_CATEGORIES_LABELS[item]) {
+            labelText = KNOWLEDGE_CATEGORIES_LABELS[item];
+          } else if (chartType === 'high-level-constructs' && HIGH_LEVEL_CONSTRUCTS_LABELS && HIGH_LEVEL_CONSTRUCTS_LABELS[item]) {
+            labelText = HIGH_LEVEL_CONSTRUCTS_LABELS[item];
           }
-          currentLine += ' ' + word;
-        });
-        if (currentLine) labelLines.push(currentLine.trim());
 
-        return {
-          key: item,
-          item,
-          yPos,
-          maxXPos,
-          labelLines,
-          labelText
-        };
-      }
-      return null;
-    }).filter(d => d !== null);
+          // Reasonable wrap: split label into lines of ~32 chars
+          const wrapLength = 32;
+          const labelLines = [];
+          let currentLine = '';
+          labelText.split(' ').forEach(word => {
+            if ((currentLine + ' ' + word).trim().length > wrapLength) {
+              labelLines.push(currentLine.trim());
+              currentLine = '';
+            }
+            currentLine += ' ' + word;
+          });
+          if (currentLine) labelLines.push(currentLine.trim());
 
-    // Data join for category labels with transitions
-    const categoryLabels = g.selectAll(".category-label")
-      .data(categoryLabelData, d => d.key);
+          return {
+            key: item,
+            item,
+            yPos,
+            maxXPos,
+            labelLines,
+            labelText
+          };
+        }
+        return null;
+      }).filter(d => d !== null);
 
-    // Remove old category labels
-    categoryLabels.exit()
-      .transition()
-      .duration(transitionDuration)
-      .style("opacity", 0)
-      .remove();
+      // Data join for category labels with transitions (same as before)
+      const categoryLabels = g.selectAll(".category-label")
+        .data(categoryLabelData, d => d.key);
 
-    // Add new category labels
-    const categoryLabelsEnter = categoryLabels.enter()
-      .append("g")
-      .attr("class", "category-label")
-      .style("opacity", 0);
+      // Remove old category labels
+      categoryLabels.exit()
+        .transition()
+        .duration(transitionDuration)
+        .style("opacity", 0)
+        .remove();
 
-    // Update all category labels
-    const categoryLabelsUpdate = categoryLabels.merge(categoryLabelsEnter);
+      // Add new category labels
+      const categoryLabelsEnter = categoryLabels.enter()
+        .append("g")
+        .attr("class", "category-label")
+        .style("opacity", 0);
 
-    categoryLabelsUpdate.each(function(d) {
-      const labelGroup = d3.select(this);
-      
-      // Check if this is a new label (needs to be created) or existing (needs to be updated)
-      const isNewLabel = labelGroup.selectAll("rect").empty();
-      
-      if (isNewLabel) {
-        // Create new label elements for first-time render
-        const tempText = g.append("text")
-          .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
-          .style("font-family", "Roboto Condensed, sans-serif")
-          .style("font-weight", "600")
-          .style("visibility", "hidden");
+      // Update all category labels
+      const categoryLabelsUpdate = categoryLabels.merge(categoryLabelsEnter);
 
-        let maxTextWidth = 0;
-        d.labelLines.forEach(line => {
-          tempText.text(line);
-          const bbox = tempText.node().getBBox();
-          if (bbox.width > maxTextWidth) maxTextWidth = bbox.width;
-        });
-        tempText.remove();
+      categoryLabelsUpdate.each(function(d) {
+        const labelGroup = d3.select(this);
         
-        const textWidth = maxTextWidth;
-        const labelPadding = isMobile ? 8 : isTablet ? 10 : 12;
-        const labelHeight = (isMobile ? 24 : isTablet ? 26 : 28) * d.labelLines.length;
-
-        // Create background rectangle - ensure it doesn't exceed chart bounds
-        const labelStartX = Math.min(d.maxXPos + 15, width - textWidth - labelPadding * 2 - 10);
-        labelGroup.append("rect")
-          .attr("class", "label-background")
-          .attr("x", labelStartX)
-          .attr("y", d.yPos - labelHeight/2)
-          .attr("width", textWidth + labelPadding * 2)
-          .attr("height", labelHeight)
-          .attr("rx", 6)
-          .attr("ry", 6)
-          .style("fill", "rgba(255, 255, 255, 0.95)")
-          .style("stroke", "#e5e7eb")
-          .style("stroke-width", 1)
-          .style("filter", "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))")
-          .style("backdrop-filter", "blur(4px)");
-
-        // Create connecting line
-        labelGroup.append("line")
-          .attr("class", "label-connector")
-          .attr("x1", d.maxXPos + 2)
-          .attr("y1", d.yPos)
-          .attr("x2", labelStartX - 3)
-          .attr("y2", d.yPos)
-          .style("stroke", "#94a3b8")
-          .style("stroke-width", 1.5)
-          .style("stroke-dasharray", "2,2");
-
-        // Create text elements
-        d.labelLines.forEach((line, i) => {
-          labelGroup.append("text")
-            .attr("class", `label-text-${i}`)
-            .attr("x", labelStartX + labelPadding)
-            .attr("y", d.yPos - (d.labelLines.length - 1) * 10 + i * 20)
-            .attr("dominant-baseline", "middle")
+        // Check if this is a new label (needs to be created) or existing (needs to be updated)
+        const isNewLabel = labelGroup.selectAll("rect").empty();
+        
+        if (isNewLabel) {
+          // Create new label elements for first-time render
+          const tempText = g.append("text")
             .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
-            .style("font-weight", "600")
-            .style("fill", "#374151")
             .style("font-family", "Roboto Condensed, sans-serif")
-            .style("letter-spacing", "-0.025em")
-            .text(line);
-        });
-      } else {
-        // Update existing label elements with smooth transitions
-        const labelPadding = isMobile ? 8 : isTablet ? 10 : 12;
-        
-        // Calculate constrained label position
-        const tempText = g.append("text")
-          .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
-          .style("font-family", "Roboto Condensed, sans-serif")
-          .style("font-weight", "600")
-          .style("visibility", "hidden");
+            .style("font-weight", "600")
+            .style("visibility", "hidden");
 
-        let maxTextWidth = 0;
-        d.labelLines.forEach(line => {
-          tempText.text(line);
-          const bbox = tempText.node().getBBox();
-          if (bbox.width > maxTextWidth) maxTextWidth = bbox.width;
-        });
-        tempText.remove();
-        
-        const labelStartX = Math.min(d.maxXPos + 15, width - maxTextWidth - labelPadding * 2 - 10);
-        
-        // Smoothly move background rectangle
-        labelGroup.select(".label-background")
-          .transition()
-          .duration(transitionDuration)
-          .attr("x", labelStartX);
+          let maxTextWidth = 0;
+          d.labelLines.forEach(line => {
+            tempText.text(line);
+            const bbox = tempText.node().getBBox();
+            if (bbox.width > maxTextWidth) maxTextWidth = bbox.width;
+          });
+          tempText.remove();
+          
+          const textWidth = maxTextWidth;
+          const labelPadding = isMobile ? 8 : isTablet ? 10 : 12;
+          const labelHeight = (isMobile ? 24 : isTablet ? 26 : 28) * d.labelLines.length;
 
-        // Smoothly move connecting line
-        labelGroup.select(".label-connector")
-          .transition()
-          .duration(transitionDuration)
-          .attr("x1", d.maxXPos + 2)
-          .attr("x2", labelStartX - 3);
+          // Create background rectangle - ensure it doesn't exceed chart bounds
+          const labelStartX = Math.min(d.maxXPos + 15, width - textWidth - labelPadding * 2 - 10);
+          labelGroup.append("rect")
+            .attr("class", "label-background")
+            .attr("x", labelStartX)
+            .attr("y", d.yPos - labelHeight/2)
+            .attr("width", textWidth + labelPadding * 2)
+            .attr("height", labelHeight)
+            .attr("rx", 6)
+            .attr("ry", 6)
+            .style("fill", "rgba(255, 255, 255, 0.95)")
+            .style("stroke", "#e5e7eb")
+            .style("stroke-width", 1)
+            .style("filter", "drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1))")
+            .style("backdrop-filter", "blur(4px)");
 
-        // Smoothly move text elements
-        d.labelLines.forEach((line, i) => {
-          labelGroup.select(`.label-text-${i}`)
+          // Create connecting line
+          labelGroup.append("line")
+            .attr("class", "label-connector")
+            .attr("x1", d.maxXPos + 2)
+            .attr("y1", d.yPos)
+            .attr("x2", labelStartX - 3)
+            .attr("y2", d.yPos)
+            .style("stroke", "#94a3b8")
+            .style("stroke-width", 1.5)
+            .style("stroke-dasharray", "2,2");
+
+          // Create text elements
+          d.labelLines.forEach((line, i) => {
+            labelGroup.append("text")
+              .attr("class", `label-text-${i}`)
+              .attr("x", labelStartX + labelPadding)
+              .attr("y", d.yPos - (d.labelLines.length - 1) * 10 + i * 20)
+              .attr("dominant-baseline", "middle")
+              .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
+              .style("font-weight", "600")
+              .style("fill", "#374151")
+              .style("font-family", "Roboto Condensed, sans-serif")
+              .style("letter-spacing", "-0.025em")
+              .text(line);
+          });
+        } else {
+          // Update existing label elements with smooth transitions
+          const labelPadding = isMobile ? 8 : isTablet ? 10 : 12;
+          
+          // Calculate constrained label position
+          const tempText = g.append("text")
+            .style("font-size", isMobile ? "14px" : isTablet ? "15px" : "16px")
+            .style("font-family", "Roboto Condensed, sans-serif")
+            .style("font-weight", "600")
+            .style("visibility", "hidden");
+
+          let maxTextWidth = 0;
+          d.labelLines.forEach(line => {
+            tempText.text(line);
+            const bbox = tempText.node().getBBox();
+            if (bbox.width > maxTextWidth) maxTextWidth = bbox.width;
+          });
+          tempText.remove();
+          
+          const labelStartX = Math.min(d.maxXPos + 15, width - maxTextWidth - labelPadding * 2 - 10);
+          
+          // Smoothly move background rectangle
+          labelGroup.select(".label-background")
             .transition()
             .duration(transitionDuration)
-            .attr("x", labelStartX + labelPadding);
-        });
-      }
-    });
+            .attr("x", labelStartX);
 
-    // Show labels immediately (no delay, move with data)
-    categoryLabelsUpdate
-      .style("opacity", 1);
+          // Smoothly move connecting line
+          labelGroup.select(".label-connector")
+            .transition()
+            .duration(transitionDuration)
+            .attr("x1", d.maxXPos + 2)
+            .attr("x2", labelStartX - 3);
 
-  }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter]);
+          // Smoothly move text elements
+          d.labelLines.forEach((line, i) => {
+            labelGroup.select(`.label-text-${i}`)
+              .transition()
+              .duration(transitionDuration)
+              .attr("x", labelStartX + labelPadding);
+          });
+        }
+      });
+
+      // Show labels immediately (no delay, move with data)
+      categoryLabelsUpdate
+        .style("opacity", 1);
+    }
+
+  }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues]);
 };
 
