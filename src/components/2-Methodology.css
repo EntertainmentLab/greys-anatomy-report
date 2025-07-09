@@ -13,9 +13,4 @@
   max-width: 300px;
 }
 
-@media (max-width: 768px) {
-  .inline-episodes-container {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-}
+/* Removed mobile media query to ensure episodes always appear side-by-side */

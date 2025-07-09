@@ -115,7 +115,7 @@ function AMEChartDumbbellSimple() {
     currentCategory: 'all',
     xDomain: xDomain, // Use calculated domain
     title: "Key Findings: Treatment Effects",
-    subtitle: `Effect sizes showing change from control condition`,
+    subtitle: `Effect sizes showing change from control condition (0)`,
     xAxisLabel: "Standard Treatment Effect",
     chartType: 'ame-effects',
     yAxisItems,

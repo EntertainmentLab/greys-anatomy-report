@@ -68,17 +68,4 @@
   text-decoration-color: #333;
 }
 
-@media (max-width: 768px) {
-  .experimental-conditions-infographic {
-    flex-direction: column;
-    gap: 1rem;
-  }
-  
-  .condition-group {
-    padding: 1rem;
-  }
-  
-  .condition-number {
-    font-size: 1.5rem;
-  }
-}
+/* Removed mobile media query to ensure conditions always appear side-by-side */

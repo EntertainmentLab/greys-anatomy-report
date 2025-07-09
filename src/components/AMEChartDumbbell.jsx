@@ -114,7 +114,7 @@ function AMEChartDumbbell() {
     currentCategory: 'all',
     xDomain: [-0.5, 0.5],
     title: "Key Findings: Treatment Effects",
-    subtitle: `Effect sizes showing change from control condition (${WAVE_LABELS[currentWave === "Immediate" ? 2 : 3]})`,
+    subtitle: `Effect sizes showing change from control condition (0) (${WAVE_LABELS[currentWave === "Immediate" ? 2 : 3]})`,
     xAxisLabel: "Standard Treatment Effect",
     chartType: 'knowledge', // Use knowledge chart type for category-based display
     yAxisItems,

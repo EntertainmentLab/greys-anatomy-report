@@ -244,7 +244,7 @@ function AMEChart() {
   return (
     <div className="ame-charts-container">
       {renderChart(treatmentData, "Impacts of the Heat Wave Episode on Key Measures", "Change relative to the control episode (0)")}
-      {renderChart(handoffData, "The Additional Boost of Social Media Content", "Change relative to episode-only (0)")}
+      {renderChart(handoffData, "The Additional Boost of Social Media Content", "Change relative to heat wave episode-only (0)")}
     </div>
   )
 }

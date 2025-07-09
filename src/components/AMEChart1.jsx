@@ -135,7 +135,9 @@ function AMEChart1() {
         
         <div className="compact-chart dual-comparison">
           {/* Treatment Effect Header */}
-          <div className="dual-bar" style={{ marginBottom: '0', minHeight: 'auto', background: 'transparent' }}>
+          <div className="dual-bar-x-axis" style={{ marginBottom: '0', marginTop: '0', background: 'transparent' }}>
+            <div></div>
+            <div></div>
             <div></div>
             <div className="dual-treatment-effect-header">
               Effect Size
@@ -186,7 +188,7 @@ function AMEChart1() {
                         style={{
                           width: `${getBarWidth(outcome.treatment.estimate)}%`,
                           backgroundColor: getBarColor(outcome.treatment.estimate, outcome.treatment.sig, outcome.treatment.effect),
-                          marginLeft: outcome.treatment.estimate < 0 ? `${20 - getBarWidth(outcome.treatment.estimate)}%` : '20%'
+                          marginLeft: outcome.treatment.estimate < 0 ? `${20 - getBarWidth(outcome.treatment.estimate)}%` : `${20 + (0 / maxValue * 60)}%`
                         }}
                         onMouseEnter={() => setHoveredItem(`${outcome.outcome}-treatment`)}
                         onMouseLeave={() => setHoveredItem(null)}
@@ -226,7 +228,7 @@ function AMEChart1() {
                         style={{
                           width: `${getBarWidth(outcome.handoff.estimate)}%`,
                           backgroundColor: getBarColor(outcome.handoff.estimate, outcome.handoff.sig, outcome.handoff.effect),
-                          marginLeft: outcome.handoff.estimate < 0 ? `${20 - getBarWidth(outcome.handoff.estimate)}%` : '20%'
+                          marginLeft: outcome.handoff.estimate < 0 ? `${20 - getBarWidth(outcome.handoff.estimate)}%` : `${20 + (0 / maxValue * 60)}%`
                         }}
                         onMouseEnter={() => setHoveredItem(`${outcome.outcome}-handoff`)}
                         onMouseLeave={() => setHoveredItem(null)}
@@ -261,27 +263,35 @@ function AMEChart1() {
           {/* X-axis with tick marks */}
           <div className="dual-bar-x-axis">
             <div></div>
+            <div></div>
             <div className="x-axis-ticks">
-              {[-0.2, 0, 0.2, 0.4, 0.6, 0.8].map(value => (
-                <div key={value}>
-                  <div 
-                    className={value === 0 ? "x-axis-zero-line" : "x-axis-tick"}
-                    style={{ left: `${20 + (value / maxValue * 60)}%` }}
-                  />
-                  <div 
-                    className="x-axis-tick-label"
-                    style={{ left: `${20 + (value / maxValue * 60)}%` }}
-                  >
-                    {value}
+              {[-0.2, 0, 0.2, 0.4, 0.6, 0.8].map(value => {
+                // Calculate position: 20% is zero line, scale by maxValue within the bar area
+                const position = 20 + (value / maxValue * 60);
+                return (
+                  <div key={value}>
+                    <div 
+                      className={value === 0 ? "x-axis-zero-line" : "x-axis-tick"}
+                      style={{ left: `${position}%` }}
+                    />
+                    <div 
+                      className="x-axis-tick-label"
+                      style={{ left: `${position}%` }}
+                    >
+                      {value}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
+            <div></div>
           </div>
           
           <div className="dual-bar-x-axis">
             <div></div>
+            <div></div>
             <div className="x-axis-label">Standard Treatment Effect</div>
+            <div></div>
           </div>
         </div>
       </div>
