@@ -44,7 +44,7 @@ function AMEChartDumbbell() {
         category: outcomeMapping[outcome],
         mean: 0,
         se: 0,
-        n: 100, // placeholder
+        n: 100, // placeholder for control baseline
         wave: currentWave === "Immediate" ? 2 : 3,
         political_party: 'Overall'
       })
@@ -73,7 +73,7 @@ function AMEChartDumbbell() {
           category: outcomeMapping[item.outcome],
           mean: effectSize, // This is the effect size relative to control
           se: item.std_error,
-          n: 100, // placeholder
+          n: item.n,
           wave: currentWave === "Immediate" ? 2 : 3,
           political_party: 'Overall'
         })

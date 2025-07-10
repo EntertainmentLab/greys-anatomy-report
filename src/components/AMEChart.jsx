@@ -44,12 +44,13 @@ function AMEChart() {
       const treatment = outcomeData.length > 0 ? {
         contrast: outcomeData[0].contrast,
         estimate: outcomeData[0].estimate,
-        sig: outcomeData[0].sig_raw,
+        sig: outcomeData[0].sig_fdr,
         ci_lower: outcomeData[0].ci_lower,
         ci_upper: outcomeData[0].ci_upper,
-        p_value: outcomeData[0].p_value,
+        p_value_fdr: outcomeData[0].p_value_fdr,
+        n: outcomeData[0].n,
         std_error: outcomeData[0].std_error,
-        effect: getEffectSize(outcomeData[0].estimate, outcomeData[0].sig_raw, outcomeData[0].p_value)
+        effect: getEffectSize(outcomeData[0].estimate, outcomeData[0].sig_fdr, outcomeData[0].p_value_fdr)
       } : null
 
       return {
@@ -88,12 +89,13 @@ function AMEChart() {
   }
 
   const formatTooltip = (treatment, outcome) => {
-    const pValue = treatment.p_value === 0 ? '<0.001' : treatment.p_value;
+    const pValue = treatment.p_value_fdr === 0 ? '<0.001' : treatment.p_value_fdr;
     return `
       Contrast: ${treatment.contrast}
       Estimate: ${treatment.estimate}
-      P-value: ${pValue}
+      P-value (FDR): ${pValue}
       95% CI: [${treatment.ci_lower}, ${treatment.ci_upper}]
+      N: ${treatment.n}
       Significance: ${treatment.sig || 'Not significant'}
     `
   }

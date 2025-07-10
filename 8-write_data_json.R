@@ -448,73 +448,6 @@ calculate_climate_temporal_stats <- function() {
   return(results)
 }
 
-# Calculate high-level construct data
-calculate_high_level_const_stats <- function(wave) {
-  
-  # Define high-level construct variables for each wave
-  if (wave == 2) {
-    const_vars <- list(
-      "Perceived Likelihood of Heat Waves" = "heatwaves_likelihood_heatwave_w2_scaled",
-      "Heat Wave Threat Severity" = "threat_severity_score_w2",
-      "Heat Wave Health Impact" = "threat_health_impact_score_w2",
-      "Heat Wave Impact Knowledge" = "impact_knowledge_score_w2",
-      "Heat and Policy Support" = "heat_policy_support_score_w2",
-      "Healthcare Worker Responsibility" = "healthcare_responsibility_score_w2",
-      "Climate Change Personal Impact" = "climate_personal_impact_score_w2",
-      "Climate Change Support for Action" = "climate_support_for_action_score_w2"
-    )
-    condition_var <- "condition_w2"
-  } else if (wave == 3) {
-    const_vars <- list(
-      "Perceived Likelihood of Heat Waves" = "heatwaves_likelihood_heatwave_w3_scaled",
-      "Heat Wave Threat Severity" = "threat_severity_score_w3",
-      "Heat Wave Health Impact" = "threat_health_impact_score_w3",
-      "Heat Wave Impact Knowledge" = "impact_knowledge_score_w3",
-      "Heat and Policy Support" = "heat_policy_support_score_w3",
-      "Healthcare Worker Responsibility" = "healthcare_responsibility_score_w3",
-      "Climate Change Personal Impact" = "climate_personal_impact_score_w3",
-      "Climate Change Support for Action" = "climate_support_for_action_score_w3"
-    )
-    condition_var <- "condition_w2" # Still using w2 condition
-  }
-  
-  # Create results list
-  results <- list()
-  
-  # Calculate stats for each construct (overall only)
-  for (category in names(const_vars)) {
-    var <- const_vars[[category]]
-    
-    # Skip if variable doesn't exist
-    if (!var %in% names(dt)) {
-      cat("Warning: Variable", var, "not found in dataset\n")
-      next
-    }
-    
-    # Calculate means and SEs by condition (overall)
-    stats <- dt[!is.na(get(var)) & !is.na(get(condition_var)),
-        .(mean = mean(get(var), na.rm = TRUE),
-          se = sd(get(var), na.rm = TRUE) / sqrt(.N),
-          n = .N),
-        by = condition_var]
-    
-    setnames(stats, condition_var, "condition")
-    
-    # Create final records with array format for React compatibility
-    for (i in 1:nrow(stats)) {
-      results[[length(results) + 1]] <- list(
-        condition = list(stats$condition[i]),
-        category = list(category),
-        mean = list(round(stats$mean[i], 2)),
-        se = list(round(stats$se[i], 3)),
-        n = list(stats$n[i]),
-        wave = list(wave)
-      )
-    }
-  }
-  
-  return(results)
-}
 
 
 # Generate all data files
@@ -547,12 +480,6 @@ all_policy <- c(wave2_policy, wave3_policy)
 cat("Calculating climate temporal proximity data...\n")
 climate_temporal_data <- calculate_climate_temporal_stats()
 
-# Generate high-level construct data
-cat("Calculating high-level construct data...\n")
-wave2_high_level <- calculate_high_level_const_stats(2)
-wave3_high_level <- calculate_high_level_const_stats(3)
-all_high_level <- c(wave2_high_level, wave3_high_level)
-
 # Write individual files for React app
 write_json(all_knowledge, "public/data-knowledge.json",
            pretty = TRUE, auto_unbox = FALSE)
@@ -570,9 +497,6 @@ write_json(all_policy, "public/data-policy-support.json",
 write_json(climate_temporal_data, "public/data-climate-temporal.json",
            pretty = TRUE, auto_unbox = TRUE)
 
-# Write high-level construct data
-write_json(all_high_level, "public/data-high-level-const.json",
-           pretty = TRUE, auto_unbox = FALSE)
 
 # Print summary
 cat("Generated JSON files for React app:\n")
@@ -581,7 +505,7 @@ cat("- Health worry data:", length(all_worry), "records\n")
 cat("- System impacts data:", length(all_impacts), "records\n")
 cat("- Policy support data:", length(all_policy), "records\n")
 cat("- Climate temporal data:", length(climate_temporal_data), "records\n")
-cat("- High-level construct data:", length(all_high_level), "records\n")
+
 
 cat("\nDone!\n")
 

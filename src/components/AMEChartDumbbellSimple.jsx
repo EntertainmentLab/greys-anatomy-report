@@ -44,7 +44,7 @@ function AMEChartDumbbellSimple() {
           category: outcomeMapping[item.outcome],
           mean: item.estimate, // Raw effect size
           se: item.std_error,
-          n: 100, // placeholder
+          n: item.n,
           wave: currentWave === "Immediate" ? 2 : 3,
           political_party: 'Overall'
         })
