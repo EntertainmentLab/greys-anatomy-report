@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { useAMEData } from '../hooks/useAMEData'
 import { WAVE_LABELS } from '../constants'
+import SurveyItemsPopup from './SurveyItemsPopup'
 import '../styles/AMEChart.css'
 
 function AMEChart1() {
   const { ameData, loading, error } = useAMEData()
   const [hoveredItem, setHoveredItem] = useState(null)
   const [currentWave, setCurrentWave] = useState("Immediate")
+  const [surveyPopupOpen, setSurveyPopupOpen] = useState(false)
+  const [selectedConstruct, setSelectedConstruct] = useState('')
 
   const getEffectSize = (estimate, sig, pValue) => {
     if (!sig || pValue >= 0.05) return "No clear change"
@@ -165,17 +168,31 @@ function AMEChart1() {
           
           {chartData.map((outcome, idx) => (
             <div key={idx} className="compact-row dual-bar">
-              <div 
-                className="outcome-label"
-                onMouseEnter={() => setHoveredItem(`category-${outcome.outcome}`)}
-                onMouseLeave={() => setHoveredItem(null)}
-              >
-                {outcome.outcome}
-                {hoveredItem === `category-${outcome.outcome}` && (
-                  <div className="category-tooltip">
-                    {getCategoryTooltip(outcome.outcome)}
-                  </div>
-                )}
+              <div className="outcome-label-container">
+                <div 
+                  className="outcome-label"
+                  onMouseEnter={() => setHoveredItem(`category-${outcome.outcome}`)}
+                  onMouseLeave={() => setHoveredItem(null)}
+                >
+                  {outcome.outcome}
+                  {hoveredItem === `category-${outcome.outcome}` && (
+                    <div className="category-tooltip">
+                      {getCategoryTooltip(outcome.outcome)}
+                    </div>
+                  )}
+                </div>
+                <button 
+                  className="survey-info-button"
+                  onClick={() => {
+                    setSelectedConstruct(outcome.outcome)
+                    setSurveyPopupOpen(true)
+                  }}
+                  title="View survey items"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                  </svg>
+                </button>
               </div>
               
               <div className="dual-bar-container">
@@ -263,32 +280,39 @@ function AMEChart1() {
             </div>
           ))}
           
-          {/* X-axis with tick marks */}
-          <div className="dual-bar-x-axis">
-            <div></div>
-            <div></div>
-            <div className="x-axis-ticks">
-              {[-0.2, 0, 0.2, 0.4, 0.6, 0.8].map(value => {
-                // Calculate position: 20% is zero line, scale by maxValue within the bar area
-                const position = 20 + (value / maxValue * 60);
-                return (
-                  <div key={value}>
-                    <div 
-                      className={value === 0 ? "x-axis-zero-line" : "x-axis-tick"}
-                      style={{ left: `${position}%` }}
-                    />
-                    <div 
-                      className="x-axis-tick-label"
-                      style={{ left: `${position}%` }}
-                    >
-                      {value}
+          {/* X-axis with tick marks - only show on last outcome */}
+          {chartData.length > 0 && (
+            <div className="dual-bar-x-axis">
+              <div></div>
+              <div></div>
+              <div className="x-axis-ticks">
+                {[-0.2, 0, 0.2, 0.4, 0.6].map(value => {
+                  // Match bar positioning exactly: bars use getBarWidth(value) from 20% baseline
+                  const barWidth = Math.abs(value) / maxValue * 60;
+                  const position = value < 0 ? (20 - barWidth) : (20 + barWidth);
+                  
+                  // Only show ticks that are within the visible range
+                  if (position < 0 || position > 100) return null;
+                  
+                  return (
+                    <div key={value}>
+                      <div 
+                        className={value === 0 ? "x-axis-zero-line" : "x-axis-tick"}
+                        style={{ left: `${position}%` }}
+                      />
+                      <div 
+                        className="x-axis-tick-label"
+                        style={{ left: `${position}%` }}
+                      >
+                        {value}
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+              <div></div>
             </div>
-            <div></div>
-          </div>
+          )}
           
           <div className="dual-bar-x-axis">
             <div></div>
@@ -298,6 +322,13 @@ function AMEChart1() {
           </div>
         </div>
       </div>
+      
+      {/* Survey Items Popup */}
+      <SurveyItemsPopup 
+        isOpen={surveyPopupOpen}
+        onClose={() => setSurveyPopupOpen(false)}
+        constructName={selectedConstruct}
+      />
     </div>
   )
 }

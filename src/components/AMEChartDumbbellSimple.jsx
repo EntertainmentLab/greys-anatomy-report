@@ -3,11 +3,13 @@ import { useEnhancedChart } from './base/EnhancedChart'
 import { useAMEData } from '../hooks/useAMEData'
 import { WAVE_LABELS } from '../constants'
 import SurveyItemsPopup from './SurveyItemsPopup'
+import WaveToggle from './WaveToggle'
 import '../styles/components/Chart-Dumbbell.css'
 
 function AMEChartDumbbellSimple() {
   const svgRef = useRef()
   const waveControlsRef = useRef()
+  const toggleRef = useRef()
   const { ameData, loading, error } = useAMEData()
   const [currentWave, setCurrentWave] = useState("Immediate")
   const [surveyPopupOpen, setSurveyPopupOpen] = useState(false)
@@ -120,7 +122,7 @@ function AMEChartDumbbellSimple() {
   useEnhancedChart({
     svgRef,
     data: transformedData,
-    currentWave: currentWave === "Immediate" ? 2 : 3,
+    currentWave: currentWave === "Immediate" ? 2 : 3, // Convert string to number
     currentPoliticalParty: 'Overall',
     currentCategory: 'all',
     xDomain: xDomain, // Use calculated domain
@@ -131,7 +133,8 @@ function AMEChartDumbbellSimple() {
     yAxisItems,
     waveControlsRef,
     plotRawValues: true, // Use raw effect sizes, don't calculate differences
-    onYAxisLabelClick: handleConstructClick // Add click handler for y-axis labels
+    onYAxisLabelClick: handleConstructClick, // Add click handler for y-axis labels
+    toggleRef // Pass toggle ref for positioning
   })
 
   if (loading) return <div>Loading...</div>
@@ -144,6 +147,14 @@ function AMEChartDumbbellSimple() {
   return (
     <div className="chart-container-wrapper">
       <div className="dumbbell-chart-container">
+        {/* Toggle positioned dynamically by EnhancedChart */}
+        <div ref={toggleRef}>
+          <WaveToggle 
+            currentWave={currentWave}
+            onWaveChange={setCurrentWave}
+          />
+        </div>
+        
         <svg 
           ref={svgRef} 
           width="100%" 
@@ -151,24 +162,8 @@ function AMEChartDumbbellSimple() {
           className="dumbbell-chart-svg"
         />
         
-        
-        {/* Wave Controls */}
-        <div ref={waveControlsRef} className="wave-controls-container simple-chart">
-          <div className="wave-controls">
-            <button 
-              className={`wave-tab ${currentWave === "Immediate" ? 'active' : ''}`}
-              onClick={() => setCurrentWave("Immediate")}
-            >
-              {WAVE_LABELS[2]}
-            </button>
-            <button 
-              className={`wave-tab ${currentWave === "15 Days" ? 'active' : ''}`}
-              onClick={() => setCurrentWave("15 Days")}
-            >
-              {WAVE_LABELS[3]}
-            </button>
-          </div>
-        </div>
+        {/* Hidden wave controls ref for EnhancedChart compatibility */}
+        <div ref={waveControlsRef} style={{ display: 'none' }}></div>
       </div>
       
       {/* Survey Items Popup */}

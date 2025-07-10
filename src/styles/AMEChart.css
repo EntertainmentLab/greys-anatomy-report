@@ -111,6 +111,13 @@
   background: rgba(0, 0, 0, 0.04);
 }
 
+.outcome-label-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+}
+
 .outcome-label {
   font-size: 0.8rem;
   color: #374151;
@@ -124,10 +131,38 @@
   height: 100%;
   position: relative;
   cursor: pointer;
+  flex: 1;
 }
 
 .outcome-label:hover {
   color: #1f2937;
+}
+
+.outcome-label-container .survey-info-button {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  opacity: 0.7;
+}
+
+.outcome-label-container .survey-info-button:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.outcome-label-container .survey-info-button:active {
+  transform: scale(0.95);
 }
 
 .category-tooltip {

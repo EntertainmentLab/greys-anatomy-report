@@ -385,7 +385,12 @@
 .dumbbell-chart-container {
   position: relative;
   width: 100%;
+  transition: background-color 0.3s ease;
+  border-radius: var(--border-radius-lg);
+  padding: 8px;
 }
+
+
 
 .dumbbell-chart-svg {
   display: block;

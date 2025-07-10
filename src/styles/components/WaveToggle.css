@@ -1,0 +1,111 @@
+/* Wave Toggle Switch Styles */
+.wave-toggle-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wave-toggle-track {
+  position: relative;
+  width: 170px;
+  height: 32px;
+  background: #e5e7eb;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid #d1d5db;
+  overflow: hidden;
+}
+
+.wave-toggle-track:hover {
+  background: #d1d5db;
+}
+
+.wave-toggle-slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 83px;
+  height: 28px;
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-radius: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.wave-toggle-slider.immediate {
+  transform: translateX(0);
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+
+.wave-toggle-slider.delayed {
+  transform: translateX(83px);
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+}
+
+.wave-toggle-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  pointer-events: none;
+}
+
+.wave-toggle-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #6b7280;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  text-align: center;
+  width: 75px;
+}
+
+.wave-toggle-label.active {
+  color: white;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .wave-toggle-track {
+    width: 150px;
+    height: 28px;
+  }
+  
+  .wave-toggle-slider {
+    width: 73px;
+    height: 24px;
+    top: 2px;
+  }
+  
+  .wave-toggle-slider.delayed {
+    transform: translateX(73px);
+  }
+  
+  .wave-toggle-labels {
+    padding: 0 14px;
+  }
+  
+  .wave-toggle-label {
+    font-size: 9px;
+    width: 65px;
+  }
+}
+
+/* Chart Integration Styles */
+.chart-header-toggle {
+  position: absolute;
+  top: 8px;
+  right: 0;
+  z-index: 10;
+}
+

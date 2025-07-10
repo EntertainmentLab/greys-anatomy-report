@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import * as d3 from 'd3'
 import { CONDITION_LABELS, COLOR_MAP, WAVE_LABELS, KNOWLEDGE_CATEGORIES_LABELS, HIGH_LEVEL_CONSTRUCTS_LABELS } from '../../constants'
+import '../../styles/components/WaveToggle.css'
 
 export const useEnhancedChart = ({
   svgRef,
@@ -17,7 +18,8 @@ export const useEnhancedChart = ({
   dataFilter,
   waveControlsRef, // Ref to where wave controls should be rendered
   plotRawValues = false, // New prop: if true, plot raw values instead of calculating differences
-  onYAxisLabelClick = null // Optional click handler for y-axis labels
+  onYAxisLabelClick = null, // Optional click handler for y-axis labels
+  toggleRef = null // Ref to position external toggle
 }) => {
   useEffect(() => {
     if (!data || data.length === 0) {
@@ -288,7 +290,15 @@ export const useEnhancedChart = ({
     const subtitleY = titleHeight - 7; // Overlap slightly to reduce gap
     const waveControlsHeight = isMobile ? 28 : isTablet ? 32 : 36;
     const waveControlsY = subtitleY + subtitleHeight + 4; // Less space after subtitle
-    const chartStartY = waveControlsY + waveControlsHeight + 60; // Much more space after controls
+    // For AME charts, add space for external toggle
+    const toggleSpacingAbove = 0; // No space between subtitle and toggle
+    const toggleSpacingBelow = 32; // Larger space between toggle and chart
+    const toggleHeight = 32; // Height of toggle
+    const totalToggleSpace = plotRawValues && toggleRef ? (toggleSpacingAbove + toggleSpacingBelow + toggleHeight) : 0;
+    
+    const chartStartY = plotRawValues ? 
+      (subtitleY + subtitleHeight + totalToggleSpace + 16) : // Space for external toggle
+      (waveControlsY + waveControlsHeight + 60); // Normal space for other charts
     const xAxisLabelY = chartStartY + chartHeight + 54;
     const legendHeight = isMobile ? 20 : isTablet ? 24 : 28;
     const legendY = xAxisLabelY + 25;
@@ -383,6 +393,25 @@ export const useEnhancedChart = ({
       waveControlsRef.current.style.position = 'absolute';
       waveControlsRef.current.style.top = `${topPosition}px`;
       waveControlsRef.current.style.zIndex = '10';
+    }
+
+    // Position external toggle if provided
+    if (toggleRef && toggleRef.current && plotRawValues) {
+      const containerRect = svgRef.current.parentNode.getBoundingClientRect();
+      const svgRect = svgRef.current.getBoundingClientRect();
+      
+      // Calculate toggle position
+      const toggleY = subtitleY + subtitleHeight + toggleSpacingAbove;
+      const plotAreaCenterX = margin.left + width / 2;
+      
+      // Convert SVG coordinates to container coordinates
+      const relativeX = plotAreaCenterX * (containerRect.width / (width + margin.left + margin.right));
+      
+      toggleRef.current.style.position = 'absolute';
+      toggleRef.current.style.left = `${relativeX}px`;
+      toggleRef.current.style.top = `${toggleY}px`;
+      toggleRef.current.style.transform = 'translateX(-50%)';
+      toggleRef.current.style.zIndex = '10';
     }
 
     // Add alternating background rectangles for AME charts FIRST (only on initial render)
@@ -1075,5 +1104,5 @@ export const useEnhancedChart = ({
         .style("opacity", 1);
     }
 
-  }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues, onYAxisLabelClick]);
+  }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues, onYAxisLabelClick, toggleRef]);
 };
