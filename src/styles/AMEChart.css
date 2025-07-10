@@ -1,12 +1,15 @@
 .ame-charts-container {
-  max-width: 1200px;
-  margin: 1rem auto;
+  width: 100%;
+  max-width: 1000px; /* Reduced from 1200px */
+  margin: 0 auto;
+  padding: 20px;
   display: flex;
   gap: 2rem;
   flex-wrap: wrap;
 }
 
 .ame-chart {
+  width: 100%;
   flex: 1;
   min-width: 500px;
   padding: 0.75rem;
@@ -15,40 +18,44 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.chart-title {
+.chart-header {
   text-align: center;
-  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.chart-title {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 0.25rem;
   color: #374151;
+  margin: 0 0 5px 0;
 }
 
 .chart-subtitle {
-  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 14px;
   color: #6b7280;
-  margin-bottom: 0.5rem;
-  font-size: 0.9rem;
+  margin: 0;
 }
 
 .wave-controls {
   display: flex;
   gap: 10px;
   justify-content: center;
-  margin-bottom: 0.5rem;
-  margin-top: 0.25rem;
+  margin-bottom: 30px;
 }
 
 .wave-tab {
-  padding: 8px 16px;
+  padding: 10px 20px;
   border: 2px solid #d1d5db;
   background: white;
   color: #374151;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 500;
-  font-size: 13px;
+  font-size: 14px;
+  font-family: 'Roboto Condensed', sans-serif;
   transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .wave-tab:hover {
@@ -60,9 +67,9 @@
   background: #3b82f6;
   border-color: #3b82f6;
   color: white;
-  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
 }
 
+/* Outcome section styles */
 .outcome-section {
   margin-bottom: 1rem;
 }
@@ -500,3 +507,55 @@
 .info-tooltip div:last-child {
   margin-bottom: 0;
 }
+
+.ame-bar-chart-container {
+  width: 100%;
+  max-width: 1000px; /* Reduced from 1200px */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  overflow: visible; /* Changed from overflow-x: auto */
+}
+
+.ame-bar-chart-container svg {
+  width: 100%;
+  max-width: 940px; /* Adjusted to match chart width */
+  height: auto;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.ame-tooltip {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  .ame-charts-container {
+    padding: 15px;
+  }
+  
+  .ame-bar-chart-container {
+    overflow-x: auto;
+  }
+  
+  .ame-bar-chart-container svg {
+    min-width: 900px;
+  }
+}
+
+@media (max-width: 768px) {
+  .ame-charts-container {
+    padding: 10px;
+  }
+  
+  .wave-tab {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+  
+  .ame-bar-chart-container svg {
+    min-width: 800px;
+  }
+}
+  
+

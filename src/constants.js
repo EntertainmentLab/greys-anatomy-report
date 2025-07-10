@@ -11,7 +11,7 @@ export const COLOR_MAP = {
 export const CONDITION_LABELS = {
   control: 'Control',
   treatment: 'Heat Wave',
-  handoff: 'Heat Wave + Handoff'
+  handoff: 'Heat Wave + Social'
 }
 
 export const CONDITIONS_CONFIG = [
