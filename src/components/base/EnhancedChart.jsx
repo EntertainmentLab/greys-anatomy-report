@@ -16,7 +16,8 @@ export const useEnhancedChart = ({
   yAxisItems, // Array of items to display on Y-axis (categories or political parties)
   dataFilter,
   waveControlsRef, // Ref to where wave controls should be rendered
-  plotRawValues = false // New prop: if true, plot raw values instead of calculating differences
+  plotRawValues = false, // New prop: if true, plot raw values instead of calculating differences
+  onYAxisLabelClick = null // Optional click handler for y-axis labels
 }) => {
   useEffect(() => {
     if (!data || data.length === 0) {
@@ -484,7 +485,7 @@ export const useEnhancedChart = ({
           .selectAll("text")
           .remove();
 
-        // Add custom wrapped text labels
+        // Add custom wrapped text labels with optional interactive icons
         yAxisItems.forEach(item => {
           const yPos = yScale(item) + yScale.bandwidth() / 2;
           
@@ -504,10 +505,14 @@ export const useEnhancedChart = ({
           });
           if (currentLine) lines.push(currentLine);
 
+          // Create a group for this label to contain text and optional icon
+          const labelGroup = g.append("g")
+            .attr("class", "y-axis-label-group");
+
           // Add each line of text
           lines.forEach((line, i) => {
-            g.append("text")
-              .attr("x", -10) // Closer to chart
+            labelGroup.append("text")
+              .attr("x", onYAxisLabelClick ? -35 : -10) // Leave space for icon if interactive
               .attr("y", yPos + (i - (lines.length - 1) / 2) * 15) // Better line spacing
               .attr("text-anchor", "end")
               .attr("dominant-baseline", "middle")
@@ -517,6 +522,54 @@ export const useEnhancedChart = ({
               .style("font-family", "Roboto Condensed, sans-serif")
               .text(line);
           });
+
+          // Add interactive info icon if click handler is provided
+          if (onYAxisLabelClick) {
+            const iconGroup = labelGroup.append("g")
+              .attr("class", "y-axis-info-icon")
+              .style("cursor", "pointer")
+              .on("click", function(event) {
+                event.stopPropagation();
+                onYAxisLabelClick(item);
+              });
+
+            // Add circle background for icon
+            iconGroup.append("circle")
+              .attr("cx", -20)
+              .attr("cy", yPos)
+              .attr("r", 10)
+              .style("fill", "#6b7280")
+              .style("opacity", 0.7)
+              .style("transition", "all 0.2s ease");
+
+            // Add info icon (i)
+            iconGroup.append("text")
+              .attr("x", -20)
+              .attr("y", yPos)
+              .attr("text-anchor", "middle")
+              .attr("dominant-baseline", "middle")
+              .style("font-size", "12px")
+              .style("font-weight", "bold")
+              .style("fill", "white")
+              .style("font-family", "serif")
+              .style("pointer-events", "none")
+              .text("i");
+
+            // Add hover effects
+            iconGroup
+              .on("mouseenter", function() {
+                d3.select(this).select("circle")
+                  .style("fill", "#374151")
+                  .style("opacity", 1)
+                  .attr("r", 11);
+              })
+              .on("mouseleave", function() {
+                d3.select(this).select("circle")
+                  .style("fill", "#6b7280")
+                  .style("opacity", 0.7)
+                  .attr("r", 10);
+              });
+          }
         });
       } else {
         // Add y-axis without any visual elements (no line, no ticks) for other charts
@@ -1022,5 +1075,5 @@ export const useEnhancedChart = ({
         .style("opacity", 1);
     }
 
-  }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues]);
+  }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues, onYAxisLabelClick]);
 };

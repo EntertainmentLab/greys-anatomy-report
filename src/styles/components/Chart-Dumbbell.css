@@ -433,3 +433,81 @@
 .y-axis-label {
   font-family: 'Roboto Condensed', sans-serif;
 }
+
+/* Interactive Y-axis labels */
+.interactive-y-axis-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.interactive-y-axis-label {
+  pointer-events: auto;
+}
+
+.y-axis-label-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.survey-info-button {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  opacity: 0.7;
+}
+
+.survey-info-button:hover {
+  background-color: #f3f4f6;
+  color: #374151;
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.survey-info-button:active {
+  transform: scale(0.95);
+}
+
+.survey-info-button svg {
+  transition: transform 0.2s ease;
+}
+
+.survey-info-button:hover svg {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .y-axis-label-text {
+    font-size: 12px;
+  }
+  
+  .survey-info-button {
+    min-width: 20px;
+    min-height: 20px;
+  }
+  
+  .survey-info-button svg {
+    width: 14px;
+    height: 14px;
+  }
+  
+  .interactive-y-axis-label {
+    width: 220px !important;
+  }
+}

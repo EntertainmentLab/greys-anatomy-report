@@ -1,0 +1,242 @@
+[
+  {
+    "construct": "Perceived Likelihood of Heat Wave Exposure",
+    "subconstructs": [
+      {
+        "name": "",
+        "question": "How likely is it that you, your family, or your community will be seriously impacted by at least one severe heat wave this summer...?",
+        "questionType": "slider",
+        "responseOptions": "0-100 (Not at all likely to Extremely likely)",
+        "wave": "1, 2, 3"
+      }
+    ]
+  },
+  {
+    "construct": "Perceived Heat Wave Threat Severity",
+    "subconstructs": [
+      {
+        "name": "Heatwave Worry",
+        "question": "How worried are you about the effects of severe heat waves on...",
+        "questionItems": [
+          "Your personal well-being",
+          "The well-being of others in your family",
+          "The well-being of others in your community"
+        ],
+        "questionType": "likert matrix",
+        "responseOptions": "Not worried at all, A little worried, Moderately worried, Very worried, Extremely worried",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Heatwave Harm",
+        "question": "If a severe heat wave were to occur, how much do you think it would harm...",
+        "questionItems": [
+          "Your personal well-being",
+          "The well-being of others in your family",
+          "The well-being of others in your community"
+        ],
+        "questionType": "likert matrix",
+        "responseOptions": "Would cause no harm at all, A little harm, Moderate harm, A great deal of harm, Would cause extreme harm",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Behavioral Intentions",
+        "question": "If a severe heat wave occurs, how likely is it that you would…",
+        "questionItems": [
+          "Take extra precautions to protect yourself",
+          "Check on vulnerable people you know (elderly neighbors, etc.)"
+        ],
+        "questionType": "likert matrix",
+        "responseOptions": "Extremely unlikely, Moderately unlikely, Somewhat unlikely, Neither likely nor unlikely, Somewhat likely, Moderately likely, Extremely likely",
+        "wave": "1, 2, 3"
+      }
+    ]
+  },
+  {
+    "construct": "Perceived Threat of Heat Waves on Health",
+    "subconstructs": [
+      {
+        "name": "Heatwave Health Worry",
+        "question": "If you were experiencing a severe heat wave... how worried would you be about the following health issues harming you, your family, or people in your community?",
+        "questionItems": [
+          "Dehydration or heat exhaustion",
+          "Heat stroke",
+          "Worsening of chronic conditions",
+          "Increased risk of death"
+        ],
+        "questionType": "likert matrix",
+        "responseOptions": "Not worried at all, A little worried, Moderately worried, Very worried, Extremely worried",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Worry Medical Access",
+        "question": "How worried are you about the impact of severe heat waves on your ability to be treated in a hospital?",
+        "questionType": "likert",
+        "responseOptions": "Not worried at all, A little worried, Moderately worried, Very worried, Extremely worried",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Healthcare System Impacts",
+        "question": "How concerned are you that severe heat waves in your local area could result in the following impacts:",
+        "questionItems": [
+          "Hospitals losing power",
+          "Increased emergency room visits",
+          "Overcrowded hospitals turning away patients",
+          "Shortages of medical staff or resources",
+          "Cancellation of surgeries",
+          "Increased (delayed) response times for emergency services"
+        ],
+        "questionType": "likert matrix",
+        "responseOptions": "Not at all, A little amount, A moderate amount, Quite a bit, A great deal",
+        "wave": "1, 2, 3"
+      }
+    ]
+  },
+  {
+    "construct": "Knowledge of the Impact of Heat Waves",
+    "subconstructs": [
+      {
+        "name": "Knowledge",
+        "question": "Please indicate how certain you are about whether the following statements are true or false. Extreme heat exposure can…",
+        "questionItems": [
+          "Trigger premature labor in pregnant women",
+          "Increase the risk of cancer [decoy]",
+          "Cause organ failure",
+          "Trigger heart attacks among the vulnerable",
+          "Increase violent crime"
+        ],
+        "questionType": "slider matrix",
+        "responseOptions": "-100 to 100 (100% certain it is FALSE to 100% certain it is TRUE)",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Health Risks",
+        "question": "What are the primary health risks that can result from exposure to extreme heat?",
+        "questionType": "text list",
+        "responseOptions": "Min 2, Max 6 responses",
+        "wave": "2, 3"
+      },
+      {
+        "name": "Lower Body Temperature",
+        "question": "What is the fastest way to lower someone's internal body temperature after extreme heat exposure?",
+        "questionType": "multiple choice",
+        "responseOptions": "Drinking ice-cold water, Wrapping an ice-cold towel around their head, Immersing them in a tub of ice water, Giving them electrolytes",
+        "wave": "2, 3"
+      },
+      {
+        "name": "Self-Efficacy",
+        "question": "If you were to experience a severe heat wave... how confident are you that you would know what to do to keep yourself and others safe?",
+        "questionType": "likert",
+        "responseOptions": "Not at all confident, A little confident, Moderately confident, Very confident, Extremely confident",
+        "wave": "1, 2, 3"
+      }
+    ]
+  },
+  {
+    "construct": "Heat and Policy Support",
+    "subconstructs": [
+      {
+        "name": "Policies",
+        "question": "Do you support or oppose the following policies?",
+        "questionItems": [
+          "Federal, State, and Local Governments should invest resources to ensure that hospitals can run safely and effectively in severe heat waves",
+          "State and local governments should provide air-conditioned public spaces for people to use during severe heat waves to prevent heat-related health issues"
+        ],
+        "questionType": "slider matrix",
+        "responseOptions": "-100 to 100 (Strongly oppose to Strongly support)",
+        "wave": "2, 3"
+      },
+      {
+        "name": "Tax Increase",
+        "question": "How much more in overall income tax would you be willing to pay in order to ensure that your community and your hospitals are safer during severe heat waves?",
+        "questionType": "slider",
+        "responseOptions": "0-3%",
+        "wave": "2, 3"
+      }
+    ]
+  },
+  {
+    "construct": "Perceived Responsibility of Healthcare Workers",
+    "subconstructs": [
+      {
+        "name": "Public",
+        "question": "Do you agree or disagree that health professionals have a responsibility to bring the health effects of severe heat waves to the attention of: the public?",
+        "questionType": "likert",
+        "responseOptions": "Strongly disagree, Moderately disagree, Slightly disagree, Neither agree nor disagree, Slightly agree, Moderately agree, Strongly agree",
+        "wave": "2, 3"
+      },
+      {
+        "name": "Policy Makers",
+        "question": "Do you agree or disagree that health professionals have a responsibility to bring the health effects of severe heat waves to the attention of: policy makers?",
+        "questionType": "likert",
+        "responseOptions": "Strongly disagree, Moderately disagree, Slightly disagree, Neither agree nor disagree, Slightly agree, Moderately agree, Strongly agree",
+        "wave": "2, 3"
+      }
+    ]
+  },
+  {
+    "construct": "Personal Impact of Climate Change",
+    "subconstructs": [
+      {
+        "name": "Climate Attribution",
+        "question": "How much do you think climate change is responsible for extreme heat waves in recent years?",
+        "questionType": "likert",
+        "responseOptions": "Not at all, A little, A moderate amount, A lot, Completely",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Temporal Proximity of Climate Impact",
+        "question": "Do you believe climate change will have a significant impact on your daily life? [if 'Yes, I believe it will in the future'] About how many years from now do you expect that impact to begin?",
+        "questionType": "multiple choice + slider",
+        "responseOptions": "Yes, it already has, Yes, I believe it will in the future, No, it won't impact me + 0 to 50 years",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Social Norms about Climate Impacts",
+        "question": "Imagine 10 people like you. If you had to guess, how many of them are currently concerned about the impacts of climate change on their lives?",
+        "questionType": "slider",
+        "responseOptions": "0-10",
+        "wave": "1, 2, 3"
+      }
+    ]
+  },
+  {
+    "construct": "Climate Change - Support for Action",
+    "subconstructs": [
+      {
+        "name": "Normative Beliefs on Climate Action",
+        "question": "Do you think that people should take action to address climate change because it is the right thing to do?",
+        "questionType": "binary",
+        "responseOptions": "Yes, No",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Support Government Action",
+        "question": "Governments must take action immediately to slow climate change in order to prevent extreme weather like heat waves, floods, and other disasters",
+        "questionType": "likert",
+        "responseOptions": "Strongly disagree, Moderately disagree, Slightly disagree, Neither agree nor disagree, Slightly agree, Moderately agree, Strongly agree",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Action Intention",
+        "question": "Please indicate how likely it is that you will take some action to address climate change in the next 12 months? (for example, donate to an environmental organization; speak out about the issue; make a sustainable swap in your daily life; etc.)",
+        "questionType": "likert",
+        "responseOptions": "Extremely unlikely, Moderately unlikely, Somewhat unlikely, Neither likely nor unlikely, Somewhat likely, Moderately likely, Extremely likely",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Receive Information",
+        "question": "Please indicate if you would be willing to receive tailored information via e-mail on how climate change could impact the likelihood of severe heat waves in your area over the next few years?",
+        "questionType": "binary",
+        "responseOptions": "Yes, No",
+        "wave": "1, 2, 3"
+      },
+      {
+        "name": "Audience Demand for Climate Content",
+        "question": "Do you think Hollywood should include more climate-relevant themes and climate-friendly actions on-screen in order to help address climate change?",
+        "questionType": "binary",
+        "responseOptions": "Yes, No",
+        "wave": "1, 2, 3"
+      }
+    ]
+  }
+]

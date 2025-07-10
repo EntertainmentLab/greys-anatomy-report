@@ -2,12 +2,16 @@ import React, { useRef, useState } from 'react'
 import { useEnhancedChart } from './base/EnhancedChart'
 import { useAMEData } from '../hooks/useAMEData'
 import { WAVE_LABELS } from '../constants'
+import SurveyItemsPopup from './SurveyItemsPopup'
+import '../styles/components/Chart-Dumbbell.css'
 
 function AMEChartDumbbellSimple() {
   const svgRef = useRef()
   const waveControlsRef = useRef()
   const { ameData, loading, error } = useAMEData()
   const [currentWave, setCurrentWave] = useState("Immediate")
+  const [surveyPopupOpen, setSurveyPopupOpen] = useState(false)
+  const [selectedConstruct, setSelectedConstruct] = useState('')
 
   // Transform AME data to format expected by EnhancedChart
   const transformedData = React.useMemo(() => {
@@ -107,6 +111,12 @@ function AMEChartDumbbellSimple() {
     "Climate Change - Support for Action"
   ]
 
+  // Define click handler before useEnhancedChart
+  const handleConstructClick = (constructName) => {
+    setSelectedConstruct(constructName)
+    setSurveyPopupOpen(true)
+  }
+
   useEnhancedChart({
     svgRef,
     data: transformedData,
@@ -120,7 +130,8 @@ function AMEChartDumbbellSimple() {
     chartType: 'ame-effects',
     yAxisItems,
     waveControlsRef,
-    plotRawValues: true // Use raw effect sizes, don't calculate differences
+    plotRawValues: true, // Use raw effect sizes, don't calculate differences
+    onYAxisLabelClick: handleConstructClick // Add click handler for y-axis labels
   })
 
   if (loading) return <div>Loading...</div>
@@ -140,6 +151,7 @@ function AMEChartDumbbellSimple() {
           className="dumbbell-chart-svg"
         />
         
+        
         {/* Wave Controls */}
         <div ref={waveControlsRef} className="wave-controls-container simple-chart">
           <div className="wave-controls">
@@ -158,6 +170,13 @@ function AMEChartDumbbellSimple() {
           </div>
         </div>
       </div>
+      
+      {/* Survey Items Popup */}
+      <SurveyItemsPopup 
+        isOpen={surveyPopupOpen}
+        onClose={() => setSurveyPopupOpen(false)}
+        constructName={selectedConstruct}
+      />
     </div>
   )
 }
