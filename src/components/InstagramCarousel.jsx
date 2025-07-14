@@ -7,35 +7,35 @@ const InstagramCarousel = () => {
 
   const images = [
     {
-      src: `${import.meta.env.BASE_URL}insta_scotpilie_wx.png`,
+      src: `${import.meta.env.BASE_URL}images/insta_scotpilie_wx.png`,
       title: "Instagram post by Scot Pilié",
       alt: "Instagram post by meteorologist Scot Pilié discussing heat-related health impacts",
       creator: "SP",
-      profileImage: `${import.meta.env.BASE_URL}scotpilie_wx.jpg`,
+      profileImage: `${import.meta.env.BASE_URL}images/scotpilie_wx.jpg`,
       instagramUrl: "https://www.instagram.com/reel/DG6BgVAxhij/?utm_source=ig_web_button_share_sheet"
     },
     {
-      src: `${import.meta.env.BASE_URL}insta_farmernick.png`,
+      src: `${import.meta.env.BASE_URL}images/insta_farmernick.png`,
       title: "Instagram post by Nick Cutsumpas",
       alt: "Instagram post by Nick Cutsumpas about climate adaptation strategies",
       creator: "NC",
-      profileImage: `${import.meta.env.BASE_URL}farmernick.jpg`,
+      profileImage: `${import.meta.env.BASE_URL}images/farmernick.jpg`,
       instagramUrl: "https://www.instagram.com/reel/DG5o77lAYV4/?utm_source=ig_web_button_share_sheet"
     },
     {
-      src: `${import.meta.env.BASE_URL}insta_eyeinspired.png`,
+      src: `${import.meta.env.BASE_URL}images/insta_eyeinspired.png`,
       title: "Instagram post by Kelly Edelman",
       alt: "Instagram post by Kelly Edelman on heat safety and prevention",
       creator: "KE",
-      profileImage: `${import.meta.env.BASE_URL}eyeinspired.jpg`,
+      profileImage: `${import.meta.env.BASE_URL}images/eyeinspired.jpg`,
       instagramUrl: "https://www.instagram.com/reel/DG8WJFNuxwm/?utm_source=ig_web_button_share_sheet"
     },
     {
-      src: `${import.meta.env.BASE_URL}insta_becomingdrdevore.png`,
+      src: `${import.meta.env.BASE_URL}images/insta_becomingdrdevore.png`,
       title: "Instagram post by Sydney DeVore",
       alt: "Instagram post by Dr. Sydney DeVore on heat-related health risks",
       creator: "SD",
-      profileImage: `${import.meta.env.BASE_URL}becomingdrdevore.jpg`,
+      profileImage: `${import.meta.env.BASE_URL}images/becomingdrdevore.jpg`,
       instagramUrl: "https://www.instagram.com/reel/DG_myvfBnLC/"
     }
   ];

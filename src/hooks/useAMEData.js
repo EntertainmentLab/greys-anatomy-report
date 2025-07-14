@@ -8,7 +8,7 @@ export function useAMEData() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}data-combined_visualization_results.json`)
+        const response = await fetch(`${import.meta.env.BASE_URL}data/data-combined_visualization_results.json`)
         
         if (!response.ok) throw new Error('Failed to fetch AME data')
         

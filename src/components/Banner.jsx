@@ -49,7 +49,7 @@ const Banner = () => {
       <div ref={bannerRef} className="banner-container">
         <div className="banner-background">
           <img 
-            src={`${import.meta.env.BASE_URL}greys-anatomy-banner.png`}
+            src={`${import.meta.env.BASE_URL}images/greys-anatomy-banner.png`}
             alt="Grey's Anatomy Cast"
             className="banner-image"
           />
@@ -59,7 +59,7 @@ const Banner = () => {
         <div className="banner-content">
           <a href="https://www.rare.org" className="rare-logo-container">
             <img 
-              src={`${import.meta.env.BASE_URL}rare-logo.png`}
+              src={`${import.meta.env.BASE_URL}images/rare-logo.png`}
               alt="Rare Organization" 
               className="rare-logo"
             />
@@ -75,7 +75,7 @@ const Banner = () => {
       <div className={`sticky-header ${isSticky ? 'visible' : ''}`}>
         <a href="https://www.rare.org" className="sticky-rare-logo-container">
           <img 
-            src={`${import.meta.env.BASE_URL}rare-logo.png`}
+            src={`${import.meta.env.BASE_URL}images/rare-logo.png`}
             alt="Rare Organization" 
             className="sticky-rare-logo"
           />

@@ -17,7 +17,7 @@ export function useHighLevelConstData() {
     const loadData = async () => {
       try {
         console.log('Fetching high-level construct data...')
-        const response = await fetch(`${import.meta.env.BASE_URL}data-high-level-const.json`)
+        const response = await fetch(`${import.meta.env.BASE_URL}data/data-high-level-const.json`)
         
         if (!response.ok) {
           throw new Error(`Failed to fetch high-level construct data: ${response.status} ${response.statusText}`)

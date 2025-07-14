@@ -9,7 +9,7 @@ export function useClimateTemporalData() {
     const loadData = async () => {
       try {
         console.log('Fetching climate temporal data...')
-        const response = await fetch(`${import.meta.env.BASE_URL}data-climate-temporal.json`)
+        const response = await fetch(`${import.meta.env.BASE_URL}data/data-climate-temporal.json`)
         
         if (!response.ok) {
           throw new Error(`Failed to fetch climate temporal data: ${response.status} ${response.statusText}`)

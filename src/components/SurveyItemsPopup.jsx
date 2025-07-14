@@ -8,7 +8,7 @@ const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
   useEffect(() => {
     const loadSurveyData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}survey-items.json`)
+        const response = await fetch(`${import.meta.env.BASE_URL}data/survey-items.json`)
         if (!response.ok) throw new Error('Failed to fetch survey data')
         const data = await response.json()
         setSurveyData(data)

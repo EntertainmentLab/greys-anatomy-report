@@ -27,7 +27,7 @@ export function useData() {
         // Load both datasets
         const [knowledgeResponse, threatResponse] = await Promise.all([
           fetch(`${import.meta.env.BASE_URL}data.json`),
-          fetch(`${import.meta.env.BASE_URL}data-health-worry.json`)
+          fetch(`${import.meta.env.BASE_URL}data/data-health-worry.json`)
         ])
         
         if (!knowledgeResponse.ok) throw new Error('Failed to fetch knowledge data')
@@ -88,12 +88,12 @@ export function useData() {
 import React from 'react';
 
 const resultsFiles = [
-  { label: 'Average Marginal Effects', file: 'ame_models.html' },
-  { label: 'Handoff vs. Treatment Recommendation', file: 'handoff_vs_treatment_recommendation.html' },
-  { label: 'Heat Index Interactions', file: 'heat_index_interactions.html' },
-  { label: 'Heterogeneous Treatment Effects', file: 'heterogeneous_treatment_effects.html' },
-  { label: 'Individual Matrix Items Effects', file: 'individual_matrix_items_effects.html' },
-  { label: 'Primary Models', file: 'primary_models.html' }
+  { label: 'Average Marginal Effects', file: 'html/ame_models.html' },
+  { label: 'Handoff vs. Treatment Recommendation', file: 'html/handoff_vs_treatment_recommendation.html' },
+  { label: 'Heat Index Interactions', file: 'html/heat_index_interactions.html' },
+  { label: 'Heterogeneous Treatment Effects', file: 'html/heterogeneous_treatment_effects.html' },
+  { label: 'Individual Matrix Items Effects', file: 'html/individual_matrix_items_effects.html' },
+  { label: 'Primary Models', file: 'html/primary_models.html' }
 ];
 
 export default function ResultsLinks() {

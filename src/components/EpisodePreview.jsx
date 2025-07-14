@@ -23,12 +23,12 @@ const EpisodePreview = ({ isOpen, onClose, episode }) => {
   const episodeData = {
     hot: {
       title: "Drop it Like it's Hot",
-      image: "season21ep8_thumbnail.png",
+      image: "images/season21ep8_thumbnail.png",
       description: "In the midst of a deadly heat wave, the team at Grey Sloan struggles to keep up with an overwhelming amount of patients; Amelia and Winston face a challenging surgery; Jo and Lucas run an errand for the hospital."
     },
     night: {
       title: "Night Moves",
-      image: "season21ep6_thumbnail.jpg",
+      image: "images/season21ep6_thumbnail.jpg",
       description: "Teddy and Owen plan a date night that gets derailed in more ways than one; Jo struggles to do it all at home; Mika adds more to her plate to make up for taking time off to be with her sister; Levi is faced with a monumental decision."
     }
   };

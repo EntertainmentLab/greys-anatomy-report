@@ -108,7 +108,7 @@ function KeyFindings() {
       <ul>
         <li>
           <a
-            href={`${import.meta.env.BASE_URL}analysis_report.html`}
+            href={`${import.meta.env.BASE_URL}html/analysis_report.html`}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -117,7 +117,7 @@ function KeyFindings() {
         </li>
         <li>
           <a
-            href={`${import.meta.env.BASE_URL}ate_ame_comparison.html`}
+            href={`${import.meta.env.BASE_URL}html/ate_ame_comparison.html`}
             target="_blank"
             rel="noopener noreferrer"
           >
