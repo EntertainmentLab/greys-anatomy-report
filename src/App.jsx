@@ -5,6 +5,7 @@ import Legend from './components/Legend'
 import StudyOverview from './components/1-StudyOverview'
 import Methodology from './components/2-Methodology'
 import KeyFindings from './components/3-KeyFindings'
+import TableOfContents from './components/TableOfContents'
 import { useKnowledgeData } from './hooks/useKnowledgeData'
 import Banner from './components/Banner'
 import PleaseRotatePrompt from './components/PleaseRotatePrompt'
@@ -36,6 +37,7 @@ function App() {
           <Methodology />
           <KeyFindings />
         </div>
+        <TableOfContents />
       </div>
     </>
   )
