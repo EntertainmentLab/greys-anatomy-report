@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import { useAMEData } from '../hooks/useAMEData'
 import { WAVE_LABELS } from '../constants'
 import { processDataForVisualization } from '../utils/ameChartUtils'
@@ -8,6 +8,8 @@ import '../styles/AMEChart.css'
 function AMEChart3() {
   const { ameData, loading, error } = useAMEData()
   const [currentWave, setCurrentWave] = useState("Immediate")
+  const previousWaveData = useRef(null)
+  const previousWave = useRef("Immediate")
 
   const outcomeMapping = {
     "Climate Change Personal Impact": "Personal Impact of Climate Change",
@@ -26,6 +28,20 @@ function AMEChart3() {
     return processDataForVisualization(waveData, outcomeMapping, dataOutcomes)
   }, [ameData, currentWave])
 
+  // Handle wave transition with previous data storage
+  const handleWaveChange = (newWave) => {
+    if (newWave === currentWave) return
+    
+    // Store current wave data before changing
+    if (ameData && ameData.length > 0) {
+      const currentWaveData = ameData.filter(item => item.wave === currentWave)
+      previousWaveData.current = processDataForVisualization(currentWaveData, outcomeMapping, dataOutcomes)
+    }
+    
+    // Change to new wave
+    setCurrentWave(newWave)
+  }
+
   if (loading) return <div>Loading...</div>
   if (error) return <div>Error loading data: {error}</div>
 
@@ -35,13 +51,13 @@ function AMEChart3() {
         <div className="wave-controls">
           <button 
             className={`wave-tab ${currentWave === "Immediate" ? 'active' : ''}`}
-            onClick={() => setCurrentWave("Immediate")}
+            onClick={() => handleWaveChange("Immediate")}
           >
             {WAVE_LABELS[2]}
           </button>
           <button 
             className={`wave-tab ${currentWave === "15 Days" ? 'active' : ''}`}
-            onClick={() => setCurrentWave("15 Days")}
+            onClick={() => handleWaveChange("15 Days")}
           >
             {WAVE_LABELS[3]}
           </button>
@@ -49,6 +65,7 @@ function AMEChart3() {
         
         <AMEBarChart
           data={chartData}
+          previousData={previousWaveData.current}
           title="Climate Change Impact and Action Support"
           subtitle={`Comparing Heat Wave Episode and Heat Wave + Social Media to Control (${WAVE_LABELS[currentWave === "Immediate" ? 2 : 3]})`}
           maxValue={0.8}

@@ -5,6 +5,7 @@ import { COLOR_MAP, CONDITION_LABELS } from '../../constants'
 
 const AMEBarChart = ({ 
   data, 
+  previousData = null,
   title, 
   subtitle, 
   maxValue = 0.8, 
@@ -39,26 +40,39 @@ const AMEBarChart = ({
   useEffect(() => {
     if (!data || data.length === 0) return
 
+    // Helper function to find matching outcome data
+    const findMatchingOutcome = (outcomeData, outcome) => {
+      return outcomeData?.find(o => o.outcome === outcome)
+    }
+
     // Group data by outcome categories
     const groupedData = data.map(outcome => {
       const bars = []
+      const previousOutcome = findMatchingOutcome(previousData, outcome.outcome)
+      
       if (outcome.treatment) {
         const effect = getEffectSize(outcome.treatment.estimate, outcome.treatment.sig, outcome.treatment.p_value_fdr)
+        const previousTreatment = previousOutcome?.treatment
+        
         bars.push({
           type: 'treatment',
           label: CONDITION_LABELS.treatment,
           color: getBarColor(outcome.treatment.estimate, outcome.treatment.sig, effect),
           data: outcome.treatment,
+          previousData: previousTreatment,
           effect: effect
         })
       }
       if (outcome.handoff) {
         const effect = getEffectSize(outcome.handoff.estimate, outcome.handoff.sig, outcome.handoff.p_value_fdr)
+        const previousHandoff = previousOutcome?.handoff
+        
         bars.push({
           type: 'handoff',
           label: CONDITION_LABELS.handoff,
           color: getBarColor(outcome.handoff.estimate, outcome.handoff.sig, effect),
           data: outcome.handoff,
+          previousData: previousHandoff,
           effect: effect
         })
       }
@@ -351,15 +365,21 @@ const AMEBarChart = ({
           .style('stroke', '#1f2937')
           .style('stroke-width', 1)
 
-        // Effect bar with smooth animation from current position
+        // Effect bar with smooth animation from previous wave data
         const barStart = Math.min(0, bar.data.estimate)
         const barEnd = Math.max(0, bar.data.estimate)
         const barWidth = Math.max(2, xScale(barEnd) - xScale(barStart))
 
+        // Use previous wave data as animation starting point if available
+        const startFromPrevious = bar.previousData && previousData
+        const prevBarStart = startFromPrevious ? Math.min(0, bar.previousData.estimate) : 0
+        const prevBarEnd = startFromPrevious ? Math.max(0, bar.previousData.estimate) : 0
+        const prevBarWidth = startFromPrevious ? Math.max(2, xScale(prevBarEnd) - xScale(prevBarStart)) : 0
+
         const effectBar = group.append('rect')
-          .attr('x', isUpdate ? xScale(barStart) : xScale(0))  // Start from current position if update
+          .attr('x', startFromPrevious ? xScale(prevBarStart) : xScale(0))
           .attr('y', barY)
-          .attr('width', isUpdate ? barWidth : 0)  // Start from current width if update
+          .attr('width', startFromPrevious ? prevBarWidth : 0)
           .attr('height', barHeight)
           .style('fill', bar.color)
           .style('cursor', 'pointer')
@@ -373,10 +393,14 @@ const AMEBarChart = ({
           .attr('width', barWidth)
 
         // Confidence interval
+        const prevCiLower = startFromPrevious ? bar.previousData.ci_lower : 0
+        const prevCiUpper = startFromPrevious ? bar.previousData.ci_upper : 0
+        const prevCiWidth = startFromPrevious ? Math.max(1, xScale(prevCiUpper) - xScale(prevCiLower)) : 0
+
         const ciBar = group.append('rect')
-          .attr('x', isUpdate ? xScale(bar.data.ci_lower) : xScale(0))
+          .attr('x', startFromPrevious ? xScale(prevCiLower) : xScale(0))
           .attr('y', barY + barHeight/2 - 0.5)
-          .attr('width', isUpdate ? Math.max(1, xScale(bar.data.ci_upper) - xScale(bar.data.ci_lower)) : 0)
+          .attr('width', startFromPrevious ? prevCiWidth : 0)
           .attr('height', 1)
           .style('fill', 'rgba(0, 0, 0, 0.6)')
 
@@ -388,9 +412,11 @@ const AMEBarChart = ({
           .attr('width', Math.max(1, xScale(bar.data.ci_upper) - xScale(bar.data.ci_lower)))
 
         // Shape at bar tip (circle for treatment, triangle for handoff)
+        const prevEstimate = startFromPrevious ? bar.previousData.estimate : 0
+        
         if (bar.type === 'treatment') {
           const shape = group.append('circle')
-            .attr('cx', isUpdate ? xScale(bar.data.estimate) : xScale(0))
+            .attr('cx', startFromPrevious ? xScale(prevEstimate) : xScale(0))
             .attr('cy', barY + barHeight/2)
             .attr('r', 4)
             .style('fill', 'white')
@@ -406,7 +432,7 @@ const AMEBarChart = ({
           // Triangle for handoff
           const shape = group.append('path')
             .attr('d', d3.symbol().type(d3.symbolTriangle).size(32))
-            .attr('transform', `translate(${isUpdate ? xScale(bar.data.estimate) : xScale(0)}, ${barY + barHeight/2})`)
+            .attr('transform', `translate(${startFromPrevious ? xScale(prevEstimate) : xScale(0)}, ${barY + barHeight/2})`)
             .style('fill', 'white')
             .style('stroke', '#000000')
             .style('stroke-width', 1)
@@ -451,7 +477,7 @@ const AMEBarChart = ({
       })
     })
 
-  }, [data, title, subtitle, maxValue, onOutcomeClick, isInitialized])
+  }, [data, previousData, title, subtitle, maxValue, onOutcomeClick, isInitialized])
 
   return (
     <div className="ame-bar-chart-container" style={{ position: 'relative' }}>
