@@ -14,6 +14,12 @@ const AMEBarChart = ({
   const svgRef = useRef()
   const [isInitialized, setIsInitialized] = useState(false)
   const [hoveredItem, setHoveredItem] = useState(null)
+  const [containerWidth, setContainerWidth] = useState(1000)
+  const [chartDimensions, setChartDimensions] = useState({ margin: { left: 200 }, width: 500 })
+
+  // Calculate mobile state based on container width
+  const isMobile = containerWidth < 768
+  const isSmallMobile = containerWidth < 480
 
   // Text wrapping utility function
   const wrapText = (text, maxWidth, fontSize = 12) => {
@@ -82,14 +88,38 @@ const AMEBarChart = ({
       }
     })
 
-    const margin = { top: 80, right: 120, bottom: 120, left: 280 }
-    const categoryHeight = 80
-    const width = 820 - margin.left - margin.right
+    // Get container dimensions for responsive sizing
+    const containerElement = svgRef.current.parentElement
+    const currentContainerWidth = containerElement ? containerElement.getBoundingClientRect().width : 1200
+    
+    // Update container width state if it has changed
+    if (Math.abs(currentContainerWidth - containerWidth) > 10) {
+      setContainerWidth(currentContainerWidth)
+    }
+    
+    // Calculate responsive dimensions with tighter margins
+    const maxLabelLength = Math.max(...groupedData.map(d => d.outcome.length))
+    const baseLabelWidth = Math.max(160, Math.min(220, maxLabelLength * (isMobile ? 4.5 : 5.5)))
+    const leftMargin = baseLabelWidth + (isMobile ? 15 : 20)
+    
+    const margin = { 
+      top: isMobile ? 60 : 80, 
+      right: isMobile ? 180 : 220, // More space for effect size column
+      bottom: isMobile ? 80 : 120, 
+      left: leftMargin 
+    }
+    
+    const categoryHeight = isMobile ? 60 : 80
+    const availableWidth = currentContainerWidth // Use full container width
+    const width = Math.max(350, (availableWidth - margin.left - margin.right) * 0.75)
     const height = groupedData.length * categoryHeight
+
+    // Update chart dimensions for use in JSX
+    setChartDimensions({ margin, width })
 
     // Scales
     const xScale = d3.scaleLinear()
-      .domain([-0.2, maxValue])
+      .domain([-0.1, maxValue])
       .range([0, width])
 
     const yScale = d3.scaleBand()
@@ -139,32 +169,39 @@ const AMEBarChart = ({
         .style('z-index', 1000)
     }
 
-    // Update title
+    // Update responsive title
     let titleText = svg.select('.chart-title')
     if (titleText.empty()) {
       titleText = svg.append('text')
         .attr('class', 'chart-title')
         .attr('x', (width + margin.left + margin.right) / 2)
-        .attr('y', 25)
+        .attr('y', isMobile ? 20 : 25)
         .attr('text-anchor', 'middle')
         .style('font-family', 'Roboto Condensed, sans-serif')
-        .style('font-size', '18px')
+        .style('font-size', isMobile ? '14px' : '18px')
         .style('font-weight', 'bold')
         .style('fill', '#374151')
+    } else {
+      titleText
+        .attr('x', (width + margin.left + margin.right) / 2)
+        .attr('y', isMobile ? 20 : 25)
+        .style('font-size', isMobile ? '14px' : '18px')
     }
     titleText.text(title)
 
-    // Update subtitle
+    // Update responsive subtitle
     svg.selectAll('.chart-subtitle').remove()
-    const wrappedSubtitle = wrapText(subtitle, 500, 14)
+    const subtitleWidth = Math.min(500, width + margin.left + margin.right - 40)
+    const subtitleFontSize = isMobile ? 11 : 14
+    const wrappedSubtitle = wrapText(subtitle, subtitleWidth, subtitleFontSize)
     wrappedSubtitle.forEach((line, lineIndex) => {
       svg.append('text')
         .attr('class', 'chart-subtitle')
         .attr('x', (width + margin.left + margin.right) / 2)
-        .attr('y', 45 + (lineIndex * 16))
+        .attr('y', (isMobile ? 35 : 45) + (lineIndex * (isMobile ? 12 : 16)))
         .attr('text-anchor', 'middle')
         .style('font-family', 'Roboto Condensed, sans-serif')
-        .style('font-size', '14px')
+        .style('font-size', subtitleFontSize + 'px')
         .style('fill', '#6b7280')
         .text(line)
     })
@@ -173,7 +210,7 @@ const AMEBarChart = ({
     if (g.select('.x-axis').empty()) {
       // X-axis
       const xAxis = d3.axisBottom(xScale)
-        .tickValues([-0.2, 0, 0.2, 0.4, 0.6, 0.8])
+        .tickValues(d3.range(-0.1, 0.9, 0.1))
         .tickFormat(d3.format('.1f'))
 
       const xAxisGroup = g.append('g')
@@ -190,7 +227,7 @@ const AMEBarChart = ({
 
       xAxisGroup.selectAll('.tick text')
         .style('font-family', 'Roboto Condensed, sans-serif')
-        .style('font-size', '12px')
+        .style('font-size', isMobile ? '10px' : '12px')
         .style('fill', '#374151')
 
       xAxisGroup.selectAll('.tick')
@@ -203,10 +240,10 @@ const AMEBarChart = ({
       g.append('text')
         .attr('class', 'x-axis-label')
         .attr('x', width / 2)
-        .attr('y', height + 40)
+        .attr('y', height + (isMobile ? 30 : 40))
         .attr('text-anchor', 'middle')
         .style('font-family', 'Roboto Condensed, sans-serif')
-        .style('font-size', '14px')
+        .style('font-size', isMobile ? '11px' : '14px')
         .style('fill', '#374151')
         .text('Standardized Treatment Effect')
 
@@ -220,9 +257,9 @@ const AMEBarChart = ({
 
       const legend = g.append('g')
         .attr('class', 'legend')
-        .attr('transform', `translate(${width / 2}, ${height + 70})`)
+        .attr('transform', `translate(${width / 2}, ${height + (isMobile ? 50 : 70)})`)
 
-      const legendItemWidth = 150
+      const legendItemWidth = isMobile ? 100 : 150
       const totalLegendWidth = legendData.length * legendItemWidth
       const startX = -totalLegendWidth / 2
 
@@ -238,16 +275,16 @@ const AMEBarChart = ({
         const group = d3.select(this)
         if (d.shape === 'circle') {
           group.append('circle')
-            .attr('cx', 8)
-            .attr('cy', 8)
-            .attr('r', 6)
+            .attr('cx', isMobile ? 6 : 8)
+            .attr('cy', isMobile ? 6 : 8)
+            .attr('r', isMobile ? 4 : 6)
             .style('fill', 'white')
             .style('stroke', '#000000')
             .style('stroke-width', 1)
         } else {
           group.append('path')
-            .attr('d', d3.symbol().type(d3.symbolTriangle).size(64))
-            .attr('transform', 'translate(8, 8)')
+            .attr('d', d3.symbol().type(d3.symbolTriangle).size(isMobile ? 32 : 64))
+            .attr('transform', `translate(${isMobile ? 6 : 8}, ${isMobile ? 6 : 8})`)
             .style('fill', 'white')
             .style('stroke', '#000000')
             .style('stroke-width', 1)
@@ -255,10 +292,10 @@ const AMEBarChart = ({
       })
 
       legendItems.append('text')
-        .attr('x', 25)
-        .attr('y', 12)
+        .attr('x', isMobile ? 18 : 25)
+        .attr('y', isMobile ? 10 : 12)
         .style('font-family', 'Roboto Condensed, sans-serif')
-        .style('font-size', '12px')
+        .style('font-size', isMobile ? '10px' : '12px')
         .style('fill', '#374151')
         .text(d => d.label)
     }
@@ -281,22 +318,25 @@ const AMEBarChart = ({
       .attr('height', yScale.bandwidth())
       .style('fill', (d, i) => i % 2 === 0 ? '#f9fafb' : '#ffffff')
 
-    // Add category labels
+    // Add responsive category labels
     categoryGroups.each(function(d) {
       const group = d3.select(this)
-      const wrappedLines = wrapText(d.outcome, 220, 14)
-      const lineHeight = 16
+      const availableWidth = baseLabelWidth - (isMobile ? 20 : 30) // Leave room for info button
+      const fontSize = isMobile ? 12 : 14
+      const wrappedLines = wrapText(d.outcome, availableWidth, fontSize)
+      const lineHeight = isMobile ? 14 : 16
       const totalHeight = wrappedLines.length * lineHeight
       const startY = (yScale.bandwidth() - totalHeight) / 2 + lineHeight
+      const textX = isMobile ? -20 : -30 // Position text appropriately
 
       wrappedLines.forEach((line, lineIndex) => {
         group.append('text')
-          .attr('x', -50)
+          .attr('x', textX)
           .attr('y', startY + (lineIndex * lineHeight))
           .attr('text-anchor', 'end')
           .attr('dominant-baseline', 'middle')
           .style('font-family', 'Roboto Condensed, sans-serif')
-          .style('font-size', '14px')
+          .style('font-size', fontSize + 'px')
           .style('font-weight', '600')
           .style('fill', '#374151')
           .style('cursor', onOutcomeClick ? 'pointer' : 'default')
@@ -308,12 +348,15 @@ const AMEBarChart = ({
           })
       })
 
-      // Add info buttons
+      // Add responsive info buttons
       if (onOutcomeClick) {
+        const buttonSize = isMobile ? 6 : 8
+        const buttonX = isMobile ? -8 : -10
+        
         group.append('circle')
-          .attr('cx', -20)
+          .attr('cx', buttonX)
           .attr('cy', yScale.bandwidth() / 2)
-          .attr('r', 8)
+          .attr('r', buttonSize)
           .style('fill', '#3b82f6')
           .style('cursor', 'pointer')
           .on('click', function(event) {
@@ -322,11 +365,11 @@ const AMEBarChart = ({
           })
 
         group.append('text')
-          .attr('x', -20)
+          .attr('x', buttonX)
           .attr('y', yScale.bandwidth() / 2)
           .attr('text-anchor', 'middle')
           .attr('dominant-baseline', 'middle')
-          .style('font-size', '10px')
+          .style('font-size', isMobile ? '8px' : '10px')
           .style('fill', 'white')
           .style('cursor', 'pointer')
           .style('pointer-events', 'none')
@@ -338,8 +381,8 @@ const AMEBarChart = ({
     categoryGroups.each(function(categoryData) {
       const group = d3.select(this)
       const barCount = categoryData.bars.length
-      const barHeight = 20
-      const barSpacing = 4
+      const barHeight = isMobile ? 16 : 20
+      const barSpacing = isMobile ? 3 : 4
       const totalBarHeight = (barHeight * barCount) + (barSpacing * (barCount - 1))
       const startY = (yScale.bandwidth() - totalBarHeight) / 2
 
@@ -411,14 +454,16 @@ const AMEBarChart = ({
           .attr('x', xScale(bar.data.ci_lower))
           .attr('width', Math.max(1, xScale(bar.data.ci_upper) - xScale(bar.data.ci_lower)))
 
-        // Shape at bar tip (circle for treatment, triangle for handoff)
+        // Responsive shape at bar tip (circle for treatment, triangle for handoff)
         const prevEstimate = startFromPrevious ? bar.previousData.estimate : 0
+        const shapeSize = isMobile ? 3 : 4
+        const triangleSize = isMobile ? 20 : 32
         
         if (bar.type === 'treatment') {
           const shape = group.append('circle')
             .attr('cx', startFromPrevious ? xScale(prevEstimate) : xScale(0))
             .attr('cy', barY + barHeight/2)
-            .attr('r', 4)
+            .attr('r', shapeSize)
             .style('fill', 'white')
             .style('stroke', '#000000')
             .style('stroke-width', 1)
@@ -431,7 +476,7 @@ const AMEBarChart = ({
         } else {
           // Triangle for handoff
           const shape = group.append('path')
-            .attr('d', d3.symbol().type(d3.symbolTriangle).size(32))
+            .attr('d', d3.symbol().type(d3.symbolTriangle).size(triangleSize))
             .attr('transform', `translate(${startFromPrevious ? xScale(prevEstimate) : xScale(0)}, ${barY + barHeight/2})`)
             .style('fill', 'white')
             .style('stroke', '#000000')
@@ -444,13 +489,13 @@ const AMEBarChart = ({
             .attr('transform', `translate(${xScale(bar.data.estimate)}, ${barY + barHeight/2})`)
         }
 
-        // Effect description
+        // Responsive effect description
         group.append('text')
-          .attr('x', width + 10)
+          .attr('x', width + (isMobile ? 5 : 10))
           .attr('y', barY + barHeight/2)
           .attr('dominant-baseline', 'middle')
           .style('font-family', 'Roboto Condensed, sans-serif')
-          .style('font-size', '11px')
+          .style('font-size', isMobile ? '9px' : '11px')
           .style('fill', '#374151')
           .style('opacity', 0)
           .text(`${bar.effect.includes('increase') ? '▲' : '—'} ${bar.effect}`)
@@ -477,25 +522,25 @@ const AMEBarChart = ({
       })
     })
 
-  }, [data, previousData, title, subtitle, maxValue, onOutcomeClick, isInitialized])
+  }, [data, previousData, title, subtitle, maxValue, onOutcomeClick])
 
   return (
     <div className="ame-bar-chart-container" style={{ position: 'relative' }}>
       <svg ref={svgRef}></svg>
-      {/* Effect size header with inline info button positioned over the SVG */}
+      {/* Responsive effect size header with inline info button positioned over the SVG */}
       <div 
         className="treatment-effect-header"
         style={{
           position: 'absolute',
-          right: '50px',
-          top: '70px',
-          fontSize: '12px',
+          left: `${chartDimensions.margin.left + chartDimensions.width + (isMobile ? 5 : 10)}px`,
+          top: isMobile ? '60px' : '70px',
+          fontSize: isMobile ? '10px' : '12px',
           fontWeight: 'bold',
           color: '#374151',
           fontFamily: 'Roboto Condensed, sans-serif',
           display: 'flex',
           alignItems: 'center',
-          gap: '0.5rem'
+          gap: '0.3rem'
         }}
       >
         Effect Size

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import * as d3 from 'd3'
 import { CONDITION_LABELS, COLOR_MAP, WAVE_LABELS, KNOWLEDGE_CATEGORIES_LABELS, HIGH_LEVEL_CONSTRUCTS_LABELS } from '../../constants'
-import '../../styles/components/WaveToggle.css'
+// CSS imported via main.css
 
 export const useEnhancedChart = ({
   svgRef,
@@ -804,11 +804,45 @@ export const useEnhancedChart = ({
           ? d.mean.toFixed(3) 
           : (d.mean >= 0 ? `+${d.mean.toFixed(1)}` : `${d.mean.toFixed(1)}`);
         
-        const tooltipContent = plotRawValues
-          ? `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${valueText}<br/>N = ${d.n}`
-          : chartType === 'policy'
-          ? `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${valueText} vs Control<br/>N = ${d.n}`
-          : `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>${d.yItem}: ${valueText} vs Control<br/>N = ${d.n}`;
+        // Build comprehensive tooltip content in specified order: contrast, estimate, CI, N, p value, significance
+        let tooltipContent = `<strong>${CONDITION_LABELS[d.condition]}</strong><br/>`;
+        tooltipContent += `${d.yItem}<br/>`;
+        
+        if (plotRawValues) {
+          // For AME effects: contrast, estimate, CI, N, p value, significance
+          if (d.contrast) tooltipContent += `Contrast: ${d.contrast}<br/>`;
+          tooltipContent += `Estimate: ${valueText}<br/>`;
+          if (d.ci_lower !== undefined && d.ci_upper !== undefined) {
+            tooltipContent += `95% CI: [${d.ci_lower.toFixed(3)}, ${d.ci_upper.toFixed(3)}]<br/>`;
+          } else if (d.se) {
+            // Calculate CI from standard error if available
+            const ciLower = (d.mean - 1.96 * d.se).toFixed(3);
+            const ciUpper = (d.mean + 1.96 * d.se).toFixed(3);
+            tooltipContent += `95% CI: [${ciLower}, ${ciUpper}]<br/>`;
+          }
+          tooltipContent += `N = ${d.n}<br/>`;
+          if (d.p_value_fdr !== undefined) {
+            const pValue = d.p_value_fdr === 0 ? '<0.001' : d.p_value_fdr.toFixed(3);
+            tooltipContent += `P-value (FDR): ${pValue}<br/>`;
+          }
+          if (d.sig) {
+            tooltipContent += `Significance: ${d.sig}`;
+          }
+        } else {
+          // For difference charts: contrast, estimate, CI, N, p value, significance
+          const contrastText = `${CONDITION_LABELS[d.condition]} vs Control`;
+          tooltipContent += `Contrast: ${contrastText}<br/>`;
+          tooltipContent += `Estimate: ${valueText}<br/>`;
+          if (d.se) {
+            const ciLower = (d.mean - 1.96 * d.se).toFixed(1);
+            const ciUpper = (d.mean + 1.96 * d.se).toFixed(1);
+            tooltipContent += `95% CI: [${ciLower}, ${ciUpper}]<br/>`;
+          }
+          tooltipContent += `N = ${d.n}`;
+          if (d.originalMean !== undefined && d.controlMean !== undefined) {
+            tooltipContent += `<br/>Treatment: ${d.originalMean.toFixed(1)}<br/>Control: ${d.controlMean.toFixed(1)}`;
+          }
+        }
         
         tooltip.html(tooltipContent)
           .style("left", (event.pageX + 10) + "px")

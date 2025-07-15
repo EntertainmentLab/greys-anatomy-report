@@ -1,0 +1,185 @@
+/* Base Chart Styles - Shared across all chart types */
+
+/* ============================================
+   CHART CONTAINERS 
+   ============================================ */
+
+.chart-wrapper {
+  width: 100%;
+  margin: var(--spacing-xl) 0;
+}
+
+.chart-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.chart-title {
+  font-family: var(--font-secondary);
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: #374151;
+  margin: 0 0 5px 0;
+}
+
+.chart-subtitle {
+  font-family: var(--font-secondary);
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+/* ============================================
+   CHART CONTROLS 
+   ============================================ */
+
+.chart-controls {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--spacing-xl);
+  align-items: center;
+}
+
+.wave-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.wave-tab {
+  padding: 10px var(--spacing-lg);
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: #374151;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.875rem;
+  font-family: var(--font-secondary);
+  transition: all var(--transition-base);
+}
+
+.wave-tab:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.wave-tab.active {
+  background: var(--color-info);
+  border-color: var(--color-info);
+  color: white;
+}
+
+/* ============================================
+   TOOLTIPS 
+   ============================================ */
+
+.chart-tooltip {
+  font-family: var(--font-secondary);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  z-index: 1000;
+}
+
+.tooltip {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: var(--spacing-sm);
+  border-radius: var(--border-radius-sm);
+  font-size: 0.75rem;
+  white-space: pre-line;
+  z-index: 10;
+  min-width: 200px;
+}
+
+.tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.tooltip pre {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+/* ============================================
+   INFO BUTTONS 
+   ============================================ */
+
+.info-button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: #e5e7eb;
+  color: var(--color-text-muted);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.info-button:hover {
+  background: var(--color-border);
+  color: #374151;
+}
+
+.info-tooltip {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-100%);
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 0.75rem;
+  border-radius: var(--border-radius-md);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  z-index: 20;
+  min-width: 250px;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.info-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(0, 0, 0, 0.9);
+}
+
+.info-tooltip div {
+  margin-bottom: 0.25rem;
+}
+
+.info-tooltip div:last-child {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS 
+   ============================================ */
+
+@media (max-width: 768px) {
+  .wave-tab {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.75rem;
+  }
+}

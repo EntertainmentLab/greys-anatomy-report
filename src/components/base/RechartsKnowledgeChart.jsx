@@ -228,11 +228,23 @@ function RechartsKnowledgeChart({ data }) {
             {CONDITION_LABELS[data.condition]}
           </p>
           <p style={{ margin: '0 0 4px 0', color: '#e0e0e0' }}>
-            {`${data.category}: ${data.value?.toFixed(1)}%`}
+            {`${data.category}`}
           </p>
+          {/* Order: contrast, estimate, CI, N, p value, significance */}
+          <p style={{ margin: '0 0 4px 0', color: '#e0e0e0', fontSize: '11px' }}>
+            {`Contrast: ${data.condition}`}
+          </p>
+          <p style={{ margin: '0 0 4px 0', color: '#e0e0e0', fontSize: '11px' }}>
+            {`Estimate: ${data.value?.toFixed(1)}%`}
+          </p>
+          {data.se !== undefined && data.mean !== undefined && (
+            <p style={{ margin: '0 0 4px 0', color: '#e0e0e0', fontSize: '11px' }}>
+              {`95% CI: [${(data.mean - 1.96 * data.se).toFixed(1)}, ${(data.mean + 1.96 * data.se).toFixed(1)}]`}
+            </p>
+          )}
           {data.n && (
             <p style={{ margin: '0', color: '#c0c0c0', fontSize: '11px' }}>
-              {`Sample size: ${data.n}`}
+              {`N = ${data.n}`}
             </p>
           )}
         </div>

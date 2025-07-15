@@ -24,9 +24,9 @@ export const formatTooltip = (data, outcome) => {
   const pValue = data.p_value_fdr === 0 ? '<0.001' : data.p_value_fdr;
   return `Contrast: ${data.contrast}
 Estimate: ${data.estimate}
-P-value (FDR): ${pValue}
 95% CI: [${data.ci_lower}, ${data.ci_upper}]
 N: ${data.n}
+P-value (FDR): ${pValue}
 Significance: ${data.sig || 'Not significant'}`
 }
 

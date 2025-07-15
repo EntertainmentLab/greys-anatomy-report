@@ -1,0 +1,156 @@
+/* Layout System */
+
+/* ============================================
+   CONTAINERS 
+   ============================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-lg);
+  position: relative;
+  z-index: 2;
+  background: var(--color-background);
+}
+
+.main-title-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px var(--spacing-lg) 30px var(--spacing-lg);
+  text-align: center;
+}
+
+.report-container {
+  font-family: var(--font-primary);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: var(--spacing-2xl);
+  line-height: 1.7;
+  color: var(--color-text);
+}
+
+/* ============================================
+   SECTIONS 
+   ============================================ */
+
+.report-content {
+  margin-top: var(--spacing-2xl);
+}
+
+.report-section {
+  margin-bottom: var(--spacing-3xl);
+}
+
+.chart-section {
+  margin: var(--spacing-3xl) 0;
+  padding: var(--spacing-2xl) 0;
+  border-top: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
+  padding-left: var(--spacing-3xl);
+  padding-right: var(--spacing-3xl);
+}
+
+.main-title-section {
+  background: linear-gradient(135deg, #fafafa 0%, #f8fafc 100%);
+  padding: 0;
+  position: relative;
+  z-index: 2;
+  margin-top: -1px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+
+/* ============================================
+   CARDS & SURFACES 
+   ============================================ */
+
+.section-base {
+  margin: var(--spacing-2xl) 0;
+  padding: var(--spacing-2xl);
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  border-radius: 28px;
+  border: 1.5px solid var(--color-border);
+  box-shadow: 0 8px 32px rgba(0, 91, 187, 0.07), 0 1.5px 0 #fff inset;
+  position: relative;
+  overflow: visible;
+}
+
+.card {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.chart-container {
+  padding: var(--spacing-xl);
+}
+
+/* ============================================
+   LOADING & ERROR STATES 
+   ============================================ */
+
+.loading, 
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  font-size: 1.125rem;
+  color: var(--color-text-muted);
+  font-family: var(--font-primary);
+}
+
+.error {
+  color: var(--color-error);
+}
+
+/* ============================================
+   RESPONSIVE LAYOUT 
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .container {
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  
+  .main-title-container {
+    padding: 50px var(--spacing-md) 25px var(--spacing-md);
+  }
+  
+  .chart-section {
+    padding-left: var(--spacing-2xl);
+    padding-right: var(--spacing-2xl);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--spacing-lg) 15px;
+  }
+  
+  .main-title-container {
+    padding: var(--spacing-2xl) 15px 20px 15px;
+  }
+  
+  .report-container {
+    padding: var(--spacing-lg);
+  }
+  
+  .chart-section {
+    margin: var(--spacing-3xl) 0;
+    padding: 30px 0 30px 0;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .section-base {
+    padding: var(--spacing-lg);
+    margin: var(--spacing-lg) 0;
+  }
+  
+  .chart-container {
+    padding: var(--spacing-lg);
+  }
+}

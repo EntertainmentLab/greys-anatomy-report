@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
-import '../../styles/components/Chart-Likert.css'
+// CSS imported via main.css
 
 function LikertChart({ 
   data, 
@@ -215,7 +215,37 @@ function LikertChart({
             .duration(200)
             .style("opacity", .9)
           
-          tooltip.html(`<strong>${d.category}</strong><br/>${d.item} - ${d.condition}: ${d.value.toFixed(1)}%`)
+          // Find the full data point to get additional fields
+          const dataPoint = filteredData.find(dp => dp.condition === d.condition);
+          
+          // Build tooltip in specified order: contrast, estimate, CI, N, p value, significance
+          let tooltipContent = `<strong>${d.category}</strong><br/>`;
+          tooltipContent += `${d.item} - ${d.condition}<br/>`;
+          
+          // Add additional fields if available in correct order
+          if (dataPoint) {
+            // Contrast (condition comparison)
+            tooltipContent += `Contrast: ${d.condition}<br/>`;
+            
+            // Estimate (the percentage value)
+            tooltipContent += `Estimate: ${d.value.toFixed(1)}%<br/>`;
+            
+            // Confidence Interval
+            if (dataPoint.se !== undefined && dataPoint.mean !== undefined) {
+              const ciLower = (dataPoint.mean - 1.96 * dataPoint.se).toFixed(1);
+              const ciUpper = (dataPoint.mean + 1.96 * dataPoint.se).toFixed(1);
+              tooltipContent += `95% CI: [${ciLower}, ${ciUpper}]<br/>`;
+            }
+            
+            // Sample size
+            if (dataPoint.n !== undefined) {
+              tooltipContent += `N = ${dataPoint.n}`;
+            }
+            
+            // P-value and significance would go here if available in the data
+          }
+          
+          tooltip.html(tooltipContent)
             .style("left", (event.pageX + 10) + "px")
             .style("top", (event.pageY - 28) + "px")
         })

@@ -1,0 +1,59 @@
+/* 
+ * Main CSS Import File
+ * Organized CSS Architecture for Grey's Anatomy Report
+ */
+
+/* ============================================
+   FONTS 
+   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap');
+
+/* ============================================
+   CORE STYLES (Load First)
+   ============================================ */
+@import './core/variables.css';
+@import './core/reset.css';
+@import './core/typography.css';
+@import './core/layout.css';
+
+/* ============================================
+   SHARED UTILITIES 
+   ============================================ */
+@import './shared/filters.css';
+
+/* ============================================
+   COMPONENT STYLES 
+   ============================================ */
+@import './components/buttons.css';
+
+/* Chart Components */
+@import './components/charts/chart-base.css';
+@import './components/charts/ame-charts.css';
+
+/* Other Components */
+@import './components/carousel.css';
+@import './components/table-of-contents.css';
+@import './components/Legend.css';
+@import './components/Controls.css';
+@import './components/Header.css';
+@import './components/Chart-Likert.css';
+@import './components/Chart-SystemImpacts.css';
+@import './components/GreysAnatomyKnowledgeViz.css';
+@import './components/TimelineInfographic.css';
+@import './components/EpisodePreview.css';
+@import './components/InstagramCarousel.css';
+@import './components/SurveyItemsPopup.css';
+@import './components/Chart-Dumbbell.css';
+@import './components/WaveToggle.css';
+@import './components/Chart-ClimateTemporal.css';
+
+/* ============================================
+   SECTION STYLES 
+   ============================================ */
+@import './sections/banner.css';
+@import './sections/methodology.css';
+
+/* ============================================
+   LAYOUT IMPORTS (Legacy - to be refactored)
+   ============================================ */
+@import './shared/sections.css';

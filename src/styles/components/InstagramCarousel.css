@@ -26,6 +26,16 @@
   min-width: 0;
 }
 
+.header_callout {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
 .text-content p {
   font-size: 1rem;
   line-height: 1.5;

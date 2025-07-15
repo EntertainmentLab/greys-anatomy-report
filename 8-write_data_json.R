@@ -8,6 +8,7 @@ source("../Greys-Anatomy/data/2-Processing/00 - Helpers/Health Risk Text Scoring
 dt <- readRDS("../Greys-Anatomy/data/1-Data/processed_data/complete_data_for_analysis.rds")
 dt <- dt[wave_2_analysis_ready == TRUE & wave_3_analysis_ready == TRUE,]
 
+
 # Calculate means and standard errors for knowledge variables
 calculate_knowledge_stats <- function(wave) {
 
@@ -363,7 +364,7 @@ calculate_climate_temporal_stats <- function() {
 
   # Wave labels
   wave_labels <- c(
-    "climate_temporal_proximity_timing_w1" = "Baseline (3 Days Before)",
+    "climate_temporal_proximity_timing_w1" = "Baseline (7 Days Before)",
     "climate_temporal_proximity_timing_w2" = "Immediately After Viewing",
     "climate_temporal_proximity_timing_w3" = "15 Days Later"
   )

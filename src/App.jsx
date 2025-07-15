@@ -1,14 +1,13 @@
 import { useState } from 'react'
-import Header from './components/Header'
-import Controls from './components/Controls'
-import Legend from './components/Legend'
-import StudyOverview from './components/1-StudyOverview'
-import Methodology from './components/2-Methodology'
-import KeyFindings from './components/3-KeyFindings'
-import TableOfContents from './components/TableOfContents'
+import Header from './components/ui/Header'
+import Controls from './components/ui/Controls'
+import Legend from './components/ui/Legend'
+import StudyOverview from './components/sections/1-StudyOverview'
+import Methodology from './components/sections/2-Methodology'
+import KeyFindings from './components/sections/3-KeyFindings'
 import { useKnowledgeData } from './hooks/useKnowledgeData'
-import Banner from './components/Banner'
-import PleaseRotatePrompt from './components/PleaseRotatePrompt'
+import Banner from './components/ui/Banner'
+import PleaseRotatePrompt from './components/ui/PleaseRotatePrompt'
 import './styles/global/App.css'
 
 function App() {
@@ -37,7 +36,6 @@ function App() {
           <Methodology />
           <KeyFindings />
         </div>
-        <TableOfContents />
       </div>
     </>
   )

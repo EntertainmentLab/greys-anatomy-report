@@ -1,0 +1,259 @@
+/* Typography System */
+
+/* ============================================
+   HEADINGS 
+   ============================================ */
+
+/* Main title (special case) */
+.main-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--color-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #00366e 0%, #004b96 50%, #0266ca 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(0, 91, 187, 0.15);
+  position: relative;
+}
+
+.main-title::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: linear-gradient(90deg, #005BBB 0%, #0080FF 100%);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 91, 187, 0.3);
+}
+
+/* Standard headings */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-2xl);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-lg);
+  margin-top: var(--spacing-2xl);
+  line-height: 1.3;
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: var(--spacing-md);
+  margin-top: var(--spacing-xl);
+  line-height: 1.4;
+}
+
+/* ============================================
+   BODY TEXT 
+   ============================================ */
+
+p {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-lg);
+  text-align: left;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+/* ============================================
+   LISTS 
+   ============================================ */
+
+ul {
+  margin: var(--spacing-md) 0;
+  padding-left: var(--spacing-lg);
+  list-style: none;
+}
+
+li {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+  position: relative;
+  color: var(--color-text-secondary);
+  padding-left: var(--spacing-sm);
+  text-align: left;
+  line-height: 1.6;
+}
+
+/* Custom list bullets */
+li::before {
+  content: "▪" !important;
+  color: var(--color-primary) !important;
+  font-weight: bold;
+  position: absolute;
+  left: -16px;
+  font-size: 1rem;
+  top: 0.1em;
+}
+
+/* Bold text in lists */
+li strong, 
+li b {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Nested lists */
+ul ul {
+  margin: var(--spacing-sm) 0 var(--spacing-md) 0;
+  padding-left: var(--spacing-lg);
+}
+
+ul ul li {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+  color: var(--color-text-muted);
+}
+
+ul ul li::before {
+  content: "◦" !important;
+  color: var(--color-primary) !important;
+  opacity: 0.7;
+  font-size: 0.9rem;
+  left: -14px;
+}
+
+/* ============================================
+   SPECIAL LIST TYPES 
+   ============================================ */
+
+/* Definition-style lists */
+li:has(b:first-child), 
+li:has(strong:first-child) {
+  margin-bottom: 10px;
+  padding-left: var(--spacing-md);
+}
+
+li:has(b:first-child)::before, 
+li:has(strong:first-child)::before {
+  content: "→" !important;
+  color: var(--color-primary) !important;
+  font-size: 1.1rem;
+  left: -18px;
+  top: 0.05em;
+}
+
+/* Fallback for browsers that don't support :has() */
+li.definition-item {
+  margin-bottom: 10px;
+  padding-left: var(--spacing-md);
+}
+
+li.definition-item::before {
+  content: "→" !important;
+  color: var(--color-primary) !important;
+  font-size: 1.1rem;
+  left: -18px;
+  top: 0.05em;
+}
+
+/* ============================================
+   SPECIAL ELEMENTS 
+   ============================================ */
+
+/* Header callout */
+.header-callout {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-background);
+  background: var(--color-primary);
+  font-family: var(--font-primary);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: var(--border-radius-sm);
+  display: block;
+  margin-top: auto;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* Editable content */
+[contenteditable="true"] {
+  outline: 2px dashed transparent;
+  transition: outline var(--transition-base);
+  padding: 4px;
+  border-radius: var(--border-radius-sm);
+}
+
+[contenteditable="true"]:hover {
+  outline-color: var(--color-primary);
+  background: rgba(0, 91, 187, 0.05);
+}
+
+[contenteditable="true"]:focus {
+  outline-color: var(--color-primary);
+  background: rgba(0, 91, 187, 0.1);
+}
+
+/* ============================================
+   RESPONSIVE TYPOGRAPHY 
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .main-title {
+    font-size: 2.8rem;
+  }
+  
+  .main-title::after {
+    width: 100px;
+    height: 3px;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2.2rem;
+    line-height: 1.2;
+  }
+  
+  .main-title::after {
+    width: 80px;
+    height: 3px;
+    bottom: -12px;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  p, li {
+    font-size: 1rem;
+    text-align: left;
+  }
+  
+  ul {
+    padding-left: var(--spacing-lg);
+  }
+  
+  li::before {
+    left: -15px !important;
+  }
+}
