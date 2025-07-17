@@ -92,14 +92,14 @@ const AMEBarChart = ({
     const containerElement = svgRef.current.parentElement
     const currentContainerWidth = containerElement ? containerElement.getBoundingClientRect().width : 1200
     
-    // Update container width state if it has changed
-    if (Math.abs(currentContainerWidth - containerWidth) > 10) {
+    // Update container width state if it has changed significantly
+    if (Math.abs(currentContainerWidth - containerWidth) > 20) {
       setContainerWidth(currentContainerWidth)
     }
     
-    // Calculate responsive dimensions with tighter margins
-    const maxLabelLength = Math.max(...groupedData.map(d => d.outcome.length))
-    const baseLabelWidth = Math.max(160, Math.min(220, maxLabelLength * (isMobile ? 4.5 : 5.5)))
+    // Calculate responsive dimensions with stable margins
+    // Use a fixed label width to prevent size changes between waves
+    const baseLabelWidth = isMobile ? 180 : 220
     const leftMargin = baseLabelWidth + (isMobile ? 15 : 20)
     
     const margin = { 
@@ -114,8 +114,10 @@ const AMEBarChart = ({
     const width = Math.max(350, (availableWidth - margin.left - margin.right) * 0.75)
     const height = groupedData.length * categoryHeight
 
-    // Update chart dimensions for use in JSX
-    setChartDimensions({ margin, width })
+    // Update chart dimensions for use in JSX only if they've changed significantly
+    if (Math.abs(chartDimensions.width - width) > 5 || Math.abs(chartDimensions.margin.left - margin.left) > 5) {
+      setChartDimensions({ margin, width })
+    }
 
     // Scales
     const xScale = d3.scaleLinear()
