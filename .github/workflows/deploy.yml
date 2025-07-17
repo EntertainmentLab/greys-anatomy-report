@@ -2,9 +2,7 @@ name: Deploy React App to GitHub Pages
 
 on:
   push:
-    branches: [ main ]
-    paths: 
-      - 'greys-anatomy-report/**'
+    branches: [ master ]
 
 permissions:
   contents: read
@@ -26,17 +24,12 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm'
-          cache-dependency-path: 'greys-anatomy-report/package-lock.json'
           
       - name: Install dependencies
-        run: |
-          cd greys-anatomy-report
-          npm ci
+        run: npm ci
           
       - name: Build
-        run: |
-          cd greys-anatomy-report
-          npm run build
+        run: npm run build
           
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -44,7 +37,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
-          path: 'greys-anatomy-report/dist'
+          path: './dist'
           
       - name: Deploy to GitHub Pages
         id: deployment
