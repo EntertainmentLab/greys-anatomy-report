@@ -78,7 +78,7 @@ function AMEChart1() {
         data={chartData}
         previousData={previousWaveData.current}
         title="Heat Wave Perception and Knowledge"
-        subtitle={`Comparing Heat Wave Episode and Heat Wave + Social Media to Control (${WAVE_LABELS[currentWave === "Immediate" ? 2 : 3]})`}
+        subtitle={`Comparing Heat Wave Episode and Multiplatform Group to Control (${WAVE_LABELS[currentWave === "Immediate" ? 2 : 3]})`}
         maxValue={0.8}
         onOutcomeClick={handleConstructClick}
       />

@@ -129,7 +129,7 @@ calculate_health_worry_stats <- function(wave) {
   condition_labels <- c(
     "control" = "Control",
     "treatment" = "Heat Wave",
-    "handoff" = "Heat Wave + Handoff"
+    "handoff" = "Multiplatform Group"
   )
 
   results <- list()
@@ -214,7 +214,7 @@ calculate_sys_impacts_stats <- function(wave) {
   condition_labels <- c(
   "control" = "Control",
   "treatment" = "Heat Wave",
-  "handoff" = "Heat Wave + Handoff"
+  "handoff" = "Multiplatform Group"
   )
 
   results <- list()
@@ -359,7 +359,7 @@ calculate_climate_temporal_stats <- function() {
   condition_labels <- c(
     "control" = "Control",
     "treatment" = "Heat Wave",
-    "handoff" = "Heat Wave + Handoff"
+    "handoff" = "Multiplatform Group"
   )
 
   # Wave labels

@@ -4,37 +4,68 @@
 <meta charset='utf-8'>
 <title>Comprehensive Analysis Report: Average Marginal Effects</title>
 <style>
-
-body { font-family: 'Times New Roman', Times, serif; font-size: 12pt; line-height: 1.4; margin: 40px auto; max-width: 1200px; background-color: white; color: #333; }
-h1 { font-size: 18pt; font-weight: bold; text-align: center; margin: 20px 0 30px 0; color: #000; }
-h2 { font-size: 14pt; font-weight: bold; margin: 30px 0 15px 0; color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
-h3 { font-size: 11pt; font-weight: bold; margin: 25px 0 10px 0; color: #333; background-color: #f5f5f5; padding: 5px; border-bottom: 1px solid #ddd; }
-table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11pt; }
-th { background-color: white; color: #000; padding: 8px 6px; text-align: center; font-weight: bold; border-top: 2px solid #000; border-bottom: 1px solid #000; }
-th.main-header { border-bottom: none; }
-th.sub-header { font-size: 10pt; border-top: none; border-bottom: 1px solid #000; font-style: italic; }
-td { padding: 6px 6px; text-align: center; vertical-align: top; border: none; font-size: 10pt; }
-tr:last-child td { border-bottom: 1px solid #ccc; }
-.outcome-col { text-align: left; font-weight: normal; min-width: 180px; }
-.ci { font-size: 9pt; color: #666; font-style: italic; }
-.fdr { font-size: 8pt; color: #888; font-style: italic; }
-.note { margin-top: 15px; font-size: 10pt; line-height: 1.3; }
-.note-title { font-style: italic; }
-.section-break { margin-top: 40px; }
-.category-row { background-color: #f5f5f5; font-weight: bold; border-top: 1px solid #ccc; }
-.category-row td { text-align: left; }
-.purpose { margin-bottom: 30px; font-size: 11pt; line-height: 1.4; background-color: #f9f9f9; padding: 15px; border-left: 4px solid #ccc; }
-.purpose-title { font-weight: bold; margin-bottom: 10px; }
-.subtitle { text-align: center; font-size: 12pt; font-weight: normal; margin-top: 0; margin-bottom: 30px; color: #444; border-bottom: none; padding-bottom: 0; }
-/* Border styles for improved table readability */
-.contrast-border { border-left: 1px solid #ccc; position: relative; z-index: 20; }
-.wave-border { border-left: none; }
-.subgroup-border { border-left: none; }
-.immediate-section { background-color: #fcfcfc; }
-.followup-section { background-color: #f2f2f2; }
-tr.category-row td { position: relative; z-index: 5; }
-th, td { position: relative; }
-td.contrast-border, th.contrast-border { border-left: 1px solid #ccc !important; }
+
+
+body { font-family: 'Times New Roman', Times, serif; font-size: 12pt; line-height: 1.4; margin: 40px auto; max-width: 1200px; background-color: white; color: #333; }
+
+h1 { font-size: 18pt; font-weight: bold; text-align: center; margin: 20px 0 30px 0; color: #000; }
+
+h2 { font-size: 14pt; font-weight: bold; margin: 30px 0 15px 0; color: #000; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+
+h3 { font-size: 11pt; font-weight: bold; margin: 25px 0 10px 0; color: #333; background-color: #f5f5f5; padding: 5px; border-bottom: 1px solid #ddd; }
+
+table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 11pt; }
+
+th { background-color: white; color: #000; padding: 8px 6px; text-align: center; font-weight: bold; border-top: 2px solid #000; border-bottom: 1px solid #000; }
+
+th.main-header { border-bottom: none; }
+
+th.sub-header { font-size: 10pt; border-top: none; border-bottom: 1px solid #000; font-style: italic; }
+
+td { padding: 6px 6px; text-align: center; vertical-align: top; border: none; font-size: 10pt; }
+
+tr:last-child td { border-bottom: 1px solid #ccc; }
+
+.outcome-col { text-align: left; font-weight: normal; min-width: 180px; }
+
+.ci { font-size: 9pt; color: #666; font-style: italic; }
+
+.fdr { font-size: 8pt; color: #888; font-style: italic; }
+
+.note { margin-top: 15px; font-size: 10pt; line-height: 1.3; }
+
+.note-title { font-style: italic; }
+
+.section-break { margin-top: 40px; }
+
+.category-row { background-color: #f5f5f5; font-weight: bold; border-top: 1px solid #ccc; }
+
+.category-row td { text-align: left; }
+
+.purpose { margin-bottom: 30px; font-size: 11pt; line-height: 1.4; background-color: #f9f9f9; padding: 15px; border-left: 4px solid #ccc; }
+
+.purpose-title { font-weight: bold; margin-bottom: 10px; }
+
+.subtitle { text-align: center; font-size: 12pt; font-weight: normal; margin-top: 0; margin-bottom: 30px; color: #444; border-bottom: none; padding-bottom: 0; }
+
+/* Border styles for improved table readability */
+
+.contrast-border { border-left: 1px solid #ccc; position: relative; z-index: 20; }
+
+.wave-border { border-left: none; }
+
+.subgroup-border { border-left: none; }
+
+.immediate-section { background-color: #fcfcfc; }
+
+.followup-section { background-color: #f2f2f2; }
+
+tr.category-row td { position: relative; z-index: 5; }
+
+th, td { position: relative; }
+
+td.contrast-border, th.contrast-border { border-left: 1px solid #ccc !important; }
+
 
 
 .toc {
@@ -82,7 +113,7 @@ td.contrast-border, th.contrast-border { border-left: 1px solid #ccc !important;
   padding: 5px 10px;
   border-radius: 3px;
 }
-.back-to-top a:hover {
+.back-to-top a:hover {Multiplatform vs. Control
   background-color: #e0e0e0;
   text-decoration: underline;
 }
@@ -111,141 +142,208 @@ This document shows the average marginal effects (AME) across different dimensio
 <table>
 <thead>
 <tr>
-<th class="outcome-col main-header" style="border-top: none; border-bottom: none;"></th>
-<th colspan="2" class="main-header">Treatment vs. Control</th>
-<th colspan="2" class="main-header contrast-border">Handoff vs. Control</th>
-<th colspan="2" class="main-header contrast-border">Handoff vs. Treatment</th>
+<th class="outcome-col main-header" style="border-top: none; border-bottom: none;"></th>
+
+<th colspan="2" class="main-header">Heat Wave Episode Only vs. Control</th>
+
+<th colspan="2" class="main-header contrast-border">Handoff vs. Control</th>
+
+<th colspan="2" class="main-header contrast-border">Multiplatform vs. Treatment Only</th>
+
 </tr>
 <tr>
-<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
-<th class="sub-header">Immediate</th>
-<th class="sub-header">+ 15 days</th>
-<th class="sub-header contrast-border">Immediate</th>
-<th class="sub-header">+ 15 days</th>
-<th class="sub-header contrast-border">Immediate</th>
-<th class="sub-header">+ 15 days</th>
+<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
+
+<th class="sub-header">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
+<th class="sub-header contrast-border">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
+<th class="sub-header contrast-border">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="outcome-col">Heatwave Likelihood of Exposure</td>
+<td class="outcome-col">Heatwave Likelihood of Exposure</td>
+
 <td>0.11**<br><span class="ci">(0.05, 0.18)</span>
-</td>
+</td>
+
 <td>0.06†<br><span class="ci">(-0.00, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.22***<br><span class="ci">(0.15, 0.28)</span>
-</td>
+</td>
+
 <td>0.09**<br><span class="ci">(0.03, 0.16)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.11*<br><span class="ci">(0.04, 0.17)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.04, 0.09)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heatwave Threat Severity</td>
+<td class="outcome-col">Heatwave Threat Severity</td>
+
 <td>0.19***<br><span class="ci">(0.15, 0.24)</span>
-</td>
+</td>
+
 <td>0.07**<br><span class="ci">(0.03, 0.12)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.24***<br><span class="ci">(0.20, 0.29)</span>
-</td>
+</td>
+
 <td>0.05†<br><span class="ci">(0.00, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.05†<br><span class="ci">(0.01, 0.10)</span>
-</td>
+</td>
+
 <td>-0.03<br><span class="ci">(-0.07, 0.02)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heatwave Threat Health Impact</td>
+<td class="outcome-col">Heatwave Threat Health Impact</td>
+
 <td>0.27***<br><span class="ci">(0.24, 0.31)</span>
-</td>
+</td>
+
 <td>0.16***<br><span class="ci">(0.12, 0.19)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.30***<br><span class="ci">(0.26, 0.33)</span>
-</td>
+</td>
+
 <td>0.17***<br><span class="ci">(0.14, 0.21)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.02<br><span class="ci">(-0.01, 0.06)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.02, 0.05)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heatwave Impact Knowledge</td>
+<td class="outcome-col">Heatwave Impact Knowledge</td>
+
 <td>0.98***<br><span class="ci">(0.85, 1.10)</span>
-</td>
+</td>
+
 <td>0.74***<br><span class="ci">(0.61, 0.87)</span>
-</td>
+</td>
+
 <td class="contrast-border">1.05***<br><span class="ci">(0.92, 1.17)</span>
-</td>
+</td>
+
 <td>0.75***<br><span class="ci">(0.62, 0.88)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.07<br><span class="ci">(-0.05, 0.19)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.12, 0.13)</span>
-</td>
+</td>
+
 </tr>
-<tr>
-<td class="outcome-col">Heat and Policy Support</td>
+<tr>Multiplatform vs. Control
+<td class="outcome-col">Heat and Policy Support</td>
+
 <td>0.05*<br><span class="ci">(0.01, 0.09)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.02, 0.05)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.09***<br><span class="ci">(0.05, 0.13)</span>
-</td>
+</td>
+
 <td>0.04*<br><span class="ci">(0.00, 0.08)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04†<br><span class="ci">(0.00, 0.08)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.01, 0.06)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Healthcare Worker Responsibility</td>
+<td class="outcome-col">Healthcare Worker Responsibility</td>
+
 <td>0.02<br><span class="ci">(-0.05, 0.09)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.08, 0.05)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04<br><span class="ci">(-0.03, 0.11)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.05, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.02<br><span class="ci">(-0.05, 0.09)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.03, 0.10)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Climate Change Personal Impact</td>
+<td class="outcome-col">Climate Change Personal Impact</td>
+
 <td>0.02<br><span class="ci">(-0.01, 0.06)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.04, 0.02)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.10***<br><span class="ci">(0.06, 0.13)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.01, 0.06)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.07***<br><span class="ci">(0.04, 0.11)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.00, 0.06)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Climate Change Support for Action</td>
+<td class="outcome-col">Climate Change Support for Action</td>
+
 <td>0.00<br><span class="ci">(-0.03, 0.03)</span>
-</td>
+</td>
+
 <td>-0.02<br><span class="ci">(-0.05, 0.01)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.05**<br><span class="ci">(0.02, 0.08)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.02, 0.04)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04*<br><span class="ci">(0.01, 0.07)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.01, 0.05)</span>
-</td>
+</td>
+
 </tr>
 </tbody>
 </table>
@@ -255,927 +353,1364 @@ This document shows the average marginal effects (AME) across different dimensio
 <table>
 <thead>
 <tr>
-<th class="outcome-col main-header" style="border-top: none; border-bottom: none;"></th>
-<th colspan="2" class="main-header">Treatment vs. Control</th>
-<th colspan="2" class="main-header contrast-border">Handoff vs. Control</th>
-<th colspan="2" class="main-header contrast-border">Handoff vs. Treatment</th>
+<th class="outcome-col main-header" style="border-top: none; border-bottom: none;"></th>
+
+<th colspan="2" class="main-header">Heat Wave Episode Only vs. Control</th>
+
+<th colspan="2" class="main-header contrast-border">Handoff vs. Control</th>
+
+<th colspan="2" class="main-header contrast-border">Multiplatform vs. Treatment Only</th>
+
 </tr>
 <tr>
-<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
-<th class="sub-header">Immediate</th>
-<th class="sub-header">+ 15 days</th>
-<th class="sub-header contrast-border">Immediate</th>
-<th class="sub-header">+ 15 days</th>
-<th class="sub-header contrast-border">Immediate</th>
-<th class="sub-header">+ 15 days</th>
+<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
+
+<th class="sub-header">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
+<th class="sub-header contrast-border">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
+<th class="sub-header contrast-border">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
 </tr>
 </thead>
 <tbody>
 <tr class="category-row">
-<td colspan="7">Threat Severity Components</td>
+<td colspan="7">Threat Severity Components</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heatwave Worry Score</td>
+<td class="outcome-col">Heatwave Worry Score</td>
+
 <td>0.19***<br><span class="ci">(0.14, 0.24)</span>
-</td>
+</td>
+
 <td>0.08**<br><span class="ci">(0.03, 0.12)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.25***<br><span class="ci">(0.20, 0.30)</span>
-</td>
+</td>
+
 <td>0.05†<br><span class="ci">(-0.00, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.06†<br><span class="ci">(0.01, 0.11)</span>
-</td>
+</td>
+
 <td>-0.03<br><span class="ci">(-0.08, 0.02)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heatwave Harm Score</td>
+<td class="outcome-col">Heatwave Harm Score</td>
+
 <td>0.22***<br><span class="ci">(0.17, 0.27)</span>
-</td>
+</td>
+
 <td>0.08**<br><span class="ci">(0.03, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.25***<br><span class="ci">(0.20, 0.30)</span>
-</td>
+</td>
+
 <td>0.06*<br><span class="ci">(0.01, 0.11)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.03<br><span class="ci">(-0.02, 0.08)</span>
-</td>
+</td>
+
 <td>-0.02<br><span class="ci">(-0.07, 0.02)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Behavioral Intentions Score</td>
+<td class="outcome-col">Behavioral Intentions Score</td>
+
 <td>0.05**<br><span class="ci">(0.02, 0.08)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.01, 0.06)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.09***<br><span class="ci">(0.06, 0.13)</span>
-</td>
+</td>
+
 <td>0.05**<br><span class="ci">(0.02, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04†<br><span class="ci">(0.01, 0.08)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.00, 0.06)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Threat Health Impact Components</td>
+<td colspan="7">Threat Health Impact Components</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Health Worry Score</td>
+<td class="outcome-col">Health Worry Score</td>
+
 <td>0.21***<br><span class="ci">(0.16, 0.27)</span>
-</td>
+</td>
+
 <td>0.13***<br><span class="ci">(0.08, 0.18)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.22***<br><span class="ci">(0.16, 0.27)</span>
-</td>
+</td>
+
 <td>0.09**<br><span class="ci">(0.03, 0.14)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.00<br><span class="ci">(-0.05, 0.06)</span>
-</td>
+</td>
+
 <td>-0.05<br><span class="ci">(-0.10, 0.00)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">System Impacts Score</td>
+<td class="outcome-col">System Impacts Score</td>
+
 <td>0.44***<br><span class="ci">(0.39, 0.50)</span>
-</td>
+</td>
+
 <td>0.25***<br><span class="ci">(0.20, 0.31)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.48***<br><span class="ci">(0.43, 0.54)</span>
-</td>
+</td>
+
 <td>0.29***<br><span class="ci">(0.23, 0.34)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04<br><span class="ci">(-0.01, 0.10)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.02, 0.09)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Worry about Medical Access</td>
+<td class="outcome-col">Worry about Medical Access</td>
+
 <td>0.45***<br><span class="ci">(0.38, 0.53)</span>
-</td>
+</td>
+
 <td>0.25***<br><span class="ci">(0.17, 0.32)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.48***<br><span class="ci">(0.40, 0.56)</span>
-</td>
+</td>
+
 <td>0.24***<br><span class="ci">(0.17, 0.31)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.03<br><span class="ci">(-0.05, 0.10)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.08, 0.06)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Impact Knowledge Components</td>
+<td colspan="7">Impact Knowledge Components</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Knowledge Matrix Score</td>
+<td class="outcome-col">Knowledge Matrix Score</td>
+
 <td>0.19***<br><span class="ci">(0.17, 0.21)</span>
-</td>
+</td>
+
 <td>0.12***<br><span class="ci">(0.10, 0.14)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.23***<br><span class="ci">(0.21, 0.25)</span>
-</td>
+</td>
+
 <td>0.14***<br><span class="ci">(0.11, 0.16)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04**<br><span class="ci">(0.02, 0.06)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.01, 0.04)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Self-Efficacy</td>
+<td class="outcome-col">Self-Efficacy</td>
+
 <td>0.08†<br><span class="ci">(0.00, 0.15)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.03, 0.12)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.16***<br><span class="ci">(0.08, 0.23)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.03, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.08<br><span class="ci">(0.01, 0.16)</span>
-</td>
+</td>
+
 <td>0.00<br><span class="ci">(-0.07, 0.08)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Lower Body Temperature Knowledge</td>
+<td class="outcome-col">Lower Body Temperature Knowledge</td>
+
 <td>0.78***<br><span class="ci">(0.70, 0.86)</span>
-</td>
+</td>
+
 <td>0.61***<br><span class="ci">(0.52, 0.69)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.81***<br><span class="ci">(0.73, 0.89)</span>
-</td>
+</td>
+
 <td>0.60***<br><span class="ci">(0.51, 0.68)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.03<br><span class="ci">(-0.05, 0.11)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.09, 0.07)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Health Risk Knowledge</td>
+<td class="outcome-col">Health Risk Knowledge</td>
+
 <td>0.14**<br><span class="ci">(0.05, 0.23)</span>
-</td>
+</td>
+
 <td>0.10*<br><span class="ci">(0.01, 0.18)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.17***<br><span class="ci">(0.08, 0.25)</span>
-</td>
+</td>
+
 <td>0.11*<br><span class="ci">(0.02, 0.20)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.03<br><span class="ci">(-0.06, 0.11)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.07, 0.10)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Heat Policy Support Components</td>
+<td colspan="7">Heat Policy Support Components</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Policy Supports Score</td>
+<td class="outcome-col">Policy Supports Score</td>
+
 <td>0.07*<br><span class="ci">(0.02, 0.12)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.04, 0.07)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.12***<br><span class="ci">(0.06, 0.17)</span>
-</td>
+</td>Multiplatform vs. Control
+
 <td>0.04<br><span class="ci">(-0.01, 0.10)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.05<br><span class="ci">(-0.01, 0.10)</span>
-</td>
-<td>0.03<br><span class="ci">(-0.03, 0.08)</span>
-</td>
+</td>
+
+<td>0.03<br><span class="ci">(-0.03, 0.08)</span>Multiplatform vs. Control
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Tax Increase Support</td>
+<td class="outcome-col">Tax Increase Support</td>
+
 <td>0.05<br><span class="ci">(-0.03, 0.13)</span>
-</td>
+</td>
+
 <td>0.04<br><span class="ci">(-0.04, 0.12)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.15***<br><span class="ci">(0.06, 0.23)</span>
-</td>
+</td>
+
 <td>0.11*<br><span class="ci">(0.03, 0.19)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.09†<br><span class="ci">(0.01, 0.17)</span>
-</td>
+</td>
+
 <td>0.06<br><span class="ci">(-0.01, 0.14)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Healthcare Responsibility Components</td>
+<td colspan="7">Healthcare Responsibility Components</td>
+
 </tr>
 <tr>
-<td class="outcome-col">HW Responsibility to Public</td>
+<td class="outcome-col">HW Responsibility to Public</td>
+
 <td>0.00<br><span class="ci">(-0.08, 0.09)</span>
-</td>
+</td>
+
 <td>-0.04<br><span class="ci">(-0.12, 0.04)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.03<br><span class="ci">(-0.05, 0.11)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.07, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.02<br><span class="ci">(-0.06, 0.11)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.03, 0.13)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">HW Responsibility to Policy Makers</td>
+<td class="outcome-col">HW Responsibility to Policy Makers</td>
+
 <td>0.05<br><span class="ci">(-0.03, 0.14)</span>
-</td>
+</td>
+
 <td>0.04<br><span class="ci">(-0.04, 0.12)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.07<br><span class="ci">(-0.01, 0.15)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.03, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.01<br><span class="ci">(-0.07, 0.10)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.07, 0.09)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Climate Personal Impact Components</td>
+<td colspan="7">Climate Personal Impact Components</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Climate Heat Attribution</td>
+<td class="outcome-col">Climate Heat Attribution</td>
+
 <td>0.02<br><span class="ci">(-0.03, 0.07)</span>
-</td>
+</td>
+
 <td>-0.02<br><span class="ci">(-0.07, 0.03)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.10***<br><span class="ci">(0.04, 0.15)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.04, 0.06)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.08**<br><span class="ci">(0.03, 0.13)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.02, 0.08)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Temporal Proximity of Climate Impact</td>
+<td class="outcome-col">Temporal Proximity of Climate Impact</td>
+
 <td>-0.05<br><span class="ci">(-0.12, 0.02)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.09, 0.06)</span>
-</td>
+</td>
+
 <td class="contrast-border">-0.14***<br><span class="ci">(-0.21, -0.07)</span>
-</td>
+</td>
+
 <td>-0.04<br><span class="ci">(-0.12, 0.03)</span>
-</td>
+</td>
+
 <td class="contrast-border">-0.09*<br><span class="ci">(-0.16, -0.02)</span>
-</td>
+</td>
+
 <td>-0.03<br><span class="ci">(-0.10, 0.04)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Social Norms about Climate Impacts</td>
+<td class="outcome-col">Social Norms about Climate Impacts</td>
+
 <td>0.05<br><span class="ci">(-0.02, 0.11)</span>
-</td>
+</td>
+
 <td>0.00<br><span class="ci">(-0.06, 0.07)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.17***<br><span class="ci">(0.10, 0.24)</span>
-</td>
+</td>
+
 <td>0.06†<br><span class="ci">(-0.00, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.12**<br><span class="ci">(0.06, 0.18)</span>
-</td>
+</td>
+
 <td>0.06†<br><span class="ci">(-0.00, 0.13)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Climate Support for Action Components</td>
+<td colspan="7">Climate Support for Action Components</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Normative Beliefs on Climate Action</td>
+<td class="outcome-col">Normative Beliefs on Climate Action</td>
+
 <td>-0.02<br><span class="ci">(-0.08, 0.03)</span>
-</td>
+</td>
+
 <td>-0.02<br><span class="ci">(-0.08, 0.03)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.01<br><span class="ci">(-0.04, 0.06)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.07, 0.05)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.03<br><span class="ci">(-0.02, 0.09)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.04, 0.07)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Support Government Action</td>
+<td class="outcome-col">Support Government Action</td>
+
 <td>0.02<br><span class="ci">(-0.03, 0.07)</span>
-</td>
+</td>
+
 <td>-0.05<br><span class="ci">(-0.10, 0.00)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04<br><span class="ci">(-0.01, 0.09)</span>
-</td>
+</td>
+
 <td>-0.04<br><span class="ci">(-0.09, 0.02)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.02<br><span class="ci">(-0.03, 0.07)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.04, 0.07)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Action Intention</td>
+<td class="outcome-col">Action Intention</td>
+
 <td>-0.02<br><span class="ci">(-0.08, 0.03)</span>
-</td>
+</td>
+
 <td>-0.05<br><span class="ci">(-0.11, 0.01)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.06†<br><span class="ci">(0.00, 0.12)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.03, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.09*<br><span class="ci">(0.03, 0.14)</span>
-</td>
+</td>
+
 <td>0.08*<br><span class="ci">(0.02, 0.13)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Receive Information</td>
+<td class="outcome-col">Receive Information</td>
+
 <td>0.05<br><span class="ci">(-0.02, 0.12)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.05, 0.10)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.09*<br><span class="ci">(0.02, 0.16)</span>
-</td>
+</td>
+
 <td>0.10*<br><span class="ci">(0.02, 0.17)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04<br><span class="ci">(-0.03, 0.11)</span>
-</td>
+</td>
+
 <td>0.07<br><span class="ci">(0.00, 0.15)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Audience Demand for Climate Content</td>
+<td class="outcome-col">Audience Demand for Climate Content</td>
+
 <td>0.03<br><span class="ci">(-0.03, 0.09)</span>
-</td>
+</td>
+
 <td>0.07<br><span class="ci">(0.02, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.11**<br><span class="ci">(0.05, 0.18)</span>
-</td>
+</td>
+
 <td>0.08*<br><span class="ci">(0.02, 0.14)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.08*<br><span class="ci">(0.02, 0.15)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.05, 0.07)</span>
-</td>
+</td>
+
 </tr>
 </tbody>
 </table>
 
-<div class="note">
-<span class="note-title">Note:</span> Statistical significance: *** <em>p</em> &lt; 0.001, ** <em>p</em> &lt; 0.01, * <em>p</em> &lt; 0.05, † <em>p</em> &lt; 0.10. Significance stars reflect FDR-corrected p-values to control for multiple comparisons within each contrast type. Immediate = Wave 2 (post-treatment), + 15 days = Wave 3 (15 days post-treatment). AMEs estimated using interaction between condition and avg_heat_index with all covariates held at mean. FDR = False Discovery Rate correction applied separately within each contrast type (Treatment vs. Control, Handoff vs. Control, Handoff vs. Treatment).
+<div class="note">
+
+<span class="note-title">Note:</span> Statistical significance: *** <em>p</em> &lt; 0.001, ** <em>p</em> &lt; 0.01, * <em>p</em> &lt; 0.05, † <em>p</em> &lt; 0.10. Significance stars reflect FDR-corrected p-values to control for multiple comparisons within each contrast type. Immediate = Wave 2 (post-treatment), + 15 days = Wave 3 (15 days post-treatment). AMEs estimated using interaction between condition and avg_heat_index with all covariates held at mean. FDR = False Discovery Rate correction applied separately within each contrast type (Heat Wave Episode Only vs. Control, Handoff vs. Control, Multiplatform vs. Treatment Only).
+
 </div><div class='back-to-top'><a href='#top'>↑ Back to Top</a></div></div>
 <hr class='section-divider'><div id='section-2' class='report-section'><h1>Individual Matrix Items</h1>
 <table>
 <thead>
 <tr>
-<th class="outcome-col main-header"></th>
-<th colspan="2" class="main-header">Treatment vs. Control</th>
-<th colspan="2" class="main-header contrast-border">Handoff vs. Control</th>
-<th colspan="2" class="main-header contrast-border">Handoff vs. Treatment</th>
+<th class="outcome-col main-header"></th>
+
+<th colspan="2" class="main-header">Heat Wave Episode Only vs. Control</th>
+
+<th colspan="2" class="main-header contrast-border">Handoff vs. Control</th>
+
+<th colspan="2" class="main-header contrast-border">Multiplatform vs. Treatment Only</th>
+
 </tr>
 <tr>
-<th class="outcome-col sub-header"></th>
-<th class="sub-header">Immediate</th>
-<th class="sub-header">+ 15 days</th>
-<th class="sub-header contrast-border">Immediate</th>
-<th class="sub-header">+ 15 days</th>
-<th class="sub-header contrast-border">Immediate</th>
-<th class="sub-header">+ 15 days</th>
+<th class="outcome-col sub-header"></th>
+
+<th class="sub-header">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
+<th class="sub-header contrast-border">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
+<th class="sub-header contrast-border">Immediate</th>
+
+<th class="sub-header">+ 15 days</th>
+
 </tr>
 </thead>
 <tbody>
 <tr class="category-row">
-<td colspan="7">Knowledge Matrix Items</td>
+<td colspan="7">Knowledge Matrix Items</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Organ Failure Knowledge</td>
+<td class="outcome-col">Organ Failure Knowledge</td>
+
 <td>0.47***<br><span class="ci">(0.39, 0.54)</span>
-</td>
+</td>
+
 <td>0.25***<br><span class="ci">(0.17, 0.32)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.53***<br><span class="ci">(0.45, 0.61)</span>
-</td>
+</td>
+
 <td>0.31***<br><span class="ci">(0.23, 0.38)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.06<br><span class="ci">(-0.01, 0.14)</span>
-</td>
+</td>
+
 <td>0.06<br><span class="ci">(-0.02, 0.13)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Violent Crime Knowledge</td>
+<td class="outcome-col">Violent Crime Knowledge</td>
+
 <td>0.33***<br><span class="ci">(0.26, 0.40)</span>
-</td>
+</td>
+
 <td>0.25***<br><span class="ci">(0.18, 0.32)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.37***<br><span class="ci">(0.30, 0.44)</span>
-</td>
+</td>
+
 <td>0.24***<br><span class="ci">(0.17, 0.31)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04<br><span class="ci">(-0.03, 0.11)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.08, 0.06)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Cancer Knowledge</td>
+<td class="outcome-col">Cancer Knowledge</td>
+
 <td>0.15***<br><span class="ci">(0.08, 0.23)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.02, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.06<br><span class="ci">(-0.02, 0.14)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.09, 0.06)</span>
-</td>
+</td>
+
 <td class="contrast-border">-0.09†<br><span class="ci">(-0.17, -0.02)</span>
-</td>
+</td>
+
 <td>-0.07<br><span class="ci">(-0.14, 0.01)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Premature Labor Knowledge</td>
+<td class="outcome-col">Premature Labor Knowledge</td>
+
 <td>0.75***<br><span class="ci">(0.68, 0.82)</span>
-</td>
+</td>
+
 <td>0.50***<br><span class="ci">(0.43, 0.58)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.86***<br><span class="ci">(0.78, 0.93)</span>
-</td>
+</td>
+
 <td>0.55***<br><span class="ci">(0.47, 0.63)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.11†<br><span class="ci">(0.04, 0.18)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.03, 0.12)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heart Attacks Knowledge</td>
+<td class="outcome-col">Heart Attacks Knowledge</td>
+
 <td>0.42***<br><span class="ci">(0.34, 0.50)</span>
-</td>
+</td>
+
 <td>0.26***<br><span class="ci">(0.19, 0.34)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.53***<br><span class="ci">(0.45, 0.60)</span>
-</td>
+</td>
+
 <td>0.29***<br><span class="ci">(0.22, 0.37)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.11†<br><span class="ci">(0.03, 0.18)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.05, 0.11)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Health Worry Items</td>
-</tr>
+<td colspan="7">Health Worry Items</td>
+
+</tr>Multiplatform vs. Control
 <tr>
-<td class="outcome-col">Health Worry: Death</td>
+<td class="outcome-col">Health Worry: Death</td>
+
 <td>0.16***<br><span class="ci">(0.09, 0.24)</span>
-</td>
+</td>
+
 <td>0.08*<br><span class="ci">(0.01, 0.15)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.24***<br><span class="ci">(0.17, 0.31)</span>
-</td>
-<td>0.06<br><span class="ci">(-0.01, 0.13)</span>
-</td>
+</td>
+
+<td>0.06<br><span class="ci">(-0.01, 0.13)</span>Multiplatform vs. Control
+</td>
+
 <td class="contrast-border">0.08<br><span class="ci">(0.00, 0.15)</span>
-</td>
+</td>
+
 <td>-0.02<br><span class="ci">(-0.09, 0.05)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Health Worry: Heat Stroke</td>
+<td class="outcome-col">Health Worry: Heat Stroke</td>
+
 <td>0.18***<br><span class="ci">(0.11, 0.26)</span>
-</td>
+</td>
+
 <td>0.11**<br><span class="ci">(0.03, 0.18)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.21***<br><span class="ci">(0.14, 0.29)</span>
-</td>
+</td>
+
 <td>0.08*<br><span class="ci">(0.01, 0.16)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.03<br><span class="ci">(-0.04, 0.11)</span>
-</td>
+</td>
+
 <td>-0.02<br><span class="ci">(-0.09, 0.05)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Health Worry: Worsening Conditions</td>
+<td class="outcome-col">Health Worry: Worsening Conditions</td>
+
 <td>0.17***<br><span class="ci">(0.10, 0.25)</span>
-</td>
+</td>
+
 <td>0.14***<br><span class="ci">(0.07, 0.21)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.18***<br><span class="ci">(0.11, 0.25)</span>
-</td>
+</td>
+
 <td>0.07†<br><span class="ci">(0.00, 0.15)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.01<br><span class="ci">(-0.06, 0.08)</span>
-</td>
+</td>
+
 <td>-0.06<br><span class="ci">(-0.14, 0.01)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Health Worry: Dehydration</td>
+<td class="outcome-col">Health Worry: Dehydration</td>
+
 <td>0.23***<br><span class="ci">(0.16, 0.31)</span>
-</td>
+</td>
+
 <td>0.14***<br><span class="ci">(0.07, 0.22)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.20***<br><span class="ci">(0.13, 0.28)</span>
-</td>
+</td>
+
 <td>0.07†<br><span class="ci">(-0.00, 0.14)</span>
-</td>
+</td>
+
 <td class="contrast-border">-0.03<br><span class="ci">(-0.10, 0.05)</span>
-</td>
+</td>
+
 <td>-0.07<br><span class="ci">(-0.14, -0.00)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">System Impact Items</td>
+<td colspan="7">System Impact Items</td>
+
 </tr>
 <tr>
-<td class="outcome-col">System Impact: Overcrowding</td>
+<td class="outcome-col">System Impact: Overcrowding</td>
+
 <td>0.45***<br><span class="ci">(0.38, 0.52)</span>
-</td>
+</td>
+
 <td>0.22***<br><span class="ci">(0.15, 0.29)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.54***<br><span class="ci">(0.47, 0.61)</span>
-</td>
+</td>
+
 <td>0.31***<br><span class="ci">(0.24, 0.38)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.09†<br><span class="ci">(0.02, 0.16)</span>
-</td>
+</td>
+
 <td>0.09†<br><span class="ci">(0.02, 0.15)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">System Impact: Surgery Cancellation</td>
+<td class="outcome-col">System Impact: Surgery Cancellation</td>
+
 <td>0.43***<br><span class="ci">(0.35, 0.50)</span>
-</td>
+</td>
+
 <td>0.27***<br><span class="ci">(0.20, 0.34)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.50***<br><span class="ci">(0.43, 0.58)</span>
-</td>
+</td>
+
 <td>0.35***<br><span class="ci">(0.28, 0.43)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.08<br><span class="ci">(0.00, 0.15)</span>
-</td>
+</td>
+
 <td>0.08†<br><span class="ci">(0.01, 0.15)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">System Impact: ER Visits</td>
+<td class="outcome-col">System Impact: ER Visits</td>
+
 <td>0.32***<br><span class="ci">(0.25, 0.40)</span>
-</td>
+</td>
+
 <td>0.20***<br><span class="ci">(0.13, 0.27)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.42***<br><span class="ci">(0.34, 0.49)</span>
-</td>
+</td>Multiplatform vs. Control
+
 <td>0.26***<br><span class="ci">(0.18, 0.33)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.09†<br><span class="ci">(0.02, 0.17)</span>
-</td>
+</td>
+
 <td>0.06<br><span class="ci">(-0.02, 0.13)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">System Impact: Resource Shortage</td>
+<td class="outcome-col">System Impact: Resource Shortage</td>
+
 <td>0.47***<br><span class="ci">(0.40, 0.54)</span>
-</td>
+</td>
+
 <td>0.27***<br><span class="ci">(0.20, 0.34)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.52***<br><span class="ci">(0.45, 0.60)</span>
-</td>
+</td>
+
 <td>0.31***<br><span class="ci">(0.24, 0.38)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.05<br><span class="ci">(-0.02, 0.13)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.02, 0.12)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">System Impact: Response Times</td>
+<td class="outcome-col">System Impact: Response Times</td>
+
 <td>0.47***<br><span class="ci">(0.40, 0.54)</span>
-</td>
+</td>
+
 <td>0.26***<br><span class="ci">(0.19, 0.34)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.51***<br><span class="ci">(0.43, 0.58)</span>
-</td>
+</td>
+
 <td>0.30***<br><span class="ci">(0.22, 0.37)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.04<br><span class="ci">(-0.04, 0.11)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.04, 0.10)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">System Impact: Losing Power</td>
+<td class="outcome-col">System Impact: Losing Power</td>
+
 <td>0.43***<br><span class="ci">(0.35, 0.50)</span>
-</td>
+</td>
+
 <td>0.20***<br><span class="ci">(0.13, 0.27)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.43***<br><span class="ci">(0.35, 0.50)</span>
-</td>
+</td>
+
 <td>0.25***<br><span class="ci">(0.18, 0.32)</span>
-</td>
+</td>
+
 <td class="contrast-border">-0.00<br><span class="ci">(-0.07, 0.07)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.02, 0.12)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Worry Items</td>
+<td colspan="7">Worry Items</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Worry: Personal</td>
+<td class="outcome-col">Worry: Personal</td>
+
 <td>0.13***<br><span class="ci">(0.06, 0.20)</span>
-</td>
+</td>
+
 <td>0.07†<br><span class="ci">(0.00, 0.14)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.25***<br><span class="ci">(0.18, 0.32)</span>
-</td>
+</td>
+
 <td>0.06<br><span class="ci">(-0.01, 0.12)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.12*<br><span class="ci">(0.05, 0.19)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.08, 0.05)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Worry: Family</td>
+<td class="outcome-col">Worry: Family</td>
+
 <td>0.18***<br><span class="ci">(0.12, 0.25)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.02, 0.11)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.28***<br><span class="ci">(0.21, 0.35)</span>
-</td>
+</td>
+
 <td>0.04<br><span class="ci">(-0.03, 0.11)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.10†<br><span class="ci">(0.03, 0.16)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.07, 0.06)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Worry: Community</td>
+<td class="outcome-col">Worry: Community</td>
+
 <td>0.21***<br><span class="ci">(0.15, 0.28)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.01, 0.12)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.28***<br><span class="ci">(0.21, 0.35)</span>
-</td>
+</td>
+
 <td>0.03<br><span class="ci">(-0.04, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.07<br><span class="ci">(-0.00, 0.13)</span>
-</td>
+</td>
+
 <td>-0.03<br><span class="ci">(-0.09, 0.04)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Harm Items</td>
+<td colspan="7">Harm Items</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Harm: Personal</td>
+<td class="outcome-col">Harm: Personal</td>
+
 <td>0.16***<br><span class="ci">(0.10, 0.23)</span>
-</td>
+</td>
+
 <td>0.06†<br><span class="ci">(-0.00, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.24***<br><span class="ci">(0.17, 0.31)</span>
-</td>
+</td>
+
 <td>0.07*<br><span class="ci">(0.00, 0.14)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.08†<br><span class="ci">(0.01, 0.15)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.06, 0.08)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Harm: Family</td>
+<td class="outcome-col">Harm: Family</td>
+
 <td>0.23***<br><span class="ci">(0.16, 0.30)</span>
-</td>
+</td>
+
 <td>0.02<br><span class="ci">(-0.05, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.31***<br><span class="ci">(0.24, 0.38)</span>
-</td>
+</td>
+
 <td>0.06†<br><span class="ci">(-0.01, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.08†<br><span class="ci">(0.01, 0.15)</span>
-</td>
+</td>
+
 <td>0.04<br><span class="ci">(-0.02, 0.11)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Harm: Community</td>
+<td class="outcome-col">Harm: Community</td>
+
 <td>0.23***<br><span class="ci">(0.15, 0.30)</span>
-</td>
+</td>
+
 <td>0.09*<br><span class="ci">(0.02, 0.16)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.31***<br><span class="ci">(0.24, 0.38)</span>
-</td>
+</td>
+
 <td>0.10**<br><span class="ci">(0.03, 0.17)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.09†<br><span class="ci">(0.02, 0.16)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.06, 0.08)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Behavioral Intentions Items</td>
+<td colspan="7">Behavioral Intentions Items</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Intentions: Take Precautions</td>
+<td class="outcome-col">Intentions: Take Precautions</td>
+
 <td>-0.00<br><span class="ci">(-0.08, 0.08)</span>
-</td>
+</td>
+
 <td>0.05<br><span class="ci">(-0.03, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.07†<br><span class="ci">(-0.01, 0.15)</span>
-</td>
+</td>
+
 <td>0.09*<br><span class="ci">(0.01, 0.17)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.08<br><span class="ci">(-0.00, 0.16)</span>
-</td>
+</td>
+
 <td>0.04<br><span class="ci">(-0.04, 0.12)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Intentions: Check on Vulnerable</td>
+<td class="outcome-col">Intentions: Check on Vulnerable</td>
+
 <td>0.07†<br><span class="ci">(-0.01, 0.14)</span>
-</td>
+</td>
+
 <td>-0.01<br><span class="ci">(-0.08, 0.06)</span>
-</td>
+</td>
+Multiplatform vs. Control
 <td class="contrast-border">0.12**<br><span class="ci">(0.05, 0.19)</span>
-</td>
+</td>
+
 <td>0.06<br><span class="ci">(-0.02, 0.13)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.05<br><span class="ci">(-0.02, 0.12)</span>
-</td>
+</td>
+
 <td>0.07<br><span class="ci">(-0.00, 0.14)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="7">Policy Support Items</td>
+<td colspan="7">Policy Support Items</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Policy: Cooling Centers</td>
+<td class="outcome-col">Policy: Cooling Centers</td>
+
 <td>0.07†<br><span class="ci">(-0.01, 0.15)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.06, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.10*<br><span class="ci">(0.02, 0.18)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.07, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.03<br><span class="ci">(-0.05, 0.11)</span>
-</td>
+</td>
+
 <td>-0.00<br><span class="ci">(-0.08, 0.08)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Policy: Government Investment</td>
+<td class="outcome-col">Policy: Government Investment</td>
+
 <td>0.09*<br><span class="ci">(0.01, 0.17)</span>
-</td>
+</td>
+
 <td>0.01<br><span class="ci">(-0.06, 0.09)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.16***<br><span class="ci">(0.09, 0.24)</span>
-</td>
+</td>
+
 <td>0.06<br><span class="ci">(-0.02, 0.14)</span>
-</td>
+</td>
+
 <td class="contrast-border">0.08<br><span class="ci">(-0.00, 0.15)</span>
-</td>
+</td>
+
 <td>0.04<br><span class="ci">(-0.03, 0.12)</span>
-</td>
+</td>
+
 </tr>
 </tbody>
 </table>
 
-<div class="note">
-<span class="note-title">Note:</span> Statistical significance: *** <em>p</em> &lt; 0.001, ** <em>p</em> &lt; 0.01, * <em>p</em> &lt; 0.05, † <em>p</em> &lt; 0.10. Significance stars reflect FDR-corrected p-values to control for multiple comparisons across all individual items within each contrast type. Results show average marginal effects (AME) representing the average change in outcome across all observations. Immediate = Wave 2 (post-treatment), + 15 days = Wave 3 (15 days post-treatment). FDR = False Discovery Rate correction applied separately within each contrast type (Treatment vs. Control, Handoff vs. Control, Handoff vs. Treatment).
+<div class="note">
+
+<span class="note-title">Note:</span> Statistical significance: *** <em>p</em> &lt; 0.001, ** <em>p</em> &lt; 0.01, * <em>p</em> &lt; 0.05, † <em>p</em> &lt; 0.10. Significance stars reflect FDR-corrected p-values to control for multiple comparisons across all individual items within each contrast type. Results show average marginal effects (AME) representing the average change in outcome across all observations. Immediate = Wave 2 (post-treatment), + 15 days = Wave 3 (15 days post-treatment). FDR = False Discovery Rate correction applied separately within each contrast type (Heat Wave Episode Only vs. Control, Handoff vs. Control, Multiplatform vs. Treatment Only).
+
 </div><div class='back-to-top'><a href='#top'>↑ Back to Top</a></div></div>
 <hr class='section-divider'><div id='section-3' class='report-section'><h1>Heterogeneous Treatment Effects</h1>
 <h2>Treatment Effects on Policy Outcomes by Political Party</h2>
-<div class="purpose">
-<div class="purpose-title">Analysis Purpose:</div>
-This analysis examines whether treatment effects on policy-related variables differ based on participants' political party affiliation. Participants are divided into two groups: Democrats and Republicans based on their reported political party affiliation at Wave 1. We focus specifically on policy-related outcomes and their individual components to test whether political orientation moderates the impact of the treatment on policy support.
+<div class="purpose">
+
+<div class="purpose-title">Analysis Purpose:</div>
+
+This analysis examines whether treatment effects on policy-related variables differ based on participants' political party affiliation. Participants are divided into two groups: Democrats and Republicans based on their reported political party affiliation at Wave 1. We focus specifically on policy-related outcomes and their individual components to test whether political orientation moderates the impact of the treatment on policy support.
+
 </div>
 <table>
 <thead>
 <tr>
-<th class="outcome-col main-header" style="border-top: none; border-bottom: none;"></th>
-<th colspan="4" class="main-header">Treatment vs. Control</th>
-<th colspan="4" class="main-header contrast-border">Handoff vs. Control</th>
-<th colspan="4" class="main-header contrast-border">Handoff vs. Treatment</th>
+<th class="outcome-col main-header" style="border-top: none; border-bottom: none;"></th>
+
+<th colspan="4" class="main-header">Heat Wave Episode Only vs. Control</th>
+
+<th colspan="4" class="main-header contrast-border">Handoff vs. Control</th>
+
+<th colspan="4" class="main-header contrast-border">Multiplatform vs. Treatment Only</th>
+
 </tr>
 <tr>
-<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
-<th colspan="2" class="sub-header">Immediate</th>
-<th colspan="2" class="sub-header">+ 15 days</th>
-<th colspan="2" class="sub-header contrast-border">Immediate</th>
-<th colspan="2" class="sub-header">+ 15 days</th>
-<th colspan="2" class="sub-header contrast-border">Immediate</th>
-<th colspan="2" class="sub-header">+ 15 days</th>
+<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
+
+<th colspan="2" class="sub-header">Immediate</th>
+
+<th colspan="2" class="sub-header">+ 15 days</th>
+
+<th colspan="2" class="sub-header contrast-border">Immediate</th>
+
+<th colspan="2" class="sub-header">+ 15 days</th>
+
+<th colspan="2" class="sub-header contrast-border">Immediate</th>
+
+<th colspan="2" class="sub-header">+ 15 days</th>
+
 </tr>
 <tr>
-<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
-<th class="sub-header">Democrat</th>
-<th class="sub-header">Republican</th>
-<th class="sub-header">Democrat</th>
-<th class="sub-header">Republican</th>
-<th class="sub-header contrast-border">Democrat</th>
-<th class="sub-header">Republican</th>
-<th class="sub-header">Democrat</th>
-<th class="sub-header">Republican</th>
-<th class="sub-header contrast-border">Democrat</th>
-<th class="sub-header">Republican</th>
-<th class="sub-header">Democrat</th>
-<th class="sub-header">Republican</th>
+<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
+
+<th class="sub-header">Democrat</th>
+
+<th class="sub-header">Republican</th>
+
+<th class="sub-header">Democrat</th>
+
+<th class="sub-header">Republican</th>
+
+<th class="sub-header contrast-border">Democrat</th>
+
+<th class="sub-header">Republican</th>
+
+<th class="sub-header">Democrat</th>
+
+<th class="sub-header">Republican</th>
+
+<th class="sub-header contrast-border">Democrat</th>
+
+<th class="sub-header">Republican</th>
+
+<th class="sub-header">Democrat</th>
+
+<th class="sub-header">Republican</th>
+
 </tr>
 </thead>
 <tbody>
 <tr class="category-row">
-<td colspan="13">High-Level Constructs</td>
+<td colspan="13">High-Level Constructs</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heat and Policy Support</td>
+<td class="outcome-col">Heat and Policy Support</td>
+
 <td class="immediate-section">0.01<br><span class="ci">(-0.05, 0.06)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.15**<br><span class="ci">(0.06, 0.23)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.00<br><span class="ci">(-0.05, 0.05)</span>
-</td>
+</td>
+
 <td class="followup-section">0.09<br><span class="ci">(0.00, 0.17)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.10**<br><span class="ci">(0.04, 0.15)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.12*<br><span class="ci">(0.04, 0.20)</span>
-</td>
+</td>
+
 <td class="followup-section">0.08*<br><span class="ci">(0.02, 0.13)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.03<br><span class="ci">(-0.11, 0.06)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.09**<br><span class="ci">(0.04, 0.14)</span>
-</td>
+</td>
+
 <td class="immediate-section">-0.03<br><span class="ci">(-0.11, 0.06)</span>
-</td>
+</td>
+
 <td class="followup-section">0.08*<br><span class="ci">(0.03, 0.13)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.12*<br><span class="ci">(-0.20, -0.03)</span>
-</td>
+</td>
+
 </tr>
 <tr class="category-row">
-<td colspan="13">Heat Policy Support Components</td>
+<td colspan="13">Heat Policy Support Components</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Policy Supports Score</td>
+<td class="outcome-col">Policy Supports Score</td>
+
 <td class="immediate-section">0.02<br><span class="ci">(-0.05, 0.09)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.18*<br><span class="ci">(0.06, 0.30)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.00<br><span class="ci">(-0.08, 0.08)</span>
-</td>
+</td>
+
 <td class="followup-section">0.11<br><span class="ci">(-0.01, 0.24)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.11**<br><span class="ci">(0.04, 0.19)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.16*<br><span class="ci">(0.04, 0.28)</span>
-</td>
+</td>
+
 <td class="followup-section">0.08†<br><span class="ci">(0.00, 0.17)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.06<br><span class="ci">(-0.19, 0.06)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.09*<br><span class="ci">(0.02, 0.17)</span>
-</td>
+</td>
+
 <td class="immediate-section">-0.02<br><span class="ci">(-0.14, 0.10)</span>
-</td>
+</td>
+
 <td class="followup-section">0.09*<br><span class="ci">(0.01, 0.17)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.17*<br><span class="ci">(-0.30, -0.05)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Tax Increase Support</td>
+<td class="outcome-col">Tax Increase Support</td>
+
 <td class="immediate-section">-0.05<br><span class="ci">(-0.16, 0.07)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.25*<br><span class="ci">(0.07, 0.43)</span>
-</td>
+</td>
+
 <td class="followup-section">0.01<br><span class="ci">(-0.11, 0.13)</span>
-</td>
+</td>
+
 <td class="followup-section">0.16<br><span class="ci">(-0.02, 0.34)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.19**<br><span class="ci">(0.07, 0.31)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.15<br><span class="ci">(-0.03, 0.33)</span>
-</td>
+</td>
+
 <td class="followup-section">0.20**<br><span class="ci">(0.08, 0.31)</span>
-</td>
+</td>
+
 <td class="followup-section">0.05<br><span class="ci">(-0.14, 0.23)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.24***<br><span class="ci">(0.12, 0.35)</span>
-</td>
+</td>
+
 <td class="immediate-section">-0.10<br><span class="ci">(-0.28, 0.08)</span>
-</td>
+</td>
+
 <td class="followup-section">0.19**<br><span class="ci">(0.07, 0.30)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.11<br><span class="ci">(-0.30, 0.07)</span>
-</td>
+</td>
+
 </tr>
 </tbody>
 </table>
@@ -1186,259 +1721,390 @@ This analysis examines whether treatment effects on policy-related variables dif
 <p>Note: Analysis excludes Independents and other political affiliations to focus on clear partisan differences.</p>
 <div class="section-break"></div>
 <h2>Treatment Effects by Heat Wave Experience Subgroups</h2>
-<div class="purpose">
-<div class="purpose-title">Analysis Purpose:</div>
-This analysis examines whether treatment effects differ based on participants' prior heat wave experience. Participants are divided into two groups: No Experience (0 heat waves) and Any Experience (1+ heat waves) based on their reported heat wave exposure in the 12 months prior to Wave 1. We test whether the treatment has differential effects on these two subgroups.
+<div class="purpose">
+
+<div class="purpose-title">Analysis Purpose:</div>
+
+This analysis examines whether treatment effects differ based on participants' prior heat wave experience. Participants are divided into two groups: No Experience (0 heat waves) and Any Experience (1+ heat waves) based on their reported heat wave exposure in the 12 months prior to Wave 1. We test whether the treatment has differential effects on these two subgroups.
+
 </div>
 <table>
 <thead>
 <tr>
-<th class="outcome-col main-header" style="border-top: none; border-bottom: none;"></th>
-<th colspan="4" class="main-header">Treatment vs. Control</th>
-<th colspan="4" class="main-header contrast-border">Handoff vs. Control</th>
-<th colspan="4" class="main-header contrast-border">Handoff vs. Treatment</th>
+<th class="outcome-col main-header" style="border-top: none; border-bottom: none;"></th>
+
+<th colspan="4" class="main-header">Heat Wave Episode Only vs. Control</th>
+
+<th colspan="4" class="main-header contrast-border">Handoff vs. Control</th>
+
+<th colspan="4" class="main-header contrast-border">Multiplatform vs. Treatment Only</th>
+
 </tr>
 <tr>
-<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
-<th colspan="2" class="sub-header">Immediate</th>
-<th colspan="2" class="sub-header">+ 15 days</th>
-<th colspan="2" class="sub-header contrast-border">Immediate</th>
-<th colspan="2" class="sub-header">+ 15 days</th>
-<th colspan="2" class="sub-header contrast-border">Immediate</th>
-<th colspan="2" class="sub-header">+ 15 days</th>
+<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
+
+<th colspan="2" class="sub-header">Immediate</th>
+
+<th colspan="2" class="sub-header">+ 15 days</th>
+
+<th colspan="2" class="sub-header contrast-border">Immediate</th>
+
+<th colspan="2" class="sub-header">+ 15 days</th>
+
+<th colspan="2" class="sub-header contrast-border">Immediate</th>
+
+<th colspan="2" class="sub-header">+ 15 days</th>
+
 </tr>
 <tr>
-<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
-<th class="sub-header">No Exp</th>
-<th class="sub-header">Any Exp</th>
-<th class="sub-header">No Exp</th>
-<th class="sub-header">Any Exp</th>
-<th class="sub-header contrast-border">No Exp</th>
-<th class="sub-header">Any Exp</th>
-<th class="sub-header">No Exp</th>
-<th class="sub-header">Any Exp</th>
-<th class="sub-header contrast-border">No Exp</th>
-<th class="sub-header">Any Exp</th>
-<th class="sub-header">No Exp</th>
-<th class="sub-header">Any Exp</th>
+<th class="outcome-col sub-header" style="border-top: none; border-bottom: none;"></th>
+
+<th class="sub-header">No Exp</th>
+
+<th class="sub-header">Any Exp</th>
+
+<th class="sub-header">No Exp</th>
+
+<th class="sub-header">Any Exp</th>
+
+<th class="sub-header contrast-border">No Exp</th>
+
+<th class="sub-header">Any Exp</th>
+
+<th class="sub-header">No Exp</th>
+
+<th class="sub-header">Any Exp</th>
+
+<th class="sub-header contrast-border">No Exp</th>
+
+<th class="sub-header">Any Exp</th>
+
+<th class="sub-header">No Exp</th>
+
+<th class="sub-header">Any Exp</th>
+
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="outcome-col">Heatwave Likelihood of Exposure</td>
+<td class="outcome-col">Heatwave Likelihood of Exposure</td>
+
 <td class="immediate-section">0.09†<br><span class="ci">(0.00, 0.18)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.05<br><span class="ci">(-0.05, 0.14)</span>
-</td>
+</td>
+
 <td class="followup-section">0.04<br><span class="ci">(-0.05, 0.13)</span>
-</td>
+</td>
+
 <td class="followup-section">0.01<br><span class="ci">(-0.09, 0.11)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.27***<br><span class="ci">(0.18, 0.35)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.12*<br><span class="ci">(0.02, 0.22)</span>
-</td>
+</td>
+
 <td class="followup-section">0.09†<br><span class="ci">(0.00, 0.18)</span>
-</td>
+</td>
+
 <td class="followup-section">0.03<br><span class="ci">(-0.06, 0.13)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.17**<br><span class="ci">(0.09, 0.26)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.07<br><span class="ci">(-0.02, 0.17)</span>
-</td>
+</td>
+
 <td class="followup-section">0.05<br><span class="ci">(-0.04, 0.13)</span>
-</td>
+</td>
+
 <td class="followup-section">0.02<br><span class="ci">(-0.07, 0.12)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heatwave Threat Severity</td>
+<td class="outcome-col">Heatwave Threat Severity</td>
+
 <td class="immediate-section">0.17***<br><span class="ci">(0.11, 0.23)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.14***<br><span class="ci">(0.07, 0.20)</span>
-</td>
+</td>
+
 <td class="followup-section">0.03<br><span class="ci">(-0.03, 0.09)</span>
-</td>
+</td>
+
 <td class="followup-section">0.07†<br><span class="ci">(0.01, 0.14)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.27***<br><span class="ci">(0.21, 0.33)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.21***<br><span class="ci">(0.15, 0.28)</span>
-</td>
+</td>
+
 <td class="followup-section">0.08*<br><span class="ci">(0.02, 0.14)</span>
-</td>
+</td>
+
 <td class="followup-section">0.03<br><span class="ci">(-0.04, 0.09)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.10**<br><span class="ci">(0.04, 0.16)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.08†<br><span class="ci">(0.01, 0.15)</span>
-</td>
+</td>
+
 <td class="followup-section">0.05<br><span class="ci">(-0.01, 0.11)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.05<br><span class="ci">(-0.11, 0.02)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heatwave Threat Health Impact</td>
+<td class="outcome-col">Heatwave Threat Health Impact</td>
+
 <td class="immediate-section">0.24***<br><span class="ci">(0.19, 0.28)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.28***<br><span class="ci">(0.23, 0.33)</span>
-</td>
+</td>
+
 <td class="followup-section">0.12***<br><span class="ci">(0.08, 0.16)</span>
-</td>
+</td>
+
 <td class="followup-section">0.17***<br><span class="ci">(0.12, 0.22)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.29***<br><span class="ci">(0.25, 0.34)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.29***<br><span class="ci">(0.23, 0.34)</span>
-</td>
+</td>
+
 <td class="followup-section">0.17***<br><span class="ci">(0.12, 0.21)</span>
-</td>
+</td>
+
 <td class="followup-section">0.16***<br><span class="ci">(0.11, 0.21)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.06†<br><span class="ci">(0.01, 0.10)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.00<br><span class="ci">(-0.05, 0.05)</span>
-</td>
+</td>
+
 <td class="followup-section">0.05<br><span class="ci">(0.00, 0.09)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.01<br><span class="ci">(-0.06, 0.04)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heatwave Impact Knowledge</td>
+<td class="outcome-col">Heatwave Impact Knowledge</td>
+
 <td class="immediate-section">1.01***<br><span class="ci">(0.84, 1.17)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.97***<br><span class="ci">(0.79, 1.15)</span>
-</td>
+</td>
+
 <td class="followup-section">0.84***<br><span class="ci">(0.67, 1.00)</span>
-</td>
+</td>
+
 <td class="followup-section">0.61***<br><span class="ci">(0.42, 0.80)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">1.07***<br><span class="ci">(0.91, 1.23)</span>
-</td>
+</td>
+
 <td class="immediate-section">1.02***<br><span class="ci">(0.84, 1.21)</span>
-</td>
+</td>
+
 <td class="followup-section">0.83***<br><span class="ci">(0.66, 1.00)</span>
-</td>
+</td>
+
 <td class="followup-section">0.59***<br><span class="ci">(0.40, 0.78)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.06<br><span class="ci">(-0.10, 0.22)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.05<br><span class="ci">(-0.13, 0.23)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.00<br><span class="ci">(-0.17, 0.16)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.02<br><span class="ci">(-0.20, 0.16)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Heat and Policy Support</td>
+<td class="outcome-col">Heat and Policy Support</td>
+
 <td class="immediate-section">0.03<br><span class="ci">(-0.02, 0.08)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.08*<br><span class="ci">(0.02, 0.14)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.01<br><span class="ci">(-0.06, 0.04)</span>
-</td>
+</td>
+
 <td class="followup-section">0.04<br><span class="ci">(-0.02, 0.09)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.10***<br><span class="ci">(0.05, 0.15)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.10**<br><span class="ci">(0.04, 0.16)</span>
-</td>
+</td>
+
 <td class="followup-section">0.04<br><span class="ci">(-0.02, 0.09)</span>
-</td>
+</td>
+
 <td class="followup-section">0.04<br><span class="ci">(-0.02, 0.10)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.07*<br><span class="ci">(0.02, 0.12)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.02<br><span class="ci">(-0.04, 0.07)</span>
-</td>
+</td>
+
 <td class="followup-section">0.04<br><span class="ci">(-0.01, 0.09)</span>
-</td>
+</td>
+
 <td class="followup-section">0.00<br><span class="ci">(-0.05, 0.06)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Healthcare Worker Responsibility</td>
+<td class="outcome-col">Healthcare Worker Responsibility</td>
+
 <td class="immediate-section">0.02<br><span class="ci">(-0.08, 0.11)</span>
-</td>
+</td>
+
 <td class="immediate-section">-0.00<br><span class="ci">(-0.10, 0.10)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.06<br><span class="ci">(-0.14, 0.03)</span>
-</td>
+</td>
+
 <td class="followup-section">0.03<br><span class="ci">(-0.07, 0.13)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.04<br><span class="ci">(-0.06, 0.13)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.01<br><span class="ci">(-0.09, 0.11)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.01<br><span class="ci">(-0.10, 0.08)</span>
-</td>
+</td>
+
 <td class="followup-section">0.05<br><span class="ci">(-0.05, 0.15)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.02<br><span class="ci">(-0.07, 0.11)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.01<br><span class="ci">(-0.09, 0.11)</span>
-</td>
+</td>
+
 <td class="followup-section">0.05<br><span class="ci">(-0.04, 0.13)</span>
-</td>
+</td>
+
 <td class="followup-section">0.02<br><span class="ci">(-0.08, 0.12)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Climate Change Personal Impact</td>
+<td class="outcome-col">Climate Change Personal Impact</td>
+
 <td class="immediate-section">0.04<br><span class="ci">(-0.00, 0.09)</span>
-</td>
+</td>
+
 <td class="immediate-section">-0.03<br><span class="ci">(-0.08, 0.03)</span>
-</td>
+</td>
+
 <td class="followup-section">0.01<br><span class="ci">(-0.03, 0.05)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.06†<br><span class="ci">(-0.11, -0.01)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.11***<br><span class="ci">(0.07, 0.16)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.06*<br><span class="ci">(0.01, 0.11)</span>
-</td>
+</td>
+
 <td class="followup-section">0.02<br><span class="ci">(-0.02, 0.07)</span>
-</td>
+</td>
+
 <td class="followup-section">0.01<br><span class="ci">(-0.04, 0.06)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.07*<br><span class="ci">(0.03, 0.12)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.09**<br><span class="ci">(0.04, 0.14)</span>
-</td>
+</td>
+
 <td class="followup-section">0.01<br><span class="ci">(-0.03, 0.06)</span>
-</td>
+</td>
+
 <td class="followup-section">0.07*<br><span class="ci">(0.02, 0.12)</span>
-</td>
+</td>
+
 </tr>
 <tr>
-<td class="outcome-col">Climate Change Support for Action</td>
+<td class="outcome-col">Climate Change Support for Action</td>
+
 <td class="immediate-section">0.03<br><span class="ci">(-0.01, 0.07)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.01<br><span class="ci">(-0.04, 0.05)</span>
-</td>
+</td>
+
 <td class="followup-section">-0.00<br><span class="ci">(-0.04, 0.04)</span>
-</td>
+</td>
+
 <td class="followup-section">0.00<br><span class="ci">(-0.04, 0.05)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.06**<br><span class="ci">(0.02, 0.10)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.05*<br><span class="ci">(0.01, 0.10)</span>
-</td>
+</td>
+
 <td class="followup-section">0.03<br><span class="ci">(-0.01, 0.07)</span>
-</td>
+</td>
+
 <td class="followup-section">0.00<br><span class="ci">(-0.04, 0.05)</span>
-</td>
+</td>
+
 <td class="immediate-section contrast-border">0.03<br><span class="ci">(-0.01, 0.07)</span>
-</td>
+</td>
+
 <td class="immediate-section">0.05<br><span class="ci">(0.00, 0.09)</span>
-</td>
+</td>
+
 <td class="followup-section">0.03<br><span class="ci">(-0.01, 0.07)</span>
-</td>
+</td>
+
 <td class="followup-section">0.00<br><span class="ci">(-0.04, 0.05)</span>
-</td>
+</td>
+
 </tr>
 </tbody>
 </table>
@@ -1446,8 +2112,10 @@ This analysis examines whether treatment effects differ based on participants' p
 <h3>Sample Sizes by Subgroup</h3>
 <p>No Experience (0 heat waves): N = 1712</p>
 <p>Any Experience (1+ heat waves): N = 1369</p>
-<div class="note">
-<span class="note-title">Note:</span> Statistical significance: *** <em>p</em> &lt; 0.001, ** <em>p</em> &lt; 0.01, * <em>p</em> &lt; 0.05, † <em>p</em> &lt; 0.10. Significance stars reflect FDR-corrected p-values to control for multiple comparisons within each contrast type. Immediate = Wave 2 (post-treatment), + 15 days = Wave 3 (15 days post-treatment). Models include interaction terms between treatment condition and subgroup variables (political party affiliation or heat wave experience). Political affiliation analysis focuses on policy-related outcomes where partisan differences are most theoretically relevant. FDR = False Discovery Rate correction applied separately within each contrast type (Treatment vs. Control, Handoff vs. Control, Handoff vs. Treatment).
+<div class="note">
+
+<span class="note-title">Note:</span> Statistical significance: *** <em>p</em> &lt; 0.001, ** <em>p</em> &lt; 0.01, * <em>p</em> &lt; 0.05, † <em>p</em> &lt; 0.10. Significance stars reflect FDR-corrected p-values to control for multiple comparisons within each contrast type. Immediate = Wave 2 (post-treatment), + 15 days = Wave 3 (15 days post-treatment). Models include interaction terms between treatment condition and subgroup variables (political party affiliation or heat wave experience). Political affiliation analysis focuses on policy-related outcomes where partisan differences are most theoretically relevant. FDR = False Discovery Rate correction applied separately within each contrast type (Heat Wave Episode Only vs. Control, Handoff vs. Control, Multiplatform vs. Treatment Only).
+
 </div><div class='back-to-top'><a href='#top'>↑ Back to Top</a></div></div>
 </body>
 </html>

@@ -10,8 +10,8 @@ export const COLOR_MAP = {
 
 export const CONDITION_LABELS = {
   control: 'Control',
-  treatment: 'Heat Wave',
-  handoff: 'Heat Wave + Social'
+  treatment: 'Heat Wave Episode Only',
+  handoff: 'Multiplatform Group'
 }
 
 export const CONDITIONS_CONFIG = [
@@ -22,7 +22,7 @@ export const CONDITIONS_CONFIG = [
   },
   {
     id: 'handoff',
-    label: 'Handoff',
+    label: 'Multiplatform',
     description: 'Knowledge transfer and retention condition'
   }
 ]
@@ -138,9 +138,9 @@ export const AME_OUTCOMES = [
 ]
 
 export const AME_CONTRASTS = [
-  'Treatment vs Control',
-  'Handoff vs Control',
-  'Handoff vs Treatment'
+  'Heat Wave Episode Only vs Control',
+  'Multiplatform vs Control',
+  'Multiplatform vs Heat Wave Episode Only'
 ]
 
 export const AME_WAVES = [

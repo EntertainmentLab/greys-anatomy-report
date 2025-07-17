@@ -8,7 +8,7 @@ import { useTemporalChart } from '../base/TemporalChart'
 const CLIMATE_CONDITIONS = [
   { name: "Control", color: COLOR_MAP.control },
   { name: "Heat Wave", color: COLOR_MAP.treatment },
-  { name: "Heat Wave + Handoff", color: COLOR_MAP.handoff }
+  { name: "Multiplatform Group", color: COLOR_MAP.handoff }
 ]
 
 // Define wave mapping including intermediate time points

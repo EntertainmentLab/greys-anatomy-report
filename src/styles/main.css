@@ -32,6 +32,7 @@
 
 /* Other Components */
 @import './components/carousel.css';
+@import './components/collapsible.css';
 @import './components/table-of-contents.css';
 @import './components/Legend.css';
 @import './components/Controls.css';

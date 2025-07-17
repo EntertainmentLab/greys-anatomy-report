@@ -11,7 +11,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Surgery Cancellation",
     "a_great_deal": 10.1,
     "quite_a_bit": 18.7,
@@ -41,7 +41,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Losing Power",
     "a_great_deal": 13.1,
     "quite_a_bit": 19.6,
@@ -71,7 +71,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Resource Shortage",
     "a_great_deal": 18.3,
     "quite_a_bit": 21.9,
@@ -101,7 +101,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Overcrowding",
     "a_great_deal": 18.2,
     "quite_a_bit": 22.6,
@@ -131,7 +131,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Er Visits",
     "a_great_deal": 18.9,
     "quite_a_bit": 26.8,
@@ -161,7 +161,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Response Times",
     "a_great_deal": 20.2,
     "quite_a_bit": 26.4,
@@ -191,7 +191,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Surgery Cancellation",
     "a_great_deal": 8.7,
     "quite_a_bit": 14.5,
@@ -221,7 +221,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Losing Power",
     "a_great_deal": 11.3,
     "quite_a_bit": 15.7,
@@ -251,7 +251,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Resource Shortage",
     "a_great_deal": 14.6,
     "quite_a_bit": 19.1,
@@ -281,7 +281,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Overcrowding",
     "a_great_deal": 15.2,
     "quite_a_bit": 18.8,
@@ -311,7 +311,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Er Visits",
     "a_great_deal": 15.6,
     "quite_a_bit": 23.8,
@@ -341,7 +341,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "impact_issue": "Response Times",
     "a_great_deal": 16,
     "quite_a_bit": 22.5,

@@ -2,7 +2,7 @@
   {
     "outcome": "Heatwave Likelihood of Exposure",
     "wave": "Immediate",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.11,
     "std.error": 0.03,
     "t.value": 3.371,
@@ -17,7 +17,7 @@
   {
     "outcome": "Heatwave Likelihood of Exposure",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.22,
     "std.error": 0.03,
     "t.value": 6.476,
@@ -32,7 +32,7 @@
   {
     "outcome": "Heatwave Likelihood of Exposure",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.11,
     "std.error": 0.03,
     "t.value": 3.22,
@@ -47,7 +47,7 @@
   {
     "outcome": "Heatwave Threat Severity",
     "wave": "Immediate",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.19,
     "std.error": 0.02,
     "t.value": 8.206,
@@ -62,7 +62,7 @@
   {
     "outcome": "Heatwave Threat Severity",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.24,
     "std.error": 0.02,
     "t.value": 10.362,
@@ -77,7 +77,7 @@
   {
     "outcome": "Heatwave Threat Severity",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.05,
     "std.error": 0.02,
     "t.value": 2.32,
@@ -92,7 +92,7 @@
   {
     "outcome": "Heatwave Threat Health Impact",
     "wave": "Immediate",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.27,
     "std.error": 0.02,
     "t.value": 15.451,
@@ -107,7 +107,7 @@
   {
     "outcome": "Heatwave Threat Health Impact",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.3,
     "std.error": 0.02,
     "t.value": 16.581,
@@ -122,7 +122,7 @@
   {
     "outcome": "Heatwave Threat Health Impact",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.02,
     "std.error": 0.02,
     "t.value": 1.376,
@@ -137,7 +137,7 @@
   {
     "outcome": "Heatwave Impact Knowledge",
     "wave": "Immediate",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.98,
     "std.error": 0.06,
     "t.value": 15.568,
@@ -152,7 +152,7 @@
   {
     "outcome": "Heatwave Impact Knowledge",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 1.05,
     "std.error": 0.06,
     "t.value": 16.432,
@@ -167,7 +167,7 @@
   {
     "outcome": "Heatwave Impact Knowledge",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.07,
     "std.error": 0.06,
     "t.value": 1.106,
@@ -182,7 +182,7 @@
   {
     "outcome": "Heat and Policy Support",
     "wave": "Immediate",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.05,
     "std.error": 0.02,
     "t.value": 2.6,
@@ -197,7 +197,7 @@
   {
     "outcome": "Heat and Policy Support",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.09,
     "std.error": 0.02,
     "t.value": 4.68,
@@ -212,7 +212,7 @@
   {
     "outcome": "Heat and Policy Support",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.04,
     "std.error": 0.02,
     "t.value": 2.161,
@@ -227,7 +227,7 @@
   {
     "outcome": "Healthcare Worker Responsibility",
     "wave": "Immediate",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.02,
     "std.error": 0.04,
     "t.value": 0.474,
@@ -242,7 +242,7 @@
   {
     "outcome": "Healthcare Worker Responsibility",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.04,
     "std.error": 0.04,
     "t.value": 1.026,
@@ -257,7 +257,7 @@
   {
     "outcome": "Healthcare Worker Responsibility",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.02,
     "std.error": 0.04,
     "t.value": 0.57,
@@ -272,7 +272,7 @@
   {
     "outcome": "Climate Change Personal Impact",
     "wave": "Immediate",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.02,
     "std.error": 0.02,
     "t.value": 1.243,
@@ -287,7 +287,7 @@
   {
     "outcome": "Climate Change Personal Impact",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.1,
     "std.error": 0.02,
     "t.value": 5.395,
@@ -302,7 +302,7 @@
   {
     "outcome": "Climate Change Personal Impact",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.07,
     "std.error": 0.02,
     "t.value": 4.26,
@@ -317,7 +317,7 @@
   {
     "outcome": "Climate Change Support for Action",
     "wave": "Immediate",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0,
     "std.error": 0.02,
     "t.value": 0.269,
@@ -332,7 +332,7 @@
   {
     "outcome": "Climate Change Support for Action",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.05,
     "std.error": 0.02,
     "t.value": 3.02,
@@ -347,7 +347,7 @@
   {
     "outcome": "Climate Change Support for Action",
     "wave": "Immediate",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.04,
     "std.error": 0.02,
     "t.value": 2.814,
@@ -362,7 +362,7 @@
   {
     "outcome": "Heatwave Likelihood of Exposure",
     "wave": "15 Days",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.06,
     "std.error": 0.03,
     "t.value": 1.933,
@@ -377,7 +377,7 @@
   {
     "outcome": "Heatwave Likelihood of Exposure",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.09,
     "std.error": 0.03,
     "t.value": 2.78,
@@ -392,7 +392,7 @@
   {
     "outcome": "Heatwave Likelihood of Exposure",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.03,
     "std.error": 0.03,
     "t.value": 0.892,
@@ -407,7 +407,7 @@
   {
     "outcome": "Heatwave Threat Severity",
     "wave": "15 Days",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.07,
     "std.error": 0.02,
     "t.value": 3.244,
@@ -422,7 +422,7 @@
   {
     "outcome": "Heatwave Threat Severity",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.05,
     "std.error": 0.02,
     "t.value": 2.057,
@@ -437,7 +437,7 @@
   {
     "outcome": "Heatwave Threat Severity",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": -0.03,
     "std.error": 0.02,
     "t.value": -1.166,
@@ -452,7 +452,7 @@
   {
     "outcome": "Heatwave Threat Health Impact",
     "wave": "15 Days",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.16,
     "std.error": 0.02,
     "t.value": 9.027,
@@ -467,7 +467,7 @@
   {
     "outcome": "Heatwave Threat Health Impact",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.17,
     "std.error": 0.02,
     "t.value": 9.824,
@@ -482,7 +482,7 @@
   {
     "outcome": "Heatwave Threat Health Impact",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.02,
     "std.error": 0.02,
     "t.value": 0.943,
@@ -497,7 +497,7 @@
   {
     "outcome": "Heatwave Impact Knowledge",
     "wave": "15 Days",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.74,
     "std.error": 0.06,
     "t.value": 11.437,
@@ -512,7 +512,7 @@
   {
     "outcome": "Heatwave Impact Knowledge",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.75,
     "std.error": 0.07,
     "t.value": 11.391,
@@ -527,7 +527,7 @@
   {
     "outcome": "Heatwave Impact Knowledge",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.01,
     "std.error": 0.06,
     "t.value": 0.116,
@@ -542,7 +542,7 @@
   {
     "outcome": "Heat and Policy Support",
     "wave": "15 Days",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": 0.02,
     "std.error": 0.02,
     "t.value": 0.796,
@@ -557,7 +557,7 @@
   {
     "outcome": "Heat and Policy Support",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.04,
     "std.error": 0.02,
     "t.value": 2.125,
@@ -572,7 +572,7 @@
   {
     "outcome": "Heat and Policy Support",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.03,
     "std.error": 0.02,
     "t.value": 1.369,
@@ -587,7 +587,7 @@
   {
     "outcome": "Healthcare Worker Responsibility",
     "wave": "15 Days",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": -0.01,
     "std.error": 0.03,
     "t.value": -0.425,
@@ -602,7 +602,7 @@
   {
     "outcome": "Healthcare Worker Responsibility",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.02,
     "std.error": 0.03,
     "t.value": 0.571,
@@ -617,7 +617,7 @@
   {
     "outcome": "Healthcare Worker Responsibility",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.03,
     "std.error": 0.03,
     "t.value": 1.01,
@@ -632,7 +632,7 @@
   {
     "outcome": "Climate Change Personal Impact",
     "wave": "15 Days",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": -0.01,
     "std.error": 0.02,
     "t.value": -0.513,
@@ -647,7 +647,7 @@
   {
     "outcome": "Climate Change Personal Impact",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.02,
     "std.error": 0.02,
     "t.value": 1.323,
@@ -662,7 +662,7 @@
   {
     "outcome": "Climate Change Personal Impact",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.03,
     "std.error": 0.02,
     "t.value": 1.867,
@@ -677,7 +677,7 @@
   {
     "outcome": "Climate Change Support for Action",
     "wave": "15 Days",
-    "contrast": "Treatment vs. Control",
+    "contrast": "Heat Wave Episode Only vs. Control",
     "estimate": -0.02,
     "std.error": 0.02,
     "t.value": -0.996,
@@ -692,7 +692,7 @@
   {
     "outcome": "Climate Change Support for Action",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Control",
+    "contrast": "Multiplatform vs. Control",
     "estimate": 0.01,
     "std.error": 0.02,
     "t.value": 0.547,
@@ -707,7 +707,7 @@
   {
     "outcome": "Climate Change Support for Action",
     "wave": "15 Days",
-    "contrast": "Handoff vs. Treatment",
+    "contrast": "Multiplatform vs. Treatment Only",
     "estimate": 0.02,
     "std.error": 0.02,
     "t.value": 1.562,

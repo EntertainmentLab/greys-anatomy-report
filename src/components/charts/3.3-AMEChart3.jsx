@@ -74,7 +74,7 @@ function AMEChart3() {
         data={chartData}
         previousData={previousWaveData.current}
         title="Climate Change Impact and Action Support"
-        subtitle={`Comparing Heat Wave Episode and Heat Wave + Social Media to Control (${WAVE_LABELS[currentWave === "Immediate" ? 2 : 3]})`}
+        subtitle={`Comparing Heat Wave Episode and Multiplatform Group to Control (${WAVE_LABELS[currentWave === "Immediate" ? 2 : 3]})`}
         maxValue={0.8}
         onOutcomeClick={handleConstructClick}
       />

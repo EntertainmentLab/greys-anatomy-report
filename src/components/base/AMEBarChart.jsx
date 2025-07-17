@@ -357,7 +357,7 @@ const AMEBarChart = ({
           .attr('cx', buttonX)
           .attr('cy', yScale.bandwidth() / 2)
           .attr('r', buttonSize)
-          .style('fill', '#3b82f6')
+          .style('fill', '#6b7280')
           .style('cursor', 'pointer')
           .on('click', function(event) {
             event.stopPropagation()
@@ -549,7 +549,7 @@ const AMEBarChart = ({
           onMouseEnter={() => setHoveredItem('effect-size-info')}
           onMouseLeave={() => setHoveredItem(null)}
         >
-          ⓘ
+          i
           {hoveredItem === 'effect-size-info' && (
             <div className="info-tooltip">
               <div><strong>Effect Size Mapping:</strong></div>

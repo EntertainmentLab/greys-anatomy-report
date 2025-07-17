@@ -11,7 +11,7 @@
   {
     "wave": 1,
     "wave_label": "Baseline (7 Days Before)",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 7.66,
     "se": 0.307,
     "n": 790,
@@ -38,7 +38,7 @@
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 5.85,
     "se": 0.276,
     "n": 790,
@@ -65,7 +65,7 @@
   {
     "wave": 3,
     "wave_label": "15 Days Later",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 6.72,
     "se": 0.304,
     "n": 790,
@@ -92,7 +92,7 @@
   {
     "wave": 1,
     "wave_label": "Baseline (7 Days Before)",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 6.56,
     "se": 0.376,
     "n": 433,
@@ -119,7 +119,7 @@
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 4.58,
     "se": 0.316,
     "n": 433,
@@ -146,7 +146,7 @@
   {
     "wave": 3,
     "wave_label": "15 Days Later",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 5.6,
     "se": 0.355,
     "n": 433,
@@ -182,7 +182,7 @@
   {
     "wave": 1,
     "wave_label": "Baseline (7 Days Before)",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 8.25,
     "se": 0.618,
     "n": 214,
@@ -209,7 +209,7 @@
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 6.53,
     "se": 0.579,
     "n": 214,
@@ -236,7 +236,7 @@
   {
     "wave": 3,
     "wave_label": "15 Days Later",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 7.11,
     "se": 0.573,
     "n": 214,
@@ -263,7 +263,7 @@
   {
     "wave": 1,
     "wave_label": "Baseline (7 Days Before)",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 11.23,
     "se": 1.086,
     "n": 83,
@@ -290,7 +290,7 @@
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 9.83,
     "se": 0.944,
     "n": 83,
@@ -317,7 +317,7 @@
   {
     "wave": 3,
     "wave_label": "15 Days Later",
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "mean": 10.54,
     "se": 1.181,
     "n": 83,

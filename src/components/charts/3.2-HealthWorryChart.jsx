@@ -4,7 +4,7 @@ import { HEALTH_ISSUES, RESPONSE_CATEGORIES, WAVE_LABELS } from '../../constants
 import LikertChart from '../base/LikertChart'
 // CSS imported via main.css
 
-const CONDITIONS = ["Control", "Heat Wave", "Heat Wave + Handoff"]
+const CONDITIONS = ["Control", "Heat Wave", "Multiplatform Group"]
 
 const HEALTH_ITEMS = HEALTH_ISSUES.map(issue => ({
   label: issue,

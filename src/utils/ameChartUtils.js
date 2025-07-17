@@ -32,8 +32,8 @@ Significance: ${data.sig || 'Not significant'}`
 
 export const processDataForVisualization = (rawData, outcomeMapping, dataOutcomes) => {
   return dataOutcomes.map(dataOutcome => {
-    const treatmentData = rawData.filter(item => item.outcome === dataOutcome && item.contrast === "Treatment vs. Control")
-    const handoffData = rawData.filter(item => item.outcome === dataOutcome && item.contrast === "Handoff vs. Control")
+    const treatmentData = rawData.filter(item => item.outcome === dataOutcome && item.contrast === "Heat Wave Episode Only vs. Control")
+    const handoffData = rawData.filter(item => item.outcome === dataOutcome && item.contrast === "Multiplatform vs. Control")
     
     const treatment = treatmentData.length > 0 ? {
       contrast: treatmentData[0].contrast,

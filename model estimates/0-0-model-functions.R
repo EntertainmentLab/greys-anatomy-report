@@ -193,7 +193,7 @@ extract_ame_contrasts_with_pvalues <- function(model, outcome_label, wave_label)
     contrast_df <- data.frame(
       outcome = rep(outcome_label, 3),
       wave = rep(wave_label, 3),
-      contrast_clean = c("Treatment vs. Control", "Handoff vs. Control", "Handoff vs. Treatment"),
+      contrast_clean = c("Heat Wave Episode Only vs. Control", "Multiplatform vs. Control", "Multiplatform vs. Heat Wave Episode Only"),
       estimate = c(treat_vs_control_est, handoff_vs_control_est, handoff_vs_treatment_est),
       std.error = c(treat_vs_control_se, handoff_vs_control_se, handoff_vs_treatment_se),
       p.value = c(treat_vs_control_p, handoff_vs_control_p, handoff_vs_treatment_p),

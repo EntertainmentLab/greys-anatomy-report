@@ -58,9 +58,9 @@ function AMEChartDumbbell() {
       console.log('Processing item:', item.outcome, '"' + item.contrast + '"', item.estimate)
 
       const contrast = item.contrast?.trim()
-      if (contrast === "Treatment vs. Control" || (contrast?.includes("Treatment vs") && contrast?.includes("Control"))) {
+      if (contrast === "Heat Wave Episode Only vs. Control" || (contrast?.includes("Treatment vs") && contrast?.includes("Control"))) {
         condition = 'treatment'
-      } else if (contrast === "Handoff vs. Control" || (contrast?.includes("Handoff vs") && contrast?.includes("Control"))) {
+      } else if (contrast === "Multiplatform vs. Control" || (contrast?.includes("Handoff vs") && contrast?.includes("Control"))) {
         condition = 'handoff'
       } else {
         console.log('No match for contrast:', '"' + item.contrast + '"')

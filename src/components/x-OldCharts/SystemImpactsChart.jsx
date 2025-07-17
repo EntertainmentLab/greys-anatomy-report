@@ -4,7 +4,7 @@ import { SYSTEM_IMPACTS, IMPACT_CATEGORIES, WAVE_LABELS } from '../constants'
 import LikertChart from './base/LikertChart'
 // CSS imported via main.css
 
-const CONDITIONS = ["Control", "Heat Wave", "Heat Wave + Handoff"]
+const CONDITIONS = ["Control", "Heat Wave", "Multiplatform Group"]
 
 const SYSTEM_ITEMS = SYSTEM_IMPACTS.map(impact => ({
   label: impact,

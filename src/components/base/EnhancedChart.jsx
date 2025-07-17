@@ -339,7 +339,7 @@ export const useEnhancedChart = ({
     const yScale = d3.scaleBand()
       .domain(yAxisItems)
       .range([0, chartHeight])
-      .padding(plotRawValues ? 0.1 : 0.2); // Reduce padding to minimize gaps
+      .padding(plotRawValues ? 0.1 : 0.1); // Reduce padding to minimize gaps
 
 
     // Add static elements only on initial render

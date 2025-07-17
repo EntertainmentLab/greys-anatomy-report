@@ -38,9 +38,9 @@ function AMEChartDumbbellSimple() {
       let condition = null
       const contrast = item.contrast?.trim()
       
-      if (contrast === "Treatment vs. Control" || (contrast?.includes("Treatment vs") && contrast?.includes("Control"))) {
+      if (contrast === "Heat Wave Episode Only vs. Control" || (contrast?.includes("Treatment vs") && contrast?.includes("Control"))) {
         condition = 'treatment'
-      } else if (contrast === "Handoff vs. Control" || (contrast?.includes("Handoff vs") && contrast?.includes("Control"))) {
+      } else if (contrast === "Multiplatform vs. Control" || (contrast?.includes("Handoff vs") && contrast?.includes("Control"))) {
         condition = 'handoff'
       }
 
@@ -80,8 +80,8 @@ function AMEChartDumbbellSimple() {
     
     ameData.forEach(item => {
       const contrast = item.contrast?.trim()
-      if ((contrast === "Treatment vs. Control" || (contrast?.includes("Treatment vs") && contrast?.includes("Control"))) ||
-          (contrast === "Handoff vs. Control" || (contrast?.includes("Handoff vs") && contrast?.includes("Control")))) {
+      if ((contrast === "Heat Wave Episode Only vs. Control" || (contrast?.includes("Treatment vs") && contrast?.includes("Control"))) ||
+          (contrast === "Multiplatform vs. Control" || (contrast?.includes("Handoff vs") && contrast?.includes("Control")))) {
         if (outcomeMapping[item.outcome]) {
           allEstimates.push(item.estimate);
         }

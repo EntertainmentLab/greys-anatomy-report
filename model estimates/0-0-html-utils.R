@@ -131,10 +131,10 @@ create_dual_wave_table_html <- function(contrast_data) {
     table_html <- paste0(table_html, "<tr>\n<th class='outcome-col main-header' style='border-top: none; border-bottom: none;'></th>\n")
     for (i in seq_along(contrast_types)) {
         contrast <- contrast_types[i]
-        formatted_contrast <- gsub("treatment vs control", "Treatment vs. Control", contrast)
-        formatted_contrast <- gsub("handoff vs control", "Handoff vs. Control", formatted_contrast)
-        formatted_contrast <- gsub("handoff vs treatment", "Handoff vs. Treatment", formatted_contrast)
-        
+        formatted_contrast <- gsub("treatment vs control", "Heat Wave Episode Only vs. Control", contrast)
+        formatted_contrast <- gsub("handoff vs control", "Multiplatform vs. Control", formatted_contrast)
+        formatted_contrast <- gsub("handoff vs treatment", "Multiplatform vs. Heat Wave Episode Only", formatted_contrast)
+
         # Add contrast border to all contrast groups except the first
         if (i == 1) {
             table_html <- paste0(table_html, "<th colspan='2' class='main-header'>", formatted_contrast, "</th>\n")
@@ -213,10 +213,10 @@ create_subgroup_comparison_table_html <- function(contrast_data, subgroup_labels
     table_html <- paste0(table_html, "<tr>\n<th class='outcome-col main-header' style='border-top: none; border-bottom: none;'></th>\n")
     for (i in seq_along(contrast_types)) {
         contrast <- contrast_types[i]
-        formatted_contrast <- gsub("treatment vs control", "Treatment vs. Control", contrast)
-        formatted_contrast <- gsub("handoff vs control", "Handoff vs. Control", formatted_contrast)
-        formatted_contrast <- gsub("handoff vs treatment", "Handoff vs. Treatment", formatted_contrast)
-        
+        formatted_contrast <- gsub("treatment vs control", "Heat Wave Episode Only vs. Control", contrast)
+        formatted_contrast <- gsub("handoff vs control", "Multiplatform vs. Control", formatted_contrast)
+        formatted_contrast <- gsub("handoff vs treatment", "Multiplatform vs. Heat Wave Episode Only", formatted_contrast)
+
         # Add contrast border to all contrast groups except the first
         if (i == 1) {
             table_html <- paste0(table_html, "<th colspan='4' class='main-header'>", formatted_contrast, "</th>\n")
@@ -350,10 +350,10 @@ create_individual_matrix_table_html <- function(contrast_data) {
     table_html <- paste0(table_html, "<tr>\n<th class='outcome-col main-header'></th>\n")
     for (i in seq_along(contrast_types)) {
         contrast <- contrast_types[i]
-        formatted_contrast <- gsub("treatment vs control", "Treatment vs. Control", contrast)
-        formatted_contrast <- gsub("handoff vs control", "Handoff vs. Control", formatted_contrast)
-        formatted_contrast <- gsub("handoff vs treatment", "Handoff vs. Treatment", formatted_contrast)
-        
+        formatted_contrast <- gsub("treatment vs control", "Heat Wave Episode Only vs. Control", contrast)
+        formatted_contrast <- gsub("handoff vs control", "Multiplatform vs. Control", formatted_contrast)
+        formatted_contrast <- gsub("handoff vs treatment", "Multiplatform vs. Heat Wave Episode Only", formatted_contrast)
+
         # Add contrast border to all contrast groups except the first
         if (i == 1) {
             table_html <- paste0(table_html, "<th colspan='2' class='main-header'>", formatted_contrast, "</th>\n")

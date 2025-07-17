@@ -89,7 +89,7 @@ import React from 'react';
 
 const resultsFiles = [
   { label: 'Average Marginal Effects', file: 'html/ame_models.html' },
-  { label: 'Handoff vs. Treatment Recommendation', file: 'html/handoff_vs_treatment_recommendation.html' },
+  { label: 'Multiplatform vs. Treatment Only Recommendation', file: 'html/handoff_vs_treatment_recommendation.html' },
   { label: 'Heat Index Interactions', file: 'html/heat_index_interactions.html' },
   { label: 'Heterogeneous Treatment Effects', file: 'html/heterogeneous_treatment_effects.html' },
   { label: 'Individual Matrix Items Effects', file: 'html/individual_matrix_items_effects.html' },

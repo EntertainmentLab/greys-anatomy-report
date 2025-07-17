@@ -87,7 +87,7 @@ function KeyFindings() {
         Entertainment Value
       </h3>
       <p>
-        Critically, there was no significant difference between the heat wave episode only and multiplatform groups in participants' reported likelihood of recommending Grey's Anatomy after viewing the episode. The addition of impact-focused Instagram content did not reduce or enhance entertainment value, demonstrating that educational supplements can be added without compromising the viewing experience.
+        Critically, there was no significant difference between the heat wave episode and multiplatform groups in participants' reported likelihood of recommending Grey's Anatomy after viewing the episode. The addition of impact-focused Instagram content did not reduce or enhance entertainment value, demonstrating that educational supplements can be added without compromising the viewing experience.
 
       </p>
 

@@ -65,8 +65,8 @@ function AMEChart() {
 
   // Filter for selected wave and process data
   const waveData = ameData.filter(item => item.wave === currentWave)
-  const treatmentData = processDataForVisualization(waveData, "Treatment vs. Control")
-  const handoffData = processDataForVisualization(waveData, "Handoff vs. Treatment")
+  const treatmentData = processDataForVisualization(waveData, "Heat Wave Episode Only vs. Control")
+  const handoffData = processDataForVisualization(waveData, "Multiplatform vs. Heat Wave Episode Only")
 
   const maxValue = 0.7
   

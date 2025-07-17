@@ -31,14 +31,14 @@ function ExperimentalConditionsInfographic({ onShowNightMovesPreview, onShowEpis
           >
             "Drop it Like it's Hot"
           </button>
-          <div className="episode-description">Heat wave episode</div>
+          <div className="episode-description">Heat wave episode only</div>
         </div>
       </div>
       
       <div className="condition-group">
         <div className="condition-header">
           <div className="condition-number">1,073</div>
-          <div className="condition-label">Heat Wave + Social</div>
+          <div className="condition-label">Multiplatform Group</div>
         </div>
         <div className="condition-content">
           <button 

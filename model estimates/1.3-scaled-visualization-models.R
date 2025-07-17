@@ -109,7 +109,7 @@ extract_viz_contrasts <- function(model, outcome_label, wave_label) {
     results <- data.frame(
       outcome = rep(outcome_label, 3),
       wave = rep(wave_label, 3),
-      contrast = c("Treatment vs. Control", "Handoff vs. Control", "Handoff vs. Treatment"),
+      contrast = c("Heat Wave Episode Only vs. Control", "Multiplatform vs. Control", "Multiplatform vs. Heat Wave Episode Only"),
       estimate = c(treat_vs_control_est, handoff_vs_control_est, handoff_vs_treatment_est),
       std.error = c(treat_vs_control_se, handoff_vs_control_se, handoff_vs_treatment_se),
       t.value = c(treat_vs_control_t, handoff_vs_control_t, handoff_vs_treatment_t),

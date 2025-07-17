@@ -5,63 +5,51 @@ import AMEChart3 from './3.3-AMEChart3'
 // CSS imported via main.css
 
 const AMEChartsCarousel = () => {
-  const [activeIndex, setActiveIndex] = useState(0)
+  const [activeTab, setActiveTab] = useState('chart1')
 
   const charts = [
     {
+      id: 'chart1',
       title: 'Heat Wave Perception & Knowledge',
       component: AMEChart1,
     },
     {
+      id: 'chart2',
       title: 'Policy Support & Healthcare Responsibility',
       component: AMEChart2,
     },
     {
+      id: 'chart3',
       title: 'Climate Change Impact & Action Support',
       component: AMEChart3,
     }
   ]
 
-  const nextChart = () => {
-    setActiveIndex((prev) => (prev + 1) % charts.length)
-  }
-
-  const prevChart = () => {
-    setActiveIndex((prev) => (prev - 1 + charts.length) % charts.length)
-  }
-
-  const CurrentChart = charts[activeIndex].component
-
   return (
-    <div className="ame-carousel-container">
-      <div className="carousel-header">
-        <div className="chart-info">
-          <h3 className="carousel-title">{charts[activeIndex].title}</h3>
-          <div className="chart-nav">
-            <button 
-              className="nav-btn" 
-              onClick={prevChart}
-              disabled={activeIndex === 0}
-              aria-label="Previous chart"
-            >
-              ← Prev
-            </button>
-            <span className="chart-counter">{activeIndex + 1} of {charts.length}</span>
-            <button 
-              className="nav-btn" 
-              onClick={nextChart}
-              disabled={activeIndex === charts.length - 1}
-              aria-label="Next chart"
-            >
-              Next →
-            </button>
+    <div className="tab-container">
+      <div className="tab-list">
+        {charts.map(chart => (
+          <button
+            key={chart.id}
+            className={`tab-button ${activeTab === chart.id ? 'active' : ''}`}
+            onClick={() => setActiveTab(chart.id)}
+          >
+            {chart.title}
+          </button>
+        ))}
+      </div>
+
+      {charts.map(chart => {
+        const ChartComponent = chart.component
+        return (
+          <div 
+            key={chart.id}
+            className={`tab-content ${activeTab === chart.id ? 'active' : ''}`}
+          >
+            <ChartComponent />
           </div>
-        </div>
-      </div>
-      
-      <div className="chart-container">
-        <CurrentChart />
-      </div>
+        )
+      })}
     </div>
   )
 }

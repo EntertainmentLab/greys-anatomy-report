@@ -1,9 +1,17 @@
 import EpisodePreview from '../infographics/2.2-EpisodePreview';
 import AMEChartsCarousel from '../charts/1.2-AMEChartsCarousel';
+import SurveyItemsPopup from '../infographics/SurveyItemsPopup';
 import { useState } from 'react';
 
 function StudyOverview() {
   const [showEpisodePreview, setShowEpisodePreview] = useState(false);
+  const [surveyPopupOpen, setSurveyPopupOpen] = useState(false);
+  const [selectedConstruct, setSelectedConstruct] = useState('');
+
+  const handleConstructClick = (outcome) => {
+    setSelectedConstruct(outcome);
+    setSurveyPopupOpen(true);
+  };
 
   return (
     <section className="report-section">
@@ -30,17 +38,52 @@ function StudyOverview() {
       <p>The results were clear: the episode effectively raised awareness about heat-related health risks and significantly increased concern about the impacts of extreme heat. The episode boosted:</p>
 
       <ul>
-        <li className="definition-item"><b>Perceived likelihood of heat wave exposure</b>, or how likely viewers think they or their community will experience a severe heatwave this summer</li>
-        <li className="definition-item"><b>Perceived threat severity</b>, or how worried viewers are about severity of heatwaves, and the amount of harm they might cause</li>
-        <li className="definition-item"><b>Perceived threat to health</b>, or how worried viewers are about how severe heat waves can impact their health</li>
-        <li className="definition-item"><b>Knowledge</b> about the specific health impacts of exposure to extreme heat</li>
-        <li className="definition-item"><b>Support</b> for heat-adaptive policies, such as investments in hospital infrastructure and the expansion of public cooling centers</li>
+        <li className="definition-item">
+          <b>Perceived likelihood of heat wave exposure</b>
+          <span className="info-button" onClick={() => handleConstructClick('Perceived Likelihood of Heat Wave Exposure')}>
+            i
+          </span>, or how likely viewers think they or their community will experience a severe heatwave this summer
+        </li>
+        <li className="definition-item">
+          <b>Perceived threat severity</b>
+          <span className="info-button" onClick={() => handleConstructClick('Perceived Heat Wave Threat Severity')}>
+            i
+          </span>, or how worried viewers are about severity of heatwaves, and the amount of harm they might cause
+        </li>
+        <li className="definition-item">
+          <b>Perceived threat to health</b>
+          <span className="info-button" onClick={() => handleConstructClick('Perceived Threat of Heat Waves on Health')}>
+            i
+          </span>, or how worried viewers are about how severe heat waves can impact their health
+        </li>
+        <li className="definition-item">
+          <b>Knowledge</b>
+          <span className="info-button" onClick={() => handleConstructClick('Knowledge of the Impact of Heat Waves')}>
+            i
+          </span> about the specific health impacts of exposure to extreme heat
+        </li>
+        <li className="definition-item">
+          <b>Support</b>
+          <span className="info-button" onClick={() => handleConstructClick('Support for Heat-Adaptive Policies')}>
+            i
+          </span> for heat-adaptive policies, such as investments in hospital infrastructure and the expansion of public cooling centers
+        </li>
       </ul>
 
       <p>The strongest and most lasting effects were observed among participants who saw both the episode and the follow-up social media videos. Additionally, this combined condition boosted:</p>
       <ul>
-        <li className="definition-item"><b>Perceived personal impacts of climate change</b>, including the belief that climate change will have a significant impact on daily life</li>
-        <li className="definition-item"><b>Support</b> for action on climate change broadly </li>
+        <li className="definition-item">
+          <b>Perceived personal impacts of climate change</b>
+          <span className="info-button" onClick={() => handleConstructClick('Perceived Personal Impacts of Climate Change')}>
+            i
+          </span>, including the belief that climate change will have a significant impact on daily life
+        </li>
+        <li className="definition-item">
+          <b>Support</b>
+          <span className="info-button" onClick={() => handleConstructClick('Support for Action on Climate Change')}>
+            i
+          </span> for action on climate change broadly
+        </li>
       </ul>
       <p>Excitingly, we found that many of the positive shifts in audience attitudes persisted even two weeks after viewing the episode – providing empirical evidence of short-to-mid term impact.</p>
       
@@ -58,6 +101,12 @@ function StudyOverview() {
         isOpen={showEpisodePreview}
         onClose={() => setShowEpisodePreview(false)}
         episode="hot"
+      />
+      
+      <SurveyItemsPopup 
+        isOpen={surveyPopupOpen}
+        onClose={() => setSurveyPopupOpen(false)}
+        constructName={selectedConstruct}
       />
     </section>
   )

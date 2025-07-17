@@ -11,7 +11,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "health_issue": "Death",
     "extremely_worried": 8.5,
     "very_worried": 20.4,
@@ -41,7 +41,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "health_issue": "Worsening Conditions",
     "extremely_worried": 9.2,
     "very_worried": 21.2,
@@ -71,7 +71,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "health_issue": "Heat Stroke",
     "extremely_worried": 11.9,
     "very_worried": 24.8,
@@ -101,7 +101,7 @@
   },
   {
     "wave": 2,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "health_issue": "Dehydration",
     "extremely_worried": 13.8,
     "very_worried": 28.4,
@@ -131,7 +131,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "health_issue": "Death",
     "extremely_worried": 7.7,
     "very_worried": 20.7,
@@ -161,7 +161,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "health_issue": "Worsening Conditions",
     "extremely_worried": 10,
     "very_worried": 22.1,
@@ -191,7 +191,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "health_issue": "Heat Stroke",
     "extremely_worried": 10.6,
     "very_worried": 25.4,
@@ -221,7 +221,7 @@
   },
   {
     "wave": 3,
-    "condition": "Heat Wave + Handoff",
+    "condition": "Multiplatform Group",
     "health_issue": "Dehydration",
     "extremely_worried": 11.9,
     "very_worried": 28.1,
