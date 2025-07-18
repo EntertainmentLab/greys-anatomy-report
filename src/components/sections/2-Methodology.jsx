@@ -4,7 +4,6 @@ import EpisodePreview from '../infographics/2.2-EpisodePreview';
 import ExperimentalConditionsInfographic from '../infographics/2.3-ExperimentalConditionsInfographic';
 import InlineEpisodePreview from '../ui/InlineEpisodePreview';
 import { useState } from 'react';
-import { formatGreysAnatomy } from '../../utils/textFormatting';
 // CSS imported via main.css
 
 function Methodology() {
@@ -29,10 +28,35 @@ function Methodology() {
         <div className="methodology-section">
           <h3>Overview</h3>
           <p>
-            We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. Participants (N = 4,830) were quota-sampled to match the demographic profile of {formatGreysAnatomy("Grey's Anatomy")} Season 21 viewers on age, sex, race/ethnicity, income, and region. Data were collected via Cloud Research Connect online survey platform, and participants were compensated at market rates increasing across waves to minimize attrition. Attrition was high between baseline and the viewing assignment, with 3,454 participants completing the viewing assignment and 3,204 responding to the post-exposure survey.
+            The study recruited ~5000 participants whose demographic characteristics were matched using Nielsen data to resemble viewers of Grey's Anatomy Season 21. Participants were randomly assigned to a Control Group; a Heat Wave Episode Group; and a Multiplatform Group: 
+            <ul>
+              <li>
+                <b>Heat Wave Episode Group:</b> watched Season 21, Episode 8 (“Drop It Like It’s Hot”), in which a severe heat wave disrupts hospital operations and patient care.
+              </li>
+              <li>
+                <b>Multiplatform Group:</b> watched the same episode as the Heat Wave group, followed by social media content tying the episode content to climate change. This allowed us to study the joint effect of viewing content along with complementary social media impact campaigns.
+              </li>
+              <li>
+                <b>Control Group:</b> watched Season 21, Episode 6 (“Night Moves”), which includes no mention of heatwaves.
+              </li>
+            </ul>
+            To track the impact of viewing over time, we measured audiences at three different points: 
+            <ul>
+              <li>Baseline (7-10 days prior to viewing) [N=4830]</li>
+              <li>Immediately after watching the show [N=3575]</li>
+              <li>15-20 days after watching the show [N=3219]</li>
+            </ul>
+            At each point, participants completed a survey measuring perceptions of heat waves, knowledge of heat-related health risks, confidence in taking protective actions, support for relevant policy measures, and beliefs about climate change’s relevance to daily life.
           </p>
         </div>
-
+<div className="methodology-section">
+          <h3>Participants</h3>
+          <div className="expandable-details">
+            <div className="details-summary"></div>
+            <p>We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. At Wave 1, participants (N = 4,830) were quota-sampled using Nielsen data to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region. Given the large sample size, towards the end of recruitment, we used Connect’s “relax quotas” feature which allowed participants to enter if they met most (but not all) of the recruitment quota categories. </p>
+            <p>Data were collected via Cloud Research Connect online survey platform, and participants were compensated at above market rates, which increased across waves to minimize attrition. Attrition was high between baseline and the viewing assignment (~30%), with 3,454 participants returning to view the episode. This high rate of attrition is likely due to the survey length, which required participants to watch a 40-min episode and then complete an 8-10 minute survey. We saw much lower attrition (~7%) between Wave 2 and Wave 3, with 3,204 out of 3,454 returning to complete the final post-exposure survey.</p>
+            </div>
+        </div>
         <div className="methodology-section">
           <h3>Experimental Conditions</h3>
           <div className="expandable-details">
@@ -104,7 +128,7 @@ function Methodology() {
 
             <div className={`details-content ${expandedDetails['instagram-videos'] ? 'expanded' : ''}`}>
               <p>
-                The four climate-related social media videos used in the Multiplatform Group condition were commissioned and distributed by Action for the Climate Emergency (ACE), a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's #DangerDome impact campaign.
+                The four climate-related social media videos used in the Heat Wave + Social Media condition were commissioned and distributed by Action for the Climate Emergency (ACE), a youth-led U.S. climate-advocacy nonprofit. 
               </p>
             </div>
           </div>

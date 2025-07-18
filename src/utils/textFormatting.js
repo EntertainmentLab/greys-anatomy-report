@@ -1,37 +1,50 @@
-import React from 'react';
-
 /**
- * Utility function to automatically italicize "Grey's Anatomy" text
- * Returns JSX with properly formatted text
+ * Utility function to automatically italicize "Grey's Anatomy" text in the DOM
+ * This function searches for text nodes and replaces "Grey's Anatomy" with italicized version
  */
-export const formatGreysAnatomy = (text) => {
-  if (!text || typeof text !== 'string') {
-    return text;
-  }
-
-  // Split text by Grey's Anatomy (case insensitive) and preserve the original case
-  const parts = text.split(/(Grey's Anatomy|Greys Anatomy)/gi);
+export const formatGreysAnatomyInDOM = () => {
+  const textNodes = [];
   
-  return parts.map((part, index) => {
-    if (part.toLowerCase() === "grey's anatomy" || part.toLowerCase() === "greys anatomy") {
-      return <em key={index}>Grey's Anatomy</em>;
+  // Function to find all text nodes in the document
+  const getTextNodes = (node) => {
+    if (node.nodeType === 3) { // Text node
+      textNodes.push(node);
+    } else {
+      for (let i = 0; i < node.childNodes.length; i++) {
+        getTextNodes(node.childNodes[i]);
+      }
     }
-    return part;
+  };
+  
+  // Get all text nodes in the document
+  getTextNodes(document.body);
+  
+  // Process each text node
+  textNodes.forEach(node => {
+    const text = node.nodeValue;
+    const regex = /Grey's Anatomy|Greys Anatomy/gi;
+    
+    if (regex.test(text)) {
+      // Create a new element to replace the text node
+      const wrapper = document.createElement('span');
+      wrapper.innerHTML = text.replace(regex, '<em>Grey\'s Anatomy</em>');
+      
+      // Replace the text node with the new element
+      node.parentNode.replaceChild(wrapper, node);
+    }
   });
 };
 
 /**
- * Higher-order component that automatically formats Grey's Anatomy text
+ * Hook to automatically format Grey's Anatomy text after component renders
  */
-export const withGreysAnatomyFormatting = (Component) => {
-  return function FormattedComponent(props) {
-    const formattedProps = { ...props };
-    
-    // Format common text props
-    if (props.children && typeof props.children === 'string') {
-      formattedProps.children = formatGreysAnatomy(props.children);
-    }
-    
-    return <Component {...formattedProps} />;
+export const useGreysAnatomyFormatting = () => {
+  const formatText = () => {
+    // Small delay to ensure DOM is ready
+    setTimeout(() => {
+      formatGreysAnatomyInDOM();
+    }, 0);
   };
+  
+  return formatText;
 };
