@@ -23,10 +23,10 @@ function App() {
   if (error) return <div className="error">Error loading data: {error}</div>
 
   return (
-    <>
+    <div className="app-wrapper">
       <PleaseRotatePrompt />
       {isFullReportExpanded && <TableOfContents />}
-      <div className={`report-container ${isFullReportExpanded ? 'with-toc' : ''}`}>
+      <div className="report-container">
         <Banner />
         <div className="main-title-section">
           <div className="main-title-container">
@@ -43,7 +43,7 @@ function App() {
           </FullReportCollapse>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
