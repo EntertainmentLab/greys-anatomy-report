@@ -20,14 +20,7 @@
   text-align: center;
 }
 
-.report-container {
-  font-family: var(--font-primary);
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: var(--spacing-2xl);
-  line-height: 1.7;
-  color: var(--color-text);
-}
+/* .report-container moved to App.css for flexbox layout - avoiding conflicts */
 
 /* ============================================
    SECTIONS 
@@ -134,9 +127,7 @@
     padding: var(--spacing-lg) 15px 15px 15px;
   }
   
-  .report-container {
-    padding: var(--spacing-md);
-  }
+  /* .report-container responsive styles moved to App.css */
   
   .chart-section {
     margin: var(--spacing-md) 0;

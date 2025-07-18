@@ -1,8 +1,6 @@
 .app-wrapper {
   width: 100%;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .report-container {
@@ -10,10 +8,9 @@
   max-width: 62.5rem;
   margin: 0 auto;
   padding: 2.5rem;
-  padding-bottom: 300px; /* Increase padding to clear footer height */
+  margin-bottom: 50px; /* Space before footer */
   line-height: 1.7;
   color: var(--color-text);
-  flex: 1; /* Allow container to grow and push footer down */
   box-sizing: border-box;
 }
 
@@ -46,7 +43,7 @@
 @media (max-width: 768px) {
   .report-container {
     padding: 20px;
-    padding-bottom: 300px; /* Maintain bottom padding on mobile */
+    margin-bottom: 30px; /* Smaller margin on mobile */
   }
   
   h1 {
