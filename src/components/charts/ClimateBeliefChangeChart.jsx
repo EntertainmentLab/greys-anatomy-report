@@ -11,8 +11,20 @@ function ClimateBeliefChangeChart({
   const { climateBeliefChangeData, loading, error } = useClimateBeliefChangeData()
 
   useEffect(() => {
-    if (!climateBeliefChangeData || climateBeliefChangeData.length === 0) return
+    if (!climateBeliefChangeData || climateBeliefChangeData.length === 0) {
+      return
+    }
 
+
+    // Add a small delay to ensure container has rendered
+    const timer = setTimeout(() => {
+      renderChart()
+    }, 100)
+
+    return () => clearTimeout(timer)
+  }, [climateBeliefChangeData])
+
+  const renderChart = () => {
     // Clear previous chart
     d3.select(svgRef.current).selectAll("*").remove()
 
@@ -20,12 +32,19 @@ function ClimateBeliefChangeChart({
     const containerWidth = svgRef.current.parentNode.getBoundingClientRect().width
     const isMobile = window.innerWidth <= 768
     const margin = isMobile 
-      ? { top: 60, right: 120, bottom: 40, left: 120 }
-      : { top: 80, right: 150, bottom: 60, left: 150 }
+      ? { top: 40, right: 80, bottom: 80, left: 100 }
+      : { top: 40, right: 120, bottom: 100, left: 120 }
     
-    const width = containerWidth - margin.left - margin.right
-    const height = isMobile ? 300 : 400
+    // Ensure minimum width
+    const minWidth = isMobile ? 280 : 400
+    const width = Math.max(minWidth, containerWidth - margin.left - margin.right)
+    const height = isMobile ? 280 : 350
     const chartHeight = height - margin.top - margin.bottom
+
+    // Don't render if dimensions are invalid
+    if (width <= 0 || height <= 0 || chartHeight <= 0) {
+      return
+    }
 
     // Create SVG
     const svg = d3.select(svgRef.current)
@@ -56,12 +75,12 @@ function ClimateBeliefChangeChart({
       let cumulative = 0
       const responses = ["It will never affect me", "It will in the future", "It already has"]
       
-      return {
+      const result = {
         condition: d.condition,
         total_n: d.total_n,
         changed_mind_pct: d.changed_mind_pct,
         segments: responses.map(response => {
-          const percentage = d.percentages[response]
+          const percentage = d.percentages[response] || 0
           const segment = {
             response,
             percentage,
@@ -72,6 +91,8 @@ function ClimateBeliefChangeChart({
           return segment
         })
       }
+      
+      return result
     })
 
     // Draw bars
@@ -81,18 +102,20 @@ function ClimateBeliefChangeChart({
       .attr("class", "condition-group")
       .attr("transform", d => `translate(0,${yScale(d.condition)})`)
 
+
     // Draw segments
-    bars.selectAll(".segment")
+    const segments = bars.selectAll(".segment")
       .data(d => d.segments)
       .enter().append("rect")
       .attr("class", "segment")
-      .attr("x", d => xScale(d.x0))
+      .attr("x", d => Math.max(0, xScale(d.x0)))
       .attr("y", 0)
-      .attr("width", d => xScale(d.x1) - xScale(d.x0))
+      .attr("width", d => Math.max(0, xScale(d.percentage)))
       .attr("height", yScale.bandwidth())
       .attr("fill", d => colorScale(d.response))
       .attr("stroke", "#fff")
       .attr("stroke-width", 1)
+
 
     // Add percentage labels on segments
     bars.selectAll(".segment-label")
@@ -126,32 +149,45 @@ function ClimateBeliefChangeChart({
       .data(stackedData)
       .enter().append("text")
       .attr("class", "changed-mind-label")
-      .attr("x", width + 20)
-      .attr("y", d => yScale(d.condition) + yScale.bandwidth() / 2)
+      .attr("x", width + 10)
+      .attr("y", d => yScale(d.condition) + yScale.bandwidth() / 2 - 5)
       .attr("dy", "0.35em")
       .attr("text-anchor", "start")
-      .style("font-size", isMobile ? "12px" : "14px")
+      .style("font-size", isMobile ? "11px" : "13px")
       .style("font-weight", "bold")
       .style("fill", "#333")
-      .text(d => `${d.changed_mind_pct}% changed mind`)
+      .text(d => `${d.changed_mind_pct}%`)
+
+    // Add "changed mind" text
+    g.selectAll(".changed-mind-text")
+      .data(stackedData)
+      .enter().append("text")
+      .attr("class", "changed-mind-text")
+      .attr("x", width + 10)
+      .attr("y", d => yScale(d.condition) + yScale.bandwidth() / 2 + 10)
+      .attr("dy", "0.35em")
+      .attr("text-anchor", "start")
+      .style("font-size", isMobile ? "9px" : "11px")
+      .style("fill", "#666")
+      .text("changed mind")
 
     // Add sample size labels
     g.selectAll(".sample-size-label")
       .data(stackedData)
       .enter().append("text")
       .attr("class", "sample-size-label")
-      .attr("x", width + 20)
-      .attr("y", d => yScale(d.condition) + yScale.bandwidth() / 2 + 20)
+      .attr("x", width + 10)
+      .attr("y", d => yScale(d.condition) + yScale.bandwidth() / 2 + 25)
       .attr("dy", "0.35em")
       .attr("text-anchor", "start")
-      .style("font-size", isMobile ? "10px" : "12px")
-      .style("fill", "#666")
+      .style("font-size", isMobile ? "9px" : "10px")
+      .style("fill", "#999")
       .text(d => `(n = ${d.total_n})`)
 
     // Add legend
     const legend = g.append("g")
       .attr("class", "legend")
-      .attr("transform", `translate(${width / 2 - 150}, ${chartHeight + 20})`)
+      .attr("transform", `translate(${isMobile ? 0 : width / 2 - 150}, ${chartHeight + 20})`)
 
     const legendData = ["It will never affect me", "It will in the future", "It already has"]
     
@@ -159,7 +195,15 @@ function ClimateBeliefChangeChart({
       .data(legendData)
       .enter().append("g")
       .attr("class", "legend-item")
-      .attr("transform", (d, i) => `translate(${i * 100}, 0)`)
+      .attr("transform", (d, i) => {
+        if (isMobile) {
+          // Stack vertically on mobile
+          return `translate(0, ${i * 20})`
+        } else {
+          // Horizontal on desktop
+          return `translate(${i * 100}, 0)`
+        }
+      })
 
     legendItems.append("rect")
       .attr("width", 15)
@@ -174,17 +218,30 @@ function ClimateBeliefChangeChart({
       .style("font-size", isMobile ? "10px" : "11px")
       .style("fill", "#333")
       .text(d => d)
-
-  }, [climateBeliefChangeData])
+  }
 
   if (loading) return <div className="loading">Loading chart...</div>
   if (error) return <div className="error">Error loading chart: {error}</div>
 
   return (
     <div className={className}>
-      <div className="chart-header">
-        <h3 className="chart-title">{title}</h3>
-        <p className="chart-subtitle">{subtitle}</p>
+      <div className="chart-header" style={{ marginBottom: '20px' }}>
+        <h3 className="chart-title" style={{ 
+          margin: '0 0 10px 0',
+          fontSize: window.innerWidth <= 768 ? '16px' : '18px',
+          fontWeight: 'bold',
+          color: '#333'
+        }}>
+          {title}
+        </h3>
+        <p className="chart-subtitle" style={{ 
+          margin: '0',
+          fontSize: window.innerWidth <= 768 ? '13px' : '14px',
+          color: '#666',
+          fontStyle: 'italic'
+        }}>
+          {subtitle}
+        </p>
       </div>
       <div className="chart-content">
         <svg ref={svgRef}></svg>

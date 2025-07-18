@@ -21,33 +21,47 @@ export const useTemporalChart = ({
 
     console.log("Rendering temporal chart with data:", data.slice(0, 3));
 
-    // Clear previous chart
-    d3.select(svgRef.current).selectAll("*").remove();
+    const renderChart = () => {
+      // Ensure SVG ref exists
+      if (!svgRef.current || !svgRef.current.parentNode) {
+        console.log("SVG ref or parent not available yet");
+        return;
+      }
 
-    // Filter to only show Overall data
-    const filteredData = data.filter(d => d.political_party === 'Overall');
-    
-    if (filteredData.length === 0) {
-      console.log("No Overall data available");
-      return;
-    }
+      // Clear previous chart
+      d3.select(svgRef.current).selectAll("*").remove();
 
-    console.log("Filtered Overall data for y-axis calculation:", filteredData.map(d => ({ condition: d.condition, wave: d.wave, mean: d.mean })));
+      // Filter to only show Overall data
+      const filteredData = data.filter(d => d.political_party === 'Overall');
+      
+      if (filteredData.length === 0) {
+        console.log("No Overall data available");
+        return;
+      }
 
-    // Set up responsive dimensions
-    const containerWidth = svgRef.current.getBoundingClientRect().width || 800;
-    const isMobile = containerWidth < 768;
-    const isSmallMobile = containerWidth < 480;
+      console.log("Filtered Overall data for y-axis calculation:", filteredData.map(d => ({ condition: d.condition, wave: d.wave, mean: d.mean })));
+
+      // Set up responsive dimensions
+      const containerWidth = svgRef.current.parentNode.getBoundingClientRect().width || 800;
+      console.log("Container width:", containerWidth);
+      const screenWidth = window.innerWidth;
+      const isMobile = screenWidth <= 768;
+      const isSmallMobile = screenWidth <= 480;
     
-    const margin = {
-      top: isMobile ? 80 : 100,
-      right: isMobile ? 50 : 70,
-      bottom: isMobile ? 120 : 140,
-      left: isMobile ? 60 : 80
-    };
-    
-    const width = Math.max(350, containerWidth - 32) - margin.left - margin.right; // 32px for container padding
-    const height = (isMobile ? 450 : 600) - margin.top - margin.bottom;
+      const margin = {
+        top: isMobile ? 80 : 100,
+        right: isMobile ? 30 : 50,
+        bottom: isMobile ? 120 : 140,
+        left: isMobile ? 50 : 70
+      };
+      
+      // Ensure minimum and maximum width constraints
+      const minWidth = isMobile ? 280 : 400;
+      const maxWidth = isMobile ? 600 : 1000;
+      const availableWidth = Math.max(minWidth, containerWidth - 32);
+      const constrainedWidth = Math.min(maxWidth, availableWidth);
+      const width = constrainedWidth - margin.left - margin.right;
+      const height = (isMobile ? 400 : 550) - margin.top - margin.bottom;
 
     const svg = d3.select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
@@ -61,7 +75,7 @@ export const useTemporalChart = ({
       .attr("x", (width + margin.left + margin.right) / 2)
       .attr("y", isMobile ? 20 : 25)
       .attr("text-anchor", "middle")
-      .style("font-size", isMobile ? "20px" : isSmallMobile ? "18px" : "28px")
+      .style("font-size", isSmallMobile ? "16px" : isMobile ? "18px" : "24px")
       .style("font-weight", "bold")
       .style("font-family", "Roboto Condensed, sans-serif")
       .text(title);
@@ -69,25 +83,26 @@ export const useTemporalChart = ({
     // Add responsive subtitle with text wrapping for mobile
     const subtitleText = svg.append("text")
       .attr("x", (width + margin.left + margin.right) / 2)
-      .attr("y", isMobile ? 50 : 70)
+      .attr("y", isMobile ? 45 : 60)
       .attr("text-anchor", "middle")
-      .style("font-size", isMobile ? "16px" : isSmallMobile ? "14px" : "20px")
+      .style("font-size", isSmallMobile ? "12px" : isMobile ? "14px" : "16px")
       .style("font-style", "italic")
       .style("fill", "#666")
       .style("font-family", "Roboto Condensed, sans-serif");
     
-    if (isMobile && subtitle.length > 80) {
+    if (isMobile && subtitle.length > 50) {
       // Wrap subtitle on mobile
       const words = subtitle.split(' ');
       let line = '';
       let lineNumber = 0;
+      const maxLineLength = isSmallMobile ? 30 : 40;
       
       words.forEach(word => {
         const testLine = line + word + ' ';
-        if (testLine.length > 60 && line !== '') {
+        if (testLine.length > maxLineLength && line !== '') {
           subtitleText.append('tspan')
             .attr('x', (width + margin.left + margin.right) / 2)
-            .attr('dy', lineNumber === 0 ? '0em' : '1.2em')
+            .attr('dy', lineNumber === 0 ? '0em' : '1.1em')
             .text(line.trim());
           line = word + ' ';
           lineNumber++;
@@ -99,7 +114,7 @@ export const useTemporalChart = ({
       if (line !== '') {
         subtitleText.append('tspan')
           .attr('x', (width + margin.left + margin.right) / 2)
-          .attr('dy', lineNumber === 0 ? '0em' : '1.2em')
+          .attr('dy', lineNumber === 0 ? '0em' : '1.1em')
           .text(line.trim());
       }
     } else {
@@ -145,7 +160,7 @@ export const useTemporalChart = ({
 
     // Style x-axis text with responsive sizing
     xAxis.selectAll("text")
-      .style("font-size", isMobile ? "15px" : isSmallMobile ? "14px" : "18px")
+      .style("font-size", isSmallMobile ? "11px" : isMobile ? "13px" : "16px")
       .style("font-family", "Roboto Condensed, sans-serif")
       .style("text-anchor", "middle")
       .each(function(d) {
@@ -172,11 +187,11 @@ export const useTemporalChart = ({
       });
 
     const yAxis = g.append("g")
-      .call(d3.axisLeft(yScale).ticks(6));
+      .call(d3.axisLeft(yScale).ticks(isMobile ? 4 : 6));
 
     // Style y-axis with responsive sizing
     yAxis.selectAll("text")
-      .style("font-size", isMobile ? "15px" : isSmallMobile ? "14px" : "18px")
+      .style("font-size", isSmallMobile ? "11px" : isMobile ? "13px" : "16px")
       .style("font-family", "Roboto Condensed, sans-serif");
 
     // Add responsive y-axis label
@@ -184,9 +199,9 @@ export const useTemporalChart = ({
       .attr("transform", "rotate(-90)")
       .attr("y", 0 - margin.left)
       .attr("x", 0 - (height / 2))
-      .attr("dy", "1em")
+      .attr("dy", isMobile ? "0.8em" : "1em")
       .style("text-anchor", "middle")
-      .style("font-size", isMobile ? "15px" : isSmallMobile ? "16px" : "19px")
+      .style("font-size", isSmallMobile ? "12px" : isMobile ? "14px" : "16px")
       .style("font-weight", "bold")
       .style("font-family", "Roboto Condensed, sans-serif")
       .text(yAxisLabel);
@@ -260,10 +275,10 @@ export const useTemporalChart = ({
         .attr("class", `point-${conditionInfo.name.replace(/\s+/g, '-')}`)
         .attr("cx", d => xScale(d.wave))
         .attr("cy", d => yScale(d.mean))
-        .attr("r", 6)
+        .attr("r", isMobile ? 4 : 6)
         .attr("fill", conditionInfo.color)
         .attr("stroke", "white")
-        .attr("stroke-width", 2)
+        .attr("stroke-width", isMobile ? 1 : 2)
         .on("mouseover", function(event, d) {
           // Tooltip
           const tooltip = d3.select("body").append("div")
@@ -311,13 +326,13 @@ export const useTemporalChart = ({
     });
 
     // Add responsive legend
-    const legendItemWidth = isMobile ? 120 : 150;
+    const legendItemWidth = isSmallMobile ? 100 : isMobile ? 110 : 150;
     const legendWidth = conditions.length * legendItemWidth;
     const legendStartX = Math.max(0, (width + margin.left + margin.right - legendWidth) / 2);
     
     const legend = svg.append("g")
       .attr("class", "legend")
-      .attr("transform", `translate(${legendStartX}, ${height + margin.top + (isMobile ? 70 : 90)})`);
+      .attr("transform", `translate(${legendStartX}, ${height + margin.top + (isMobile ? 60 : 80)})`);
 
     if (isMobile && legendWidth > width + margin.left + margin.right) {
       // Stack legend items vertically on mobile if they don't fit
@@ -351,7 +366,7 @@ export const useTemporalChart = ({
         .attr("x", 20)
         .attr("y", 0)
         .attr("dy", "0.35em")
-        .style("font-size", isMobile ? "13px" : isSmallMobile ? "14px" : "16px")
+        .style("font-size", isSmallMobile ? "11px" : isMobile ? "12px" : "14px")
         .style("font-family", "Roboto Condensed, sans-serif")
         .text(d => d.name);
     } else {
@@ -386,10 +401,28 @@ export const useTemporalChart = ({
         .attr("x", isMobile ? 20 : 25)
         .attr("y", 0)
         .attr("dy", "0.35em")
-        .style("font-size", isMobile ? "13px" : isSmallMobile ? "14px" : "16px")
+        .style("font-size", isSmallMobile ? "11px" : isMobile ? "12px" : "14px")
         .style("font-family", "Roboto Condensed, sans-serif")
         .text(d => d.name);
     }
+    };
+
+    // Initial render with delay to ensure container is rendered
+    const initialRender = setTimeout(() => {
+      renderChart();
+    }, 250);
+
+    // Add resize event listener for window resize
+    const handleResize = () => {
+      setTimeout(renderChart, 100);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      clearTimeout(initialRender);
+      window.removeEventListener('resize', handleResize);
+    };
 
   }, [data, title, subtitle, yAxisLabel, conditions, waveMapping, yDomain, svgRef]);
 };

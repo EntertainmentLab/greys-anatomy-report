@@ -1,32 +1,32 @@
 [
   {
     "condition": "Control",
-    "total_n": 125,
+    "total_n": 148,
     "percentages": {
-      "It will never affect me": 68.8,
-      "It will in the future": 24.8,
-      "It already has": 6.4
+      "It will never affect me": 74.3,
+      "It will in the future": 22.3,
+      "It already has": 3.4
     },
-    "changed_mind_pct": 31.2
+    "changed_mind_pct": 25.7
   },
   {
     "condition": "Heat Wave",
-    "total_n": 118,
+    "total_n": 179,
     "percentages": {
-      "It will never affect me": 54.2,
-      "It will in the future": 37.3,
-      "It already has": 8.5
+      "It will never affect me": 65.9,
+      "It will in the future": 29.6,
+      "It already has": 4.5
     },
-    "changed_mind_pct": 45.8
+    "changed_mind_pct": 34.1
   },
   {
     "condition": "Multiplatform Group",
-    "total_n": 132,
+    "total_n": 182,
     "percentages": {
-      "It will never affect me": 47.0,
-      "It will in the future": 43.9,
-      "It already has": 9.1
+      "It will never affect me": 62.1,
+      "It will in the future": 33,
+      "It already has": 4.9
     },
-    "changed_mind_pct": 53.0
+    "changed_mind_pct": 37.9
   }
 ]

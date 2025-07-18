@@ -45,10 +45,14 @@ function ClimateTemporalChart() {
   }
 
   return (
-    <div className="climate-temporal-container">
+    <div className="climate-temporal-container" style={{ maxWidth: '100%' }}>
       {/* Remove both political party and wave controls - this chart shows temporal progression */}
       
-      <div className="chart-container">
+      <div className="chart-container" style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto',
+        width: '100%'
+      }}>
         <svg ref={svgRef}></svg>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import KnowledgeAccuracyChart from '../charts/3.4-KnowledgeAccuracyChart'
 import PolicySupportChart from '../charts/3.5-PolicySupportChart'
 import ClimateTemporalChart from '../charts/3.6-ClimateTemporalChart'
-import ClimateBeliefChangeChart from '../charts/ClimateBeliefChangeChart'
+// import ClimateBeliefChangeChart from '../charts/ClimateBeliefChangeChart'
 // import AMEChart from './AMEChart'
 import AMEChart1 from '../charts/3.1-AMEChart1'
 import AMEChart2 from '../charts/3.2-AMEChart2'
@@ -70,7 +70,7 @@ function KeyFindings() {
 
       </p>
       <ClimateTemporalChart />
-      <ClimateBeliefChangeChart />
+      {/* <ClimateBeliefChangeChart /> */}
 
 
       <h3>
