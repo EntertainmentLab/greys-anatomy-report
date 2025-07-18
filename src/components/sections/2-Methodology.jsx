@@ -4,6 +4,7 @@ import EpisodePreview from '../infographics/2.2-EpisodePreview';
 import ExperimentalConditionsInfographic from '../infographics/2.3-ExperimentalConditionsInfographic';
 import InlineEpisodePreview from '../ui/InlineEpisodePreview';
 import { useState } from 'react';
+import { formatGreysAnatomy } from '../../utils/textFormatting';
 // CSS imported via main.css
 
 function Methodology() {
@@ -28,7 +29,7 @@ function Methodology() {
         <div className="methodology-section">
           <h3>Overview</h3>
           <p>
-            We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. Participants (N = 4,830) were quota-sampled to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region. Data were collected via Cloud Research Connect online survey platform, and participants were compensated at market rates increasing across waves to minimize attrition. Attrition was high between baseline and the viewing assignment, with 3,454 participants completing the viewing assignment and 3,204 responding to the post-exposure survey.
+            We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. Participants (N = 4,830) were quota-sampled to match the demographic profile of {formatGreysAnatomy("Grey's Anatomy")} Season 21 viewers on age, sex, race/ethnicity, income, and region. Data were collected via Cloud Research Connect online survey platform, and participants were compensated at market rates increasing across waves to minimize attrition. Attrition was high between baseline and the viewing assignment, with 3,454 participants completing the viewing assignment and 3,204 responding to the post-exposure survey.
           </p>
         </div>
 

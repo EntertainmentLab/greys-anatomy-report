@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 // CSS imported via main.css
 
 const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
@@ -50,7 +51,7 @@ const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
     }
   }
 
-  return (
+  return createPortal(
     <div className="survey-popup-overlay" onClick={handleOverlayClick}>
       <div className="survey-popup-content">
         <div className="survey-popup-header">
@@ -120,7 +121,8 @@ const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 // CSS imported via main.css
 
 const EpisodePreview = ({ isOpen, onClose, episode }) => {
@@ -37,7 +38,7 @@ const EpisodePreview = ({ isOpen, onClose, episode }) => {
 
   if (!isOpen) return null;
 
-  return (
+  return createPortal(
     <div className="episode-preview-overlay" onClick={onClose}>
       <div className="episode-preview-modal" onClick={(e) => e.stopPropagation()}>
         <button className="close-button" onClick={onClose}>×</button>
@@ -59,7 +60,8 @@ const EpisodePreview = ({ isOpen, onClose, episode }) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 

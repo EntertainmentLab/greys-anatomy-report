@@ -23,7 +23,7 @@ function StudyOverview() {
         Television medical dramas have long mirrored the realities of our everyday lives. As the climate crisis increasingly threatens public health and strains our healthcare systems, these shows – where medicine, science, and human emotion converge – may offer more than just compelling stories. Can they help audiences see climate change not as a distant, abstract issue, but as a pressing, personal one? And can they deliver potentially life-saving information in a warming world?
       </p>
       <p>
-        To explore how entertainment can shape public understanding of climate-related health risks, Rare’s Entertainment Lab conducted a study measuring the impact of an extreme heat storyline in the long-running cultural landmark Grey's Anatomy.
+        To explore how entertainment can shape public understanding of climate-related health risks, Rare's Entertainment Lab conducted a study measuring the impact of an extreme heat storyline in the long-running cultural landmark {formatGreysAnatomy("Grey's Anatomy")}.
       </p>
       <p>
         In the Season 21 episode <button
