@@ -1,11 +1,17 @@
 /* Table of Contents Component Styles */
 
+/* Remove all bullets from TOC lists */
+.toc-container li::before,
+.toc-sidebar li::before {
+  content: none !important;
+}
+
 /* Fixed Sidebar Styles */
 .toc-sidebar {
   position: fixed;
   left: calc(50% - 500px - 260px); /* Position to left of report container */
   top: 0;
-  bottom: 0;
+  bottom: 0; /* Extend to bottom of viewport */
   width: 260px;
   background: rgba(255, 255, 255, 0.98);
   border-right: 1px solid var(--color-border-light);
@@ -15,6 +21,7 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
   overflow-y: auto;
   padding-top: 100px;
+  padding-bottom: 100px; /* Increase padding at bottom for scroll space */
 }
 
 .toc-sidebar.visible {
@@ -188,6 +195,11 @@
 
 .toc-list li {
   list-style: none;
+  position: relative;
+}
+
+.toc-list li::before {
+  content: none !important;
 }
 
 .toc-item {
@@ -244,6 +256,11 @@
 
 .toc-sublist li {
   list-style: none;
+  position: relative;
+}
+
+.toc-sublist li::before {
+  content: none !important;
 }
 
 .toc-subitem {

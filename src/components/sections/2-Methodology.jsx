@@ -52,10 +52,23 @@ function Methodology() {
 <div className="methodology-section">
           <h3>Participants</h3>
           <div className="expandable-details">
-            <div className="details-summary"></div>
-            <p>We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. At Wave 1, participants (N = 4,830) were quota-sampled using Nielsen data to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region. Given the large sample size, towards the end of recruitment, we used Connect’s “relax quotas” feature which allowed participants to enter if they met most (but not all) of the recruitment quota categories. </p>
-            <p>Data were collected via Cloud Research Connect online survey platform, and participants were compensated at above market rates, which increased across waves to minimize attrition. Attrition was high between baseline and the viewing assignment (~30%), with 3,454 participants returning to view the episode. This high rate of attrition is likely due to the survey length, which required participants to watch a 40-min episode and then complete an 8-10 minute survey. We saw much lower attrition (~7%) between Wave 2 and Wave 3, with 3,204 out of 3,454 returning to complete the final post-exposure survey.</p>
+            <div className="details-summary">
+              We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. At Wave 1, participants (N = 4,830) were quota-sampled using Nielsen data to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region.
             </div>
+            
+            <button
+              className={`details-toggle ${expandedDetails['participants'] ? 'expanded' : ''}`}
+              onClick={() => toggleDetails('participants')}
+            >
+              {expandedDetails['participants'] ? 'Less details' : 'More details'}
+              <span className="details-toggle-icon">▼</span>
+            </button>
+
+            <div className={`details-content ${expandedDetails['participants'] ? 'expanded' : ''}`}>
+              <p>Given the large sample size, towards the end of recruitment, we used Connect's "relax quotas" feature which allowed participants to enter if they met most (but not all) of the recruitment quota categories.</p>
+              <p>Data were collected via Cloud Research Connect online survey platform, and participants were compensated at above market rates, which increased across waves to minimize attrition. Attrition was high between baseline and the viewing assignment (~30%), with 3,454 participants returning to view the episode. This high rate of attrition is likely due to the survey length, which required participants to watch a 40-min episode and then complete an 8-10 minute survey. We saw much lower attrition (~7%) between Wave 2 and Wave 3, with 3,204 out of 3,454 returning to complete the final post-exposure survey.</p>
+            </div>
+          </div>
         </div>
         <div className="methodology-section">
           <h3>Experimental Conditions</h3>

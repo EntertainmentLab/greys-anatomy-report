@@ -10,6 +10,7 @@ import { useKnowledgeData } from './hooks/useKnowledgeData'
 import Banner from './components/ui/Banner'
 import PleaseRotatePrompt from './components/ui/PleaseRotatePrompt'
 import TableOfContents from './components/ui/TableOfContents'
+import Footer from './components/ui/Footer'
 import { formatGreysAnatomyInDOM } from './utils/textFormatting'
 import './styles/global/App.css'
 
@@ -49,6 +50,7 @@ function App() {
           </FullReportCollapse>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

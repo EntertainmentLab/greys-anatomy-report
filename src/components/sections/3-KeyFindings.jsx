@@ -110,26 +110,20 @@ function KeyFindings() {
 
       {/* Supplementary Materials Section */}
       <h3>Supplementary Materials</h3>
-      <ul>
-        <li>
-          <a
-            href={`${import.meta.env.BASE_URL}html/analysis_report.html`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Primary and Supplementary Analyses
-          </a>
-        </li>
-        <li>
-          <a
-            href={`${import.meta.env.BASE_URL}html/ate_ame_comparison.html`}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ATE vs. AME Model Comparison
-          </a>
-        </li>
-      </ul>
+      <div className="supplementary-materials-buttons">
+        <button
+          className="btn btn-secondary btn-md"
+          onClick={() => window.open(`${import.meta.env.BASE_URL}html/analysis_report.html`, '_blank', 'noopener,noreferrer')}
+        >
+          Primary and Supplementary Analyses
+        </button>
+        <button
+          className="btn btn-secondary btn-md"
+          onClick={() => window.open(`${import.meta.env.BASE_URL}html/ate_ame_comparison.html`, '_blank', 'noopener,noreferrer')}
+        >
+          ATE vs. AME Model Comparison
+        </button>
+      </div>
 
     </section>
   )

@@ -40,6 +40,18 @@
   color: var(--color-error);
 }
 
+/* Supplementary Materials Buttons */
+.supplementary-materials-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.supplementary-materials-buttons .btn {
+  min-width: 200px;
+}
+
 @media (max-width: 768px) {
   .section-base {
     padding: 24px;
@@ -48,5 +60,13 @@
   
   .chart-container {
     padding: 20px;
+  }
+  
+  .supplementary-materials-buttons {
+    flex-direction: column;
+  }
+  
+  .supplementary-materials-buttons .btn {
+    width: 100%;
   }
 }
