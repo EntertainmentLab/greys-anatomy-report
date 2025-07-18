@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 // CSS imported via main.css
 
 const TableOfContents = ({ integrated = false }) => {
-  const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
+  const [isVisible, setIsVisible] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const sections = [
     {
@@ -101,6 +102,24 @@ const TableOfContents = ({ integrated = false }) => {
     }
   }
 
+  // Track when to show the TOC (after banner)
+  useEffect(() => {
+    if (integrated) return
+
+    const handleScroll = () => {
+      const banner = document.querySelector('.banner-container')
+      if (banner) {
+        const bannerBottom = banner.offsetTop + banner.offsetHeight
+        setIsVisible(window.scrollY > bannerBottom - 100)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    handleScroll()
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [integrated])
+
   // Intersection observer to track active section
   useEffect(() => {
     const observerOptions = {
@@ -144,28 +163,31 @@ const TableOfContents = ({ integrated = false }) => {
     return () => observer.disconnect()
   }, [])
 
-  return (
-    <div className={`toc-container ${integrated ? 'integrated' : ''} ${isOpen ? 'open' : ''}`}>
-      <button 
-        className={`toc-toggle ${integrated ? 'integrated' : ''}`}
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Toggle table of contents"
-      >
-        <span className="toc-icon">☰</span>
-      </button>
-      
-      <nav className={`toc-nav ${integrated ? 'integrated' : ''}`}>
-        <div className="toc-header">
-          <button 
-            className="toc-close"
-            onClick={() => setIsOpen(false)}
-            aria-label="Close table of contents"
-          >
-            ×
-          </button>
-        </div>
+  if (integrated) {
+    // Original dropdown behavior for integrated mode
+    return (
+      <div className="toc-container integrated">
+        <button 
+          className="toc-toggle integrated"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle table of contents"
+        >
+          <span className="toc-icon">☰</span>
+          <span className="toc-label">Table of Contents</span>
+        </button>
         
-        <ul className="toc-list">
+        <nav className={`toc-nav integrated ${isOpen ? 'open' : ''}`}>
+          <div className="toc-header">
+            <button 
+              className="toc-close"
+              onClick={() => setIsOpen(false)}
+              aria-label="Close table of contents"
+            >
+              ×
+            </button>
+          </div>
+          
+          <ul className="toc-list">
           {sections.map((section) => (
             <li key={section.id} className="toc-item">
               <button
@@ -176,6 +198,43 @@ const TableOfContents = ({ integrated = false }) => {
                 {section.subsections && (
                   <span className="toc-expand-icon">▼</span>
                 )}
+              </button>
+              
+              {section.subsections && (
+                <ul className="toc-sublist">
+                  {section.subsections.map((subsection) => (
+                    <li key={subsection.id} className="toc-subitem">
+                      <button
+                        className={`toc-sublink ${activeSection === subsection.id ? 'active' : ''}`}
+                        onClick={() => scrollToSection(subsection.selector)}
+                      >
+                        {subsection.title}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+    )
+  }
+
+  // Fixed sidebar for non-integrated mode
+  return (
+    <div className={`toc-sidebar ${isVisible ? 'visible' : ''}`}>
+      <nav className="toc-sidebar-nav">
+        <h3 className="toc-sidebar-title">Table of Contents</h3>
+        <ul className="toc-list">
+          {sections.map((section) => (
+            <li key={section.id} className="toc-item">
+              <button
+                className={`toc-link ${activeSection === section.id ? 'active' : ''} ${section.subsections ? 'has-subsections' : ''}`}
+                onClick={() => scrollToSection(section.selector)}
+              >
+                {section.title}
               </button>
               
               {section.subsections && (

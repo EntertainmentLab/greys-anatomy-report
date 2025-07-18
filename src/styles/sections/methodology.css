@@ -1,5 +1,44 @@
 /* Methodology Section Styles */
 
+/* New list-based layout */
+.methodology-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.methodology-section {
+  border-bottom: 1px solid var(--color-border-light);
+  padding-bottom: var(--spacing-xl);
+}
+
+.methodology-section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.methodology-section h3 {
+  margin-top: 0;
+  margin-bottom: var(--spacing-md);
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .methodology-content {
+    gap: var(--spacing-lg);
+  }
+  
+  .methodology-section {
+    padding-bottom: var(--spacing-lg);
+  }
+  
+  .methodology-section h3 {
+    font-size: 1.25rem;
+  }
+}
+
 .inline-episodes-container {
   display: flex;
   gap: 1rem;

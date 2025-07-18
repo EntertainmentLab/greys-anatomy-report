@@ -9,15 +9,7 @@ import { useState } from 'react';
 function Methodology() {
   const [showEpisodePreview, setShowEpisodePreview] = useState(false);
   const [showNightMovesPreview, setShowNightMovesPreview] = useState(false);
-  const [activeTab, setActiveTab] = useState('overview');
   const [expandedDetails, setExpandedDetails] = useState({});
-
-  const tabs = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'experimental-conditions', label: 'Experimental Conditions' },
-    { id: 'instagram-videos', label: 'Instagram Videos' },
-    { id: 'timeline-measures', label: 'Timeline and Measures' }
-  ];
 
   const toggleDetails = (detailId) => {
     setExpandedDetails(prev => ({
@@ -32,26 +24,16 @@ function Methodology() {
         Methodology
       </h2>
 
-      <div className="tab-container">
-        <div className="tab-list">
-          {tabs.map(tab => (
-            <button
-              key={tab.id}
-              className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
-              onClick={() => setActiveTab(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-
-        <div className={`tab-content ${activeTab === 'overview' ? 'active' : ''}`}>
+      <div className="methodology-content">
+        <div className="methodology-section">
+          <h3>Overview</h3>
           <p>
             We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. Participants (N = 4,830) were quota-sampled to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region. Data were collected via Cloud Research Connect online survey platform, and participants were compensated at market rates increasing across waves to minimize attrition. Attrition was high between baseline and the viewing assignment, with 3,454 participants completing the viewing assignment and 3,204 responding to the post-exposure survey.
           </p>
         </div>
 
-        <div className={`tab-content ${activeTab === 'experimental-conditions' ? 'active' : ''}`}>
+        <div className="methodology-section">
+          <h3>Experimental Conditions</h3>
           <div className="expandable-details">
             <div className="details-summary">
               <strong>Three randomized groups:</strong> Control (non-climate episode), Heat Wave (climate episode), and Multiplatform (episode + social media).
@@ -104,7 +86,8 @@ function Methodology() {
           />
         </div>
 
-        <div className={`tab-content ${activeTab === 'instagram-videos' ? 'active' : ''}`}>
+        <div className="methodology-section">
+          <h3>Instagram Videos</h3>
           <div className="expandable-details">
             <div className="details-summary">
               <strong>Four climate-related Instagram videos</strong> were used in the Multiplatform Group condition to contextualize the episode's content.
@@ -128,7 +111,8 @@ function Methodology() {
           <InstagramCarousel />
         </div>
 
-        <div className={`tab-content ${activeTab === 'timeline-measures' ? 'active' : ''}`}>
+        <div className="methodology-section">
+          <h3>Timeline and Measures</h3>
           <div className="expandable-details">
             <div className="details-summary">
               <strong>Longitudinal design across three time points:</strong> baseline, immediate post-viewing, and follow-up survey ~2-3 weeks later to assess sustained effects.

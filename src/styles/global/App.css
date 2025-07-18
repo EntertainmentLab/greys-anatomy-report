@@ -6,6 +6,30 @@
   line-height: 1.7;
   color: var(--color-text);
   position: relative;
+  transition: margin-left 0.3s ease, margin-right 0.3s ease;
+}
+
+/* Layout adjustments for TOC */
+@media (min-width: 1400px) {
+  .report-container.with-toc {
+    margin-left: 280px;
+    margin-right: auto;
+    max-width: calc(100vw - 400px);
+  }
+}
+
+@media (max-width: 1399px) and (min-width: 1025px) {
+  .report-container.with-toc {
+    margin-left: 280px;
+    margin-right: 40px;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+  .report-container.with-toc {
+    margin-left: 260px;
+    margin-right: 20px;
+  }
 }
 
 .report-content {

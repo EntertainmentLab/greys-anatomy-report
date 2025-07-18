@@ -34,6 +34,7 @@
 @import './components/carousel.css';
 @import './components/collapsible.css';
 @import './components/table-of-contents.css';
+@import './components/full-report-collapse.css';
 @import './components/Legend.css';
 @import './components/Controls.css';
 @import './components/Header.css';

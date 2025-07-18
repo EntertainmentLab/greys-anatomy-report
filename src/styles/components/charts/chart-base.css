@@ -138,32 +138,6 @@
   color: #374151;
 }
 
-.info-tooltip {
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%) translateY(-100%);
-  background: rgba(0, 0, 0, 0.9);
-  color: white;
-  padding: 0.75rem;
-  border-radius: var(--border-radius-md);
-  font-size: 0.75rem;
-  white-space: nowrap;
-  z-index: 20;
-  min-width: 250px;
-  text-align: left;
-  line-height: 1.4;
-}
-
-.info-tooltip::after {
-  content: '';
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  border: 6px solid transparent;
-  border-top-color: rgba(0, 0, 0, 0.9);
-}
 
 .info-tooltip div {
   margin-bottom: 0.25rem;

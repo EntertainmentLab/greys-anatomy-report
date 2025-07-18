@@ -1,5 +1,6 @@
 import EpisodePreview from '../infographics/2.2-EpisodePreview';
 import AMEChartsCarousel from '../charts/1.2-AMEChartsCarousel';
+// import HeatwaveCompositeChart from '../charts/HeatwaveCompositeChart';
 import SurveyItemsPopup from '../infographics/SurveyItemsPopup';
 import { useState } from 'react';
 
@@ -64,7 +65,7 @@ function StudyOverview() {
         </li>
         <li className="definition-item">
           <b>Support</b>
-          <span className="info-button" onClick={() => handleConstructClick('Support for Heat-Adaptive Policies')}>
+          <span className="info-button" onClick={() => handleConstructClick('Heat and Policy Support')}>
             i
           </span> for heat-adaptive policies, such as investments in hospital infrastructure and the expansion of public cooling centers
         </li>
@@ -74,13 +75,13 @@ function StudyOverview() {
       <ul>
         <li className="definition-item">
           <b>Perceived personal impacts of climate change</b>
-          <span className="info-button" onClick={() => handleConstructClick('Perceived Personal Impacts of Climate Change')}>
+          <span className="info-button" onClick={() => handleConstructClick('Personal Impact of Climate Change')}>
             i
           </span>, including the belief that climate change will have a significant impact on daily life
         </li>
         <li className="definition-item">
           <b>Support</b>
-          <span className="info-button" onClick={() => handleConstructClick('Support for Action on Climate Change')}>
+          <span className="info-button" onClick={() => handleConstructClick('Climate Change - Support for Action')}>
             i
           </span> for action on climate change broadly
         </li>
@@ -97,6 +98,9 @@ function StudyOverview() {
       </ul>
       <p>It is important to acknowledge the areas where attitudes remained unchanged. We did not find any significant effects on measures like the perceived responsibility of healthcare workers to bring the health effects of severe heat waves to the attention of the public or policymakers. Additionally, the episode alone did not move certain measures related specifically to climate change, like the perceived personal impacts of climate change. This lack of movement is perhaps unsurprising, given that the episode did not explicitly reference climate change and the broader issue may not have been top of mind for viewers.</p>
       <p>Nevertheless, these findings demonstrate the powerful potential of entertainment to both engage and educate, making complex public health and environmental issues feel immediate and personal. As the climate crisis deepens, integrating accurate, emotionally resonant storylines into popular film and TV may be one of our most underused—and impactful—tools for life-saving public awareness and action.</p>
+      
+      {/* <HeatwaveCompositeChart /> */}
+      
       <EpisodePreview
         isOpen={showEpisodePreview}
         onClose={() => setShowEpisodePreview(false)}

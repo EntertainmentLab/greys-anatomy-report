@@ -1,0 +1,74 @@
+[
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Heat Wave",
+    "mean": 0.01,
+    "se": 0.021,
+    "n": 1060
+  },
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Multiplatform Group",
+    "mean": 0,
+    "se": 0.021,
+    "n": 1021
+  },
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Control",
+    "mean": -0.01,
+    "se": 0.022,
+    "n": 967
+  },
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Heat Wave",
+    "mean": 0.1,
+    "se": 0.02,
+    "n": 1060
+  },
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Multiplatform Group",
+    "mean": 0.17,
+    "se": 0.021,
+    "n": 1021
+  },
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Control",
+    "mean": -0.28,
+    "se": 0.022,
+    "n": 967
+  },
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Heat Wave",
+    "mean": 0.07,
+    "se": 0.021,
+    "n": 1060
+  },
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Multiplatform Group",
+    "mean": 0.08,
+    "se": 0.021,
+    "n": 1021
+  },
+  {
+    "wave": "NA",
+    "wave_label": null,
+    "condition": "Control",
+    "mean": -0.16,
+    "se": 0.022,
+    "n": 967
+  }
+]

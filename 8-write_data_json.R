@@ -343,6 +343,153 @@ calculate_policy_support_stats <- function(wave) {
 }
 
 
+# Calculate HeatWave Composite Score data
+calculate_heatwave_composite_stats <- function() {
+
+  # Define HeatWave Composite Score variables for each wave
+  heatwave_vars <- list(
+    w1 = c("heatwaves_likelihood_heatwave_w1_scaled",
+           "threat_severity_score_w1_scaled",
+           "threat_health_impact_score_w1_scaled",
+           "impact_knowledge_full_w1_scaled"),
+    w2 = c("heatwaves_likelihood_heatwave_w2_scaled",
+           "threat_severity_score_w2_scaled",
+           "threat_health_impact_score_w2_scaled",
+           "impact_knowledge_full_w2_scaled"),
+    w3 = c("heatwaves_likelihood_heatwave_w3_scaled",
+           "threat_severity_score_w3_scaled",
+           "threat_health_impact_score_w3_scaled",
+           "impact_knowledge_full_w3_scaled")
+  )
+
+  condition_var <- "condition_w2"
+
+  # Create condition labels
+  condition_labels <- c(
+    "control" = "Control",
+    "treatment" = "Heat Wave",
+    "handoff" = "Multiplatform Group"
+  )
+
+  # Wave labels
+  wave_labels <- c(
+    "1" = "Baseline (7 Days Before)",
+    "2" = "Immediately After Viewing", 
+    "3" = "15 Days Later"
+  )
+
+  results <- list()
+
+  # Calculate composite score for each wave
+  for (wave in names(heatwave_vars)) {
+    wave_num <- as.numeric(gsub("w", "", wave))
+    vars <- heatwave_vars[[wave]]
+    
+    # Only include rows where all variables are non-NA
+    dt_sub <- dt[!is.na(get(condition_var))]
+    
+    # Check which variables exist
+    existing_vars <- vars[vars %in% names(dt_sub)]
+    
+    if (length(existing_vars) == 0) {
+      cat("Warning: No HeatWave Composite Score variables found for wave", wave, "\n")
+      next
+    }
+    
+    # Create a subset with only non-NA values for existing variables
+    for (var in existing_vars) {
+      dt_sub <- dt_sub[!is.na(get(var))]
+    }
+    
+    # Calculate composite score as average of existing variables
+    if (length(existing_vars) > 0) {
+      dt_sub[, heatwave_composite := rowMeans(.SD, na.rm = TRUE), .SDcols = existing_vars]
+    } else {
+      next
+    }
+
+    # Calculate means and SEs by condition (overall)
+    stats <- dt_sub[!is.na(heatwave_composite),
+      .(mean = mean(heatwave_composite, na.rm = TRUE),
+        se = sd(heatwave_composite, na.rm = TRUE) / sqrt(.N),
+        n = .N),
+      by = condition_var]
+
+    setnames(stats, condition_var, "condition")
+
+    # Create records for each condition (overall)
+    for (i in 1:nrow(stats)) {
+      results[[length(results) + 1]] <- list(
+        wave = wave_num,
+        wave_label = wave_labels[as.character(wave_num)],
+        condition = condition_labels[stats$condition[i]],
+        mean = round(stats$mean[i], 2),
+        se = round(stats$se[i], 3),
+        n = stats$n[i]
+      )
+    }
+  }
+
+  return(results)
+}
+
+# Calculate climate temporal proximity belief change data
+calculate_climate_belief_change_stats <- function() {
+  
+  # Define response labels
+  response_labels <- c(
+    "0" = "It will never affect me",
+    "1" = "It will in the future", 
+    "2" = "It already has"
+  )
+  
+  # Define condition labels
+  condition_labels <- c(
+    "control" = "Control",
+    "treatment" = "Heat Wave",
+    "handoff" = "Multiplatform Group"
+  )
+  
+  # Filter for people who said "it will never affect me" at wave 1 (coded as 0)
+  dt_baseline_never <- dt[climate_temporal_proximity_belief_w1 == 0 & 
+                         !is.na(climate_temporal_proximity_belief_w1) & 
+                         !is.na(climate_temporal_proximity_belief_w2) & 
+                         !is.na(condition_w2)]
+  
+  results <- list()
+  
+  # Calculate percentages for each condition
+  for (condition in c("control", "treatment", "handoff")) {
+    dt_condition <- dt_baseline_never[condition_w2 == condition]
+    total_n <- nrow(dt_condition)
+    
+    if (total_n > 0) {
+      # Count responses at wave 2
+      wave2_counts <- table(dt_condition$climate_temporal_proximity_belief_w2)
+      
+      # Calculate percentages
+      percentages <- list()
+      for (response_code in names(response_labels)) {
+        count <- ifelse(response_code %in% names(wave2_counts), wave2_counts[response_code], 0)
+        percentages[[response_labels[response_code]]] <- round((count / total_n) * 100, 1)
+      }
+      
+      # Calculate percentage who changed their mind (response != 0)
+      changed_mind_count <- sum(dt_condition$climate_temporal_proximity_belief_w2 != 0)
+      changed_mind_pct <- round((changed_mind_count / total_n) * 100, 1)
+      
+      results[[length(results) + 1]] <- list(
+        condition = condition_labels[condition],
+        total_n = total_n,
+        percentages = percentages,
+        changed_mind_pct = changed_mind_pct
+      )
+    }
+  }
+  
+  return(results)
+}
+
 # Calculate climate temporal proximity data
 calculate_climate_temporal_stats <- function() {
 
@@ -481,6 +628,12 @@ all_policy <- c(wave2_policy, wave3_policy)
 cat("Calculating climate temporal proximity data...\n")
 climate_temporal_data <- calculate_climate_temporal_stats()
 
+cat("Calculating climate belief change data...\n")
+climate_belief_change_data <- calculate_climate_belief_change_stats()
+
+cat("Calculating HeatWave Composite Score data...\n")
+heatwave_composite_data <- calculate_heatwave_composite_stats()
+
 # Write individual files for React app
 write_json(all_knowledge, "public/data-knowledge.json",
            pretty = TRUE, auto_unbox = FALSE)
@@ -498,6 +651,14 @@ write_json(all_policy, "public/data-policy-support.json",
 write_json(climate_temporal_data, "public/data-climate-temporal.json",
            pretty = TRUE, auto_unbox = TRUE)
 
+# Write climate belief change data
+write_json(climate_belief_change_data, "public/data-climate-belief-change.json",
+           pretty = TRUE, auto_unbox = TRUE)
+
+# Write HeatWave Composite Score data
+write_json(heatwave_composite_data, "public/data/data-heatwave-composite.json",
+           pretty = TRUE, auto_unbox = TRUE)
+
 
 # Print summary
 cat("Generated JSON files for React app:\n")
@@ -506,6 +667,8 @@ cat("- Health worry data:", length(all_worry), "records\n")
 cat("- System impacts data:", length(all_impacts), "records\n")
 cat("- Policy support data:", length(all_policy), "records\n")
 cat("- Climate temporal data:", length(climate_temporal_data), "records\n")
+cat("- Climate belief change data:", length(climate_belief_change_data), "records\n")
+cat("- HeatWave Composite Score data:", length(heatwave_composite_data), "records\n")
 
 
 cat("\nDone!\n")

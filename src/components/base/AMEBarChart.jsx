@@ -112,7 +112,9 @@ const AMEBarChart = ({
     const categoryHeight = isMobile ? 60 : 80
     const availableWidth = currentContainerWidth // Use full container width
     const width = Math.max(350, (availableWidth - margin.left - margin.right) * 0.75)
-    const height = groupedData.length * categoryHeight
+    // Use consistent height based on maximum expected categories for this chart
+    const expectedCategoryCount = Math.max(4, groupedData.length)
+    const height = expectedCategoryCount * categoryHeight
 
     // Update chart dimensions for use in JSX only if they've changed significantly
     if (Math.abs(chartDimensions.width - width) > 5 || Math.abs(chartDimensions.margin.left - margin.left) > 5) {
@@ -154,21 +156,14 @@ const AMEBarChart = ({
         .attr('transform', `translate(${margin.left},${margin.top})`)
     }
 
-    // Create tooltip if it doesn't exist
-    let tooltip = d3.select('body').select('.ame-tooltip')
+    // Create tooltip if it doesn't exist - attach to chart container instead of body
+    const chartContainer = d3.select(svgRef.current.parentElement)
+    let tooltip = chartContainer.select('.ame-tooltip')
     if (tooltip.empty()) {
-      tooltip = d3.select('body').append('div')
+      tooltip = chartContainer.append('div')
         .attr('class', 'ame-tooltip')
         .style('opacity', 0)
-        .style('position', 'absolute')
-        .style('background', 'rgba(0, 0, 0, 0.8)')
-        .style('color', 'white')
-        .style('padding', '8px')
-        .style('border-radius', '4px')
-        .style('font-size', '12px')
-        .style('white-space', 'pre-line')
-        .style('pointer-events', 'none')
-        .style('z-index', 1000)
+        .style('position', 'fixed')
     }
 
     // Update responsive title
@@ -511,12 +506,12 @@ const AMEBarChart = ({
           .on('mouseover', function(event) {
             tooltip.transition().duration(200).style('opacity', .9)
             tooltip.html(formatTooltip(bar.data, categoryData.outcome))
-              .style('left', (event.pageX + 10) + 'px')
-              .style('top', (event.pageY - 10) + 'px')
+              .style('left', (event.clientX + 10) + 'px')
+              .style('top', (event.clientY - 10) + 'px')
           })
           .on('mousemove', function(event) {
-            tooltip.style('left', (event.pageX + 10) + 'px')
-              .style('top', (event.pageY - 10) + 'px')
+            tooltip.style('left', (event.clientX + 10) + 'px')
+              .style('top', (event.clientY - 10) + 'px')
           })
           .on('mouseout', function() {
             tooltip.transition().duration(500).style('opacity', 0)
