@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
-import TableOfContents from './TableOfContents';
 
 const Banner = () => {
   const bannerRef = useRef(null);
@@ -84,10 +83,6 @@ const Banner = () => {
               className="sticky-rare-logo"
             />
           </a>
-          
-          <div className="sticky-toc-container">
-            <TableOfContents integrated={true} />
-          </div>
         </div>
       </div>
     </>
