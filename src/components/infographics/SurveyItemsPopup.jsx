@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
+import { useScrollLock } from '../../utils/scrollLock'
 // CSS imported via main.css
 
 const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
@@ -25,20 +26,8 @@ const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
     }
   }, [isOpen])
 
-  // Prevent background scrolling when popup is open
-  useEffect(() => {
-    if (isOpen) {
-      // Store original overflow style
-      const originalStyle = window.getComputedStyle(document.body).overflow
-      // Disable scrolling
-      document.body.style.overflow = 'hidden'
-      
-      // Cleanup function to restore scrolling when popup closes
-      return () => {
-        document.body.style.overflow = originalStyle
-      }
-    }
-  }, [isOpen])
+  // Use safe scroll locking utility
+  useScrollLock(isOpen)
 
   // Find the matching construct data
   const constructData = surveyData.find(item => item.construct === constructName)

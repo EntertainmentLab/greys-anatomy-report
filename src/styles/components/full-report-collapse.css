@@ -76,7 +76,8 @@
 }
 
 .full-report-sections.expanded {
-  max-height: 10000px; /* Large enough to accommodate content */
+  max-height: 100000px; /* Much larger to accommodate all content */
+  overflow: visible; /* Allow content to flow naturally when expanded */
 }
 
 .full-report-sections-content {

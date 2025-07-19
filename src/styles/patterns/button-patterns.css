@@ -1,0 +1,364 @@
+/* Button Component Patterns */
+
+/* ============================================
+   BASE BUTTON PATTERN
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: var(--font-family-secondary);
+  font-weight: var(--font-weight-medium);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-all);
+  text-decoration: none;
+  line-height: 1;
+  user-select: none;
+}
+
+.btn:focus {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ============================================
+   BUTTON SIZES
+   ============================================ */
+.btn--xs {
+  padding: var(--space-1) var(--space-2);
+  font-size: var(--font-size-xs);
+}
+
+.btn--sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--font-size-sm);
+}
+
+.btn--md {
+  padding: var(--space-2\.5) var(--space-4);
+  font-size: var(--font-size-base);
+}
+
+.btn--lg {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-lg);
+}
+
+.btn--xl {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-xl);
+}
+
+/* ============================================
+   BUTTON VARIANTS
+   ============================================ */
+.btn--primary {
+  background: var(--color-primary-600);
+  color: var(--color-text-inverse);
+  border-color: var(--color-primary-600);
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-primary-700);
+  border-color: var(--color-primary-700);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--primary:active:not(:disabled) {
+  background: var(--color-primary-800);
+  border-color: var(--color-primary-800);
+  transform: translateY(0);
+}
+
+.btn--secondary {
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+
+.btn--secondary:hover:not(:disabled) {
+  background: var(--color-gray-50);
+  border-color: var(--color-gray-300);
+}
+
+.btn--secondary:active:not(:disabled) {
+  background: var(--color-gray-100);
+  border-color: var(--color-gray-400);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text-primary);
+  border-color: transparent;
+}
+
+.btn--ghost:hover:not(:disabled) {
+  background: var(--color-gray-100);
+  border-color: var(--color-border);
+}
+
+.btn--ghost:active:not(:disabled) {
+  background: var(--color-gray-200);
+}
+
+.btn--danger {
+  background: var(--color-error-600);
+  color: var(--color-text-inverse);
+  border-color: var(--color-error-600);
+}
+
+.btn--danger:hover:not(:disabled) {
+  background: var(--color-error-700);
+  border-color: var(--color-error-700);
+}
+
+/* ============================================
+   TOGGLE BUTTON GROUPS
+   ============================================ */
+.toggle-group {
+  display: inline-flex;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-1);
+  gap: var(--space-1);
+}
+
+.toggle-group__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: var(--transition-all);
+  white-space: nowrap;
+}
+
+.toggle-group__item:hover {
+  color: var(--color-text-primary);
+  background: var(--color-gray-100);
+}
+
+.toggle-group__item--active {
+  color: var(--color-primary-700);
+  background: var(--color-primary-100);
+  box-shadow: var(--shadow-sm);
+}
+
+.toggle-group__item--active:hover {
+  color: var(--color-primary-800);
+  background: var(--color-primary-200);
+}
+
+/* ============================================
+   WAVE CONTROL PATTERN (Chart Specific)
+   ============================================ */
+.wave-controls {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-6);
+}
+
+.wave-controls__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-4);
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: var(--transition-all);
+  text-decoration: none;
+}
+
+.wave-controls__tab:hover {
+  color: var(--color-primary-700);
+  background: var(--color-primary-50);
+  border-color: var(--color-primary-200);
+}
+
+.wave-controls__tab--active {
+  color: var(--color-primary-800);
+  background: var(--color-primary-100);
+  border-color: var(--color-primary-300);
+  box-shadow: var(--shadow-sm);
+}
+
+.wave-controls__tab--active:hover {
+  color: var(--color-primary-900);
+  background: var(--color-primary-200);
+  border-color: var(--color-primary-400);
+}
+
+/* ============================================
+   FILTER CONTROL PATTERN
+   ============================================ */
+.filter-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.filter-controls__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.filter-controls__label {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-secondary);
+}
+
+.filter-controls__options {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.filter-controls__option {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-size-sm);
+  color: var(--filter-text);
+  background: var(--filter-bg);
+  border: 1px solid var(--filter-border);
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: var(--transition-all);
+  user-select: none;
+}
+
+.filter-controls__option:hover {
+  background: var(--filter-bg-hover);
+  border-color: var(--color-primary-300);
+}
+
+.filter-controls__option--active {
+  color: var(--filter-text-active);
+  background: var(--filter-bg-active);
+  border-color: var(--filter-border-active);
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-controls__checkbox {
+  appearance: none;
+  width: var(--space-4);
+  height: var(--space-4);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: var(--transition-all);
+}
+
+.filter-controls__checkbox:checked {
+  background: var(--color-primary-600);
+  border-color: var(--color-primary-600);
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+}
+
+/* ============================================
+   SPECIAL BUTTON TYPES
+   ============================================ */
+.btn--link {
+  background: none;
+  color: var(--color-primary-600);
+  border: none;
+  padding: 0;
+  font-weight: var(--font-weight-medium);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.btn--link:hover:not(:disabled) {
+  color: var(--color-primary-700);
+  text-decoration-thickness: 2px;
+}
+
+.episode-preview-trigger {
+  background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-500) 100%);
+  color: var(--color-text-inverse);
+  border: none;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: inherit;
+  cursor: pointer;
+  transition: var(--transition-all);
+  text-decoration: none;
+  display: inline;
+  line-height: inherit;
+}
+
+.episode-preview-trigger:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.episode-preview-trigger:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ============================================
+   RESPONSIVE PATTERNS
+   ============================================ */
+@media (max-width: 768px) {
+  .wave-controls {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  
+  .wave-controls__tab {
+    justify-content: flex-start;
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  .filter-controls {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+  
+  .filter-controls__options {
+    justify-content: flex-start;
+  }
+  
+  .toggle-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .toggle-group__item {
+    justify-content: flex-start;
+    padding: var(--space-3) var(--space-4);
+  }
+}

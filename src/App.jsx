@@ -12,6 +12,8 @@ import PleaseRotatePrompt from './components/ui/PleaseRotatePrompt'
 import TableOfContents from './components/ui/TableOfContents'
 import Footer from './components/ui/Footer'
 import { formatGreysAnatomyInDOM } from './utils/textFormatting'
+// Import emergency scroll fix for debugging
+import './utils/emergencyScrollFix'
 import './styles/global/App.css'
 
 function App() {

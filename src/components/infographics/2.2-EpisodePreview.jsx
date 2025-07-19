@@ -1,8 +1,12 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { useScrollLock } from '../../utils/scrollLock';
 // CSS imported via main.css
 
 const EpisodePreview = ({ isOpen, onClose, episode }) => {
+  // Use safe scroll locking utility
+  useScrollLock(isOpen);
+
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
@@ -12,12 +16,10 @@ const EpisodePreview = ({ isOpen, onClose, episode }) => {
 
     if (isOpen) {
       document.addEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'hidden';
     }
 
     return () => {
       document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = 'unset';
     };
   }, [isOpen, onClose]);
 

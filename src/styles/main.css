@@ -1,6 +1,6 @@
 /* 
  * Main CSS Import File
- * Organized CSS Architecture for Grey's Anatomy Report
+ * Modern CSS Architecture for Grey's Anatomy Report
  */
 
 /* ============================================
@@ -9,12 +9,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap');
 
 /* ============================================
+   DESIGN SYSTEM FOUNDATION
+   ============================================ */
+@import './system/design-tokens.css';
+
+/* ============================================
    CORE STYLES (Load First)
    ============================================ */
-@import './core/variables.css';
+@import './core/variables.css'; /* Legacy variables for backward compatibility */
 @import './core/reset.css';
 @import './core/typography.css';
 @import './core/layout.css';
+
+/* ============================================
+   PATTERN LIBRARY (Shared Components)
+   ============================================ */
+@import './patterns/button-patterns.css';
+@import './patterns/card-patterns.css';
+@import './patterns/layout-patterns.css';
 
 /* ============================================
    SHARED UTILITIES 
@@ -22,9 +34,8 @@
 @import './shared/filters.css';
 
 /* ============================================
-   COMPONENT STYLES 
+   LEGACY COMPONENT STYLES (To be refactored)
    ============================================ */
-@import './components/buttons.css';
 
 /* Chart Components */
 @import './components/charts/chart-base.css';

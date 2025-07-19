@@ -33,10 +33,7 @@ function StudyOverview() {
           "Drop it Like it's Hot"
         </button>, staff at Grey Sloan Memorial Hospital respond to a record-breaking heat wave. Though climate change is never mentioned explicitly, the episode vividly depicts the cascading effects of extreme heat: power outages, overwhelmed emergency services, and difficult triage decisions. <b>This provided a unique opportunity to test whether a dramatic medical storyline could shift perceptions about heat waves, their public health risks, and climate change more broadly.</b>
       </p>
-      <p>
-        The results were clear: the episode effectively raised awareness about heat-related health risks and significantly increased concern about the impacts of extreme heat. 
-      </p>
-      <p>The results were clear: the episode effectively raised awareness about heat-related health risks and significantly increased concern about the impacts of extreme heat. The episode boosted:</p>
+      <p>The results were clear: the episode effectively raised awareness about heat-related health risks and significantly increased concern about the impacts of extreme heat.</p> <p>The episode boosted:</p>
 
       <ul>
         <li className="definition-item">
