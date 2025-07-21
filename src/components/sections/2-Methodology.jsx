@@ -158,16 +158,16 @@ function Methodology({ expandAllDetails = false }) {
               <p>The videos were created by the following Instagram creators:</p>
               <ul>
                 <li>
-                  <strong><a href="https://www.instagram.com/eyeinspired/" target="_blank" rel="noopener noreferrer">@eyeinspired</a></strong>: Kelly Edelman posts bold, mixed-media portraits with vivid colors and occasional art-tutorials—popular among her millions of followers
+                  <strong><a href="https://www.instagram.com/reel/DG8WJFNuxwm/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">@eyeinspired</a></strong>: Kelly Edelman posts bold, mixed-media portraits with vivid colors and occasional art-tutorials—popular among her millions of followers
                 </li>
                 <li>
-                  <strong><a href="https://www.instagram.com/becomingdrdevore/" target="_blank" rel="noopener noreferrer">@becomingdrdevore</a></strong>: Syd shares transparent pre-med and med-school journey content, MCAT tips, and application advice for aspiring medical students
+                  <strong><a href="https://www.instagram.com/reel/DG_myvfBnLC/" target="_blank" rel="noopener noreferrer">@becomingdrdevore</a></strong>: Syd shares transparent pre-med and med-school journey content, MCAT tips, and application advice for aspiring medical students
                 </li>
                 <li>
-                  <strong><a href="https://www.instagram.com/scotpilie_wx/" target="_blank" rel="noopener noreferrer">@scotpilie_wx</a></strong>: New Orleans meteorologist Scot Pilié blends weather updates, personal lifestyle and foodie moments to engage his community of ~56K followers
+                  <strong><a href="https://www.instagram.com/reel/DG6BgVAxhij/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">@scotpilie_wx</a></strong>: New Orleans meteorologist Scot Pilié blends weather updates, personal lifestyle and foodie moments to engage his community of ~56K followers
                 </li>
                 <li>
-                  <strong><a href="https://www.instagram.com/farmernick/" target="_blank" rel="noopener noreferrer">@farmernick</a></strong>: Nick Cutsumpas uses his platform to coach urban gardening, sustainability, and plant-care through hands-on tutorials and environmental activism
+                  <strong><a href="https://www.instagram.com/reel/DG5o77lAYV4/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">@farmernick</a></strong>: Nick Cutsumpas uses his platform to coach urban gardening, sustainability, and plant-care through hands-on tutorials and environmental activism
                 </li>
               </ul>
             </div>
