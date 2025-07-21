@@ -123,6 +123,18 @@ function KeyFindings() {
         >
           ATE vs. AME Model Comparison
         </button>
+        <button
+          className="btn btn-secondary btn-md"
+          onClick={() => window.open(`${import.meta.env.BASE_URL}html/survey-instrument.html`, '_blank', 'noopener,noreferrer')}
+        >
+          Full Survey Instrument
+        </button>
+        <button
+          className="btn btn-secondary btn-md"
+          onClick={() => window.open('https://osf.io/uv9x3', '_blank', 'noopener,noreferrer')}
+        >
+          OSF Preregistration
+        </button>
       </div>
 
     </section>

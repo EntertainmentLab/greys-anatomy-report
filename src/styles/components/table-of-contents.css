@@ -22,6 +22,7 @@
   overflow-y: auto;
   padding-top: 100px;
   padding-bottom: 100px; /* Increase padding at bottom for scroll space */
+  max-height: calc(100vh - 100px); /* Ensure TOC doesn't extend below footer area */
 }
 
 .toc-sidebar.visible {

@@ -258,3 +258,36 @@ li.definition-item::before {
     left: -15px !important;
   }
 }
+
+/* ============================================
+   CONTENT LINKS
+   ============================================ */
+
+/* Style links within content (paragraphs, lists) to look like proper hyperlinks */
+p a,
+li a,
+.expandable-details a,
+.details-content a {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-thickness: 1px;
+  transition: var(--transition-colors);
+}
+
+p a:hover,
+li a:hover,
+.expandable-details a:hover,
+.details-content a:hover {
+  color: var(--color-primary-700);
+  text-decoration-thickness: 2px;
+}
+
+p a:focus,
+li a:focus,
+.expandable-details a:focus,
+.details-content a:focus {
+  outline: 2px solid var(--color-primary-500);
+  outline-offset: 2px;
+  border-radius: 2px;
+}

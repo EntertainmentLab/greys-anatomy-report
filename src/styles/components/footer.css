@@ -1,16 +1,27 @@
-/* Footer styles */
+/* Modern Rare Footer Design */
+
 .l-footer {
-  background-color: #0056b3;
+  background: var(--color-primary);
+  background-image: url('https://rare.org/wp-content/uploads/2022/02/footer-bg.webp');
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
   color: white;
   padding: 60px 0 20px;
-  margin-top: 50px; /* Space above footer */
+  margin-top: 50px;
   font-family: var(--font-primary);
+  position: relative;
+  z-index: 150; /* Higher than TOC sidebar (100) to prevent overlap */
 }
+
+/* Removed overlay to keep scuba diver image crisp and not washed out */
 
 .l-constrain {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .l-constrain--large {
@@ -19,22 +30,58 @@
 
 .l-grid {
   display: grid;
+  gap: 60px;
+}
+
+.l-grid--4col {
+  grid-template-columns: 120px 300px 200px 250px;
+  align-items: start;
   gap: 40px;
 }
 
 .l-grid--2col {
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 400px 1fr;
+  align-items: start;
 }
 
-/* Footer left section */
+/* Column 1: Logo Only */
+.footer__logo-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Column 2: Tagline + Social */
+.footer__tagline-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+}
+
+/* Columns 3 & 4: Menu Sections */
+.footer__menu-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Legacy - remove later */
 .footer__left {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  justify-content: flex-start;
+}
+
+.footer__brand {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 350px;
 }
 
 .footer__logo {
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 .site-name {
@@ -42,28 +89,41 @@
   color: white;
 }
 
-.site-name__text {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin: 0;
-  color: white;
+.rare-logo {
+  height: 100px;
+  width: auto;
+  margin-bottom: 0;
 }
 
 .site-slogan {
+  color: #3CDAFF;
   display: block;
-  font-size: 1.1rem;
-  margin-bottom: 20px;
-  line-height: 1.5;
+  font-family: "PFSquareSansCondPro-Medium", var(--font-family-secondary), sans-serif;
+  font-size: 27px;
+  font-weight: 500;
+  margin-bottom: 27px;
+  line-height: 1;
+  letter-spacing: 0.02em;
 }
 
-/* Social menu */
+/* Social Media Icons */
 .menu--social {
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
-  gap: 20px;
+  gap: 12px;
   flex-wrap: wrap;
+  margin-top: 0;
+}
+
+/* Remove bullets from social menu items */
+.menu--social .menu__item {
+  list-style: none;
+}
+
+.menu--social .menu__item::before {
+  content: none !important;
 }
 
 .menu--social .menu__item {
@@ -71,30 +131,78 @@
 }
 
 .menu--social .menu__link {
-  color: white;
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: opacity 0.3s ease;
+  display: block;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  text-indent: -9999px; /* Hide any text */
+}
+
+.menu--social .menu__link img {
+  width: 30px;
+  height: 30px;
+  filter: brightness(0) invert(1); /* Ensure icons are white */
+}
+
+/* Specific social icon styles using background images */
+.menu--social .menu__item--facebook .menu__link {
+  background-image: linear-gradient(transparent, transparent), url('https://rare.org/wp-content/themes/rare/images/logo-facebook--white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu--social .menu__item--instagram .menu__link {
+  background-image: linear-gradient(transparent, transparent), url('https://rare.org/wp-content/themes/rare/images/logo-instagram--white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu--social .menu__item--twitter .menu__link {
+  background-image: linear-gradient(transparent, transparent), url('https://rare.org/wp-content/themes/rare/images/logo-twitter--white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu--social .menu__item--linkedin .menu__link {
+  background-image: linear-gradient(transparent, transparent), url('https://rare.org/wp-content/themes/rare/images/logo-linkedin--white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.menu--social .menu__item--youtube .menu__link {
+  background-image: linear-gradient(transparent, transparent), url('https://rare.org/wp-content/themes/rare/images/logo-youtube--white.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .menu--social .menu__link:hover {
   opacity: 0.8;
-  text-decoration: underline;
+  transform: translateY(-4px);
 }
 
-/* Footer right section */
+/* Right Section - Navigation */
+/* Legacy - remove later */
 .footer__right {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  padding-left: 40px;
 }
 
+/* Legacy - remove later */
 .footer-nav {
   display: flex;
-  gap: 60px;
+  gap: 80px;
+  justify-content: flex-start;
 }
 
 .footer-menu-section {
-  min-width: 200px;
+  width: 100%;
 }
 
 .footer-menu-title {
@@ -102,6 +210,8 @@
   font-weight: 600;
   margin-bottom: 20px;
   color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .footer-menu-list {
@@ -115,43 +225,48 @@
 }
 
 .footer-menu-list a {
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   font-size: 0.95rem;
   transition: opacity 0.3s ease;
+  line-height: 1.4;
 }
 
 .footer-menu-list a:hover {
   opacity: 0.8;
-  text-decoration: underline;
+  color: white;
 }
 
-/* Donate button */
+/* Give Button */
 .footer-donate-btn-container {
   margin-top: 20px;
 }
 
 .rare-donate-btn {
   background-color: white;
-  color: #0056b3;
-  padding: 10px 30px;
+  color: var(--color-primary-600);
+  padding: 12px 24px;
   text-decoration: none;
   border-radius: 25px;
   font-weight: 600;
   display: inline-block;
   transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
 }
 
 .rare-donate-btn:hover {
-  background-color: #f0f0f0;
+  background-color: rgba(255, 255, 255, 0.9);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Copyright section */
+/* Copyright Section */
 .footer__copyright {
-  margin-top: 60px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 80px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -161,6 +276,7 @@
 
 .copyright {
   font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .menu--copyright {
@@ -177,7 +293,7 @@
 }
 
 .menu--copyright .menu__link {
-  color: white;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-size: 0.9rem;
   transition: opacity 0.3s ease;
@@ -185,13 +301,23 @@
 
 .menu--copyright .menu__link:hover {
   opacity: 0.8;
-  text-decoration: underline;
+  color: white;
 }
 
-/* Responsive design */
+/* Responsive Design */
 @media (max-width: 768px) {
+  .l-footer {
+    padding: 40px 0 20px;
+  }
+
+  .l-grid--4col {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
   .l-grid--2col {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 
   .footer__right {
@@ -206,14 +332,52 @@
   .footer__copyright {
     flex-direction: column;
     align-items: flex-start;
+    text-align: left;
   }
 
   .menu--copyright {
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
   }
 
-  .site-name__text {
-    font-size: 2rem;
+  .menu--social {
+    justify-content: flex-start;
+  }
+
+  .rare-logo {
+    height: 50px;
+  }
+
+  .site-slogan {
+    font-size: 1rem;
+    max-width: none;
+  }
+
+  .footer-menu-title {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .l-constrain {
+    padding: 0 15px;
+  }
+
+  .l-footer {
+    padding: 30px 0 15px;
+    margin-top: 30px;
+  }
+
+  .footer__brand {
+    gap: 15px;
+  }
+
+  .site-slogan {
+    margin-bottom: 15px;
+  }
+
+  .rare-donate-btn {
+    padding: 10px 20px;
+    font-size: 0.85rem;
   }
 }

@@ -45,10 +45,13 @@
   --color-primary-300: #93c5fd;
   --color-primary-400: #60a5fa;
   --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
+  --color-primary-600: #005BBB;
+  --color-primary-700: #004499;
+  --color-primary-800: #003377;
+  --color-primary-900: #002255;
+  
+  /* Secondary Brand Colors */
+  --color-secondary-light-blue: #3CDAFF;
 
   /* Gray Scale */
   --color-gray-50: #f9fafb;
@@ -87,6 +90,9 @@
   --color-control: var(--color-error-600);
   --color-treatment: var(--color-success-600);
   --color-handoff: var(--color-primary-600);
+  
+  /* Rare Brand Colors */
+  --color-rare-light-blue: var(--color-secondary-light-blue);
 
   /* Semantic Color Aliases */
   --color-text-primary: var(--color-gray-900);
