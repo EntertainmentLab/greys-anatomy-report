@@ -20,12 +20,15 @@ html {
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
 }
 
 body {
   font-family: var(--font-primary);
-  background: var(--color-background);
-  color: var(--color-text);
+  background: var(--color-background) !important;
+  background-color: var(--color-background) !important;
+  color: var(--color-text) !important;
   min-height: 100vh;
   line-height: 1.6;
 }
