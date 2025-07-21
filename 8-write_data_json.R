@@ -343,23 +343,23 @@ calculate_policy_support_stats <- function(wave) {
 }
 
 
-# Calculate HeatWave Composite Score data
+# Calculate HeatWave Composite Score data with baseline-referenced scaling
 calculate_heatwave_composite_stats <- function() {
 
-  # Define HeatWave Composite Score variables for each wave
-  heatwave_vars <- list(
-    w1 = c("heatwaves_likelihood_heatwave_w1_scaled",
-           "threat_severity_score_w1_scaled",
-           "threat_health_impact_score_w1_scaled",
-           "impact_knowledge_full_w1_scaled"),
-    w2 = c("heatwaves_likelihood_heatwave_w2_scaled",
-           "threat_severity_score_w2_scaled",
-           "threat_health_impact_score_w2_scaled",
-           "impact_knowledge_full_w2_scaled"),
-    w3 = c("heatwaves_likelihood_heatwave_w3_scaled",
-           "threat_severity_score_w3_scaled",
-           "threat_health_impact_score_w3_scaled",
-           "impact_knowledge_full_w3_scaled")
+  # Define HeatWave Composite Score variables for each wave (unscaled versions)
+  heatwave_vars_unscaled <- list(
+    w1 = c("heatwaves_likelihood_heatwave_w1",
+           "threat_severity_score_w1",
+           "threat_health_impact_score_w1",
+           "impact_knowledge_score_w1"),
+    w2 = c("heatwaves_likelihood_heatwave_w2",
+           "threat_severity_score_w2",
+           "threat_health_impact_score_w2",
+           "impact_knowledge_score_w2"),
+    w3 = c("heatwaves_likelihood_heatwave_w3",
+           "threat_severity_score_w3",
+           "threat_health_impact_score_w3",
+           "impact_knowledge_score_w3")
   )
 
   condition_var <- "condition_w2"
@@ -380,19 +380,34 @@ calculate_heatwave_composite_stats <- function() {
 
   results <- list()
 
-  # Calculate composite score for each wave
-  for (wave in names(heatwave_vars)) {
+  # Calculate baseline statistics for scaling (from Wave 1)
+  baseline_stats <- list()
+  w1_vars <- heatwave_vars_unscaled[["w1"]]
+  
+  for (var in w1_vars) {
+    if (var %in% names(dt)) {
+      baseline_stats[[var]] <- list(
+        mean = mean(dt[[var]], na.rm = TRUE),
+        sd = sd(dt[[var]], na.rm = TRUE)
+      )
+    }
+  }
+  
+  # Calculate composite score for each wave with baseline-referenced scaling
+  for (wave in names(heatwave_vars_unscaled)) {
     wave_num <- as.numeric(gsub("w", "", wave))
-    vars <- heatwave_vars[[wave]]
+    vars <- heatwave_vars_unscaled[[wave]]
     
     # Only include rows where all variables are non-NA
     dt_sub <- dt[!is.na(get(condition_var))]
     
-    # Check which variables exist
+    # Check which variables exist and have baseline stats
     existing_vars <- vars[vars %in% names(dt_sub)]
+    baseline_var_names <- gsub("_w[0-9]+$", "_w1", existing_vars)
+    existing_vars <- existing_vars[baseline_var_names %in% names(baseline_stats)]
     
     if (length(existing_vars) == 0) {
-      cat("Warning: No HeatWave Composite Score variables found for wave", wave, "\n")
+      cat("Warning: No HeatWave Composite Score variables with baseline found for wave", wave, "\n")
       next
     }
     
@@ -401,9 +416,23 @@ calculate_heatwave_composite_stats <- function() {
       dt_sub <- dt_sub[!is.na(get(var))]
     }
     
-    # Calculate composite score as average of existing variables
+    # Apply baseline-referenced scaling and calculate composite score
     if (length(existing_vars) > 0) {
-      dt_sub[, heatwave_composite := rowMeans(.SD, na.rm = TRUE), .SDcols = existing_vars]
+      scaled_vars <- c()
+      for (var in existing_vars) {
+        baseline_var <- gsub("_w[0-9]+$", "_w1", var)
+        if (baseline_var %in% names(baseline_stats)) {
+          scaled_var_name <- paste0(var, "_baseline_scaled")
+          dt_sub[[scaled_var_name]] <- (dt_sub[[var]] - baseline_stats[[baseline_var]]$mean) / baseline_stats[[baseline_var]]$sd
+          scaled_vars <- c(scaled_vars, scaled_var_name)
+        }
+      }
+      
+      if (length(scaled_vars) > 0) {
+        dt_sub[, heatwave_composite := rowMeans(.SD, na.rm = TRUE), .SDcols = scaled_vars]
+      } else {
+        next
+      }
     } else {
       next
     }

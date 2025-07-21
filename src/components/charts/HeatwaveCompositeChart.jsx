@@ -28,11 +28,12 @@ function HeatwaveCompositeChart() {
   useTemporalChart({
     svgRef,
     data: heatwaveCompositeData,
-    title: "HeatWave Composite Score",
+    title: "Impact of Heat Wave Content Over Time",
     subtitle: "Average of perceived likelihood of heat wave exposure, threat severity, health impact, and knowledge",
     yAxisLabel: "Composite Score",
     conditions: HEATWAVE_CONDITIONS,
     waveMapping: WAVE_MAPPING,
+    tooltipUnit: "", // No unit for composite score
     // Remove yDomain to let the component calculate it automatically
   })
 

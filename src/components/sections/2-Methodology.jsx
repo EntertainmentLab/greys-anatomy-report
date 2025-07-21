@@ -155,6 +155,21 @@ function Methodology({ expandAllDetails = false }) {
               <p>
                 The four climate-related social media videos used in the Heat Wave + Social Media condition were commissioned and distributed by Action for the Climate Emergency (ACE), a youth-led U.S. climate-advocacy nonprofit. 
               </p>
+              <p>The videos were created by the following Instagram creators:</p>
+              <ul>
+                <li>
+                  <strong><a href="https://www.instagram.com/eyeinspired/" target="_blank" rel="noopener noreferrer">@eyeinspired</a></strong>: Kelly Edelman posts bold, mixed-media portraits with vivid colors and occasional art-tutorials—popular among her millions of followers
+                </li>
+                <li>
+                  <strong><a href="https://www.instagram.com/becomingdrdevore/" target="_blank" rel="noopener noreferrer">@becomingdrdevore</a></strong>: Syd shares transparent pre-med and med-school journey content, MCAT tips, and application advice for aspiring medical students
+                </li>
+                <li>
+                  <strong><a href="https://www.instagram.com/scotpilie_wx/" target="_blank" rel="noopener noreferrer">@scotpilie_wx</a></strong>: New Orleans meteorologist Scot Pilié blends weather updates, personal lifestyle and foodie moments to engage his community of ~56K followers
+                </li>
+                <li>
+                  <strong><a href="https://www.instagram.com/farmernick/" target="_blank" rel="noopener noreferrer">@farmernick</a></strong>: Nick Cutsumpas uses his platform to coach urban gardening, sustainability, and plant-care through hands-on tutorials and environmental activism
+                </li>
+              </ul>
             </div>
           </div>
           

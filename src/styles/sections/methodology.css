@@ -4,7 +4,7 @@
 .methodology-content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--spacing-xs);
 }
 
 .methodology-section {

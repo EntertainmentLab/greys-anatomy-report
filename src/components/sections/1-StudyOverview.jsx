@@ -1,6 +1,6 @@
 import EpisodePreview from '../infographics/2.2-EpisodePreview';
 import AMEChartsCarousel from '../charts/1.2-AMEChartsCarousel';
-// import HeatwaveCompositeChart from '../charts/HeatwaveCompositeChart';
+import HeatwaveCompositeChart from '../charts/HeatwaveCompositeChart';
 import SurveyItemsPopup from '../infographics/SurveyItemsPopup';
 import { useState } from 'react';
 
@@ -84,9 +84,9 @@ function StudyOverview() {
         </li>
       </ul>
       <p>We found that many of the positive shifts in audience attitudes <b>persisted even two weeks after viewing the episode or the episode</b> and the social media video together – providing empirical evidence of short-to-mid term impact.</p>
-      
+
       <AMEChartsCarousel />
-      
+      <HeatwaveCompositeChart />
       <p>Notably, through a series of interviews with audiences, we found that these gains came without sacrificing entertainment value. Viewers:</p>
       <ul>
         <li>Connected the on-screen heatwave to their personal experiences with extreme heat and its serious health impacts within their own families.</li>
@@ -95,16 +95,16 @@ function StudyOverview() {
       </ul>
       <p>It is important to acknowledge the areas where attitudes remained unchanged. We did not find any significant effects on perceptions of healthcare workers’ responsibility to raise awareness about heat-related health risks. Additionally, the episode alone did not move most measures related specifically to climate change, like the perceived personal impacts of climate change. This lack of movement is perhaps unsurprising, given that the episode did not explicitly reference climate change and the broader issue may not have been top of mind for viewers.</p>
       <p>Nevertheless, these findings demonstrate the powerful potential of entertainment to both engage and educate, making complex public health and environmental issues feel immediate and personal. As the climate crisis deepens, integrating accurate, emotionally-resonant storylines into popular film and TV may be one of the most impactful tools for life-saving public awareness and action.</p>
-      
-      {/* <HeatwaveCompositeChart /> */}
-      
+
+
+
       <EpisodePreview
         isOpen={showEpisodePreview}
         onClose={() => setShowEpisodePreview(false)}
         episode="hot"
       />
-      
-      <SurveyItemsPopup 
+
+      <SurveyItemsPopup
         isOpen={surveyPopupOpen}
         onClose={() => setSurveyPopupOpen(false)}
         constructName={selectedConstruct}

@@ -11,7 +11,8 @@ export const useTemporalChart = ({
   currentPoliticalParty,
   conditions,
   waveMapping,
-  yDomain
+  yDomain,
+  tooltipUnit = "years" // Default to "years" for backwards compatibility
 }) => {
   useEffect(() => {
     if (!data || data.length === 0) {
@@ -300,12 +301,12 @@ export const useTemporalChart = ({
           tooltipContent += `${d.wave_label}<br/>`;
           
           // Estimate
-          tooltipContent += `Mean: ${d.mean.toFixed(1)} years<br/>`;
+          tooltipContent += `Mean: ${d.mean.toFixed(2)}${tooltipUnit ? ' ' + tooltipUnit : ''}<br/>`;
           
           // Confidence Interval
           if (d.se !== undefined) {
-            const ciLower = (d.mean - 1.96 * d.se).toFixed(1);
-            const ciUpper = (d.mean + 1.96 * d.se).toFixed(1);
+            const ciLower = (d.mean - 1.96 * d.se).toFixed(2);
+            const ciUpper = (d.mean + 1.96 * d.se).toFixed(2);
             tooltipContent += `95% CI: [${ciLower}, ${ciUpper}]<br/>`;
           }
           
@@ -424,5 +425,5 @@ export const useTemporalChart = ({
       window.removeEventListener('resize', handleResize);
     };
 
-  }, [data, title, subtitle, yAxisLabel, conditions, waveMapping, yDomain, svgRef]);
+  }, [data, title, subtitle, yAxisLabel, conditions, waveMapping, yDomain, tooltipUnit, svgRef]);
 };

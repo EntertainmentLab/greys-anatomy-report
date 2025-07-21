@@ -66,10 +66,6 @@ const Banner = () => {
               className="rare-logo"
             />
           </a>
-          
-          <div className="research-tab">
-            <span>RESEARCH & REPORTS</span>
-          </div>
         </div>
       </div>
 
