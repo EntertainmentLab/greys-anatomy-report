@@ -21,7 +21,26 @@ function App() {
   const [currentView, setCurrentView] = useState('combined')
   const [selectedConditions, setSelectedConditions] = useState(['control', 'treatment', 'handoff'])
   const [isFullReportExpanded, setIsFullReportExpanded] = useState(false)
+  const [expandAllDetails, setExpandAllDetails] = useState(false)
   const { data, loading, error } = useKnowledgeData()
+
+  // Check URL hash on mount and when it changes
+  useEffect(() => {
+    const checkHash = () => {
+      const hash = window.location.hash
+      if (hash === '#fullexpand') {
+        setIsFullReportExpanded(true)
+        setExpandAllDetails(true)
+      }
+    }
+
+    // Check on mount
+    checkHash()
+
+    // Listen for hash changes
+    window.addEventListener('hashchange', checkHash)
+    return () => window.removeEventListener('hashchange', checkHash)
+  }, [])
 
   // Format Grey's Anatomy text after component renders and whenever content changes
   useEffect(() => {
@@ -46,8 +65,11 @@ function App() {
         </div>
         <div className="container">
           <StudyOverview />
-          <FullReportCollapse onToggle={setIsFullReportExpanded}>
-            <Methodology />
+          <FullReportCollapse 
+            onToggle={setIsFullReportExpanded}
+            forceExpanded={expandAllDetails}
+          >
+            <Methodology expandAllDetails={expandAllDetails} />
             <KeyFindings />
           </FullReportCollapse>
         </div>

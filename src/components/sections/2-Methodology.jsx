@@ -3,13 +3,25 @@ import TimelineInfographic from '../infographics/2.5-TimelineInfographic';
 import EpisodePreview from '../infographics/2.2-EpisodePreview';
 import ExperimentalConditionsInfographic from '../infographics/2.3-ExperimentalConditionsInfographic';
 import InlineEpisodePreview from '../ui/InlineEpisodePreview';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // CSS imported via main.css
 
-function Methodology() {
+function Methodology({ expandAllDetails = false }) {
   const [showEpisodePreview, setShowEpisodePreview] = useState(false);
   const [showNightMovesPreview, setShowNightMovesPreview] = useState(false);
   const [expandedDetails, setExpandedDetails] = useState({});
+
+  // Expand all details when expandAllDetails prop is true
+  useEffect(() => {
+    if (expandAllDetails) {
+      setExpandedDetails({
+        'participants': true,
+        'experimental-conditions': true,
+        'instagram-videos': true,
+        'timeline-measures': true
+      });
+    }
+  }, [expandAllDetails]);
 
   const toggleDetails = (detailId) => {
     setExpandedDetails(prev => ({

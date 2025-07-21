@@ -56,7 +56,7 @@
 
 /* Inline Episode Preview Styles */
 .inline-episode-preview {
-  background: white;
+  background: var(--color-surface);
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   overflow: hidden;
@@ -121,7 +121,7 @@
 }
 
 .experimental-conditions-infographic .condition-group {
-  background: white;
+  background: var(--color-surface);
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
   padding: 1.5rem;

@@ -1,8 +1,18 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
-function FullReportCollapse({ children, onToggle }) {
+function FullReportCollapse({ children, onToggle, forceExpanded = false }) {
   const [isExpanded, setIsExpanded] = useState(false)
   const sectionsRef = useRef(null)
+
+  // Handle forced expansion from prop
+  useEffect(() => {
+    if (forceExpanded && !isExpanded) {
+      setIsExpanded(true)
+      if (onToggle) {
+        onToggle(true)
+      }
+    }
+  }, [forceExpanded])
 
   const toggleExpansion = () => {
     const newExpanded = !isExpanded
