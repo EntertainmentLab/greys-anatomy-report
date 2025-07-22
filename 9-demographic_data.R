@@ -37,35 +37,35 @@ dt[, connect_age_w1 := as.numeric(connect_age_w1)]
 
 # yes = 1, no = 0, "Don't know" = NA
 dt[, demos_heat_sensitivity_w1 :=
-  ifelse(demos_heat_sensitivity_w1_raw == "Yes",  1,
-  ifelse(demos_heat_sensitivity_w1_raw == "No",   0,
+  ifelse(demos_heat_sensitivity_w1_raw == "Yes", 1,
+  ifelse(demos_heat_sensitivity_w1_raw == "No", 0,
       NA_real_))]
 
 # check
 table(dt$demos_heat_sensitivity_w1, useNA = "always")
 
 # Transform political party variable - combine "Prefer not to say" and "Something else" into "Other"
-dt[, connect_political_party_w1_clean := 
-  ifelse(connect_political_party_w1 %in% c("Prefer not to say", "Something else"), "Other", 
+dt[, connect_political_party_w1_clean :=
+  ifelse(connect_political_party_w1 %in% c("Prefer not to say", "Something else"), "Other",
          as.character(connect_political_party_w1))]
 
 dt[, connect_political_party_w1_clean := as.factor(connect_political_party_w1_clean)]
 
 
 # Transform ethnicity variable - 0 for non-Hispanic, 1 for Hispanic/Latino/Spanish origin
-dt[, connect_ethnicity_hispanic := 
+dt[, connect_ethnicity_hispanic :=
   ifelse(connect_ethnicity_w1 == "No, not of Hispanic, Latino, or Spanish origin", 0, 1)]
 
 # Transform gender variable - Man, Woman, and Non-binary or Other
-dt[, connect_gender_w1_clean := 
+dt[, connect_gender_w1_clean :=
   ifelse(connect_gender_w1 == "Man", "Man",
-  ifelse(connect_gender_w1 == "Woman", "Woman", 
+  ifelse(connect_gender_w1 == "Woman", "Woman",
          "Non-binary or Other"))]
 
 dt[, connect_gender_w1_clean := as.factor(connect_gender_w1_clean)]
 
 # Transform race variable with remapping
-dt[, connect_race_w1_clean := 
+dt[, connect_race_w1_clean :=
   ifelse(connect_race_w1 == "American Indian or Alaska Native", "Native American",
   ifelse(connect_race_w1 %in% c("Asian Indian", "Chinese", "Filipino", "Japanese", "Korean", "Vietnamese"), "Asian",
   ifelse(connect_race_w1 == "Black or African American", "Black",
@@ -150,31 +150,32 @@ basic_demos <- list(
   age = list(var = "connect_age_w1", label = "Age (years)"),
   education = list(var = "connect_education_w1_years", label = "Education (years)"),
   gender = list(var = "connect_gender_w1_clean", label = "Gender"),
-  region = list(var = "connect_us_regions_w1_clean", label = "US Region"),
-  income = list(var = "connect_household_income_w1", label = "Household Income ($)"),
+  region = list(var = "connect_us_regions_w1_clean", label = "US region"),
+  income = list(var = "connect_household_income_w1", label = "Household income ($)"),
   hispanic = list(var = "connect_ethnicity_hispanic", label = "Hispanic/Latino"),
   race = list(var = "connect_race_w1_clean", label = "Race"),
-  children = list(var = "connect_children_count_w1", label = "Number of Children")
+  children = list(var = "connect_children_count_w1", label = "Number of children")
 )
 
 # Political Variables
 political_vars <- list(
-  orientation = list(var = "demos_pol_orient_w1", label = "Political Orientation (0-10)"),
-  party = list(var = "connect_political_party_w1_clean", label = "Political Party"),
-  trust = list(var = "demos_social_trust_w1", label = "Social Trust")
+  orientation = list(var = "demos_pol_orient_w1", label = "Left/Right political leaning (0-10)"),
+  party = list(var = "connect_political_party_w1_clean", label = "Political party affiliation"),
+  trust = list(var = "demos_social_trust_w1", label = "Generally trust people")
 )
 
 # Climate and Health Variables
 climate_health_vars <- list(
-  hospitalized = list(var = "demos_hospitalized_w1", label = "Ever Hospitalized"),
-  chronic = list(var = "demos_chronic_conditions_w1", label = "Has Chronic Conditions"),
-  heat_sensitive = list(var = "demos_heat_sensitivity_w1", label = "Heat Sensitive"),
-  wildfire = list(var = "demos_extreme_weather_wildfire_w1", label = "Experienced Wildfire"),
-  flooding = list(var = "demos_extreme_weather_flooding_w1", label = "Experienced Flooding"),
-  drought = list(var = "demos_extreme_weather_drought_w1", label = "Experienced Drought"),
-  coastal_storm = list(var = "demos_extreme_weather_coastalsto_w1", label = "Experienced Coastal Storm"),
-  other_extreme = list(var = "demos_extreme_weather_otherextre_w1", label = "Experienced Other Extreme Weather"),
-  severe_heat = list(var = "demos_extreme_weather_severeheat_w1", label = "Experienced Severe Heat")
+  hospitalized = list(var = "demos_hospitalized_w1", label = "Has ever been hospitalized"),
+  chronic = list(var = "demos_chronic_conditions_w1", label = "Has chronic conditions"),
+  heat_sensitive = list(var = "demos_heat_sensitivity_w1", label = "Is sensitive to severe heat"),
+  severe_heat = list(var = "demos_extreme_weather_severeheat_w1", label = "Experienced severe heat"),
+  wildfire = list(var = "demos_extreme_weather_wildfire_w1", label = "Experienced wildfire"),
+  flooding = list(var = "demos_extreme_weather_flooding_w1", label = "Experienced flooding"),
+  drought = list(var = "demos_extreme_weather_drought_w1", label = "Experienced drought"),
+  coastal_storm = list(var = "demos_extreme_weather_coastalsto_w1", label = "Experienced coastal storm"),
+  other_extreme = list(var = "demos_extreme_weather_otherextre_w1", label = "Experienced other extreme weather")
+
 )
 
 # Function to process variable list and create summary rows
@@ -184,21 +185,21 @@ process_vars <- function(var_list, section_name) {
     Summary = character(),
     stringsAsFactors = FALSE
   )
-  
+
   # Add section header as a clean row
   rows <- rbind(rows, data.frame(
     Label = paste0('<span style="font-weight: 700; color: #1976d2; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px;">', section_name, '</span>'),
     Summary = '',
     stringsAsFactors = FALSE
   ))
-  
+
   # Add separator line after header
   rows <- rbind(rows, data.frame(
     Label = '<hr style="margin: 4px 0; border: none; border-top: 2px solid #e3f2fd;">',
     Summary = '<hr style="margin: 4px 0; border: none; border-top: 2px solid #e3f2fd;">',
     stringsAsFactors = FALSE
   ))
-  
+
   for (item in var_list) {
     if (item$var %in% names(dt)) {
       if (is.numeric(dt[[item$var]])) {
@@ -209,7 +210,7 @@ process_vars <- function(var_list, section_name) {
       } else {
         summary_text <- "Variable type not supported"
       }
-      
+
       rows <- rbind(rows, data.frame(
         Label = item$label,
         Summary = summary_text,
@@ -217,7 +218,7 @@ process_vars <- function(var_list, section_name) {
       ))
     }
   }
-  
+
   return(rows)
 }
 
@@ -251,7 +252,7 @@ build_html_table <- function(data) {
   # Start table
   html <- '<table class="gmisc_table" style="width: 100%; text-align: left; border-collapse: collapse; font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif; font-size: 14px; line-height: 1.5; border: 1px solid #dee2e6;">'
   html <- paste0(html, '<tbody>')
-  
+
   # Add rows
   for (i in 1:nrow(data)) {
     html <- paste0(html, '<tr>')
@@ -259,13 +260,12 @@ build_html_table <- function(data) {
     html <- paste0(html, '<td style="padding: 8px 12px; text-align: left; vertical-align: top; width: 65%;">', data$Summary[i], '</td>')
     html <- paste0(html, '</tr>')
   }
-  
+
   html <- paste0(html, '</tbody>')
-  
+
   # Add footer
   html <- paste0(html, '<tfoot><tr><td colspan="2" style="font-size: 12px; color: #6c757d; font-style: italic; padding: 12px; background-color: #f8f9fa; border-top: 1px solid #dee2e6;">',
-                 'Percentages may not sum to 100 due to rounding. Data collected ', format(Sys.Date(), "%B %Y"), '.</td></tr></tfoot>')
-  
+                 'Percentages may not sum to 100 due to rounding.</td></tr></tfoot>')
   html <- paste0(html, '</table>')
   return(html)
 }
@@ -273,7 +273,10 @@ build_html_table <- function(data) {
 # Create HTML output
 html_output <- paste0(
   css_string,
-  '<h2 style="font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif; color: #212529; margin-bottom: 16px;">Participant Demographics <span style="font-weight: normal; font-size: 16px; color: #6c757d;">(N = ', format(nrow(dt), big.mark = ","), ')</span></h2>',
+  '<h2 style="font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif; color: #212529; margin-bottom: 8px;">Participant Demographics <span style="font-weight: normal; font-size: 16px; color: #6c757d;">(N = ', format(nrow(dt), big.mark = ","), ')</span></h2>',
+  '<p style="font-family: -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, \'Helvetica Neue\', Arial, sans-serif; font-size: 14px; color: #6c757d; margin-bottom: 16px; line-height: 1.5;">',
+  'Percentages are shown for yes/no questions and categories. Averages are shown for numeric measures like age and income.',
+  '</p>',
   build_html_table(all_rows)
 )
 

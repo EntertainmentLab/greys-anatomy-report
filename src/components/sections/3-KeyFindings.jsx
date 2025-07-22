@@ -6,7 +6,7 @@ import ClimateTemporalChart from '../charts/3.6-ClimateTemporalChart'
 import AMEChart1 from '../charts/3.1-AMEChart1'
 import AMEChart2 from '../charts/3.2-AMEChart2'
 import AMEChart3 from '../charts/3.3-AMEChart3'
-// import AMEChartDumbbellSimple from './AMEChartDumbbellSimple'
+import AMEChartDumbbellSimple from '../x-OldCharts/AMEChartDumbbellSimple'
 
 function KeyFindings() {
   return (
@@ -26,10 +26,10 @@ function KeyFindings() {
       </h3> */}
       <AMEChart1 />
       <AMEChart2 />
-      {/* <h3>
+      <h3>
         [Option 3 of Key Findings]
       </h3>
-      <AMEChartDumbbellSimple /> */}
+      <AMEChartDumbbellSimple />
       <h3>
         Knowledge of Heat Wave Health Impacts
       </h3>
@@ -134,6 +134,12 @@ function KeyFindings() {
           onClick={() => window.open('https://osf.io/uv9x3', '_blank', 'noopener,noreferrer')}
         >
           OSF Preregistration
+        </button>
+                <button
+          className="btn btn-secondary btn-md"
+          onClick={() => window.open(`${import.meta.env.BASE_URL}html/demographic_summary.html`, '_blank', 'noopener,noreferrer')}
+        >
+          Summary of Demographic Data
         </button>
       </div>
 

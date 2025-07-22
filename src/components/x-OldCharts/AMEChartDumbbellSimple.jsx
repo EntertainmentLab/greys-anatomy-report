@@ -3,7 +3,7 @@ import { useEnhancedChart } from '../base/EnhancedChart'
 import { useAMEData } from '../../hooks/useAMEData'
 import { WAVE_LABELS } from '../../constants'
 import SurveyItemsPopup from '../infographics/SurveyItemsPopup'
-import WaveToggle from '../WaveToggle'
+import WaveToggle from '../ui/WaveToggle'
 // CSS imported via main.css
 
 function AMEChartDumbbellSimple() {
