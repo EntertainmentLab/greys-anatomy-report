@@ -253,30 +253,7 @@
   transform: none;
 }
 
-.chart-container {
-  /* Enhanced chart container styling */
-  background: var(--color-surface);
-  border-radius: var(--border-radius-lg);
-  padding: 16px;
-  margin: 16px auto 16px auto;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  overflow-x: auto;
-  overflow-y: hidden;
-  width: 100%;
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 300px;
-}
-
-.chart-container svg {
-  width: 100%;
-  height: auto;
-  display: block;
-  max-width: 100%;
-}
+/* Chart container styles now in chart-base.css */
 
 /* Add styling for wrapped y-axis labels */
 .y-axis-label tspan {
@@ -310,18 +287,7 @@
     padding: 16px;
   }
   
-  .chart-container {
-    padding: 12px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    min-height: 350px;
-  }
-  
-  .chart-container svg {
-    width: 100%;
-    height: auto;
-    min-width: 500px;
-  }
+  /* Chart container mobile styles now in chart-base.css */
   
   .political-party-controls, .policy-type-controls {
     flex-direction: column;

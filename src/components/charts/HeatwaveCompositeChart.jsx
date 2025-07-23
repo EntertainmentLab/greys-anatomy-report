@@ -1,5 +1,5 @@
-import { useRef } from 'react'
-import { useHeatwaveCompositeData } from '../../hooks/useHeatwaveCompositeData'
+import { useRef, useState, useMemo } from 'react'
+import { useHeatwaveCompositeData, useHeatwaveConstructsData } from '../../hooks/useHeatwaveCompositeData'
 import { COLOR_MAP } from '../../constants'
 import { useTemporalChart } from '../base/TemporalChart'
 // CSS imported via main.css
@@ -19,33 +19,98 @@ const WAVE_MAPPING = {
 };
 
 function HeatwaveCompositeChart() {
-  const { heatwaveCompositeData, loading, error } = useHeatwaveCompositeData()
+  const { heatwaveCompositeData, loading: compositeLoading, error: compositeError } = useHeatwaveCompositeData()
+  const { heatwaveConstructsData, loading: constructsLoading, error: constructsError } = useHeatwaveConstructsData()
   const svgRef = useRef()
+  const [selectedConstruct, setSelectedConstruct] = useState('overall')
+
+  // Get unique constructs for dropdown
+  const constructOptions = useMemo(() => {
+    if (!heatwaveConstructsData || heatwaveConstructsData.length === 0) return []
+    
+    const uniqueConstructs = [...new Set(heatwaveConstructsData.map(d => d.construct))]
+    return uniqueConstructs.map(construct => {
+      const item = heatwaveConstructsData.find(d => d.construct === construct)
+      return {
+        value: construct,
+        label: item.construct_label
+      }
+    })
+  }, [heatwaveConstructsData])
+
+  // Filter data based on selected construct
+  const displayData = useMemo(() => {
+    if (selectedConstruct === 'overall') {
+      return heatwaveCompositeData
+    }
+    return heatwaveConstructsData?.filter(d => d.construct === selectedConstruct) || []
+  }, [selectedConstruct, heatwaveCompositeData, heatwaveConstructsData])
+
+  // Get appropriate title and subtitle
+  const chartConfig = useMemo(() => {
+    if (selectedConstruct === 'overall') {
+      return {
+        title: "Impact of Heat Wave Content Over Time",
+        subtitle: "Average change from baseline across heat wave measures (standardized)",
+        yAxisLabel: "Change from Baseline"
+      }
+    }
+    
+    const constructInfo = constructOptions.find(c => c.value === selectedConstruct)
+    return {
+      title: constructInfo?.label || "Heat Wave Content Impact",
+      subtitle: "Change from baseline across experimental conditions",
+      yAxisLabel: "Change from Baseline"
+    }
+  }, [selectedConstruct, constructOptions])
 
   // Debug logs
-  console.log("Heatwave composite data available:", heatwaveCompositeData?.length || 0);
+  console.log("Selected construct:", selectedConstruct);
+  console.log("Display data available:", displayData?.length || 0);
 
   useTemporalChart({
     svgRef,
-    data: heatwaveCompositeData,
-    title: "Impact of Heat Wave Content Over Time",
-    subtitle: "Average of perceived likelihood of heat wave exposure, threat severity, health impact, and knowledge",
-    yAxisLabel: "Composite Score",
+    data: displayData,
+    title: chartConfig.title,
+    subtitle: chartConfig.subtitle,
+    yAxisLabel: chartConfig.yAxisLabel,
     conditions: HEATWAVE_CONDITIONS,
     waveMapping: WAVE_MAPPING,
-    tooltipUnit: "", // No unit for composite score
+    tooltipUnit: "", // No unit for absolute change
+    valueFormatter: (d) => d.toFixed(3), // Format to 3 decimal places
     // Remove yDomain to let the component calculate it automatically
   })
 
-  if (loading) return <div className="loading">Loading heatwave composite data...</div>
+  const loading = compositeLoading || constructsLoading
+  const error = compositeError || constructsError
+
+  if (loading) return <div className="loading">Loading heatwave data...</div>
   if (error) return <div className="error">Error loading data: {error}</div>
-  if (!heatwaveCompositeData || heatwaveCompositeData.length === 0) {
-    return <div className="loading">No heatwave composite data available...</div>
+  if (!displayData || displayData.length === 0) {
+    return <div className="loading">No heatwave data available...</div>
   }
 
   return (
     <div className="heatwave-composite-container">
-      {/* Remove both political party and wave controls - this chart shows temporal progression */}
+      {/* Dropdown menu for construct selection */}
+      <div className="controls-container">
+        <div className="control-group">
+          <label htmlFor="construct-select">Select Measure:</label>
+          <select 
+            id="construct-select"
+            value={selectedConstruct} 
+            onChange={(e) => setSelectedConstruct(e.target.value)}
+            className="construct-dropdown"
+          >
+            <option value="overall">Overall (Composite Score)</option>
+            {constructOptions.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
       
       <div className="chart-container">
         <svg ref={svgRef}></svg>

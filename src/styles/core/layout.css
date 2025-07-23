@@ -76,9 +76,7 @@
   box-shadow: var(--shadow-sm);
 }
 
-.chart-container {
-  padding: var(--spacing-md);
-}
+/* Chart container styles now in chart-base.css */
 
 /* ============================================
    LOADING & ERROR STATES 
@@ -141,7 +139,5 @@
     margin: var(--spacing-sm) 0;
   }
   
-  .chart-container {
-    padding: var(--spacing-sm);
-  }
+  /* Chart container responsive styles now in chart-base.css */
 }

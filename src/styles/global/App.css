@@ -8,6 +8,7 @@
   max-width: 62.5rem;
   margin: 0 auto;
   padding: 2.5rem;
+  padding-top: 0;
   margin-bottom: 50px; /* Space before footer */
   line-height: 1.7;
   color: var(--color-text);

@@ -4,15 +4,15 @@
     "wave_label": "Baseline (7 Days Before)",
     "condition": "Heat Wave",
     "mean": 0.01,
-    "se": 0.023,
+    "se": 0.021,
     "n": 1060
   },
   {
     "wave": 1,
     "wave_label": "Baseline (7 Days Before)",
     "condition": "Multiplatform Group",
-    "mean": -0,
-    "se": 0.023,
+    "mean": 0,
+    "se": 0.021,
     "n": 1021
   },
   {
@@ -20,55 +20,55 @@
     "wave_label": "Baseline (7 Days Before)",
     "condition": "Control",
     "mean": -0.01,
-    "se": 0.024,
+    "se": 0.022,
     "n": 967
   },
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
     "condition": "Heat Wave",
-    "mean": 0.54,
-    "se": 0.024,
+    "mean": 0.47,
+    "se": 0.021,
     "n": 1060
   },
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
     "condition": "Multiplatform Group",
-    "mean": 0.61,
-    "se": 0.024,
+    "mean": 0.56,
+    "se": 0.022,
     "n": 1021
   },
   {
     "wave": 2,
     "wave_label": "Immediately After Viewing",
     "condition": "Control",
-    "mean": 0.1,
-    "se": 0.025,
+    "mean": 0.12,
+    "se": 0.023,
     "n": 967
   },
   {
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Heat Wave",
-    "mean": 0.45,
-    "se": 0.025,
+    "mean": 0.42,
+    "se": 0.022,
     "n": 1060
   },
   {
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Multiplatform Group",
-    "mean": 0.46,
-    "se": 0.026,
+    "mean": 0.43,
+    "se": 0.023,
     "n": 1021
   },
   {
     "wave": 3,
     "wave_label": "15 Days Later",
     "condition": "Control",
-    "mean": 0.2,
-    "se": 0.025,
+    "mean": 0.21,
+    "se": 0.023,
     "n": 967
   }
 ]

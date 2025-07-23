@@ -1,7 +1,4 @@
-.chart-container {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
+/* Chart container styles now in chart-base.css */
 
 .health-worry-container,
 .system-impacts-container {
@@ -87,16 +84,7 @@
     font-size: 0.8rem;
   }
   
-  .chart-container {
-    overflow-x: auto;
-    overflow-y: hidden;
-  }
-  
-  .chart-container svg {
-    min-width: 300px;
-    width: 100%;
-    height: auto;
-  }
+  /* Chart container responsive styles now in chart-base.css */
 }
 
 @media (max-width: 480px) {

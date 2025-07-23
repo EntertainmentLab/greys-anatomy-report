@@ -1,0 +1,362 @@
+[
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Control",
+    "mean": 0,
+    "se": 0.958,
+    "n": 967
+  },
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Multiplatform Group",
+    "mean": 0,
+    "se": 0.89,
+    "n": 1021
+  },
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Heat Wave",
+    "mean": 0,
+    "se": 0.884,
+    "n": 1060
+  },
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Control",
+    "mean": 6.096,
+    "se": 0.932,
+    "n": 967
+  },
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Multiplatform Group",
+    "mean": 11.322,
+    "se": 0.849,
+    "n": 1021
+  },
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heat Wave",
+    "mean": 7.722,
+    "se": 0.838,
+    "n": 1060
+  },
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Control",
+    "mean": 7.689,
+    "se": 0.911,
+    "n": 967
+  },
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Multiplatform Group",
+    "mean": 9.104,
+    "se": 0.858,
+    "n": 1021
+  },
+  {
+    "construct": "heatwave_likelihood",
+    "construct_label": "Perceived Likelihood of Heat Wave Exposure",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heat Wave",
+    "mean": 8.118,
+    "se": 0.84,
+    "n": 1060
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Control",
+    "mean": 0,
+    "se": 0.024,
+    "n": 967
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Multiplatform Group",
+    "mean": 0,
+    "se": 0.024,
+    "n": 1021
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Heat Wave",
+    "mean": 0,
+    "se": 0.023,
+    "n": 1060
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Control",
+    "mean": 0.02,
+    "se": 0.024,
+    "n": 967
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Multiplatform Group",
+    "mean": 0.276,
+    "se": 0.024,
+    "n": 1021
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heat Wave",
+    "mean": 0.179,
+    "se": 0.023,
+    "n": 1060
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Control",
+    "mean": 0.093,
+    "se": 0.024,
+    "n": 967
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Multiplatform Group",
+    "mean": 0.155,
+    "se": 0.024,
+    "n": 1021
+  },
+  {
+    "construct": "threat_severity",
+    "construct_label": "Threat Severity",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heat Wave",
+    "mean": 0.141,
+    "se": 0.024,
+    "n": 1060
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Control",
+    "mean": 0,
+    "se": 0.017,
+    "n": 967
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Multiplatform Group",
+    "mean": 0,
+    "se": 0.016,
+    "n": 1021
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Heat Wave",
+    "mean": 0,
+    "se": 0.016,
+    "n": 1060
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Control",
+    "mean": 0.088,
+    "se": 0.017,
+    "n": 967
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Multiplatform Group",
+    "mean": 0.393,
+    "se": 0.018,
+    "n": 1021
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heat Wave",
+    "mean": 0.359,
+    "se": 0.017,
+    "n": 1060
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Control",
+    "mean": 0.114,
+    "se": 0.018,
+    "n": 967
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Multiplatform Group",
+    "mean": 0.286,
+    "se": 0.018,
+    "n": 1021
+  },
+  {
+    "construct": "health_impact",
+    "construct_label": "Health Impact Concerns",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heat Wave",
+    "mean": 0.264,
+    "se": 0.017,
+    "n": 1060
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Control",
+    "mean": 0,
+    "se": 0.003,
+    "n": 967
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Multiplatform Group",
+    "mean": 0,
+    "se": 0.003,
+    "n": 1021
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 1,
+    "wave_label": "Baseline (7 Days Before)",
+    "condition": "Heat Wave",
+    "mean": 0,
+    "se": 0.003,
+    "n": 1060
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Control",
+    "mean": 0.011,
+    "se": 0.003,
+    "n": 967
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Multiplatform Group",
+    "mean": 0.071,
+    "se": 0.002,
+    "n": 1021
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 2,
+    "wave_label": "Immediately After Viewing",
+    "condition": "Heat Wave",
+    "mean": 0.062,
+    "se": 0.002,
+    "n": 1060
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Control",
+    "mean": 0.029,
+    "se": 0.003,
+    "n": 967
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Multiplatform Group",
+    "mean": 0.064,
+    "se": 0.003,
+    "n": 1021
+  },
+  {
+    "construct": "knowledge",
+    "construct_label": "Heat Wave Knowledge",
+    "wave": 3,
+    "wave_label": "15 Days Later",
+    "condition": "Heat Wave",
+    "mean": 0.062,
+    "se": 0.003,
+    "n": 1060
+  }
+]

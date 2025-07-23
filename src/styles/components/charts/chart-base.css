@@ -9,6 +9,65 @@
   margin: var(--spacing-xl) 0;
 }
 
+/* ============================================
+   CHART CONTAINER - UNIFIED STYLES
+   ============================================ */
+
+.chart-container {
+  /* Core container styling */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+  
+  /* Flexbox for centering content */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+  /* Overflow handling for responsive charts */
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  
+  /* Minimum dimensions */
+  min-height: 400px;
+}
+
+.chart-container svg {
+  /* SVG specific styling */
+  font-family: var(--font-secondary);
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 100%;
+}
+
+/* Chart container variants */
+.chart-container--elevated {
+  box-shadow: var(--shadow-md);
+}
+
+.chart-container--compact {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  min-height: 300px;
+}
+
+.chart-container--full-width {
+  width: 100%;
+  max-width: none;
+}
+
+/* Chart container wrapper for additional styling */
+.chart-container-wrapper {
+  background: var(--color-surface);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  margin-top: var(--spacing-xl);
+}
+
 .chart-header {
   text-align: center;
   margin-bottom: var(--spacing-lg);
@@ -36,8 +95,52 @@
 .chart-controls {
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 0;
   align-items: center;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-xs);
+  padding: var(--spacing-md);
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.control-group label {
+  font-weight: 600;
+  color: var(--filter-text, #374151);
+  font-size: 0.875rem;
+  margin-right: var(--spacing-xs);
+}
+
+.construct-dropdown {
+  padding: 8px 12px;
+  border: 1px solid var(--filter-border, #e5e7eb);
+  border-radius: var(--border-radius-md);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  font-family: var(--font-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 200px;
+}
+
+.construct-dropdown:hover {
+  border-color: var(--color-primary);
+  background: #f9fafb;
+}
+
+.construct-dropdown:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
 }
 
 .wave-controls {
@@ -151,9 +254,51 @@
    RESPONSIVE ADJUSTMENTS 
    ============================================ */
 
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .chart-container {
+    padding: var(--spacing-md);
+    min-height: 320px;
+  }
+  
+  .chart-container svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Mobile styles */
 @media (max-width: 768px) {
+  .chart-container-wrapper {
+    padding: var(--spacing-md);
+  }
+  
+  .chart-container {
+    padding: var(--spacing-sm);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    min-height: 350px;
+  }
+  
+  .chart-container svg {
+    width: 100%;
+    height: auto;
+    min-width: 380px; /* Ensure readability on mobile */
+  }
+  
   .wave-tab {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: 0.75rem;
+  }
+}
+
+/* Small mobile styles */
+@media (max-width: 480px) {
+  .chart-container {
+    min-height: 320px;
+  }
+  
+  .chart-container svg {
+    min-width: 350px;
   }
 }

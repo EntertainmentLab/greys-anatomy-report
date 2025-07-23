@@ -12,6 +12,8 @@
   font-family: var(--font-primary);
   position: relative;
   z-index: 150; /* Higher than TOC sidebar (100) to prevent overlap */
+  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Removed overlay to keep scuba diver image crisp and not washed out */
@@ -300,6 +302,17 @@ h3.footer-menu-title {
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+  .l-grid--4col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  .footer__menu-column {
+    padding: 0 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .l-footer {
     padding: 40px 0 20px;

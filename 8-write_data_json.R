@@ -462,6 +462,123 @@ calculate_heatwave_composite_stats <- function() {
   return(results)
 }
 
+# Calculate individual heat wave construct data
+calculate_heatwave_constructs_stats <- function() {
+  
+  # Define construct variables and labels
+  constructs <- list(
+    heatwave_likelihood = list(
+      label = "Perceived Likelihood of Heat Wave Exposure",
+      vars = c(w1 = "heatwaves_likelihood_heatwave_w1",
+               w2 = "heatwaves_likelihood_heatwave_w2", 
+               w3 = "heatwaves_likelihood_heatwave_w3")
+    ),
+    threat_severity = list(
+      label = "Threat Severity",
+      vars = c(w1 = "threat_severity_score_w1",
+               w2 = "threat_severity_score_w2",
+               w3 = "threat_severity_score_w3")
+    ),
+    health_impact = list(
+      label = "Health Impact Concerns",
+      vars = c(w1 = "threat_health_impact_score_w1",
+               w2 = "threat_health_impact_score_w2",
+               w3 = "threat_health_impact_score_w3")
+    ),
+    knowledge = list(
+      label = "Heat Wave Knowledge",
+      vars = c(w1 = "impact_knowledge_score_w1",
+               w2 = "impact_knowledge_score_w2",
+               w3 = "impact_knowledge_score_w3")
+    )
+  )
+  
+  condition_var <- "condition_w2"
+  
+  # Create condition labels
+  condition_labels <- c(
+    "control" = "Control",
+    "treatment" = "Heat Wave",
+    "handoff" = "Multiplatform Group"
+  )
+  
+  # Wave labels
+  wave_labels <- c(
+    "1" = "Baseline (7 Days Before)",
+    "2" = "Immediately After Viewing", 
+    "3" = "15 Days Later"
+  )
+  
+  results <- list()
+  
+  # Process each construct
+  for (construct_name in names(constructs)) {
+    construct <- constructs[[construct_name]]
+    
+    # Get baseline variable
+    w1_var <- construct$vars[["w1"]]
+    if (!w1_var %in% names(dt)) {
+      cat("Warning: Baseline variable", w1_var, "not found\n")
+      next
+    }
+    
+    # Calculate baseline means for each condition
+    baseline_means <- dt[!is.na(get(w1_var)) & !is.na(get(condition_var)),
+      .(baseline_mean = mean(get(w1_var), na.rm = TRUE)),
+      by = condition_var]
+    setnames(baseline_means, condition_var, "condition")
+    
+    # Process each wave
+    for (wave_name in names(construct$vars)) {
+      wave_num <- as.numeric(gsub("w", "", wave_name))
+      var_name <- construct$vars[[wave_name]]
+      
+      # Check if variable exists
+      if (!var_name %in% names(dt)) {
+        cat("Warning: Variable", var_name, "not found\n")
+        next
+      }
+      
+      # Calculate means by condition
+      dt_sub <- dt[!is.na(get(var_name)) & !is.na(get(condition_var))]
+      
+      stats <- dt_sub[,
+        .(current_mean = mean(get(var_name), na.rm = TRUE),
+          current_sd = sd(get(var_name), na.rm = TRUE),
+          n = .N),
+        by = condition_var]
+      
+      setnames(stats, condition_var, "condition")
+      
+      # Merge with baseline means
+      stats <- merge(stats, baseline_means, by = "condition")
+      
+      # Calculate absolute change from baseline
+      # For Wave 1, this will be 0 by definition
+      stats[, abs_change := current_mean - baseline_mean]
+      
+      # Standard error remains the same for absolute change
+      stats[, abs_se := current_sd / sqrt(n)]
+      
+      # Create records for each condition
+      for (i in 1:nrow(stats)) {
+        results[[length(results) + 1]] <- list(
+          construct = construct_name,
+          construct_label = construct$label,
+          wave = wave_num,
+          wave_label = wave_labels[as.character(wave_num)],
+          condition = condition_labels[stats$condition[i]],
+          mean = round(stats$abs_change[i], 3),  # 3 decimal places for precision
+          se = round(stats$abs_se[i], 3),
+          n = stats$n[i]
+        )
+      }
+    }
+  }
+  
+  return(results)
+}
+
 # Calculate climate temporal proximity belief change data
 calculate_climate_belief_change_stats <- function() {
   
@@ -663,6 +780,9 @@ climate_belief_change_data <- calculate_climate_belief_change_stats()
 cat("Calculating HeatWave Composite Score data...\n")
 heatwave_composite_data <- calculate_heatwave_composite_stats()
 
+cat("Calculating individual heat wave construct data...\n")
+heatwave_constructs_data <- calculate_heatwave_constructs_stats()
+
 # Write individual files for React app
 write_json(all_knowledge, "public/data-knowledge.json",
            pretty = TRUE, auto_unbox = FALSE)
@@ -686,6 +806,10 @@ write_json(climate_belief_change_data, "public/data-climate-belief-change.json",
 
 # Write HeatWave Composite Score data
 write_json(heatwave_composite_data, "public/data/data-heatwave-composite.json",
+           pretty = TRUE, auto_unbox = TRUE)
+
+# Write individual heat wave construct data
+write_json(heatwave_constructs_data, "public/data/data-heatwave-constructs.json",
            pretty = TRUE, auto_unbox = TRUE)
 
 

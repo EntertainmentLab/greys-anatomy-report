@@ -22,6 +22,7 @@ html {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--color-background);
   color: var(--color-text-primary);
+  overflow-x: hidden;
 }
 
 body {
@@ -31,6 +32,8 @@ body {
   color: var(--color-text) !important;
   min-height: 100vh;
   line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* Media defaults */

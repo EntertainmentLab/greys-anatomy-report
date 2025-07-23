@@ -141,10 +141,23 @@ export const useTemporalChart = ({
       const dataMax = Math.max(...allMeans);
       console.log("Data min:", dataMin, "Data max:", dataMax);
       
-      // Use exact data bounds with minimal padding
-      yMin = dataMin - 0.3; // Small padding below minimum
-      yMax = dataMax + 0.3; // Small padding above maximum
-      console.log("Calculated yMin:", yMin, "yMax:", yMax);
+      // Use proportional padding based on data range
+      const dataRange = dataMax - dataMin;
+      const paddingPercent = 0.1; // 10% padding
+      const minPadding = 0.01; // Minimum padding for very small ranges
+      const maxPadding = 0.5; // Maximum padding for very large ranges
+      
+      let padding = Math.max(minPadding, Math.min(maxPadding, dataRange * paddingPercent));
+      
+      // Special case: if data starts at 0 and range is small, don't go negative
+      if (dataMin >= 0 && dataRange < 0.5) {
+        yMin = Math.max(0, dataMin - padding);
+      } else {
+        yMin = dataMin - padding;
+      }
+      yMax = dataMax + padding;
+      
+      console.log("Data range:", dataRange, "Padding:", padding, "Calculated yMin:", yMin, "yMax:", yMax);
     }
 
     const yScale = d3.scaleLinear()
