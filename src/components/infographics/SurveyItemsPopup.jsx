@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { createPortal } from 'react-dom'
 import { useScrollLock } from '../../utils/scrollLock'
 // CSS imported via main.css
@@ -113,6 +114,17 @@ const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
     </div>,
     document.body
   )
+}
+
+SurveyItemsPopup.propTypes = {
+  /** Whether the popup is open */
+  isOpen: PropTypes.bool.isRequired,
+  
+  /** Function to call when closing popup */
+  onClose: PropTypes.func.isRequired,
+  
+  /** Name of the construct to display */
+  constructName: PropTypes.string.isRequired
 }
 
 export default SurveyItemsPopup

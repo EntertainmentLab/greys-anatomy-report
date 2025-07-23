@@ -90,68 +90,47 @@ function BaseAMEChart({
   }
 
   return (
-    <div className={`chart-container ${className}`} {...containerProps}>
-      {/* Chart Header */}
-      <div className="chart-container__header">
-        <div>
-          {title && (
-            <h3 className="chart-container__title">{title}</h3>
-          )}
-          {subtitle && (
-            <p className="chart-container__subtitle">{subtitle}</p>
-          )}
-        </div>
-        
-        {/* Wave Controls */}
-        {showWaveControls && (
-          <div className="chart-container__controls">
-            <div className="wave-controls">
-              {Object.entries(WAVE_LABELS).map(([waveKey, waveLabel]) => (
-                <button
-                  key={waveKey}
-                  className={`wave-controls__tab ${currentWave === waveLabel ? 'wave-controls__tab--active' : ''}`}
-                  onClick={() => handleWaveChange(waveLabel)}
-                  aria-pressed={currentWave === waveLabel}
-                >
-                  {waveLabel}
-                </button>
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Description */}
-      {description && (
-        <div className="chart-container__description">
-          <p>{description}</p>
+    <div className={`ame-chart-wrapper ${className}`} {...containerProps}>
+      {/* Wave Controls */}
+      {showWaveControls && (
+        <div className="wave-controls">
+          <button 
+            className={`wave-tab ${currentWave === "Immediate" ? 'active' : ''}`}
+            onClick={() => handleWaveChange("Immediate")}
+          >
+            {WAVE_LABELS[2]}
+          </button>
+          <button 
+            className={`wave-tab ${currentWave === "15 Days" ? 'active' : ''}`}
+            onClick={() => handleWaveChange("15 Days")}
+          >
+            {WAVE_LABELS[3]}
+          </button>
         </div>
       )}
-
-      {/* Chart Body */}
-      <div className="chart-container__body">
-        {chartData.length > 0 ? (
-          <AMEBarChart
-            data={chartData}
-            currentWave={currentWave}
-            previousWaveData={previousWaveData.current}
-            previousWave={previousWave.current}
-            onSurveyItemClick={handleSurveyItemClick}
-            outcomeMapping={outcomeMapping}
-          />
-        ) : (
-          <div className="loading-container">
-            <p className="loading-container__text">No data available for {currentWave}</p>
-          </div>
-        )}
-      </div>
+      
+      {/* Chart */}
+      {chartData.length > 0 ? (
+        <AMEBarChart
+          data={chartData}
+          previousData={previousWaveData.current}
+          title={title}
+          subtitle={subtitle ? `${subtitle} (${WAVE_LABELS[currentWave === "Immediate" ? 2 : 3]})` : undefined}
+          maxValue={0.8}
+          onOutcomeClick={handleSurveyItemClick}
+        />
+      ) : (
+        <div className="loading-container">
+          <p className="loading-container__text">No data available for {currentWave}</p>
+        </div>
+      )}
 
       {/* Survey Items Popup */}
       {surveyPopupOpen && (
         <SurveyItemsPopup
           isOpen={surveyPopupOpen}
           onClose={closeSurveyPopup}
-          construct={selectedConstruct}
+          constructName={selectedConstruct}
         />
       )}
     </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 // CSS imported via main.css
 
 const WaveToggle = ({ currentWave, onWaveChange, className = '' }) => {
@@ -15,6 +16,17 @@ const WaveToggle = ({ currentWave, onWaveChange, className = '' }) => {
       </div>
     </div>
   )
+}
+
+WaveToggle.propTypes = {
+  /** Current wave value */
+  currentWave: PropTypes.string.isRequired,
+  
+  /** Function to call when wave changes */
+  onWaveChange: PropTypes.func.isRequired,
+  
+  /** Additional CSS class names */
+  className: PropTypes.string
 }
 
 export default WaveToggle

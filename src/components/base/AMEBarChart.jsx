@@ -1,4 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import * as d3 from 'd3'
 import { getBarColor, formatTooltip, getEffectSize } from '../../utils/ameChartUtils'
 import { COLOR_MAP, CONDITION_LABELS } from '../../constants'
@@ -23,6 +24,7 @@ const AMEBarChart = ({
 
   // Text wrapping utility function
   const wrapText = (text, maxWidth, fontSize = 12) => {
+    if (!text || typeof text !== 'string') return ['']
     const words = text.split(' ')
     const lines = []
     let currentLine = words[0]
@@ -560,6 +562,26 @@ const AMEBarChart = ({
       </div>
     </div>
   )
+}
+
+AMEBarChart.propTypes = {
+  /** Array of chart data objects */
+  data: PropTypes.array.isRequired,
+  
+  /** Previous wave data for comparison */
+  previousData: PropTypes.array,
+  
+  /** Chart title */
+  title: PropTypes.string,
+  
+  /** Chart subtitle */
+  subtitle: PropTypes.string,
+  
+  /** Maximum value for chart scale */
+  maxValue: PropTypes.number,
+  
+  /** Callback when outcome is clicked */
+  onOutcomeClick: PropTypes.func
 }
 
 export default AMEBarChart
