@@ -21,15 +21,7 @@ function FullReportCollapse({ children, onToggle, forceExpanded = false }) {
       onToggle(newExpanded)
     }
     
-    // Scroll to the sections when expanding
-    if (newExpanded && sectionsRef.current) {
-      setTimeout(() => {
-        sectionsRef.current.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        })
-      }, 100) // Small delay to ensure DOM updates
-    }
+    // No automatic scrolling - let content unfold naturally in place
   }
 
   return (
