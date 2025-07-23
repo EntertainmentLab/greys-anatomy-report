@@ -193,7 +193,7 @@
   }
   
   .experimental-conditions-infographic {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1rem;
     padding: 0 1rem;
   }
