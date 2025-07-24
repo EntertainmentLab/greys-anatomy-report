@@ -1138,5 +1138,47 @@ export const useEnhancedChart = ({
         .style("opacity", 1);
     }
 
+    // Add legend at the bottom - add to SVG root, not chart group
+    let legend = svg.select('.legend');
+    if (legend.empty()) {
+      const legendData = [
+        { label: CONDITION_LABELS.treatment, color: COLOR_MAP.treatment },
+        { label: CONDITION_LABELS.handoff, color: COLOR_MAP.handoff }
+      ];
+
+      legend = svg.append('g')
+        .attr('class', 'legend')
+        .attr('transform', `translate(${margin.left + width / 2}, ${legendY})`);
+
+      const legendItemWidth = isMobile ? 160 : 200; // Increased spacing
+      const totalLegendWidth = legendData.length * legendItemWidth;
+      const startX = -totalLegendWidth / 2;
+
+      const legendItems = legend.selectAll('.legend-item')
+        .data(legendData)
+        .enter()
+        .append('g')
+        .attr('class', 'legend-item')
+        .attr('transform', (d, i) => `translate(${startX + (i * legendItemWidth)}, 0)`);
+
+      // Add circles for both legend items (dumbbell charts show dots)
+      legendItems.append('circle')
+        .attr('cx', isMobile ? 8 : 10)
+        .attr('cy', isMobile ? 8 : 10)
+        .attr('r', isMobile ? 6 : 8)
+        .style('fill', d => d.color)
+        .style('stroke', '#374151')
+        .style('stroke-width', 1);
+
+      legendItems.append('text')
+        .attr('x', isMobile ? 20 : 25)
+        .attr('y', isMobile ? 12 : 15)
+        .style('font-family', 'Roboto Condensed, sans-serif')
+        .style('font-size', isMobile ? '12px' : '14px')
+        .style('font-weight', '500')
+        .style('fill', '#374151')
+        .text(d => d.label);
+    }
+
   }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues, onYAxisLabelClick, toggleRef]);
 };

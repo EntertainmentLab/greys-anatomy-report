@@ -1,17 +1,3 @@
-.chart-container-wrapper {
-  /* Use shared card styling with enhanced spacing */
-  background: var(--color-surface);
-  border-radius: var(--border-radius-lg);
-  padding: 24px;
-  margin-top: var(--spacing-xl);
-  margin-bottom: 32px;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  width: 100%;
-  max-width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 .political-party-controls, .policy-type-controls {
   /* Use shared toggle button container styling */
@@ -182,76 +168,6 @@
   backdrop-filter: none;
 }
 
-.wave-tab {
-  /* Modern toggle button styling */
-  padding: 14px 28px;
-  border: none;
-  background: transparent;
-  color: #64748b;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: var(--font-primary);
-  white-space: nowrap;
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-  letter-spacing: -0.025em;
-}
-
-.wave-controls.embedded .wave-tab {
-  /* Embedded wave tab styling - subtle and integrated */
-  padding: 8px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: #6b7280;
-  border-radius: 6px;
-  margin: 0 4px;
-}
-
-.wave-tab:first-child {
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-}
-
-.wave-tab:last-child {
-  border-top-right-radius: 12px;
-  border-bottom-right-radius: 12px;
-}
-
-.wave-tab:hover {
-  background: rgba(59, 130, 246, 0.1);
-  color: #3b82f6;
-  transform: translateY(-1px);
-  z-index: 1;
-}
-
-.wave-tab.active {
-  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-  color: white;
-  font-weight: 700;
-  box-shadow: 
-    0 4px 12px rgba(59, 130, 246, 0.4),
-    0 2px 4px rgba(59, 130, 246, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-1px);
-  z-index: 2;
-}
-
-.wave-controls.embedded .wave-tab:hover {
-  background: rgba(59, 130, 246, 0.08);
-  color: #3b82f6;
-  transform: none;
-}
-
-.wave-controls.embedded .wave-tab.active {
-  background: rgba(59, 130, 246, 0.15);
-  color: #1d4ed8;
-  font-weight: 600;
-  box-shadow: none;
-  transform: none;
-}
 
 /* Chart container styles now in chart-base.css */
 
@@ -276,16 +192,9 @@
     margin-bottom: 20px;
   }
   
-  .wave-tab {
-    padding: 12px 24px;
-    font-size: 0.85rem;
-  }
 }
 
 @media (max-width: 768px) {
-  .chart-container-wrapper {
-    padding: 16px;
-  }
   
   /* Chart container mobile styles now in chart-base.css */
   
@@ -312,11 +221,6 @@
     margin-bottom: 16px;
   }
   
-  .wave-tab {
-    padding: 12px 20px;
-    font-size: 0.85rem;
-    border-radius: 10px;
-  }
 }
 
 @media (max-width: 480px) {
@@ -336,11 +240,6 @@
     padding: 4px;
   }
   
-  .wave-tab {
-    padding: 10px 16px;
-    font-size: 0.8rem;
-    border-radius: 8px;
-  }
 }
 
 /* Additional styling for AMEChartDumbbell */
@@ -372,30 +271,6 @@
   align-items: center;
 }
 
-.wave-tab {
-  padding: 8px 16px;
-  border: 2px solid #d1d5db;
-  background: white;
-  color: #374151;
-  border-radius: 6px;
-  cursor: pointer;
-  font-weight: 500;
-  font-size: 13px;
-  transition: all 0.2s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.wave-tab:hover {
-  background: #f3f4f6;
-  border-color: #9ca3af;
-}
-
-.wave-tab.active {
-  background: #3b82f6;
-  border-color: #3b82f6;
-  color: white;
-  box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
-}
 
 /* Y-axis labels styling */
 .y-axis-labels {

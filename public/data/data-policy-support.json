@@ -4,6 +4,420 @@
       ["treatment"]
     ],
     "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [74.37]
+    ],
+    "se": [
+      [1.017]
+    ],
+    "n": [
+      [1060]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [76.85]
+    ],
+    "se": [
+      [1.03]
+    ],
+    "n": [
+      [1021]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [70.68]
+    ],
+    "se": [
+      [1.13]
+    ],
+    "n": [
+      [967]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [76.15]
+    ],
+    "se": [
+      [1.03]
+    ],
+    "n": [
+      [1060]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [77.43]
+    ],
+    "se": [
+      [1.023]
+    ],
+    "n": [
+      [1021]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.31]
+    ],
+    "se": [
+      [1.138]
+    ],
+    "n": [
+      [967]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [81.71]
+    ],
+    "se": [
+      [1.157]
+    ],
+    "n": [
+      [473]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [86.06]
+    ],
+    "se": [
+      [1.088]
+    ],
+    "n": [
+      [465]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [80.7]
+    ],
+    "se": [
+      [1.264]
+    ],
+    "n": [
+      [421]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [83.84]
+    ],
+    "se": [
+      [1.162]
+    ],
+    "n": [
+      [473]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [84.95]
+    ],
+    "se": [
+      [1.176]
+    ],
+    "n": [
+      [465]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [82.7]
+    ],
+    "se": [
+      [1.219]
+    ],
+    "n": [
+      [421]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [61.93]
+    ],
+    "se": [
+      [2.875]
+    ],
+    "n": [
+      [189]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [52.1]
+    ],
+    "se": [
+      [3.064]
+    ],
+    "n": [
+      [182]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [62.52]
+    ],
+    "se": [
+      [2.9]
+    ],
+    "n": [
+      [187]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [65.08]
+    ],
+    "se": [
+      [2.949]
+    ],
+    "n": [
+      [189]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [57.81]
+    ],
+    "se": [
+      [3.105]
+    ],
+    "n": [
+      [182]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [61.94]
+    ],
+    "se": [
+      [2.842]
+    ],
+    "n": [
+      [187]
+    ],
+    "wave": [
+      [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
       ["Policy Support Average"]
     ],
     "mean": [
@@ -270,6 +684,420 @@
     ],
     "wave": [
       [2]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [70.65]
+    ],
+    "se": [
+      [1.061]
+    ],
+    "n": [
+      [1060]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [71.81]
+    ],
+    "se": [
+      [1.119]
+    ],
+    "n": [
+      [1021]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [69.82]
+    ],
+    "se": [
+      [1.123]
+    ],
+    "n": [
+      [967]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.53]
+    ],
+    "se": [
+      [1.088]
+    ],
+    "n": [
+      [1060]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.08]
+    ],
+    "se": [
+      [1.139]
+    ],
+    "n": [
+      [1021]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [73.31]
+    ],
+    "se": [
+      [1.092]
+    ],
+    "n": [
+      [967]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Overall"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [79.21]
+    ],
+    "se": [
+      [1.238]
+    ],
+    "n": [
+      [473]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [82.77]
+    ],
+    "se": [
+      [1.143]
+    ],
+    "n": [
+      [465]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [79.49]
+    ],
+    "se": [
+      [1.358]
+    ],
+    "n": [
+      [421]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [82.51]
+    ],
+    "se": [
+      [1.151]
+    ],
+    "n": [
+      [473]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [84.17]
+    ],
+    "se": [
+      [1.176]
+    ],
+    "n": [
+      [465]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [82.57]
+    ],
+    "se": [
+      [1.21]
+    ],
+    "n": [
+      [421]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Democrat"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [56.17]
+    ],
+    "se": [
+      [2.822]
+    ],
+    "n": [
+      [189]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [48.99]
+    ],
+    "se": [
+      [2.878]
+    ],
+    "n": [
+      [182]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Government Investment"]
+    ],
+    "mean": [
+      [49.08]
+    ],
+    "se": [
+      [3.216]
+    ],
+    "n": [
+      [187]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["treatment"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [58.15]
+    ],
+    "se": [
+      [3.063]
+    ],
+    "n": [
+      [189]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["control"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [55.22]
+    ],
+    "se": [
+      [2.869]
+    ],
+    "n": [
+      [182]
+    ],
+    "wave": [
+      [3]
+    ],
+    "political_party": [
+      ["Republican"]
+    ]
+  },
+  {
+    "condition": [
+      ["handoff"]
+    ],
+    "category": [
+      ["Cooling Centers"]
+    ],
+    "mean": [
+      [49.81]
+    ],
+    "se": [
+      [3.285]
+    ],
+    "n": [
+      [187]
+    ],
+    "wave": [
+      [3]
     ],
     "political_party": [
       ["Republican"]

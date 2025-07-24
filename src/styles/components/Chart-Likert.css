@@ -22,35 +22,6 @@
   margin-bottom: 24px;
 }
 
-.wave-tab {
-  /* Use shared toggle button styling */
-  padding: 10px 16px;
-  border: none;
-  border-radius: 4px;
-  font-weight: 500;
-  font-size: 0.875rem;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  background: transparent;
-  color: var(--filter-text);
-  border: 2px solid var(--color-border);
-  background: var(--color-surface);
-}
-
-.wave-tab:hover {
-  color: var(--filter-text-active);
-  background: var(--filter-bg-hover);
-  border-color: #3b82f6;
-}
-
-.wave-tab.active {
-  background: #3b82f6;
-  border-color: #3b82f6;
-  color: white;
-  box-shadow: var(--filter-shadow-active);
-  font-weight: 600;
-  transform: translateY(-1px);
-}
 
 .loading, .error {
   display: flex;
@@ -79,10 +50,6 @@
     margin-bottom: 16px;
   }
   
-  .wave-tab {
-    padding: 8px 16px;
-    font-size: 0.8rem;
-  }
   
   /* Chart container responsive styles now in chart-base.css */
 }
@@ -100,9 +67,4 @@
     gap: 8px;
   }
   
-  .wave-tab {
-    width: 100%;
-    max-width: 200px;
-    padding: 10px;
-  }
 }

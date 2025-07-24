@@ -286,7 +286,71 @@ calculate_policy_support_stats <- function(wave) {
   # Create results list
   results <- list()
 
-  # Calculate average of government investment and cooling centers (overall)
+  # Calculate stats for each individual policy variable (overall)
+  for (var in policy_vars) {
+    # Extract category name from variable name
+    category <- gsub(paste0("policy_support_|_w", wave), "", var)
+    category <- gsub("_", " ", category)
+    category <- tools::toTitleCase(category)
+
+    # Calculate means and SEs by condition (overall)
+    stats <- dt[!is.na(get(var)) & !is.na(get(condition_var)),
+        .(mean = mean(get(var), na.rm = TRUE),
+          se = sd(get(var), na.rm = TRUE) / sqrt(.N),
+          n = .N),
+        by = condition_var]
+
+    setnames(stats, condition_var, "condition")
+
+    # Create final records with array format for React compatibility
+    for (i in 1:nrow(stats)) {
+      results[[length(results) + 1]] <- list(
+    condition = list(stats$condition[i]),
+    category = list(category),
+    mean = list(round(stats$mean[i], 2)),
+    se = list(round(stats$se[i], 3)),
+    n = list(stats$n[i]),
+    wave = list(wave),
+    political_party = list("Overall")
+    )
+    }
+  }
+
+  # Now repeat for each political party (Democrat and Republican only)
+  parties <- c("Democrat", "Republican")
+  for (party in parties) {
+    for (var in policy_vars) {
+      category <- gsub(paste0("policy_support_|_w", wave), "", var)
+      category <- gsub("_", " ", category)
+      category <- tools::toTitleCase(category)
+
+      stats <- dt[
+    !is.na(get(var)) &
+    !is.na(get(condition_var)) &
+    connect_political_party_w1 == party,
+    .(mean = mean(get(var), na.rm = TRUE),
+      se = sd(get(var), na.rm = TRUE) / sqrt(.N),
+      n = .N),
+    by = condition_var
+    ]
+
+      setnames(stats, condition_var, "condition")
+
+      for (i in 1:nrow(stats)) {
+        results[[length(results) + 1]] <- list(
+      condition = list(stats$condition[i]),
+      category = list(category),
+      mean = list(round(stats$mean[i], 2)),
+      se = list(round(stats$se[i], 3)),
+      n = list(stats$n[i]),
+      wave = list(wave),
+      political_party = list(party)
+    )
+      }
+    }
+  }
+
+  # Calculate average of government investment and cooling centers (overall) - keep this for backwards compatibility
   # First, create a composite variable that's the average of both policy variables
   dt_policy <- dt[!is.na(get(policy_vars[1])) & !is.na(get(policy_vars[2])) & !is.na(get(condition_var))]
   dt_policy[, policy_support_avg := (get(policy_vars[1]) + get(policy_vars[2])) / 2]
@@ -313,9 +377,9 @@ calculate_policy_support_stats <- function(wave) {
   )
   }
 
-  # Now repeat for each political party (Democrat, Independent, Republican)
-  parties <- c("Democrat", "Independent", "Republican")
-  for (party in parties) {
+  # Now repeat for each political party (Democrat, Independent, Republican) for average
+  parties_avg <- c("Democrat", "Independent", "Republican")
+  for (party in parties_avg) {
     dt_party <- dt_policy[connect_political_party_w1 == party]
     
     stats <- dt_party[,
@@ -793,7 +857,7 @@ write_json(all_worry, "public/data-health-worry.json",
 write_json(all_impacts, "public/data-system-impacts.json",
            pretty = TRUE, auto_unbox = TRUE)
 
-write_json(all_policy, "public/data-policy-support.json",
+write_json(all_policy, "public/data/data-policy-support.json",
            pretty = TRUE, auto_unbox = FALSE)
 
 # Write climate temporal proximity data

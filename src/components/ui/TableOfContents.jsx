@@ -10,17 +10,22 @@ const sections = [
   {
     id: 'study-overview',
     title: 'Study Overview',
-    selector: 'h2:contains("Study Overview")'
+    selector: 'h1:contains("Study Overview")'
   },
   {
     id: 'methodology',
     title: 'Methodology',
-    selector: 'h2:contains("Methodology")',
+    selector: 'h1:contains("Methodology")',
     subsections: [
       {
         id: 'experimental-conditions',
         title: 'Experimental Conditions',
         selector: 'h3:contains("Experimental Conditions")'
+      },
+            {
+        id: 'instagram-videos',
+        title: 'Instagram Videos',
+        selector: 'h3:contains("Instagram Videos")'
       },
       {
         id: 'timeline-and-measures',
@@ -32,40 +37,35 @@ const sections = [
   {
     id: 'key-findings',
     title: 'Key Findings',
-    selector: 'h2:contains("Key Findings")',
+    selector: 'h1:contains("Key Findings")',
     subsections: [
 
       {
-        id: 'knowledge-impacts',
-        title: 'Knowledge of Heat Wave Health Impacts',
-        selector: 'h3:contains("Knowledge of Heat Wave Health Impacts")'
-      },
-      {
-        id: 'threat-concern',
-        title: 'Perceived Threat and Personal Concern',
-        selector: 'h3:contains("Perceived Threat and Personal Concern")'
+        id: 'heat-wave-perception',
+        title: 'Heat Wave Perceptions',
+        selector: 'h3:contains("Heat Wave Perception and Knowledge")'
       },
       {
         id: 'policy-support',
         title: 'Policy Support',
-        selector: 'h3:contains("Policy Support")'
+        selector: 'h3:contains("Policy Support and Healthcare Worker Responsibility")'
       },
       {
         id: 'climate-connections',
-        title: 'Climate Change Connections',
+        title: 'Climate Change',
         selector: 'h3:contains("Climate Change Connections")'
       },
       {
-        id: 'additional-effects',
-        title: 'Additional Effects',
-        selector: 'h3:contains("Additional Effects")'
+        id: 'entertainment-value',
+        title: 'Entertainment Value',
+        selector: 'h3:contains("Entertainment Value")'
       },
     ]
   },
   {
     id: 'supplementary-materials',
     title: 'Supplementary Materials',
-    selector: 'h3:contains("Supplementary Materials")'
+    selector: 'h1:contains("Supplementary Materials")'
   }
 ]
 
@@ -147,7 +147,7 @@ useEffect(() => {
   }, observerOptions)
 
   // Observe all headings
-  const headings = document.querySelectorAll('h2, h3')
+  const headings = document.querySelectorAll('h1, h2, h3')
   headings.forEach(heading => observer.observe(heading))
 
   return () => observer.disconnect()

@@ -2,9 +2,9 @@
   background: var(--color-surface);
   border-radius: var(--border-radius-lg);
   padding: 32px;
-  margin-bottom: 32px;
+  /* margin-bottom: 32px; */
   border: 1px solid var(--color-border);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); */
 }
 
 .chart-title {

@@ -107,16 +107,15 @@ const AMEBarChart = ({
     const margin = { 
       top: isMobile ? 60 : 80, 
       right: isMobile ? 180 : 220, // More space for effect size column
-      bottom: isMobile ? 80 : 120, 
+      bottom: isMobile ? 60 : 80, 
       left: leftMargin 
     }
     
     const categoryHeight = isMobile ? 60 : 80
     const availableWidth = currentContainerWidth // Use full container width
     const width = Math.max(350, (availableWidth - margin.left - margin.right) * 0.75)
-    // Use consistent height based on maximum expected categories for this chart
-    const expectedCategoryCount = Math.max(4, groupedData.length)
-    const height = expectedCategoryCount * categoryHeight
+    // Use actual category count for height calculation
+    const height = groupedData.length * categoryHeight
 
     // Update chart dimensions for use in JSX only if they've changed significantly
     if (Math.abs(chartDimensions.width - width) > 5 || Math.abs(chartDimensions.margin.left - margin.left) > 5) {

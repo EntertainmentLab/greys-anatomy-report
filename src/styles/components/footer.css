@@ -1,7 +1,7 @@
 /* Modern Rare Footer Design */
 
 .l-footer {
-  background: var(--color-primary);
+  background: #005BBB;
   background-image: url('https://rare.org/wp-content/uploads/2022/02/footer-bg.webp');
   background-size: contain;
   background-position: right center;
@@ -101,7 +101,7 @@
 .site-slogan {
   color: #3CDAFF;
   display: block;
-  font-family: "PFSquareSansCondPro-Medium", var(--font-family-secondary), sans-serif;
+  font-family: var(--font-family-secondary);
   font-size: 22px;
   font-weight: 500;
   margin-bottom: 27px;
@@ -241,7 +241,7 @@ h3.footer-menu-title {
 
 .rare-donate-btn {
   background-color: white;
-  color: var(--color-primary-600);
+  color: #005BBB;
   padding: 12px 24px;
   text-decoration: none;
   border-radius: 25px;

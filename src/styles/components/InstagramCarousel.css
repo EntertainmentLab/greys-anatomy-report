@@ -45,7 +45,7 @@
 }
 
 .text-content a {
-  color: var(--color-primary, #005BBB);
+  color: var(--color-primary, #003B7A);
   text-decoration: none;
   transition: all 0.2s ease;
 }

@@ -17,7 +17,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 60px var(--spacing-lg) 30px var(--spacing-lg);
-  text-align: center;
+  text-align: left;
 }
 
 /* .report-container moved to App.css for flexbox layout - avoiding conflicts */

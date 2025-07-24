@@ -32,9 +32,9 @@ function Methodology({ expandAllDetails = false }) {
 
   return (
     <section className="report-section">
-      <h2>
+      <h1>
         Methodology
-      </h2>
+      </h1>
 
       <div className="methodology-content">
         <div className="methodology-section">

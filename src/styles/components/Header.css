@@ -1,5 +1,5 @@
 .header {
-  text-align: center;
+  text-align: left;
   margin-bottom: 0;
   padding: 0;
   background: none;
@@ -20,9 +20,9 @@
 .header .subtitle {
   font-size: 1.125rem;
   color: var(--color-text-muted);
-  font-weight: 400;
+  font-weight: 700;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0;
 }
 
 @media (max-width: 1024px) {

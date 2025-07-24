@@ -1,0 +1,28 @@
+/* Custom Font Declarations */
+
+/* PF Square Sans Condensed Pro - Regular (400) */
+@font-face {
+  font-family: 'PFSquareSansCondPro';
+  src: url('/fonts/Parachute - PFSquareSansCondPro-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PF Square Sans Condensed Pro - Medium (500) */
+@font-face {
+  font-family: 'PFSquareSansCondPro';
+  src: url('/fonts/Parachute - PFSquareSansCondPro-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* PF Square Sans Condensed Pro - Bold (700) */
+@font-face {
+  font-family: 'PFSquareSansCondPro';
+  src: url('/fonts/Parachute - PFSquareSansCondPro-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

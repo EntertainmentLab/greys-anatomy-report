@@ -52,7 +52,7 @@ export const useTemporalChart = ({
       const margin = {
         top: isMobile ? 80 : 100,
         right: isMobile ? 30 : 50,
-        bottom: isMobile ? 120 : 140,
+        bottom: isMobile ? 80 : 100,
         left: isMobile ? 50 : 70
       };
       

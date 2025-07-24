@@ -16,9 +16,9 @@ function StudyOverview() {
 
   return (
     <section className="report-section">
-      <h2>
+      <h1>
         Study Overview
-      </h2>
+      </h1>
       <p>
         Television medical dramas have long reflected the realities of our everyday lives. As the climate crisis increasingly threatens public health and strains our healthcare systems, these shows – where medicine, science, and human emotion converge – may offer more than compelling stories. Can they help audiences see climate change not as a distant, abstract issue, but as a pressing, personal one? And can they deliver potentially life-saving information in a warming world?
       </p>
