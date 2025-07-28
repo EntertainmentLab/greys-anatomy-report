@@ -182,12 +182,6 @@
    TOOLTIPS 
    ============================================ */
 
-.chart-tooltip {
-  font-family: var(--font-secondary);
-  font-size: 0.75rem;
-  line-height: 1.4;
-  z-index: 1000;
-}
 
 .tooltip {
   position: absolute;

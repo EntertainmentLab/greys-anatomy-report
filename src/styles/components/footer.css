@@ -328,14 +328,6 @@ h3.footer-menu-title {
     gap: 40px;
   }
 
-  .footer__right {
-    justify-content: flex-start;
-  }
-
-  .footer-nav {
-    flex-direction: column;
-    gap: 40px;
-  }
 
   .footer__copyright {
     flex-direction: column;

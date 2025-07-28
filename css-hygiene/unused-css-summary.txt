@@ -1,0 +1,449 @@
+UNUSED CSS CLASSES SUMMARY
+================================================================================
+
+Total CSS files analyzed: 37
+Total defined classes: 479
+Total used classes: 113
+Total unused classes: 380
+
+================================================================================
+UNUSED CLASSES BY FILE:
+================================================================================
+
+src/styles/components/Chart-ClimateTemporal.css (3 unused classes):
+  - .d3-tooltip
+  - .political-party-controls
+  - .political-party-toggle
+
+src/styles/components/Chart-Dumbbell.css (13 unused classes):
+  - .interactive-y-axis-label
+  - .interactive-y-axis-labels
+  - .orientation-controls
+  - .orientation-slider
+  - .political-party-controls
+  - .political-party-toggle
+  - .slider-container
+  - .slider-label
+  - .slider-label-left
+  - .survey-info-button
+  - .y-axis-label
+  - .y-axis-label-text
+  - .y-axis-labels
+
+src/styles/components/Chart-SystemImpacts.css (1 unused classes):
+  - .d3-tooltip
+
+src/styles/components/Controls.css (9 unused classes):
+  - .checkbox-group
+  - .checkbox-item
+  - .checkbox-label
+  - .condition-checkbox
+  - .condition-checkboxes
+  - .controls
+  - .toggle-buttons
+  - .toggle-label
+  - .wave-toggle
+
+src/styles/components/EpisodePreview.css (7 unused classes):
+  - .close-button
+  - .episode-content
+  - .episode-info
+  - .episode-meta
+  - .episode-preview-modal
+  - .episode-preview-overlay
+  - .episode-thumbnail
+
+src/styles/components/GreysAnatomyKnowledgeViz.css (3 unused classes):
+  - .category-title
+  - .tooltip
+  - .viz-container
+
+src/styles/components/InstagramCarousel.css (18 unused classes):
+  - .carousel-content
+  - .carousel-instruction
+  - .carousel-nav
+  - .carousel-slides
+  - .carousel-track
+  - .header_callout
+  - .instagram-icon
+  - .instagram-link
+  - .instagram-overlay
+  - .instagram-section
+  - .instagram-text
+  - .profile-circles
+  - .profile-inner
+  - .progress-ring
+  - .progress-ring-circle
+  - .progress-ring-svg
+  - .section-content
+  - .text-content
+
+src/styles/components/Legend.css (2 unused classes):
+  - .condition-explanations
+  - .legend-info
+
+src/styles/components/SurveyItemsPopup.css (18 unused classes):
+  - .question-cell
+  - .question-item
+  - .question-items-list
+  - .question-text
+  - .question-type-cell
+  - .response-options-cell
+  - .subconstruct-cell
+  - .survey-item-row
+  - .survey-items-table
+  - .survey-popup-body
+  - .survey-popup-close-button
+  - .survey-popup-content
+  - .survey-popup-error
+  - .survey-popup-header
+  - .survey-popup-loading
+  - .survey-popup-overlay
+  - .survey-popup-title
+  - .wave-cell
+
+src/styles/components/TimelineInfographic.css (21 unused classes):
+  - .checkpoint-marker
+  - .checkpoint-number
+  - .details-box
+  - .details-text
+  - .participants-count
+  - .participants-section
+  - .progress-line
+  - .timeline-checkpoint
+  - .timeline-header
+  - .timeline-infographic
+  - .timeline-progress-bar
+  - .timeline-track
+  - .wave-card-header
+  - .wave-date
+  - .wave-details-static
+  - .wave-icon
+  - .wave-icon-container
+  - .wave-subtitle
+  - .wave-title
+  - .wave-title-section
+  - .waves-container
+
+src/styles/components/WaveToggle.css (4 unused classes):
+  - .chart-header-toggle
+  - .wave-toggle-container
+  - .wave-toggle-labels
+  - .wave-toggle-track
+
+src/styles/components/buttons.css (4 unused classes):
+  - .btn-ghost
+  - .btn-lg
+  - .btn-primary
+  - .btn-sm
+
+src/styles/components/carousel.css (6 unused classes):
+  - .ame-carousel-container
+  - .carousel-title
+  - .chart-counter
+  - .chart-info
+  - .chart-nav
+  - .nav-btn
+
+src/styles/components/charts/ame-charts.css (37 unused classes):
+  - .ame-bar-chart-container
+  - .ame-carousel-container
+  - .ame-chart-wrapper
+  - .ame-tooltip
+  - .bar-container
+  - .bar-label
+  - .bar-row
+  - .bar-wrapper
+  - .carousel-title
+  - .chart-counter
+  - .chart-info
+  - .chart-nav
+  - .compact-chart
+  - .compact-row
+  - .confidence-interval
+  - .dual-bar
+  - .dual-bar-container
+  - .dual-bar-x-axis
+  - .dual-comparison
+  - .dual-treatment-effect-header
+  - .effect-bar
+  - .effect-description
+  - .effect-icon
+  - .effect-text
+  - .nav-btn
+  - .outcome-label
+  - .outcome-label-container
+  - .outcome-section
+  - .outcome-title
+  - .treatment-effect-header
+  - .treatment-label
+  - .treatment-row
+  - .x-axis-container
+  - .x-axis-label
+  - .x-axis-tick-label
+  - .x-axis-ticks
+  - .zero-line
+
+src/styles/components/charts/chart-base.css (8 unused classes):
+  - .chart-container--compact
+  - .chart-container--elevated
+  - .chart-container--full-width
+  - .chart-controls
+  - .chart-tooltip
+  - .chart-wrapper
+  - .info-tooltip
+  - .tooltip
+
+src/styles/components/collapsible.css (5 unused classes):
+  - .collapsible-content
+  - .collapsible-header
+  - .collapsible-section
+  - .expand-icon
+  - .info-tooltip
+
+src/styles/components/footer.css (26 unused classes):
+  - .copyright
+  - .footer-donate-btn-container
+  - .footer-menu-list
+  - .footer-menu-section
+  - .footer-menu-title
+  - .footer-nav
+  - .footer__brand
+  - .footer__copyright
+  - .footer__left
+  - .footer__logo
+  - .footer__logo-column
+  - .footer__menu-column
+  - .footer__right
+  - .footer__tagline-column
+  - .l-constrain
+  - .l-constrain--large
+  - .l-footer
+  - .l-grid
+  - .l-grid--2col
+  - .l-grid--4col
+  - .menu--copyright
+  - .menu--social
+  - .rare-donate-btn
+  - .rare-logo
+  - .site-name
+  - .site-slogan
+
+src/styles/components/full-report-collapse.css (5 unused classes):
+  - .full-report-collapse
+  - .full-report-content
+  - .full-report-sections-content
+  - .full-report-text
+  - .full-report-trigger
+
+src/styles/components/table-of-contents.css (14 unused classes):
+  - .sticky-toc-container
+  - .toc-close
+  - .toc-container
+  - .toc-expand-icon
+  - .toc-header
+  - .toc-icon
+  - .toc-item
+  - .toc-label
+  - .toc-list
+  - .toc-sidebar-nav
+  - .toc-sidebar-title
+  - .toc-subitem
+  - .toc-sublist
+  - .toc-text
+
+src/styles/core/layout.css (4 unused classes):
+  - .card
+  - .chart-section
+  - .report-content
+  - .section-base
+
+src/styles/core/typography.css (1 unused classes):
+  - .header-callout
+
+src/styles/global/App.css (2 unused classes):
+  - .chart-section
+  - .report-content
+
+src/styles/patterns/button-patterns.css (22 unused classes):
+  - .btn--danger
+  - .btn--ghost
+  - .btn--lg
+  - .btn--link
+  - .btn--md
+  - .btn--primary
+  - .btn--secondary
+  - .btn--sm
+  - .btn--xl
+  - .btn--xs
+  - .filter-controls
+  - .filter-controls__checkbox
+  - .filter-controls__group
+  - .filter-controls__label
+  - .filter-controls__option
+  - .filter-controls__option--active
+  - .filter-controls__options
+  - .toggle-group
+  - .toggle-group__item
+  - .toggle-group__item--active
+  - .wave-controls__tab
+  - .wave-controls__tab--active
+
+src/styles/patterns/card-patterns.css (42 unused classes):
+  - .card
+  - .card--bordered
+  - .card--elevated
+  - .card--interactive
+  - .card--lg
+  - .card--md
+  - .card--sm
+  - .card--xl
+  - .card--xs
+  - .chart-container--compact
+  - .chart-container--elevated
+  - .chart-container--full-width
+  - .chart-container__body
+  - .chart-container__controls
+  - .chart-container__footer
+  - .chart-container__header
+  - .chart-container__subtitle
+  - .chart-container__title
+  - .error-container
+  - .error-container__icon
+  - .error-container__text
+  - .legend-container--inline
+  - .legend-container__item
+  - .legend-container__items
+  - .legend-container__marker
+  - .legend-container__marker--control
+  - .legend-container__marker--handoff
+  - .legend-container__marker--line
+  - .legend-container__marker--treatment
+  - .legend-container__title
+  - .loading-container
+  - .loading-container__spinner
+  - .loading-container__text
+  - .popup-container
+  - .popup-overlay
+  - .section
+  - .section--compact
+  - .section--spacious
+  - .section__description
+  - .section__header
+  - .section__subtitle
+  - .section__title
+
+src/styles/patterns/layout-patterns.css (85 unused classes):
+  - .collapsible
+  - .collapsible__body
+  - .collapsible__content
+  - .collapsible__icon
+  - .collapsible__trigger
+  - .container--2xl
+  - .container--flush
+  - .container--lg
+  - .container--md
+  - .container--narrow
+  - .container--sm
+  - .container--wide
+  - .container--xl
+  - .flex
+  - .flex--column
+  - .flex--column-reverse
+  - .flex--gap-lg
+  - .flex--gap-md
+  - .flex--gap-sm
+  - .flex--gap-xl
+  - .flex--items-baseline
+  - .flex--items-center
+  - .flex--items-end
+  - .flex--items-start
+  - .flex--items-stretch
+  - .flex--justify-around
+  - .flex--justify-between
+  - .flex--justify-center
+  - .flex--justify-end
+  - .flex--justify-evenly
+  - .flex--justify-start
+  - .flex--nowrap
+  - .flex--row-reverse
+  - .flex--wrap
+  - .footer-layout
+  - .footer-layout__bottom
+  - .footer-layout__brand
+  - .footer-layout__brand-name
+  - .footer-layout__brand-tagline
+  - .footer-layout__container
+  - .footer-layout__copyright
+  - .footer-layout__grid
+  - .footer-layout__legal
+  - .footer-layout__link
+  - .footer-layout__links
+  - .footer-layout__section
+  - .footer-layout__section-title
+  - .grid
+  - .grid--1col
+  - .grid--2col
+  - .grid--3col
+  - .grid--4col
+  - .grid--auto-fill
+  - .grid--auto-fit
+  - .grid--gap-lg
+  - .grid--gap-md
+  - .grid--gap-sm
+  - .grid--gap-xl
+  - .grid--responsive
+  - .header-layout
+  - .header-layout__actions
+  - .header-layout__brand
+  - .header-layout__nav
+  - .hidden
+  - .hidden-desktop
+  - .hidden-mobile
+  - .hidden-tablet
+  - .no-print
+  - .print-only
+  - .show-desktop
+  - .show-mobile
+  - .sidebar-layout
+  - .sidebar-layout--narrow
+  - .sidebar-layout--right
+  - .sidebar-layout--wide
+  - .sidebar-layout__main
+  - .sidebar-layout__sidebar
+  - .sr-only
+  - .stack
+  - .stack--2xl
+  - .stack--horizontal
+  - .stack--lg
+  - .stack--md
+  - .stack--sm
+  - .stack--xl
+
+src/styles/sections/banner.css (11 unused classes):
+  - .banner-background
+  - .banner-container
+  - .banner-image
+  - .banner-overlay
+  - .rare-logo
+  - .rare-logo-container
+  - .research-tab
+  - .sticky-header-content
+  - .sticky-rare-logo
+  - .sticky-rare-logo-container
+  - .toc-label
+
+src/styles/sections/methodology.css (2 unused classes):
+  - .experimental-conditions-infographic
+  - .inline-episode-preview
+
+src/styles/shared/filters.css (5 unused classes):
+  - .filter-button
+  - .filter-container
+  - .filter-tag
+  - .toggle-btn
+  - .toggle-buttons
+
+src/styles/shared/sections.css (2 unused classes):
+  - .card
+  - .section-base

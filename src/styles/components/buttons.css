@@ -69,16 +69,6 @@
   border-color: #9ca3af;
 }
 
-.btn-ghost {
-  background: transparent;
-  color: var(--color-text);
-  border: 1px solid transparent;
-}
-
-.btn-ghost:hover:not(:disabled) {
-  background: #f9fafb;
-  border-color: var(--color-border);
-}
 
 /* ============================================
    SPECIAL BUTTON TYPES 

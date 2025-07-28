@@ -49,23 +49,6 @@
   white-space: nowrap;
 }
 
-.condition-label.control {
-  background: #fef2f2;
-  color: var(--color-control);
-  border: 1px solid #fecaca;
-}
-
-.condition-label.treatment {
-  background: #f0fdf4;
-  color: var(--color-treatment);
-  border: 1px solid #bbf7d0;
-}
-
-.condition-label.handoff {
-  background: #eff6ff;
-  color: var(--color-handoff);
-  border: 1px solid #bfdbfe;
-}
 
 .condition-item span:last-child {
   color: var(--color-text-muted);

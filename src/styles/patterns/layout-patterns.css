@@ -463,13 +463,6 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-.footer-layout__legal {
-  display: flex;
-  gap: var(--space-6);
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
 
 /* ============================================
    COLLAPSIBLE PATTERNS

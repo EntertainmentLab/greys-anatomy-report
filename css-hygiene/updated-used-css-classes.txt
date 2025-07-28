@@ -1,0 +1,200 @@
+# COMPREHENSIVE CSS Class Analysis - UPDATED
+
+## Classes Used in JSX Components (Direct and Conditional)
+
+### App and Layout
+- app-wrapper
+- report-container  
+- main-title-section
+- main-title-container
+- main-title
+- container
+- loading
+- error
+- report-content
+- report-section
+
+### Banner Components
+- banner-container
+- banner-background
+- banner-image
+- banner-overlay
+- banner-content
+- rare-logo-container
+- rare-logo
+- sticky-rare-logo-container
+- sticky-rare-logo
+- research-tab
+- unified-sticky-header (with .visible modifier)
+
+### Chart Components
+- chart-container
+- chart-container-wrapper
+- chart-header
+- chart-title
+- chart-subtitle
+- chart-content
+- chart-section
+- dumbbell-chart-container  
+- dumbbell-chart-svg
+- heatwave-composite-container
+- system-impacts-container
+- health-worry-container
+- climate-temporal-container
+- ame-chart-3
+- ame-chart-wrapper
+- political-party-toggle (with .active modifier)
+
+### Controls and UI
+- controls-container
+- control-group
+- construct-dropdown
+- wave-controls
+- wave-controls-container
+- wave-tab (with .active modifier)
+- wave-btn (with .active modifier)
+- view-btn (with .active modifier)
+- wave-toggle-container
+- wave-toggle-slider (with .immediate/.delayed modifiers)
+- wave-toggle-label (with .active modifier)
+
+### Buttons
+- btn
+- btn-secondary (with :hover pseudo-class)
+- btn-md
+- supplementary-materials-buttons
+- episode-preview-trigger (with :hover pseudo-class)
+
+### Sections and Content
+- methodology-content
+- methodology-section
+- expandable-details
+- details-summary
+- details-toggle (with .expanded modifier)
+- details-toggle-icon
+- details-content (with .expanded modifier)
+
+### Table of Contents
+- toc-container
+- toc-nav (with .integrated/.open modifiers)
+- toc-sidebar (with .visible modifier)
+- toc-sidebar-nav
+- toc-sidebar-title
+- toc-toggle (with .integrated modifier)
+- toc-title
+- toc-label
+- toc-link (with .active/.has-subsections modifiers)
+- toc-sublink (with .active modifier)
+- toc-list
+- toc-sublist
+- toc-item
+- toc-subitem
+- toc-header
+- toc-close (with :hover pseudo-class)
+- toc-expand-icon
+- toc-text
+- toc-icon
+- sticky-toc-container
+
+### Full Report
+- full-report-wrapper
+- full-report-button
+- full-report-arrow (with .expanded modifier)
+- full-report-sections (with .expanded modifier)
+
+### Timeline and Carousel
+- timeline-container
+- timeline-wave-selector
+- wave-card (with .active modifier and :hover pseudo-class)
+- wave-label
+- wave-dates
+- wave-icon-container
+- carousel-container
+- carousel-header
+- carousel-dots
+- profile-circle (with .active modifier and :hover pseudo-class)
+- carousel-slide
+- slide-content-wrapper
+- slide-video
+- slide-info
+
+### Tabs
+- tab-container
+- tab-list
+- tab-button (with .active modifier)
+- tab-content (with .active modifier)
+
+### Legend and Labels
+- legend-container
+- legend-label
+- condition-label (with condition-specific classes: control, treatment, handoff)
+- condition-item
+- condition-circle
+- checkbox-label (with --control, --treatment, --handoff modifiers)
+
+### Popups and Overlays
+- survey-items-popup-overlay
+- survey-items-popup-content
+- popup-header
+- popup-title
+- popup-close (with :hover pseudo-class)
+- popup-body
+- popup-section
+- popup-section-title
+- popup-footer
+
+### Episodes and Inline Content
+- inline-episodes-container
+- inline-episode-preview (used in nested selectors)
+- episode-content
+- episode-thumbnail
+- episode-info
+- episode-meta
+- episode-description
+- episode-title-button (with :hover pseudo-class)
+
+### Experimental Conditions
+- experimental-conditions-infographic
+- condition-group
+- condition-header
+- condition-number
+- condition-content
+
+### Footer and Header
+- header
+- footer
+- footer-content
+
+### Charts and Visualizations  
+- x-axis-zero-line
+- x-axis-tick
+
+### Misc UI
+- rotate-prompt-container
+- definition-item (with ::before pseudo-element)
+- info-button
+
+### Layout Patterns (Stack system)
+- stack--horizontal (with .stack--sm, .stack--md, .stack--lg, .stack--xl modifiers)
+
+## CSS Classes with Pseudo-classes/Pseudo-elements
+- .main-title::after
+- .li::before  
+- .li.definition-item::before
+- .h1.sticky::before, .h2.sticky::before, .h3.sticky::before
+- Various :hover states for buttons, links, and interactive elements
+
+## Dynamic Classes Based on State
+- active (used with many components)
+- expanded (used with collapsible content)
+- visible (used with sticky headers, sidebars)
+- open (used with dropdowns)
+- immediate/delayed (used with wave toggles)
+- has-subsections (used with TOC links)
+- integrated (used with TOC)
+
+## Conditional Classes with IDs
+- Classes ending with --control, --treatment, --handoff
+- Classes combined with condition.id variable
+
+This analysis shows that many more classes are actually in use than initially identified, including those used in CSS selectors, pseudo-classes, and nested contexts.

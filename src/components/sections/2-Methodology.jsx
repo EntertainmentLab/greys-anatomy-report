@@ -65,7 +65,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Participants</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. At Wave 1, participants (N = 4,830) were quota-sampled using Nielsen data to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region.
+              <p>We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. At Wave 1, participants (N = 4,830) were quota-sampled using Nielsen data to match the demographic profile of Grey's Anatomy Season 21 viewers on age, sex, race/ethnicity, income, and region.</p>
             </div>
             
             <button

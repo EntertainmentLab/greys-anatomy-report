@@ -1,0 +1,786 @@
+================================================================================
+COMPREHENSIVE UNUSED CSS CLASSES ANALYSIS REPORT
+================================================================================
+
+SUMMARY STATISTICS
+----------------------------------------
+Total CSS files analyzed: 38
+Total CSS class definitions found: 543
+Total used classes in codebase: 667
+Total unused classes found: 25
+Usage rate: 95.4%
+
+CSS FILES ANALYZED
+----------------------------------------
+ 1. src/index.css (0 classes, 0 unused)
+ 2. src/styles/AMEChart.css (0 classes, 0 unused)
+ 3. src/styles/components/Chart-ClimateTemporal.css (8 classes, 0 unused)
+ 4. src/styles/components/Chart-Dumbbell.css (23 classes, 0 unused)
+ 5. src/styles/components/Chart-Likert.css (5 classes, 0 unused)
+ 6. src/styles/components/Chart-SystemImpacts.css (3 classes, 0 unused)
+ 7. src/styles/components/Controls.css (16 classes, 0 unused)
+ 8. src/styles/components/EpisodePreview.css (10 classes, 2 unused)
+ 9. src/styles/components/GreysAnatomyKnowledgeViz.css (3 classes, 0 unused)
+10. src/styles/components/Header.css (2 classes, 2 unused)
+11. src/styles/components/InstagramCarousel.css (25 classes, 1 unused)
+12. src/styles/components/Legend.css (7 classes, 3 unused)
+13. src/styles/components/SurveyItemsPopup.css (18 classes, 0 unused)
+14. src/styles/components/TimelineInfographic.css (23 classes, 0 unused)
+15. src/styles/components/WaveToggle.css (9 classes, 0 unused)
+16. src/styles/components/buttons.css (8 classes, 1 unused)
+17. src/styles/components/carousel.css (8 classes, 0 unused)
+18. src/styles/components/charts/ame-charts.css (42 classes, 0 unused)
+19. src/styles/components/charts/chart-base.css (20 classes, 1 unused)
+20. src/styles/components/collapsible.css (18 classes, 1 unused)
+21. src/styles/components/footer.css (33 classes, 2 unused)
+22. src/styles/components/full-report-collapse.css (8 classes, 0 unused)
+23. src/styles/components/table-of-contents.css (24 classes, 0 unused)
+24. src/styles/core/fonts.css (0 classes, 0 unused)
+25. src/styles/core/layout.css (10 classes, 0 unused)
+26. src/styles/core/reset.css (0 classes, 0 unused)
+27. src/styles/core/typography.css (5 classes, 0 unused)
+28. src/styles/core/variables.css (0 classes, 0 unused)
+29. src/styles/global/App.css (8 classes, 2 unused)
+30. src/styles/main.css (1 classes, 1 unused)
+31. src/styles/patterns/button-patterns.css (26 classes, 1 unused)
+32. src/styles/patterns/card-patterns.css (51 classes, 3 unused)
+33. src/styles/patterns/layout-patterns.css (86 classes, 1 unused)
+34. src/styles/sections/banner.css (14 classes, 0 unused)
+35. src/styles/sections/methodology.css (16 classes, 0 unused)
+36. src/styles/shared/filters.css (6 classes, 4 unused)
+37. src/styles/shared/sections.css (7 classes, 0 unused)
+38. src/styles/system/design-tokens.css (0 classes, 0 unused)
+
+UNUSED CSS CLASSES BY FILE
+----------------------------------------
+
+📁 src/styles/components/EpisodePreview.css
+   2 unused classes:
+   • .fadeIn
+   • .slideUp
+
+📁 src/styles/components/Header.css
+   2 unused classes:
+   • .header
+   • .subtitle
+
+📁 src/styles/components/InstagramCarousel.css
+   1 unused classes:
+   • .progress
+
+📁 src/styles/components/Legend.css
+   3 unused classes:
+   • .control
+   • .handoff
+   • .treatment
+
+📁 src/styles/components/buttons.css
+   1 unused classes:
+   • .btn-ghost
+
+📁 src/styles/components/charts/chart-base.css
+   1 unused classes:
+   • .chart-tooltip
+
+📁 src/styles/components/collapsible.css
+   1 unused classes:
+   • .fadeIn
+
+📁 src/styles/components/footer.css
+   2 unused classes:
+   • .footer-nav
+   • .footer__right
+
+📁 src/styles/global/App.css
+   2 unused classes:
+   • .headerSlideIn
+   • .stickyPulse
+
+📁 src/styles/main.css
+   1 unused classes:
+   • .googleapis
+
+📁 src/styles/patterns/button-patterns.css
+   1 unused classes:
+   • .w3
+
+📁 src/styles/patterns/card-patterns.css
+   3 unused classes:
+   • .popup-container
+   • .popup-overlay
+   • .spin
+
+📁 src/styles/patterns/layout-patterns.css
+   1 unused classes:
+   • .footer-layout__legal
+
+📁 src/styles/shared/filters.css
+   4 unused classes:
+   • .filter-button
+   • .filter-container
+   • .filter-tag
+   • .toggle-btn
+
+ALL CSS CLASSES FOUND BY FILE
+----------------------------------------
+
+📁 src/index.css
+   0 total classes:
+
+📁 src/styles/AMEChart.css
+   0 total classes:
+
+📁 src/styles/components/Chart-ClimateTemporal.css
+   8 total classes:
+   • .active (✓ USED)
+   • .chart-container (✓ USED)
+   • .chart-subtitle (✓ USED)
+   • .chart-title (✓ USED)
+   • .climate-temporal-container (✓ USED)
+   • .d3-tooltip (✓ USED)
+   • .political-party-controls (✓ USED)
+   • .political-party-toggle (✓ USED)
+
+📁 src/styles/components/Chart-Dumbbell.css
+   23 total classes:
+   • .active (✓ USED)
+   • .chart-container (✓ USED)
+   • .dumbbell-chart-container (✓ USED)
+   • .dumbbell-chart-svg (✓ USED)
+   • .embedded (✓ USED)
+   • .interactive-y-axis-label (✓ USED)
+   • .interactive-y-axis-labels (✓ USED)
+   • .orientation-controls (✓ USED)
+   • .orientation-slider (✓ USED)
+   • .policy-type-controls (✓ USED)
+   • .policy-type-toggle (✓ USED)
+   • .political-party-controls (✓ USED)
+   • .political-party-toggle (✓ USED)
+   • .slider-container (✓ USED)
+   • .slider-label (✓ USED)
+   • .slider-label-left (✓ USED)
+   • .slider-label-right (✓ USED)
+   • .survey-info-button (✓ USED)
+   • .wave-controls (✓ USED)
+   • .wave-controls-container (✓ USED)
+   • .y-axis-label (✓ USED)
+   • .y-axis-label-text (✓ USED)
+   • .y-axis-labels (✓ USED)
+
+📁 src/styles/components/Chart-Likert.css
+   5 total classes:
+   • .error (✓ USED)
+   • .health-worry-container (✓ USED)
+   • .loading (✓ USED)
+   • .system-impacts-container (✓ USED)
+   • .wave-controls (✓ USED)
+
+📁 src/styles/components/Chart-SystemImpacts.css
+   3 total classes:
+   • .d3-tooltip (✓ USED)
+   • .system-impacts-container (✓ USED)
+   • .wave-controls (✓ USED)
+
+📁 src/styles/components/Controls.css
+   16 total classes:
+   • .active (✓ USED)
+   • .checkbox-group (✓ USED)
+   • .checkbox-item (✓ USED)
+   • .checkbox-label (✓ USED)
+   • .checkbox-label--control (✓ USED)
+   • .checkbox-label--handoff (✓ USED)
+   • .checkbox-label--treatment (✓ USED)
+   • .condition-checkbox (✓ USED)
+   • .condition-checkboxes (✓ USED)
+   • .controls (✓ USED)
+   • .toggle-buttons (✓ USED)
+   • .toggle-label (✓ USED)
+   • .view-btn (✓ USED)
+   • .view-toggle (✓ USED)
+   • .wave-btn (✓ USED)
+   • .wave-toggle (✓ USED)
+
+📁 src/styles/components/EpisodePreview.css
+   10 total classes:
+   • .close-button (✓ USED)
+   • .episode-content (✓ USED)
+   • .episode-info (✓ USED)
+   • .episode-meta (✓ USED)
+   • .episode-preview-modal (✓ USED)
+   • .episode-preview-overlay (✓ USED)
+   • .episode-preview-trigger (✓ USED)
+   • .episode-thumbnail (✓ USED)
+   • .fadeIn (✗ UNUSED)
+   • .slideUp (✗ UNUSED)
+
+📁 src/styles/components/GreysAnatomyKnowledgeViz.css
+   3 total classes:
+   • .category-title (✓ USED)
+   • .tooltip (✓ USED)
+   • .viz-container (✓ USED)
+
+📁 src/styles/components/Header.css
+   2 total classes:
+   • .header (✗ UNUSED)
+   • .subtitle (✗ UNUSED)
+
+📁 src/styles/components/InstagramCarousel.css
+   25 total classes:
+   • .active (✓ USED)
+   • .carousel-container (✓ USED)
+   • .carousel-content (✓ USED)
+   • .carousel-instruction (✓ USED)
+   • .carousel-nav (✓ USED)
+   • .carousel-slide (✓ USED)
+   • .carousel-slides (✓ USED)
+   • .carousel-track (✓ USED)
+   • .header_callout (✓ USED)
+   • .instagram-icon (✓ USED)
+   • .instagram-link (✓ USED)
+   • .instagram-overlay (✓ USED)
+   • .instagram-section (✓ USED)
+   • .instagram-text (✓ USED)
+   • .next (✓ USED)
+   • .prev (✓ USED)
+   • .profile-circle (✓ USED)
+   • .profile-circles (✓ USED)
+   • .profile-inner (✓ USED)
+   • .progress (✗ UNUSED)
+   • .progress-ring (✓ USED)
+   • .progress-ring-circle (✓ USED)
+   • .progress-ring-svg (✓ USED)
+   • .section-content (✓ USED)
+   • .text-content (✓ USED)
+
+📁 src/styles/components/Legend.css
+   7 total classes:
+   • .condition-explanations (✓ USED)
+   • .condition-item (✓ USED)
+   • .condition-label (✓ USED)
+   • .control (✗ UNUSED)
+   • .handoff (✗ UNUSED)
+   • .legend-info (✓ USED)
+   • .treatment (✗ UNUSED)
+
+📁 src/styles/components/SurveyItemsPopup.css
+   18 total classes:
+   • .question-cell (✓ USED)
+   • .question-item (✓ USED)
+   • .question-items-list (✓ USED)
+   • .question-text (✓ USED)
+   • .question-type-cell (✓ USED)
+   • .response-options-cell (✓ USED)
+   • .subconstruct-cell (✓ USED)
+   • .survey-item-row (✓ USED)
+   • .survey-items-table (✓ USED)
+   • .survey-popup-body (✓ USED)
+   • .survey-popup-close-button (✓ USED)
+   • .survey-popup-content (✓ USED)
+   • .survey-popup-error (✓ USED)
+   • .survey-popup-header (✓ USED)
+   • .survey-popup-loading (✓ USED)
+   • .survey-popup-overlay (✓ USED)
+   • .survey-popup-title (✓ USED)
+   • .wave-cell (✓ USED)
+
+📁 src/styles/components/TimelineInfographic.css
+   23 total classes:
+   • .active (✓ USED)
+   • .checkpoint-marker (✓ USED)
+   • .checkpoint-number (✓ USED)
+   • .details-box (✓ USED)
+   • .details-text (✓ USED)
+   • .participants-count (✓ USED)
+   • .participants-section (✓ USED)
+   • .progress-line (✓ USED)
+   • .timeline-checkpoint (✓ USED)
+   • .timeline-header (✓ USED)
+   • .timeline-infographic (✓ USED)
+   • .timeline-progress-bar (✓ USED)
+   • .timeline-track (✓ USED)
+   • .wave-card (✓ USED)
+   • .wave-card-header (✓ USED)
+   • .wave-date (✓ USED)
+   • .wave-details-static (✓ USED)
+   • .wave-icon (✓ USED)
+   • .wave-icon-container (✓ USED)
+   • .wave-subtitle (✓ USED)
+   • .wave-title (✓ USED)
+   • .wave-title-section (✓ USED)
+   • .waves-container (✓ USED)
+
+📁 src/styles/components/WaveToggle.css
+   9 total classes:
+   • .active (✓ USED)
+   • .chart-header-toggle (✓ USED)
+   • .delayed (✓ USED)
+   • .immediate (✓ USED)
+   • .wave-toggle-container (✓ USED)
+   • .wave-toggle-label (✓ USED)
+   • .wave-toggle-labels (✓ USED)
+   • .wave-toggle-slider (✓ USED)
+   • .wave-toggle-track (✓ USED)
+
+📁 src/styles/components/buttons.css
+   8 total classes:
+   • .btn (✓ USED)
+   • .btn-ghost (✗ UNUSED)
+   • .btn-lg (✓ USED)
+   • .btn-md (✓ USED)
+   • .btn-primary (✓ USED)
+   • .btn-secondary (✓ USED)
+   • .btn-sm (✓ USED)
+   • .episode-preview-trigger (✓ USED)
+
+📁 src/styles/components/carousel.css
+   8 total classes:
+   • .ame-carousel-container (✓ USED)
+   • .carousel-header (✓ USED)
+   • .carousel-title (✓ USED)
+   • .chart-container (✓ USED)
+   • .chart-counter (✓ USED)
+   • .chart-info (✓ USED)
+   • .chart-nav (✓ USED)
+   • .nav-btn (✓ USED)
+
+📁 src/styles/components/charts/ame-charts.css
+   42 total classes:
+   • .ame-bar-chart-container (✓ USED)
+   • .ame-carousel-container (✓ USED)
+   • .ame-chart-wrapper (✓ USED)
+   • .ame-tooltip (✓ USED)
+   • .bar-container (✓ USED)
+   • .bar-label (✓ USED)
+   • .bar-row (✓ USED)
+   • .bar-wrapper (✓ USED)
+   • .carousel-header (✓ USED)
+   • .carousel-title (✓ USED)
+   • .chart-container (✓ USED)
+   • .chart-counter (✓ USED)
+   • .chart-info (✓ USED)
+   • .chart-nav (✓ USED)
+   • .compact-chart (✓ USED)
+   • .compact-row (✓ USED)
+   • .confidence-interval (✓ USED)
+   • .dual-bar (✓ USED)
+   • .dual-bar-container (✓ USED)
+   • .dual-bar-x-axis (✓ USED)
+   • .dual-comparison (✓ USED)
+   • .dual-treatment-effect-header (✓ USED)
+   • .effect-bar (✓ USED)
+   • .effect-description (✓ USED)
+   • .effect-icon (✓ USED)
+   • .effect-text (✓ USED)
+   • .nav-btn (✓ USED)
+   • .outcome-label (✓ USED)
+   • .outcome-label-container (✓ USED)
+   • .outcome-section (✓ USED)
+   • .outcome-title (✓ USED)
+   • .survey-info-button (✓ USED)
+   • .treatment-effect-header (✓ USED)
+   • .treatment-label (✓ USED)
+   • .treatment-row (✓ USED)
+   • .x-axis-container (✓ USED)
+   • .x-axis-label (✓ USED)
+   • .x-axis-tick (✓ USED)
+   • .x-axis-tick-label (✓ USED)
+   • .x-axis-ticks (✓ USED)
+   • .x-axis-zero-line (✓ USED)
+   • .zero-line (✓ USED)
+
+📁 src/styles/components/charts/chart-base.css
+   20 total classes:
+   • .active (✓ USED)
+   • .chart-container (✓ USED)
+   • .chart-container--compact (✓ USED)
+   • .chart-container--elevated (✓ USED)
+   • .chart-container--full-width (✓ USED)
+   • .chart-container-wrapper (✓ USED)
+   • .chart-controls (✓ USED)
+   • .chart-header (✓ USED)
+   • .chart-subtitle (✓ USED)
+   • .chart-title (✓ USED)
+   • .chart-tooltip (✗ UNUSED)
+   • .chart-wrapper (✓ USED)
+   • .construct-dropdown (✓ USED)
+   • .control-group (✓ USED)
+   • .controls-container (✓ USED)
+   • .info-button (✓ USED)
+   • .info-tooltip (✓ USED)
+   • .tooltip (✓ USED)
+   • .wave-controls (✓ USED)
+   • .wave-tab (✓ USED)
+
+📁 src/styles/components/collapsible.css
+   18 total classes:
+   • .active (✓ USED)
+   • .collapsible-content (✓ USED)
+   • .collapsible-header (✓ USED)
+   • .collapsible-section (✓ USED)
+   • .details-content (✓ USED)
+   • .details-summary (✓ USED)
+   • .details-toggle (✓ USED)
+   • .details-toggle-icon (✓ USED)
+   • .expand-icon (✓ USED)
+   • .expandable-details (✓ USED)
+   • .expanded (✓ USED)
+   • .fadeIn (✗ UNUSED)
+   • .info-button (✓ USED)
+   • .info-tooltip (✓ USED)
+   • .tab-button (✓ USED)
+   • .tab-container (✓ USED)
+   • .tab-content (✓ USED)
+   • .tab-list (✓ USED)
+
+📁 src/styles/components/footer.css
+   33 total classes:
+   • .copyright (✓ USED)
+   • .footer-donate-btn-container (✓ USED)
+   • .footer-menu-list (✓ USED)
+   • .footer-menu-section (✓ USED)
+   • .footer-menu-title (✓ USED)
+   • .footer-nav (✗ UNUSED)
+   • .footer__brand (✓ USED)
+   • .footer__copyright (✓ USED)
+   • .footer__left (✓ USED)
+   • .footer__logo (✓ USED)
+   • .footer__logo-column (✓ USED)
+   • .footer__menu-column (✓ USED)
+   • .footer__right (✗ UNUSED)
+   • .footer__tagline-column (✓ USED)
+   • .l-constrain (✓ USED)
+   • .l-constrain--large (✓ USED)
+   • .l-footer (✓ USED)
+   • .l-grid (✓ USED)
+   • .l-grid--2col (✓ USED)
+   • .l-grid--4col (✓ USED)
+   • .menu--copyright (✓ USED)
+   • .menu--social (✓ USED)
+   • .menu__item (✓ USED)
+   • .menu__item--facebook (✓ USED)
+   • .menu__item--instagram (✓ USED)
+   • .menu__item--linkedin (✓ USED)
+   • .menu__item--twitter (✓ USED)
+   • .menu__item--youtube (✓ USED)
+   • .menu__link (✓ USED)
+   • .rare-donate-btn (✓ USED)
+   • .rare-logo (✓ USED)
+   • .site-name (✓ USED)
+   • .site-slogan (✓ USED)
+
+📁 src/styles/components/full-report-collapse.css
+   8 total classes:
+   • .expanded (✓ USED)
+   • .full-report-arrow (✓ USED)
+   • .full-report-collapse (✓ USED)
+   • .full-report-content (✓ USED)
+   • .full-report-sections (✓ USED)
+   • .full-report-sections-content (✓ USED)
+   • .full-report-text (✓ USED)
+   • .full-report-trigger (✓ USED)
+
+📁 src/styles/components/table-of-contents.css
+   24 total classes:
+   • .active (✓ USED)
+   • .has-subsections (✓ USED)
+   • .integrated (✓ USED)
+   • .open (✓ USED)
+   • .sticky-toc-container (✓ USED)
+   • .toc-close (✓ USED)
+   • .toc-container (✓ USED)
+   • .toc-expand-icon (✓ USED)
+   • .toc-header (✓ USED)
+   • .toc-icon (✓ USED)
+   • .toc-item (✓ USED)
+   • .toc-label (✓ USED)
+   • .toc-link (✓ USED)
+   • .toc-list (✓ USED)
+   • .toc-nav (✓ USED)
+   • .toc-sidebar (✓ USED)
+   • .toc-sidebar-nav (✓ USED)
+   • .toc-sidebar-title (✓ USED)
+   • .toc-subitem (✓ USED)
+   • .toc-sublink (✓ USED)
+   • .toc-sublist (✓ USED)
+   • .toc-text (✓ USED)
+   • .toc-toggle (✓ USED)
+   • .visible (✓ USED)
+
+📁 src/styles/core/fonts.css
+   0 total classes:
+
+📁 src/styles/core/layout.css
+   10 total classes:
+   • .card (✓ USED)
+   • .chart-section (✓ USED)
+   • .container (✓ USED)
+   • .error (✓ USED)
+   • .loading (✓ USED)
+   • .main-title-container (✓ USED)
+   • .main-title-section (✓ USED)
+   • .report-content (✓ USED)
+   • .report-section (✓ USED)
+   • .section-base (✓ USED)
+
+📁 src/styles/core/reset.css
+   0 total classes:
+
+📁 src/styles/core/typography.css
+   5 total classes:
+   • .definition-item (✓ USED)
+   • .details-content (✓ USED)
+   • .expandable-details (✓ USED)
+   • .header-callout (✓ USED)
+   • .main-title (✓ USED)
+
+📁 src/styles/core/variables.css
+   0 total classes:
+
+📁 src/styles/global/App.css
+   8 total classes:
+   • .app-wrapper (✓ USED)
+   • .chart-section (✓ USED)
+   • .headerSlideIn (✗ UNUSED)
+   • .report-container (✓ USED)
+   • .report-content (✓ USED)
+   • .report-section (✓ USED)
+   • .sticky (✓ USED)
+   • .stickyPulse (✗ UNUSED)
+
+📁 src/styles/main.css
+   1 total classes:
+   • .googleapis (✗ UNUSED)
+
+📁 src/styles/patterns/button-patterns.css
+   26 total classes:
+   • .btn (✓ USED)
+   • .btn--danger (✓ USED)
+   • .btn--ghost (✓ USED)
+   • .btn--lg (✓ USED)
+   • .btn--link (✓ USED)
+   • .btn--md (✓ USED)
+   • .btn--primary (✓ USED)
+   • .btn--secondary (✓ USED)
+   • .btn--sm (✓ USED)
+   • .btn--xl (✓ USED)
+   • .btn--xs (✓ USED)
+   • .episode-preview-trigger (✓ USED)
+   • .filter-controls (✓ USED)
+   • .filter-controls__checkbox (✓ USED)
+   • .filter-controls__group (✓ USED)
+   • .filter-controls__label (✓ USED)
+   • .filter-controls__option (✓ USED)
+   • .filter-controls__option--active (✓ USED)
+   • .filter-controls__options (✓ USED)
+   • .toggle-group (✓ USED)
+   • .toggle-group__item (✓ USED)
+   • .toggle-group__item--active (✓ USED)
+   • .w3 (✗ UNUSED)
+   • .wave-controls (✓ USED)
+   • .wave-controls__tab (✓ USED)
+   • .wave-controls__tab--active (✓ USED)
+
+📁 src/styles/patterns/card-patterns.css
+   51 total classes:
+   • .card (✓ USED)
+   • .card--bordered (✓ USED)
+   • .card--elevated (✓ USED)
+   • .card--interactive (✓ USED)
+   • .card--lg (✓ USED)
+   • .card--md (✓ USED)
+   • .card--sm (✓ USED)
+   • .card--xl (✓ USED)
+   • .card--xs (✓ USED)
+   • .chart-container (✓ USED)
+   • .chart-container--compact (✓ USED)
+   • .chart-container--elevated (✓ USED)
+   • .chart-container--full-width (✓ USED)
+   • .chart-container__body (✓ USED)
+   • .chart-container__controls (✓ USED)
+   • .chart-container__footer (✓ USED)
+   • .chart-container__header (✓ USED)
+   • .chart-container__subtitle (✓ USED)
+   • .chart-container__title (✓ USED)
+   • .error-container (✓ USED)
+   • .error-container__icon (✓ USED)
+   • .error-container__text (✓ USED)
+   • .legend-container (✓ USED)
+   • .legend-container--inline (✓ USED)
+   • .legend-container__item (✓ USED)
+   • .legend-container__items (✓ USED)
+   • .legend-container__marker (✓ USED)
+   • .legend-container__marker--control (✓ USED)
+   • .legend-container__marker--handoff (✓ USED)
+   • .legend-container__marker--line (✓ USED)
+   • .legend-container__marker--treatment (✓ USED)
+   • .legend-container__title (✓ USED)
+   • .loading-container (✓ USED)
+   • .loading-container__spinner (✓ USED)
+   • .loading-container__text (✓ USED)
+   • .methodology-section (✓ USED)
+   • .methodology-section__title (✓ USED)
+   • .popup-body (✓ USED)
+   • .popup-close (✓ USED)
+   • .popup-container (✗ UNUSED)
+   • .popup-header (✓ USED)
+   • .popup-overlay (✗ UNUSED)
+   • .popup-title (✓ USED)
+   • .section (✓ USED)
+   • .section--compact (✓ USED)
+   • .section--spacious (✓ USED)
+   • .section__description (✓ USED)
+   • .section__header (✓ USED)
+   • .section__subtitle (✓ USED)
+   • .section__title (✓ USED)
+   • .spin (✗ UNUSED)
+
+📁 src/styles/patterns/layout-patterns.css
+   86 total classes:
+   • .collapsible (✓ USED)
+   • .collapsible__body (✓ USED)
+   • .collapsible__content (✓ USED)
+   • .collapsible__icon (✓ USED)
+   • .collapsible__trigger (✓ USED)
+   • .container (✓ USED)
+   • .container--2xl (✓ USED)
+   • .container--flush (✓ USED)
+   • .container--lg (✓ USED)
+   • .container--md (✓ USED)
+   • .container--narrow (✓ USED)
+   • .container--sm (✓ USED)
+   • .container--wide (✓ USED)
+   • .container--xl (✓ USED)
+   • .flex (✓ USED)
+   • .flex--column (✓ USED)
+   • .flex--column-reverse (✓ USED)
+   • .flex--gap-lg (✓ USED)
+   • .flex--gap-md (✓ USED)
+   • .flex--gap-sm (✓ USED)
+   • .flex--gap-xl (✓ USED)
+   • .flex--items-baseline (✓ USED)
+   • .flex--items-center (✓ USED)
+   • .flex--items-end (✓ USED)
+   • .flex--items-start (✓ USED)
+   • .flex--items-stretch (✓ USED)
+   • .flex--justify-around (✓ USED)
+   • .flex--justify-between (✓ USED)
+   • .flex--justify-center (✓ USED)
+   • .flex--justify-end (✓ USED)
+   • .flex--justify-evenly (✓ USED)
+   • .flex--justify-start (✓ USED)
+   • .flex--nowrap (✓ USED)
+   • .flex--row-reverse (✓ USED)
+   • .flex--wrap (✓ USED)
+   • .footer-layout (✓ USED)
+   • .footer-layout__bottom (✓ USED)
+   • .footer-layout__brand (✓ USED)
+   • .footer-layout__brand-name (✓ USED)
+   • .footer-layout__brand-tagline (✓ USED)
+   • .footer-layout__container (✓ USED)
+   • .footer-layout__copyright (✓ USED)
+   • .footer-layout__grid (✓ USED)
+   • .footer-layout__legal (✗ UNUSED)
+   • .footer-layout__link (✓ USED)
+   • .footer-layout__links (✓ USED)
+   • .footer-layout__section (✓ USED)
+   • .footer-layout__section-title (✓ USED)
+   • .grid (✓ USED)
+   • .grid--1col (✓ USED)
+   • .grid--2col (✓ USED)
+   • .grid--3col (✓ USED)
+   • .grid--4col (✓ USED)
+   • .grid--auto-fill (✓ USED)
+   • .grid--auto-fit (✓ USED)
+   • .grid--gap-lg (✓ USED)
+   • .grid--gap-md (✓ USED)
+   • .grid--gap-sm (✓ USED)
+   • .grid--gap-xl (✓ USED)
+   • .grid--responsive (✓ USED)
+   • .header-layout (✓ USED)
+   • .header-layout__actions (✓ USED)
+   • .header-layout__brand (✓ USED)
+   • .header-layout__nav (✓ USED)
+   • .hidden (✓ USED)
+   • .hidden-desktop (✓ USED)
+   • .hidden-mobile (✓ USED)
+   • .hidden-tablet (✓ USED)
+   • .no-print (✓ USED)
+   • .print-only (✓ USED)
+   • .show-desktop (✓ USED)
+   • .show-mobile (✓ USED)
+   • .sidebar-layout (✓ USED)
+   • .sidebar-layout--narrow (✓ USED)
+   • .sidebar-layout--right (✓ USED)
+   • .sidebar-layout--wide (✓ USED)
+   • .sidebar-layout__main (✓ USED)
+   • .sidebar-layout__sidebar (✓ USED)
+   • .sr-only (✓ USED)
+   • .stack (✓ USED)
+   • .stack--2xl (✓ USED)
+   • .stack--horizontal (✓ USED)
+   • .stack--lg (✓ USED)
+   • .stack--md (✓ USED)
+   • .stack--sm (✓ USED)
+   • .stack--xl (✓ USED)
+
+📁 src/styles/sections/banner.css
+   14 total classes:
+   • .banner-background (✓ USED)
+   • .banner-container (✓ USED)
+   • .banner-content (✓ USED)
+   • .banner-image (✓ USED)
+   • .banner-overlay (✓ USED)
+   • .rare-logo (✓ USED)
+   • .rare-logo-container (✓ USED)
+   • .research-tab (✓ USED)
+   • .sticky-header-content (✓ USED)
+   • .sticky-rare-logo (✓ USED)
+   • .sticky-rare-logo-container (✓ USED)
+   • .toc-label (✓ USED)
+   • .unified-sticky-header (✓ USED)
+   • .visible (✓ USED)
+
+📁 src/styles/sections/methodology.css
+   16 total classes:
+   • .condition-content (✓ USED)
+   • .condition-group (✓ USED)
+   • .condition-header (✓ USED)
+   • .condition-label (✓ USED)
+   • .condition-number (✓ USED)
+   • .episode-content (✓ USED)
+   • .episode-description (✓ USED)
+   • .episode-info (✓ USED)
+   • .episode-meta (✓ USED)
+   • .episode-thumbnail (✓ USED)
+   • .episode-title-button (✓ USED)
+   • .experimental-conditions-infographic (✓ USED)
+   • .inline-episode-preview (✓ USED)
+   • .inline-episodes-container (✓ USED)
+   • .methodology-content (✓ USED)
+   • .methodology-section (✓ USED)
+
+📁 src/styles/shared/filters.css
+   6 total classes:
+   • .active (✓ USED)
+   • .filter-button (✗ UNUSED)
+   • .filter-container (✗ UNUSED)
+   • .filter-tag (✗ UNUSED)
+   • .toggle-btn (✗ UNUSED)
+   • .toggle-buttons (✓ USED)
+
+📁 src/styles/shared/sections.css
+   7 total classes:
+   • .btn (✓ USED)
+   • .card (✓ USED)
+   • .chart-container (✓ USED)
+   • .error (✓ USED)
+   • .loading (✓ USED)
+   • .section-base (✓ USED)
+   • .supplementary-materials-buttons (✓ USED)
+
+📁 src/styles/system/design-tokens.css
+   0 total classes:
+
+================================================================================
+ANALYSIS COMPLETE
+================================================================================

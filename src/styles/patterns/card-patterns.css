@@ -244,6 +244,38 @@
 }
 
 /* ============================================
+   METHODOLOGY SECTION PATTERNS
+   ============================================ */
+.methodology-section {
+  background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-primary-50) 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+
+.methodology-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-primary-200), transparent);
+}
+
+.methodology-section__title {
+  font-family: var(--font-family-secondary);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin: 0 0 var(--space-4) 0;
+  line-height: var(--line-height-tight);
+}
+
+/* ============================================
    LOADING AND ERROR STATES
    ============================================ */
 .loading-container,
@@ -296,29 +328,6 @@
 /* ============================================
    POPUP AND MODAL PATTERNS
    ============================================ */
-.popup-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: var(--z-modal);
-  backdrop-filter: blur(4px);
-}
-
-.popup-container {
-  background: var(--color-surface);
-  border-radius: var(--radius-xl);
-  box-shadow: var(--shadow-2xl);
-  max-width: 90vw;
-  max-height: 90vh;
-  overflow: auto;
-  position: relative;
-}
 
 .popup-header {
   display: flex;
@@ -380,6 +389,10 @@
     flex-wrap: wrap;
   }
   
+  .methodology-section {
+    padding: var(--space-6);
+    margin-bottom: var(--space-6);
+  }
   
   .section__title {
     font-size: var(--font-size-2xl);
@@ -389,10 +402,6 @@
     justify-content: center;
   }
   
-  .popup-container {
-    margin: var(--space-4);
-    max-width: calc(100vw - var(--space-8));
-  }
 }
 
 @media (max-width: 480px) {
@@ -405,4 +414,7 @@
     font-size: var(--font-size-lg);
   }
   
+  .methodology-section {
+    padding: var(--space-4);
+  }
 }

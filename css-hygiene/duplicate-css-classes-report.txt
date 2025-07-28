@@ -1,0 +1,1637 @@
+================================================================================
+CSS DUPLICATE CLASS ANALYSIS REPORT
+================================================================================
+
+Analysis completed on: /mnt/c/Rare/GitHub/greys-anatomy-report
+Files analyzed: 38
+Total CSS classes found: 512
+Unique class names: 446
+Classes with duplicates: 46
+
+SUMMARY STATISTICS:
+----------------------------------------
+Classes with identical duplicates: 11
+Classes with different duplicates: 35
+Total duplicate occurrences: 112
+
+FILES ANALYZED:
+----------------------------------------
+  - src/index.css
+  - src/styles/AMEChart.css
+  - src/styles/components/Chart-ClimateTemporal.css
+  - src/styles/components/Chart-Dumbbell.css
+  - src/styles/components/Chart-Likert.css
+  - src/styles/components/Chart-SystemImpacts.css
+  - src/styles/components/Controls.css
+  - src/styles/components/EpisodePreview.css
+  - src/styles/components/GreysAnatomyKnowledgeViz.css
+  - src/styles/components/Header.css
+  - src/styles/components/InstagramCarousel.css
+  - src/styles/components/Legend.css
+  - src/styles/components/SurveyItemsPopup.css
+  - src/styles/components/TimelineInfographic.css
+  - src/styles/components/WaveToggle.css
+  - src/styles/components/buttons.css
+  - src/styles/components/carousel.css
+  - src/styles/components/charts/ame-charts.css
+  - src/styles/components/charts/chart-base.css
+  - src/styles/components/collapsible.css
+  - src/styles/components/footer.css
+  - src/styles/components/full-report-collapse.css
+  - src/styles/components/table-of-contents.css
+  - src/styles/core/fonts.css
+  - src/styles/core/layout.css
+  - src/styles/core/reset.css
+  - src/styles/core/typography.css
+  - src/styles/core/variables.css
+  - src/styles/global/App.css
+  - src/styles/main.css
+  - src/styles/patterns/button-patterns.css
+  - src/styles/patterns/card-patterns.css
+  - src/styles/patterns/layout-patterns.css
+  - src/styles/sections/banner.css
+  - src/styles/sections/methodology.css
+  - src/styles/shared/filters.css
+  - src/styles/shared/sections.css
+  - src/styles/system/design-tokens.css
+
+DETAILED DUPLICATE ANALYSIS:
+==================================================
+
+CLASS: .active
+--------------
+Total occurrences: 9
+Unique definitions: 8
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/TimelineInfographic.css, src/styles/components/collapsible.css, src/styles/components/table-of-contents.css, src/styles/components/Controls.css, src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css, src/styles/components/InstagramCarousel.css, src/styles/components/WaveToggle.css
+
+  Definition #1:
+    File: src/styles/components/Chart-ClimateTemporal.css
+    Line: 109
+    Selector: .political-party-toggle.active
+    Content preview:
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+      font-weight: 600;
+      box-shadow: var(--filter-shadow-active);
+      ...
+
+  Definition #2:
+    File: src/styles/components/Chart-Dumbbell.css
+    Line: 130
+    Selector: .political-party-toggle.active, .policy-type-toggle.active
+    Content preview:
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+      font-weight: 600;
+      box-shadow: var(--filter-shadow-active);
+      ...
+
+  Definition #3:
+    File: src/styles/components/Controls.css
+    Line: 62
+    Selector: .wave-btn.active, .view-btn.active
+    Content preview:
+      background: var(--color-primary);
+      color: white;
+      box-shadow: var(--filter-shadow-active);
+      font-weight: 600;
+      transform: translateY(-1px);
+
+  Definition #4:
+    File: src/styles/components/InstagramCarousel.css
+    Line: 131
+    Selector: .profile-circle.active
+    Content preview:
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      opacity: 1;
+
+  Definition #5:
+    File: src/styles/components/TimelineInfographic.css
+    Line: 88
+    Selector: .wave-card.active
+    Content preview:
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+
+  Definition #6:
+    File: src/styles/components/WaveToggle.css
+    Line: 72
+    Selector: .wave-toggle-label.active
+    Content preview:
+      color: white;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+  Definition #7:
+    File: src/styles/components/charts/chart-base.css
+    Line: 175
+    Selector: .wave-tab.active
+    Content preview:
+      background: var(--color-info);
+      border-color: var(--color-info);
+      color: white;
+
+  Definition #8:
+    File: src/styles/components/collapsible.css
+    Line: 92
+    Selector: .tab-button.active
+    Content preview:
+      color: var(--color-primary);
+      border-bottom-color: var(--color-primary);
+      font-weight: 600;
+
+  Definition #9:
+    File: src/styles/components/table-of-contents.css
+    Line: 238
+    Selector: .toc-link.active
+    Content preview:
+      background: rgba(0, 91, 187, 0.1);
+      color: var(--color-primary);
+      border-left-color: var(--color-primary);
+      font-weight: 600;
+
+------------------------------------------------------------
+
+CLASS: .chart-container
+-----------------------
+Total occurrences: 7
+Unique definitions: 6
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css, src/styles/patterns/card-patterns.css, src/styles/shared/sections.css, src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css
+
+  Definition #1:
+    File: src/styles/components/Chart-ClimateTemporal.css
+    Line: 29
+    Selector: .chart-container
+    Content preview:
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+
+  Definition #2:
+    File: src/styles/components/Chart-Dumbbell.css
+    Line: 181
+    Selector: .chart-container
+    Content preview:
+      padding: 16px;
+      min-height: 320px;
+
+  Definition #3:
+    File: src/styles/components/carousel.css
+    Line: 65
+    Selector: .chart-container
+    Content preview:
+      margin: 0;
+      padding: 0;
+
+  Definition #4:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 89
+    Selector: .chart-container
+    Content preview:
+      margin: 0;
+      padding: 0;
+
+  Definition #5:
+    File: src/styles/components/charts/chart-base.css
+    Line: 16
+    Selector: .chart-container
+    Content preview:
+      /* Core container styling */
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      ...
+
+  Definition #6:
+    File: src/styles/patterns/card-patterns.css
+    Line: 66
+    Selector: .chart-container
+    Content preview:
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+      ...
+
+  Definition #7:
+    File: src/styles/shared/sections.css
+    Line: 63
+    Selector: .chart-container
+    Content preview:
+      padding: 20px;
+
+------------------------------------------------------------
+
+CLASS: .wave-controls
+---------------------
+Total occurrences: 5
+Unique definitions: 5
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/Chart-SystemImpacts.css, src/styles/patterns/button-patterns.css, src/styles/components/Chart-Likert.css, src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/chart-base.css
+
+  Definition #1:
+    File: src/styles/components/Chart-Dumbbell.css
+    Line: 140
+    Selector: .wave-controls
+    Content preview:
+      /* Modern segmented control styling */
+      display: flex;
+      gap: 0;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      padding: 6px;
+      ...
+
+  Definition #2:
+    File: src/styles/components/Chart-Likert.css
+    Line: 18
+    Selector: .wave-controls
+    Content preview:
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 24px;
+
+  Definition #3:
+    File: src/styles/components/Chart-SystemImpacts.css
+    Line: 5
+    Selector: .wave-controls
+    Content preview:
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      justify-content: center;
+
+  Definition #4:
+    File: src/styles/components/charts/chart-base.css
+    Line: 150
+    Selector: .wave-controls
+    Content preview:
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: var(--spacing-xl);
+
+  Definition #5:
+    File: src/styles/patterns/button-patterns.css
+    Line: 172
+    Selector: .wave-controls
+    Content preview:
+      display: flex;
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+
+------------------------------------------------------------
+
+CLASS: .loading
+---------------
+Total occurrences: 3
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/Chart-Likert.css, src/styles/shared/sections.css, src/styles/core/layout.css
+
+  Definition #1:
+    File: src/styles/components/Chart-Likert.css
+    Line: 26
+    Selector: .loading, .error
+    Content preview:
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      font-size: 1.125rem;
+      ...
+
+  Definition #2:
+    File: src/styles/core/layout.css
+    Line: 85
+    Selector: .loading, 
+.error
+    Content preview:
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      font-size: 1.125rem;
+      ...
+
+  Definition #3:
+    File: src/styles/shared/sections.css
+    Line: 26
+    Selector: .loading,
+.error
+    Content preview:
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      font-size: 1.125rem;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .error
+-------------
+Total occurrences: 3
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/Chart-Likert.css, src/styles/shared/sections.css, src/styles/core/layout.css
+
+  Definition #1:
+    File: src/styles/components/Chart-Likert.css
+    Line: 26
+    Selector: .loading, .error
+    Content preview:
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+      font-size: 1.125rem;
+      ...
+
+  Definition #2:
+    File: src/styles/core/layout.css
+    Line: 85
+    Selector: .loading, 
+.error
+    Content preview:
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      font-size: 1.125rem;
+      ...
+
+  Definition #3:
+    File: src/styles/shared/sections.css
+    Line: 26
+    Selector: .loading,
+.error
+    Content preview:
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 50vh;
+      font-size: 1.125rem;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .episode-preview-trigger
+-------------------------------
+Total occurrences: 3
+Unique definitions: 3
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/EpisodePreview.css, src/styles/components/buttons.css, src/styles/patterns/button-patterns.css
+
+  Definition #1:
+    File: src/styles/components/EpisodePreview.css
+    Line: 1
+    Selector: .episode-preview-trigger
+    Content preview:
+      background: none;
+      border: none;
+      color: #008542;
+      text-decoration: underline;
+      cursor: pointer;
+      ...
+
+  Definition #2:
+    File: src/styles/components/buttons.css
+    Line: 78
+    Selector: .episode-preview-trigger
+    Content preview:
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+      /* color: white; */
+      border: none;
+      padding: 2px 8px;
+      border-radius: var(--border-radius-sm);
+      ...
+
+  Definition #3:
+    File: src/styles/patterns/button-patterns.css
+    Line: 306
+    Selector: .episode-preview-trigger
+    Content preview:
+      background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-500) 100%);
+      color: var(--color-text-inverse);
+      border: none;
+      padding: var(--space-1) var(--space-2);
+      border-...
+
+------------------------------------------------------------
+
+CLASS: .btn
+-----------
+Total occurrences: 3
+Unique definitions: 3
+Status: DIFFERENT duplicates
+Files involved: src/styles/shared/sections.css, src/styles/components/buttons.css, src/styles/patterns/button-patterns.css
+
+  Definition #1:
+    File: src/styles/components/buttons.css
+    Line: 7
+    Selector: .btn
+    Content preview:
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      font-family: var(--font-secondary);
+      ...
+
+  Definition #2:
+    File: src/styles/patterns/button-patterns.css
+    Line: 6
+    Selector: .btn
+    Content preview:
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      font-family: var(--font-family-secondary);
+      ...
+
+  Definition #3:
+    File: src/styles/shared/sections.css
+    Line: 52
+    Selector: .supplementary-materials-buttons .btn
+    Content preview:
+      min-width: 200px;
+      justify-content: left;
+
+------------------------------------------------------------
+
+CLASS: .card
+------------
+Total occurrences: 3
+Unique definitions: 3
+Status: DIFFERENT duplicates
+Files involved: src/styles/shared/sections.css, src/styles/core/layout.css, src/styles/patterns/card-patterns.css
+
+  Definition #1:
+    File: src/styles/core/layout.css
+    Line: 70
+    Selector: .card
+    Content preview:
+      background: var(--color-surface);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-md);
+      border: 1px solid var(--color-border);
+      ...
+
+  Definition #2:
+    File: src/styles/patterns/card-patterns.css
+    Line: 6
+    Selector: .card
+    Content preview:
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: var(--transition-shadow);
+
+  Definition #3:
+    File: src/styles/shared/sections.css
+    Line: 14
+    Selector: .card
+    Content preview:
+      background: var(--color-surface);
+      border-radius: var(--border-radius-lg);
+      padding: calc(var(--spacing-unit) * 4);
+      margin-bottom: calc(var(--spacing-unit) * 4);
+      border: 1px solid var(--color-bo...
+
+------------------------------------------------------------
+
+CLASS: .chart-title
+-------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css
+
+  Definition #1:
+    File: src/styles/components/Chart-ClimateTemporal.css
+    Line: 10
+    Selector: .chart-title
+    Content preview:
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 8px;
+      font-family: var(--font-secondary);
+      ...
+
+  Definition #2:
+    File: src/styles/components/charts/chart-base.css
+    Line: 80
+    Selector: .chart-title
+    Content preview:
+      font-family: var(--font-secondary);
+      font-size: 1.125rem;
+      font-weight: bold;
+      color: #374151;
+      margin: 0 0 5px 0;
+
+------------------------------------------------------------
+
+CLASS: .chart-subtitle
+----------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css
+
+  Definition #1:
+    File: src/styles/components/Chart-ClimateTemporal.css
+    Line: 19
+    Selector: .chart-subtitle
+    Content preview:
+      text-align: center;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--color-text-muted);
+      margin-bottom: 24px;
+      ...
+
+  Definition #2:
+    File: src/styles/components/charts/chart-base.css
+    Line: 88
+    Selector: .chart-subtitle
+    Content preview:
+      font-family: var(--font-secondary);
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      margin: 0;
+
+------------------------------------------------------------
+
+CLASS: .d3-tooltip
+------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/Chart-SystemImpacts.css, src/styles/components/Chart-ClimateTemporal.css
+
+  Definition #1:
+    File: src/styles/components/Chart-ClimateTemporal.css
+    Line: 45
+    Selector: .d3-tooltip
+    Content preview:
+      position: absolute;
+      text-align: center;
+      padding: 8px 12px;
+      font-size: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      ...
+
+  Definition #2:
+    File: src/styles/components/Chart-SystemImpacts.css
+    Line: 13
+    Selector: .d3-tooltip
+    Content preview:
+      font-family: var(--font-primary);
+      font-size: 12px;
+      z-index: 1000;
+
+------------------------------------------------------------
+
+CLASS: .political-party-controls
+--------------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/Chart-ClimateTemporal.css, src/styles/components/Chart-Dumbbell.css
+
+  Definition #1:
+    File: src/styles/components/Chart-ClimateTemporal.css
+    Line: 59
+    Selector: .political-party-controls
+    Content preview:
+      display: flex;
+      gap: 0;
+      background: var(--color-surface);
+      padding: 3px;
+      border-radius: var(--border-radius-md);
+      ...
+
+  Definition #2:
+    File: src/styles/components/Chart-Dumbbell.css
+    Line: 2
+    Selector: .political-party-controls, .policy-type-controls
+    Content preview:
+      /* Use shared toggle button container styling */
+      display: flex;
+      gap: 0;
+      background: var(--color-surface);
+      padding: 3px;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .political-party-toggle
+------------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/Chart-ClimateTemporal.css, src/styles/components/Chart-Dumbbell.css
+
+  Definition #1:
+    File: src/styles/components/Chart-ClimateTemporal.css
+    Line: 77
+    Selector: .political-party-toggle
+    Content preview:
+      padding: 10px 18px;
+      border: 1px solid var(--filter-border);
+      border-right: none;
+      background: var(--color-surface);
+      color: var(--filter-text);
+      ...
+
+  Definition #2:
+    File: src/styles/components/Chart-Dumbbell.css
+    Line: 97
+    Selector: .political-party-toggle, .policy-type-toggle
+    Content preview:
+      /* Use shared toggle button styling */
+      padding: 10px 20px;
+      border: 1px solid var(--filter-border);
+      background: var(--color-surface);
+      color: var(--filter-text);
+      ...
+
+------------------------------------------------------------
+
+CLASS: .survey-info-button
+--------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/charts/ame-charts.css, src/styles/components/Chart-Dumbbell.css
+
+  Definition #1:
+    File: src/styles/components/Chart-Dumbbell.css
+    Line: 306
+    Selector: .survey-info-button
+    Content preview:
+      background: none;
+      border: none;
+      color: #6b7280;
+      cursor: pointer;
+      padding: 4px;
+      ...
+
+  Definition #2:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 173
+    Selector: .outcome-label-container .survey-info-button
+    Content preview:
+      background: none;
+      border: none;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      padding: 4px;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .system-impacts-container
+--------------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/Chart-SystemImpacts.css, src/styles/components/Chart-Likert.css
+
+  Definition #1:
+    File: src/styles/components/Chart-Likert.css
+    Line: 3
+    Selector: .health-worry-container,
+.system-impacts-container
+    Content preview:
+      /* Use shared card styling */
+      background: var(--color-surface);
+      border-radius: var(--border-radius-lg);
+      padding: 32px;
+      margin-bottom: 32px;
+      ...
+
+  Definition #2:
+    File: src/styles/components/Chart-SystemImpacts.css
+    Line: 1
+    Selector: .system-impacts-container
+    Content preview:
+      width: 100%;
+
+------------------------------------------------------------
+
+CLASS: .toggle-buttons
+----------------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/Controls.css, src/styles/shared/filters.css
+
+  Definition #1:
+    File: src/styles/components/Controls.css
+    Line: 32
+    Selector: .toggle-buttons
+    Content preview:
+      display: flex;
+      gap: 0;
+      background: var(--color-surface);
+      padding: 3px;
+      border-radius: var(--border-radius-md);
+      ...
+
+  Definition #2:
+    File: src/styles/shared/filters.css
+    Line: 3
+    Selector: .toggle-buttons
+    Content preview:
+      display: flex;
+      gap: 0;
+      background: var(--color-surface);
+      padding: 3px;
+      border-radius: var(--border-radius-md);
+      ...
+
+------------------------------------------------------------
+
+CLASS: .episode-content
+-----------------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/EpisodePreview.css, src/styles/sections/methodology.css
+
+  Definition #1:
+    File: src/styles/components/EpisodePreview.css
+    Line: 66
+    Selector: .episode-content
+    Content preview:
+      display: flex;
+      flex-direction: column;
+
+  Definition #2:
+    File: src/styles/sections/methodology.css
+    Line: 73
+    Selector: .inline-episode-preview .episode-content
+    Content preview:
+      display: flex;
+      flex-direction: column;
+
+------------------------------------------------------------
+
+CLASS: .episode-thumbnail
+-------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/EpisodePreview.css, src/styles/sections/methodology.css
+
+  Definition #1:
+    File: src/styles/components/EpisodePreview.css
+    Line: 71
+    Selector: .episode-thumbnail
+    Content preview:
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: #000;
+      overflow: hidden;
+
+  Definition #2:
+    File: src/styles/sections/methodology.css
+    Line: 78
+    Selector: .inline-episode-preview .episode-thumbnail
+    Content preview:
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+
+------------------------------------------------------------
+
+CLASS: .episode-info
+--------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/EpisodePreview.css, src/styles/sections/methodology.css
+
+  Definition #1:
+    File: src/styles/components/EpisodePreview.css
+    Line: 85
+    Selector: .episode-info
+    Content preview:
+      padding: 24px;
+      color: white;
+
+  Definition #2:
+    File: src/styles/sections/methodology.css
+    Line: 90
+    Selector: .inline-episode-preview .episode-info
+    Content preview:
+      padding: 1rem;
+
+------------------------------------------------------------
+
+CLASS: .episode-meta
+--------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/EpisodePreview.css, src/styles/sections/methodology.css
+
+  Definition #1:
+    File: src/styles/components/EpisodePreview.css
+    Line: 97
+    Selector: .episode-meta
+    Content preview:
+      font-size: 0.85rem;
+      color: #999;
+      margin: 0 0 16px 0;
+
+  Definition #2:
+    File: src/styles/sections/methodology.css
+    Line: 102
+    Selector: .inline-episode-preview .episode-meta
+    Content preview:
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin: 0 0 0.75rem 0;
+      font-weight: 500;
+
+------------------------------------------------------------
+
+CLASS: .tooltip
+---------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/charts/chart-base.css, src/styles/components/GreysAnatomyKnowledgeViz.css
+
+  Definition #1:
+    File: src/styles/components/GreysAnatomyKnowledgeViz.css
+    Line: 15
+    Selector: .tooltip
+    Content preview:
+      position: absolute;
+      pointer-events: none;
+      background: white;
+      border: 1px solid #aaa;
+      padding: 6px;
+      ...
+
+  Definition #2:
+    File: src/styles/components/charts/chart-base.css
+    Line: 186
+    Selector: .tooltip
+    Content preview:
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-100%);
+      background: rgba(0, 0, 0, 0.9);
+      ...
+
+------------------------------------------------------------
+
+CLASS: .condition-label
+-----------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/sections/methodology.css, src/styles/components/Legend.css
+
+  Definition #1:
+    File: src/styles/components/Legend.css
+    Line: 40
+    Selector: .condition-label
+    Content preview:
+      padding: 6px 12px;
+      border-radius: var(--border-radius-md);
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      ...
+
+  Definition #2:
+    File: src/styles/sections/methodology.css
+    Line: 149
+    Selector: .experimental-conditions-infographic .condition-label
+    Content preview:
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .ame-carousel-container
+------------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
+
+  Definition #1:
+    File: src/styles/components/carousel.css
+    Line: 3
+    Selector: .ame-carousel-container
+    Content preview:
+      margin: var(--spacing-xl) 0;
+
+  Definition #2:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 27
+    Selector: .ame-carousel-container
+    Content preview:
+      margin: var(--spacing-sm) 0;
+
+------------------------------------------------------------
+
+CLASS: .carousel-header
+-----------------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
+
+  Definition #1:
+    File: src/styles/components/carousel.css
+    Line: 7
+    Selector: .carousel-header
+    Content preview:
+      margin-bottom: 1.5rem;
+
+  Definition #2:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 31
+    Selector: .carousel-header
+    Content preview:
+      margin-bottom: 1.5rem;
+
+------------------------------------------------------------
+
+CLASS: .chart-info
+------------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
+
+  Definition #1:
+    File: src/styles/components/carousel.css
+    Line: 11
+    Selector: .chart-info
+    Content preview:
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+  Definition #2:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 35
+    Selector: .chart-info
+    Content preview:
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+------------------------------------------------------------
+
+CLASS: .carousel-title
+----------------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
+
+  Definition #1:
+    File: src/styles/components/carousel.css
+    Line: 17
+    Selector: .carousel-title
+    Content preview:
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+      color: #1e293b;
+      ...
+
+  Definition #2:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 41
+    Selector: .carousel-title
+    Content preview:
+      font-family: var(--font-secondary);
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 0;
+      color: #1e293b;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .chart-nav
+-----------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
+
+  Definition #1:
+    File: src/styles/components/carousel.css
+    Line: 26
+    Selector: .chart-nav
+    Content preview:
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+  Definition #2:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 50
+    Selector: .chart-nav
+    Content preview:
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+------------------------------------------------------------
+
+CLASS: .nav-btn
+---------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
+
+  Definition #1:
+    File: src/styles/components/carousel.css
+    Line: 32
+    Selector: .nav-btn
+    Content preview:
+      background: none;
+      border: 1px solid var(--color-border);
+      color: #374151;
+      padding: var(--spacing-sm) 1rem;
+      border-radius: var(--border-radius-md);
+      ...
+
+  Definition #2:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 56
+    Selector: .nav-btn
+    Content preview:
+      background: none;
+      border: 1px solid var(--color-border);
+      color: #374151;
+      padding: var(--spacing-sm) 1rem;
+      border-radius: var(--border-radius-md);
+      ...
+
+------------------------------------------------------------
+
+CLASS: .chart-counter
+---------------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
+
+  Definition #1:
+    File: src/styles/components/carousel.css
+    Line: 56
+    Selector: .chart-counter
+    Content preview:
+      font-family: var(--font-secondary);
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      min-width: 4rem;
+      ...
+
+  Definition #2:
+    File: src/styles/components/charts/ame-charts.css
+    Line: 80
+    Selector: .chart-counter
+    Content preview:
+      font-family: var(--font-secondary);
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      font-weight: 500;
+      min-width: 4rem;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .chart-container--elevated
+---------------------------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/charts/chart-base.css, src/styles/patterns/card-patterns.css
+
+  Definition #1:
+    File: src/styles/components/charts/chart-base.css
+    Line: 48
+    Selector: .chart-container--elevated
+    Content preview:
+      box-shadow: var(--shadow-md);
+
+  Definition #2:
+    File: src/styles/patterns/card-patterns.css
+    Line: 76
+    Selector: .chart-container--elevated
+    Content preview:
+      box-shadow: var(--shadow-md);
+
+------------------------------------------------------------
+
+CLASS: .chart-container--compact
+--------------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/charts/chart-base.css, src/styles/patterns/card-patterns.css
+
+  Definition #1:
+    File: src/styles/components/charts/chart-base.css
+    Line: 52
+    Selector: .chart-container--compact
+    Content preview:
+      padding: var(--spacing-md);
+      margin-bottom: var(--spacing-md);
+      min-height: 300px;
+
+  Definition #2:
+    File: src/styles/patterns/card-patterns.css
+    Line: 80
+    Selector: .chart-container--compact
+    Content preview:
+      padding: var(--space-6);
+      margin-bottom: var(--space-6);
+
+------------------------------------------------------------
+
+CLASS: .chart-container--full-width
+-----------------------------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/charts/chart-base.css, src/styles/patterns/card-patterns.css
+
+  Definition #1:
+    File: src/styles/components/charts/chart-base.css
+    Line: 58
+    Selector: .chart-container--full-width
+    Content preview:
+      width: 100%;
+      max-width: none;
+
+  Definition #2:
+    File: src/styles/patterns/card-patterns.css
+    Line: 85
+    Selector: .chart-container--full-width
+    Content preview:
+      width: 100%;
+      max-width: none;
+
+------------------------------------------------------------
+
+CLASS: .info-button
+-------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/charts/chart-base.css, src/styles/components/collapsible.css
+
+  Definition #1:
+    File: src/styles/components/charts/chart-base.css
+    Line: 222
+    Selector: .info-button
+    Content preview:
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      ...
+
+  Definition #2:
+    File: src/styles/components/collapsible.css
+    Line: 212
+    Selector: .info-button
+    Content preview:
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 16px;
+      height: 16px;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .info-tooltip
+--------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/charts/chart-base.css, src/styles/components/collapsible.css
+
+  Definition #1:
+    File: src/styles/components/charts/chart-base.css
+    Line: 243
+    Selector: .info-tooltip div
+    Content preview:
+      margin-bottom: 0.25rem;
+
+  Definition #2:
+    File: src/styles/components/collapsible.css
+    Line: 238
+    Selector: .info-tooltip
+    Content preview:
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.95);
+      ...
+
+------------------------------------------------------------
+
+CLASS: .expanded
+----------------
+Total occurrences: 2
+Unique definitions: 1
+Status: IDENTICAL duplicates
+Files involved: src/styles/components/collapsible.css, src/styles/components/full-report-collapse.css
+
+  Definition #1:
+    File: src/styles/components/collapsible.css
+    Line: 30
+    Selector: .expand-icon.expanded
+    Content preview:
+      transform: rotate(180deg);
+
+  Definition #2:
+    File: src/styles/components/full-report-collapse.css
+    Line: 68
+    Selector: .full-report-arrow.expanded
+    Content preview:
+      transform: rotate(180deg);
+
+------------------------------------------------------------
+
+CLASS: .expandable-details
+--------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/core/typography.css, src/styles/components/collapsible.css
+
+  Definition #1:
+    File: src/styles/components/collapsible.css
+    Line: 119
+    Selector: .expandable-details
+    Content preview:
+      margin-bottom: var(--spacing-md);
+
+  Definition #2:
+    File: src/styles/core/typography.css
+    Line: 315
+    Selector: .expandable-details a,
+.details-content a
+    Content preview:
+      color: var(--color-primary-600);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      transition: var(--transition-colors);
+
+------------------------------------------------------------
+
+CLASS: .details-content
+-----------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/core/typography.css, src/styles/components/collapsible.css
+
+  Definition #1:
+    File: src/styles/components/collapsible.css
+    Line: 157
+    Selector: .details-content
+    Content preview:
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+      opacity: 0;
+
+  Definition #2:
+    File: src/styles/core/typography.css
+    Line: 315
+    Selector: .expandable-details a,
+.details-content a
+    Content preview:
+      color: var(--color-primary-600);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-thickness: 1px;
+      transition: var(--transition-colors);
+
+------------------------------------------------------------
+
+CLASS: .rare-logo
+-----------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/sections/banner.css, src/styles/components/footer.css
+
+  Definition #1:
+    File: src/styles/components/footer.css
+    Line: 95
+    Selector: .rare-logo
+    Content preview:
+      height: 100px;
+      width: auto;
+      margin-bottom: 0;
+
+  Definition #2:
+    File: src/styles/sections/banner.css
+    Line: 84
+    Selector: .rare-logo
+    Content preview:
+      height: auto;
+      width: auto;
+      max-height: 80px;
+      max-width: 200px;
+      display: block;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .visible
+---------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/sections/banner.css, src/styles/components/table-of-contents.css
+
+  Definition #1:
+    File: src/styles/components/table-of-contents.css
+    Line: 28
+    Selector: .toc-sidebar.visible
+    Content preview:
+      opacity: 1;
+      visibility: visible;
+
+  Definition #2:
+    File: src/styles/sections/banner.css
+    Line: 134
+    Selector: .unified-sticky-header.visible
+    Content preview:
+      opacity: 1 !important;
+      top: 0 !important;
+      transform: translateY(0) !important;
+      pointer-events: auto !important;
+      visibility: visible !important;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .toc-label
+-----------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/sections/banner.css, src/styles/components/table-of-contents.css
+
+  Definition #1:
+    File: src/styles/components/table-of-contents.css
+    Line: 103
+    Selector: .toc-label
+    Content preview:
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: var(--color-primary);
+      letter-spacing: 0.01em;
+
+  Definition #2:
+    File: src/styles/sections/banner.css
+    Line: 297
+    Selector: .toc-label
+    Content preview:
+      display: none;
+
+------------------------------------------------------------
+
+CLASS: .container
+-----------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/patterns/layout-patterns.css, src/styles/core/layout.css
+
+  Definition #1:
+    File: src/styles/core/layout.css
+    Line: 7
+    Selector: .container
+    Content preview:
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: var(--spacing-md) var(--spacing-lg);
+      position: relative;
+      z-index: 2;
+      ...
+
+  Definition #2:
+    File: src/styles/patterns/layout-patterns.css
+    Line: 6
+    Selector: .container
+    Content preview:
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+
+------------------------------------------------------------
+
+CLASS: .report-content
+----------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/global/App.css, src/styles/core/layout.css
+
+  Definition #1:
+    File: src/styles/core/layout.css
+    Line: 29
+    Selector: .report-content
+    Content preview:
+      margin-top: var(--spacing-lg);
+
+  Definition #2:
+    File: src/styles/global/App.css
+    Line: 20
+    Selector: .report-content
+    Content preview:
+      margin-top: 40px;
+
+------------------------------------------------------------
+
+CLASS: .report-section
+----------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/global/App.css, src/styles/core/layout.css
+
+  Definition #1:
+    File: src/styles/core/layout.css
+    Line: 33
+    Selector: .report-section
+    Content preview:
+      margin-bottom: var(--spacing-lg);
+
+  Definition #2:
+    File: src/styles/global/App.css
+    Line: 24
+    Selector: .report-section
+    Content preview:
+      margin-bottom: 60px;
+
+------------------------------------------------------------
+
+CLASS: .chart-section
+---------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/global/App.css, src/styles/core/layout.css
+
+  Definition #1:
+    File: src/styles/core/layout.css
+    Line: 37
+    Selector: .chart-section
+    Content preview:
+      margin: var(--spacing-lg) 0;
+      padding: var(--spacing-md) 0;
+      border-top: 2px solid var(--color-border);
+      border-bottom: 2px solid var(--color-border);
+      padding-left: var(--spacing-3xl);
+      ...
+
+  Definition #2:
+    File: src/styles/global/App.css
+    Line: 28
+    Selector: .chart-section
+    Content preview:
+      margin: 80px 0;
+      padding: 40px 0;
+      border-top: 2px solid var(--color-border);
+      border-bottom: 2px solid var(--color-border);
+      padding-left: 80px;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .section-base
+--------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/shared/sections.css, src/styles/core/layout.css
+
+  Definition #1:
+    File: src/styles/core/layout.css
+    Line: 59
+    Selector: .section-base
+    Content preview:
+      margin: var(--spacing-md) 0;
+      padding: var(--spacing-lg);
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+      border-radius: 28px;
+      border: 1.5px solid var(--color-border);
+      ...
+
+  Definition #2:
+    File: src/styles/shared/sections.css
+    Line: 2
+    Selector: .section-base
+    Content preview:
+      margin: 40px 0;
+      padding: 40px;
+      background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+      border-radius: 28px;
+      border: 1.5px solid #d1d5db;
+      ...
+
+------------------------------------------------------------
+
+CLASS: .methodology-section
+---------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/sections/methodology.css, src/styles/patterns/card-patterns.css
+
+  Definition #1:
+    File: src/styles/patterns/card-patterns.css
+    Line: 249
+    Selector: .methodology-section
+    Content preview:
+      background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-primary-50) 100%);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      ma...
+
+  Definition #2:
+    File: src/styles/sections/methodology.css
+    Line: 10
+    Selector: .methodology-section
+    Content preview:
+      border-bottom: 1px solid var(--color-border-light);
+      padding-bottom: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+
+------------------------------------------------------------
+
+
+RECOMMENDATIONS:
+==============================
+
+1. CONSOLIDATION OPPORTUNITIES (11 classes):
+   - These classes have identical definitions across multiple files
+   - Consider moving them to a shared/common CSS file
+   - Remove duplicates to reduce bundle size and improve maintainability
+
+2. POTENTIAL CONFLICTS (35 classes):
+   - These classes have different definitions with the same name
+   - Review for unintended style conflicts
+   - Consider renaming classes to be more specific
+   - Check CSS specificity and cascade order
+
+3. GENERAL RECOMMENDATIONS:
+   - Use consistent naming conventions (BEM methodology recommended)
+   - Organize CSS into logical modules/components
+   - Consider CSS-in-JS or CSS modules for component isolation
+   - Implement CSS linting rules to prevent future duplicates
+
+================================================================================
+End of CSS Duplicate Analysis Report
+================================================================================

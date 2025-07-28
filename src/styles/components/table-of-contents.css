@@ -21,7 +21,7 @@
   transition: opacity 0.3s ease, visibility 0.3s ease;
   overflow-y: auto;
   padding-top: 100px;
-  padding-bottom: 100px; /* Increase padding at bottom for scroll space */
+  padding-bottom: 1px; /* Increase padding at bottom for scroll space */
   max-height: calc(100vh - 100px); /* Ensure TOC doesn't extend below footer area */
 }
 
@@ -42,6 +42,7 @@
   padding-bottom: var(--spacing-md);
   border-bottom: 2px solid var(--color-primary);
   letter-spacing: 0.02em;
+      text-align: right;
 }
 
 /* Original dropdown container */
@@ -210,14 +211,14 @@
 }
 
 .toc-link {
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   padding: var(--spacing-md) var(--spacing-lg);
   background: none;
   border: none;
-  text-align: left;
+  text-align: right;
   font-family: var(--font-secondary);
   font-size: 0.95rem;
   font-weight: 400;
@@ -274,13 +275,13 @@
 .toc-sublink {
   display: block;
   width: 100%;
-  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) calc(var(--spacing-lg) + var(--spacing-md));
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm) var(--spacing-lg);
   background: none;
   border: none;
-  text-align: left;
+  text-align: right;
   font-family: var(--font-secondary);
   font-size: 0.875rem;
-  font-weight: 400;
+  font-weight: 300;
   color: var(--color-text-muted);
   cursor: pointer;
   transition: all var(--transition-base);

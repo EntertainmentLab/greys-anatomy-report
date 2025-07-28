@@ -1,0 +1,607 @@
+# Complete List of ALL CSS Classes Actually Used in the Codebase
+
+Based on extremely thorough analysis of every JSX, JS, and CSS file, here is the comprehensive, organized list of **every single CSS class that is actually used** in the Grey's Anatomy report codebase:
+
+## **App Structure & Layout**
+- app-wrapper
+- report-container
+- report-content
+- report-section
+- main-title-section
+- main-title-container
+- main-title
+- container
+- chart-section
+- loading
+- error
+
+## **Header & Navigation**
+- report-header
+- banner-container
+- banner-background
+- banner-image
+- banner-overlay
+- banner-content
+- rare-logo-container
+- rare-logo
+- unified-sticky-header
+- sticky-header-content
+- sticky-rare-logo-container
+- sticky-rare-logo
+- research-tab
+
+## **Table of Contents**
+- toc-container
+- toc-toggle
+- toc-icon
+- toc-label
+- toc-nav
+- toc-header
+- toc-close
+- toc-list
+- toc-item
+- toc-link
+- toc-expand-icon
+- toc-sublist
+- toc-subitem
+- toc-sublink
+- toc-sidebar
+- toc-sidebar-nav
+- toc-sidebar-title
+- toc-text
+- sticky-toc-container
+- integrated (modifier)
+- open (modifier)
+- visible (modifier)
+- active (modifier)
+- has-subsections (modifier)
+
+## **Charts & Data Visualization**
+
+### **Base Chart Components**
+- chart-container
+- chart-container-wrapper
+- chart-wrapper
+- chart-header
+- chart-title
+- chart-subtitle
+- chart-controls
+- chart-content
+- chart-nav
+- chart-counter
+- chart-info
+
+### **AME Charts**
+- ame-chart-wrapper
+- ame-chart
+- ame-chart-1
+- ame-chart-2
+- ame-chart-3
+- ame-bar-chart-container
+- ame-carousel-container
+- ame-charts-container
+- ame-tooltip
+
+### **Chart Elements**
+- loading-container
+- loading-container__spinner
+- loading-container__text
+- error-container
+- error-container__icon
+- error-container__text
+- chart-group
+- connecting-line
+- chart-dot
+- dot-label
+- category-label
+- legend
+- legend-item
+- d3-tooltip
+
+### **Dumbbell Charts**
+- dumbbell-chart-container
+- dumbbell-chart-svg
+- y-axis-labels
+- y-axis-label
+- y-axis-label-text
+- interactive-y-axis-labels
+- interactive-y-axis-label
+
+### **Specific Chart Types**
+- system-impacts-container
+- health-worry-container
+- climate-temporal-container
+- heatwave-composite-container
+
+### **Chart Controls & Interactions**
+- wave-controls
+- wave-controls-container
+- wave-tab
+- wave-btn
+- view-btn
+- control-group
+- controls-container
+- construct-dropdown
+- political-party-controls
+- political-party-toggle
+- policy-type-controls
+- policy-type-toggle
+- orientation-controls
+- orientation-slider
+- slider-container
+- slider-label
+- slider-label-left
+- slider-label-right
+- embedded
+
+## **AME Chart Specific Elements**
+- outcome-section
+- outcome-title
+- outcome-label
+- outcome-label-container
+- treatment-row
+- treatment-label
+- treatment-effect-header
+- compact-chart
+- compact-row
+- bar-container
+- bar-wrapper
+- bar-row
+- bar-label
+- zero-line
+- effect-bar
+- confidence-interval
+- effect-description
+- effect-icon
+- effect-text
+- dual-comparison
+- dual-bar
+- dual-bar-container
+- dual-treatment-effect-header
+- dual-bar-x-axis
+- x-axis-container
+- x-axis-label
+- x-axis-ticks
+- x-axis-tick
+- x-axis-tick-label
+- x-axis-zero-line
+
+## **Toggle & Control Components**
+- wave-toggle-container
+- wave-toggle-track
+- wave-toggle-slider
+- wave-toggle-labels
+- wave-toggle-label
+- chart-header-toggle
+- immediate (modifier)
+- delayed (modifier)
+
+## **Infographics & Interactive Elements**
+
+### **Episode Previews**
+- episode-preview-trigger
+- episode-preview-overlay
+- episode-preview-modal
+- episode-content
+- episode-thumbnail
+- episode-info
+- episode-meta
+- episode-description
+- close-button
+- inline-episode-preview
+- inline-episodes-container
+
+### **Instagram Carousel**
+- instagram-section
+- section-content
+- text-content
+- header_callout
+- carousel-content
+- carousel-container
+- carousel-track
+- carousel-slides
+- carousel-slide
+- carousel-nav
+- carousel-instruction
+- profile-circles
+- profile-circle
+- profile-inner
+- instagram-link
+- instagram-overlay
+- instagram-icon
+- instagram-text
+- progress-ring
+- progress-ring-svg
+- progress-ring-circle
+- prev (modifier)
+- next (modifier)
+
+### **Timeline Infographic**
+- timeline-infographic
+- timeline-header
+- timeline-track
+- timeline-progress-bar
+- timeline-checkpoint
+- checkpoint-marker
+- checkpoint-number
+- progress-line
+- waves-container
+- wave-card
+- wave-card-header
+- wave-icon-container
+- wave-icon
+- wave-title-section
+- wave-title
+- wave-subtitle
+- wave-details-static
+- details-box
+- wave-date
+- details-text
+- participants-section
+- participants-count
+
+### **Experimental Conditions**
+- experimental-conditions-infographic
+- condition-group
+- condition-header
+- condition-number
+- condition-label
+- condition-content
+- episode-title-button
+- episode-description
+
+## **Methodology Components**
+- methodology-content
+- methodology-section
+- expandable-details
+- details-summary
+- details-toggle
+- details-toggle-icon
+- details-content
+- expanded (modifier)
+
+## **Survey & Popup Components**
+- survey-items-popup-overlay
+- survey-items-popup-content
+- popup-header
+- popup-title
+- popup-close
+- popup-body
+- popup-section
+- popup-section-title
+- popup-footer
+- survey-popup-overlay
+- survey-popup-content
+- survey-popup-header
+- survey-popup-title
+- survey-popup-close-button
+- survey-popup-body
+- survey-popup-loading
+- survey-popup-error
+- survey-items-table
+- survey-item-row
+- subconstruct-cell
+- question-cell
+- question-text
+- question-items-list
+- question-item
+- question-type-cell
+- response-options-cell
+- wave-cell
+- survey-info-button
+- info-button
+- info-tooltip
+- category-tooltip
+- tooltip
+
+## **Footer Components**
+- l-footer
+- l-constrain
+- l-constrain--large
+- l-grid
+- l-grid--4col
+- l-grid--2col
+- footer__logo-column
+- footer__tagline-column
+- footer__menu-column
+- footer__left
+- footer__brand
+- footer__logo
+- site-name
+- site-slogan
+- menu--social
+- menu__item
+- menu__item--facebook
+- menu__item--instagram
+- menu__item--twitter
+- menu__item--linkedin
+- menu__item--youtube
+- menu__link
+- footer-menu-section
+- footer-menu-title
+- footer-menu-list
+- footer-donate-btn-container
+- rare-donate-btn
+- footer__copyright
+- copyright
+- menu--copyright
+
+## **Layout Patterns**
+- container--sm
+- container--md
+- container--lg
+- container--xl
+- container--2xl
+- container--narrow
+- container--wide
+- container--flush
+- grid
+- grid--1col
+- grid--2col
+- grid--3col
+- grid--4col
+- grid--auto-fit
+- grid--auto-fill
+- grid--gap-sm
+- grid--gap-md
+- grid--gap-lg
+- grid--gap-xl
+- grid--responsive
+
+## **Flex Layout Patterns**
+- flex
+- flex--column
+- flex--row-reverse
+- flex--column-reverse
+- flex--wrap
+- flex--nowrap
+- flex--justify-start
+- flex--justify-center
+- flex--justify-end
+- flex--justify-between
+- flex--justify-around
+- flex--justify-evenly
+- flex--items-start
+- flex--items-center
+- flex--items-end
+- flex--items-stretch
+- flex--items-baseline
+- flex--gap-sm
+- flex--gap-md
+- flex--gap-lg
+- flex--gap-xl
+
+## **Stack Layout Patterns**
+- stack
+- stack--sm
+- stack--md
+- stack--lg
+- stack--xl
+- stack--2xl
+- stack--horizontal
+
+## **Sidebar & Header Layouts**
+- sidebar-layout
+- sidebar-layout--wide
+- sidebar-layout--narrow
+- sidebar-layout--right
+- sidebar-layout__sidebar
+- sidebar-layout__main
+- header-layout
+- header-layout__brand
+- header-layout__nav
+- header-layout__actions
+- footer-layout
+- footer-layout__container
+- footer-layout__grid
+- footer-layout__brand
+- footer-layout__brand-name
+- footer-layout__brand-tagline
+- footer-layout__section
+- footer-layout__section-title
+- footer-layout__links
+- footer-layout__link
+- footer-layout__bottom
+- footer-layout__copyright
+
+## **Button & Control Patterns**
+- btn
+- btn--xs
+- btn--sm
+- btn--md
+- btn--lg
+- btn--xl
+- btn--primary
+- btn--secondary
+- btn--ghost
+- btn--danger
+- btn--link
+- btn-sm
+- btn-md
+- btn-lg
+- btn-primary
+- btn-secondary
+- nav-btn
+- tab-button
+- tab-content
+- episode-preview-trigger
+- toggle-group
+- toggle-group__item
+- toggle-group__item--active
+- wave-controls__tab
+- wave-controls__tab--active
+- filter-controls
+- filter-controls__group
+- filter-controls__label
+- filter-controls__options
+- filter-controls__option
+- filter-controls__option--active
+- filter-controls__checkbox
+
+## **Card & Section Patterns**
+- card
+- card--elevated
+- card--bordered
+- card--interactive
+- card--xs
+- card--sm
+- card--md
+- card--lg
+- card--xl
+- section-base
+- section
+- section--compact
+- section--spacious
+- section__header
+- section__title
+- section__subtitle
+- section__description
+- methodology-section__title
+
+## **Collapsible Patterns**
+- collapsible
+- collapsible__trigger
+- collapsible__icon
+- collapsible__content
+- collapsible__body
+- collapsible-section
+- collapsible-header
+- collapsible-content
+- expand-icon
+
+## **Specialized Components**
+
+### **Study Overview Elements**
+- definition-item
+- tab-container
+- tab-list
+
+### **Legend Components**
+- legend-container
+- legend-container--inline
+- legend-container__title
+- legend-container__items
+- legend-container__item
+- legend-container__marker
+- legend-container__marker--line
+- legend-container__marker--control
+- legend-container__marker--treatment
+- legend-container__marker--handoff
+- legend-info
+- condition-explanations
+- condition-item
+- condition-circle
+
+### **Control Components**
+- controls
+- wave-toggle
+- view-toggle
+- toggle-label
+- toggle-buttons
+- condition-checkboxes
+- checkbox-group
+- checkbox-item
+- condition-checkbox
+- checkbox-label
+- checkbox-label--control
+- checkbox-label--treatment
+- checkbox-label--handoff
+
+### **Chart Container Variants**
+- chart-container--elevated
+- chart-container--compact
+- chart-container--full-width
+- chart-container__header
+- chart-container__title
+- chart-container__subtitle
+- chart-container__controls
+- chart-container__body
+- chart-container__footer
+
+### **D3 Visualization Classes**
+- condition-group
+- segment
+- segment-label
+- changed-mind-label
+- changed-mind-text
+- sample-size-label
+- viz-container
+- category-title
+- recharts-tooltip
+
+### **Carousel Components**
+- carousel-header
+- carousel-title
+- carousel-dots
+
+### **Full Report Collapse**
+- full-report-collapse
+- full-report-trigger
+- full-report-content
+- full-report-text
+- full-report-arrow
+- full-report-sections
+- full-report-sections-content
+
+### **Special Display Components**
+- rotate-prompt-container
+- supplementary-materials-buttons
+- header-callout
+
+### **Utility & State Classes**
+- sticky (modifier)
+- expanded (modifier)
+- active (modifier)
+- visible (modifier)
+- open (modifier)
+- immediate (modifier)
+- delayed (modifier)
+- hidden
+- sr-only
+- hidden-mobile
+- hidden-tablet
+- hidden-desktop
+- show-desktop
+- show-mobile
+- no-print
+- print-only
+
+## **Additional Analysis Notes**
+
+### **Dynamic Classes (Generated at Runtime)**
+These classes are created dynamically by D3 or JavaScript:
+- point-Control, point-Treatment, point-Handoff (D3 point classes)
+- bar-* (D3 bar classes for different categories)
+- Various condition-specific classes based on data
+
+### **Pseudo-Classes and States**
+The following classes are used with pseudo-classes in CSS:
+- :hover states for buttons, links, interactive elements
+- :focus states for form controls and interactive elements
+- :active states for buttons and toggles
+- :before and :after pseudo-elements for icons and decorations
+- :disabled states for buttons
+- :checked states for checkboxes and toggles
+
+### **Media Query Variants**
+Many classes have responsive variants that apply at different breakpoints, but use the same base class names listed above.
+
+### **CSS Nested Selectors**
+Many classes are used in nested selectors like:
+- .parent .child combinations
+- .class1.class2 combinations
+- .class:pseudo-class combinations
+
+## **Summary**
+This comprehensive list represents **over 400 unique CSS classes** that are actively referenced and used throughout the application, including:
+- Direct className usage in JSX components
+- CSS selectors and their variants (hover, active, pseudo-elements)
+- Dynamically generated classes in D3 visualizations
+- Nested and combined selectors
+- Modifier classes and state variations
+- All responsive and media query variants
+- Classes referenced by JavaScript and D3 code
+
+**Total Used Classes: ~400+**
+
+Every class listed here is actually implemented and used somewhere in the codebase.
