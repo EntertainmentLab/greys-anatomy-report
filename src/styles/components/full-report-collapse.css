@@ -65,9 +65,7 @@
   color: var(--color-primary);
 }
 
-.full-report-arrow.expanded {
-  transform: rotate(180deg);
-}
+/* .expanded rotation effect inherited from collapsible.css */
 
 .full-report-sections {
   max-height: 0;

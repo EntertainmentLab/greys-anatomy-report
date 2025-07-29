@@ -163,10 +163,6 @@
   color: #4b5563;
 }
 
-.question-item::before {
-  content: none;
-}
-
 .question-type-cell {
   width: 100px;
   text-align: center;

@@ -127,18 +127,11 @@
   z-index: 1;
 }
 
-.political-party-toggle.active, .policy-type-toggle.active {
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-  color: white;
-  font-weight: 600;
-  box-shadow: var(--filter-shadow-active);
-  transform: translateY(-1px);
-  z-index: 2;
-}
+/* .political-party-toggle.active, .policy-type-toggle.active moved to button-patterns.css */
 
+.wave-controls-dumbbell,
 .wave-controls {
-  /* Modern segmented control styling */
+  /* Modern segmented control styling for dumbbell charts */
   display: flex;
   gap: 0;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);

@@ -167,6 +167,20 @@
 }
 
 /* ============================================
+   TOGGLE ACTIVE STATES (Consolidated)
+   ============================================ */
+.political-party-toggle.active,
+.policy-type-toggle.active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  box-shadow: var(--filter-shadow-active);
+  transform: translateY(-1px);
+  z-index: 2;
+}
+
+/* ============================================
    WAVE CONTROL PATTERN (Chart Specific)
    ============================================ */
 .wave-controls {

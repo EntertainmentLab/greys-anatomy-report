@@ -17,7 +17,7 @@ const Footer = () => {
 
           {/* Column 2: Tagline + Social */}
           <div className="footer__tagline-column">
-            <span className="site-slogan">Rare inspires change so people and nature thrive.</span>
+            <p className="site-slogan">Rare inspires change so people and nature thrive.</p>
             
             <ul className="menu menu--social">
               <li className="menu__item menu__item--facebook">
@@ -79,7 +79,7 @@ const Footer = () => {
 
         <div className="footer__copyright">
           <div className="copyright">
-            © 2025 Rare.
+            <p>© 2025 Rare.</p>
           </div>
 
           <ul className="menu menu--copyright">

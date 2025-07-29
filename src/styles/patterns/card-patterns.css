@@ -73,19 +73,12 @@
   position: relative;
 }
 
-.chart-container--elevated {
-  box-shadow: var(--shadow-md);
-}
-
 .chart-container--compact {
   padding: var(--space-6);
   margin-bottom: var(--space-6);
 }
 
-.chart-container--full-width {
-  width: 100%;
-  max-width: none;
-}
+/* .chart-container--elevated and .chart-container--full-width moved to chart-base.css */
 
 .chart-container__header {
   display: flex;

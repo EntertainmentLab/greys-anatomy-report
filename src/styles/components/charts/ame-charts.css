@@ -28,63 +28,7 @@
   margin: var(--spacing-sm) 0;
 }
 
-.carousel-header {
-  margin-bottom: 1.5rem;
-}
-
-.chart-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.carousel-title {
-  font-family: var(--font-secondary);
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin: 0;
-  color: #1e293b;
-  line-height: 1.2;
-}
-
-.chart-nav {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.nav-btn {
-  background: none;
-  border: 1px solid var(--color-border);
-  color: #374151;
-  padding: var(--spacing-sm) 1rem;
-  border-radius: var(--border-radius-md);
-  font-family: var(--font-secondary);
-  font-weight: 500;
-  cursor: pointer;
-  transition: all var(--transition-base);
-  font-size: 0.875rem;
-}
-
-.nav-btn:hover:not(:disabled) {
-  background: #f9fafb;
-  border-color: #9ca3af;
-}
-
-.nav-btn:disabled {
-  color: #9ca3af;
-  border-color: #e5e7eb;
-  cursor: not-allowed;
-}
-
-.chart-counter {
-  font-family: var(--font-secondary);
-  font-size: 0.875rem;
-  color: var(--color-text-muted);
-  font-weight: 500;
-  min-width: 4rem;
-  text-align: center;
-}
+/* Base carousel classes in carousel.css, responsive overrides below */
 
 .chart-container {
   margin: 0;

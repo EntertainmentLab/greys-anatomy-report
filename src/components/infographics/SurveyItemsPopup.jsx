@@ -57,7 +57,7 @@ const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
         
         <div className="survey-popup-body">
           {loading ? (
-            <div className="survey-popup-loading">Loading survey items...</div>
+            <div className="survey-popup-loading"><p>Loading survey items...</p></div>
           ) : constructData ? (
             <div className="survey-items-table">
               <table>
@@ -106,7 +106,7 @@ const SurveyItemsPopup = ({ isOpen, onClose, constructName }) => {
             </div>
           ) : (
             <div className="survey-popup-error">
-              No survey items found for "{constructName}"
+              <p>No survey items found for "{constructName}"</p>
             </div>
           )}
         </div>

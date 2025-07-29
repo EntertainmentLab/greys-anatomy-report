@@ -72,7 +72,7 @@ function KeyFindings() {
       <h3>Climate Change Temporal Proximity</h3>
       <p>Participants in the multiplatform group  were also more like to believe that the impacts of climate change would affect their daily lives more imminently – over a year sooner when surveyed immediately after viewing. While we did see similar effects immediately after viewing the episode, those effects did not persist for the episode-only group.</p>
       <ClimateTemporalChart />
-      It’s important to note that the episode itself did not reference climate change. Given this, it is not surprising that the episode alone did not significantly increase climate attribution for heat waves or shift broader climate-related beliefs.
+      <p>It’s important to note that the episode itself did not reference climate change. Given this, it is not surprising that the episode alone did not significantly increase climate attribution for heat waves or shift broader climate-related beliefs.</p>
       {/* <ClimateBeliefChangeChart /> */}
 
       <h2>

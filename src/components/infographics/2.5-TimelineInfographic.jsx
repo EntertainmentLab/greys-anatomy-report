@@ -48,7 +48,7 @@ const TimelineInfographic = () => {
   return (
     <div className="timeline-infographic">
       <div className="timeline-header">
-        <div className="header_callout">Study Timeline & Data Collection</div>
+        <div className="header_callout"><p>Study Timeline & Data Collection</p></div>
       </div>
 
       {/* Horizontal Timeline */}
@@ -93,7 +93,7 @@ const TimelineInfographic = () => {
             <div className="wave-details-static">
               <div className="details-box" style={{ borderColor: wave.color }}>
                 <p className="wave-date">{wave.date}</p>
-                <span className="details-text">{wave.details}</span>
+                <p className="details-text">{wave.details}</p>
               </div>
             </div>
 

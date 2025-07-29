@@ -11,7 +11,7 @@ function Legend() {
             <span className={`condition-label ${condition.id}`}>
               {condition.label}
             </span>
-            <span>{condition.description}</span>
+            <p className="condition-description">{condition.description}</p>
           </div>
         ))}
       </div>

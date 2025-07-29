@@ -86,7 +86,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Experimental Conditions</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <strong>Three randomized groups:</strong> Control (non-climate episode), Heat Wave (climate episode), and Multiplatform (episode + social media).
+              <p><strong>Three randomized groups:</strong> Control (non-climate episode), Heat Wave (climate episode), and Multiplatform (episode + social media).</p>
             </div>
             
             <button
@@ -140,7 +140,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Instagram Videos</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <strong>Four climate-related Instagram videos</strong> were used in the Multiplatform Group condition to contextualize the episode's content.
+              <p><strong>Four climate-related Instagram videos</strong> were used in the Multiplatform Group condition to contextualize the episode's content.</p>
             </div>
             
             <button
@@ -180,7 +180,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Timeline and Measures</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <strong>Longitudinal design across three time points:</strong> baseline, immediate post-viewing, and follow-up survey ~2-3 weeks later to assess sustained effects.
+              <p><strong>Longitudinal design across three time points:</strong> baseline, immediate post-viewing, and follow-up survey ~2-3 weeks later to assess sustained effects.</p>
             </div>
             
             <button

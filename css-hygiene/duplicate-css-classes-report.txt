@@ -4,15 +4,15 @@ CSS DUPLICATE CLASS ANALYSIS REPORT
 
 Analysis completed on: /mnt/c/Rare/GitHub/greys-anatomy-report
 Files analyzed: 38
-Total CSS classes found: 512
-Unique class names: 446
-Classes with duplicates: 46
+Total CSS classes found: 511
+Unique class names: 447
+Classes with duplicates: 44
 
 SUMMARY STATISTICS:
 ----------------------------------------
-Classes with identical duplicates: 11
-Classes with different duplicates: 35
-Total duplicate occurrences: 112
+Classes with identical duplicates: 0
+Classes with different duplicates: 44
+Total duplicate occurrences: 108
 
 FILES ANALYZED:
 ----------------------------------------
@@ -60,38 +60,14 @@ DETAILED DUPLICATE ANALYSIS:
 
 CLASS: .active
 --------------
-Total occurrences: 9
+Total occurrences: 8
 Unique definitions: 8
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/TimelineInfographic.css, src/styles/components/collapsible.css, src/styles/components/table-of-contents.css, src/styles/components/Controls.css, src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css, src/styles/components/InstagramCarousel.css, src/styles/components/WaveToggle.css
+Files involved: src/styles/components/TimelineInfographic.css, src/styles/components/Controls.css, src/styles/components/WaveToggle.css, src/styles/components/collapsible.css, src/styles/components/table-of-contents.css, src/styles/patterns/button-patterns.css, src/styles/components/charts/chart-base.css, src/styles/components/InstagramCarousel.css
 
   Definition #1:
-    File: src/styles/components/Chart-ClimateTemporal.css
-    Line: 109
-    Selector: .political-party-toggle.active
-    Content preview:
-      background: var(--color-primary);
-      border-color: var(--color-primary);
-      color: white;
-      font-weight: 600;
-      box-shadow: var(--filter-shadow-active);
-      ...
-
-  Definition #2:
-    File: src/styles/components/Chart-Dumbbell.css
-    Line: 130
-    Selector: .political-party-toggle.active, .policy-type-toggle.active
-    Content preview:
-      background: var(--color-primary);
-      border-color: var(--color-primary);
-      color: white;
-      font-weight: 600;
-      box-shadow: var(--filter-shadow-active);
-      ...
-
-  Definition #3:
     File: src/styles/components/Controls.css
-    Line: 62
+    Line: 54
     Selector: .wave-btn.active, .view-btn.active
     Content preview:
       background: var(--color-primary);
@@ -100,7 +76,7 @@ Files involved: src/styles/components/TimelineInfographic.css, src/styles/compon
       font-weight: 600;
       transform: translateY(-1px);
 
-  Definition #4:
+  Definition #2:
     File: src/styles/components/InstagramCarousel.css
     Line: 131
     Selector: .profile-circle.active
@@ -109,7 +85,7 @@ Files involved: src/styles/components/TimelineInfographic.css, src/styles/compon
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
       opacity: 1;
 
-  Definition #5:
+  Definition #3:
     File: src/styles/components/TimelineInfographic.css
     Line: 88
     Selector: .wave-card.active
@@ -117,7 +93,7 @@ Files involved: src/styles/components/TimelineInfographic.css, src/styles/compon
       transform: translateY(-2px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 
-  Definition #6:
+  Definition #4:
     File: src/styles/components/WaveToggle.css
     Line: 72
     Selector: .wave-toggle-label.active
@@ -125,7 +101,7 @@ Files involved: src/styles/components/TimelineInfographic.css, src/styles/compon
       color: white;
       text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 
-  Definition #7:
+  Definition #5:
     File: src/styles/components/charts/chart-base.css
     Line: 175
     Selector: .wave-tab.active
@@ -134,16 +110,16 @@ Files involved: src/styles/components/TimelineInfographic.css, src/styles/compon
       border-color: var(--color-info);
       color: white;
 
-  Definition #8:
+  Definition #6:
     File: src/styles/components/collapsible.css
-    Line: 92
+    Line: 93
     Selector: .tab-button.active
     Content preview:
       color: var(--color-primary);
       border-bottom-color: var(--color-primary);
       font-weight: 600;
 
-  Definition #9:
+  Definition #7:
     File: src/styles/components/table-of-contents.css
     Line: 238
     Selector: .toc-link.active
@@ -153,6 +129,19 @@ Files involved: src/styles/components/TimelineInfographic.css, src/styles/compon
       border-left-color: var(--color-primary);
       font-weight: 600;
 
+  Definition #8:
+    File: src/styles/patterns/button-patterns.css
+    Line: 172
+    Selector: .political-party-toggle.active,
+.policy-type-toggle.active
+    Content preview:
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+      font-weight: 600;
+      box-shadow: var(--filter-shadow-active);
+      ...
+
 ------------------------------------------------------------
 
 CLASS: .chart-container
@@ -160,7 +149,7 @@ CLASS: .chart-container
 Total occurrences: 7
 Unique definitions: 6
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css, src/styles/patterns/card-patterns.css, src/styles/shared/sections.css, src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css
+Files involved: src/styles/components/carousel.css, src/styles/shared/sections.css, src/styles/patterns/card-patterns.css, src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css, src/styles/components/charts/ame-charts.css
 
   Definition #1:
     File: src/styles/components/Chart-ClimateTemporal.css
@@ -175,7 +164,7 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 
   Definition #2:
     File: src/styles/components/Chart-Dumbbell.css
-    Line: 181
+    Line: 174
     Selector: .chart-container
     Content preview:
       padding: 16px;
@@ -191,7 +180,7 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 
   Definition #4:
     File: src/styles/components/charts/ame-charts.css
-    Line: 89
+    Line: 33
     Selector: .chart-container
     Content preview:
       margin: 0;
@@ -235,14 +224,15 @@ CLASS: .wave-controls
 Total occurrences: 5
 Unique definitions: 5
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/Chart-SystemImpacts.css, src/styles/patterns/button-patterns.css, src/styles/components/Chart-Likert.css, src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/chart-base.css
+Files involved: src/styles/components/Chart-Likert.css, src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/chart-base.css, src/styles/components/Chart-SystemImpacts.css, src/styles/patterns/button-patterns.css
 
   Definition #1:
     File: src/styles/components/Chart-Dumbbell.css
-    Line: 140
-    Selector: .wave-controls
+    Line: 132
+    Selector: .wave-controls-dumbbell,
+.wave-controls
     Content preview:
-      /* Modern segmented control styling */
+      /* Modern segmented control styling for dumbbell charts */
       display: flex;
       gap: 0;
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -281,7 +271,7 @@ Files involved: src/styles/components/Chart-SystemImpacts.css, src/styles/patter
 
   Definition #5:
     File: src/styles/patterns/button-patterns.css
-    Line: 172
+    Line: 186
     Selector: .wave-controls
     Content preview:
       display: flex;
@@ -290,12 +280,58 @@ Files involved: src/styles/components/Chart-SystemImpacts.css, src/styles/patter
 
 ------------------------------------------------------------
 
-CLASS: .loading
----------------
+CLASS: .political-party-toggle
+------------------------------
+Total occurrences: 3
+Unique definitions: 3
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/Chart-Dumbbell.css, src/styles/components/Chart-ClimateTemporal.css, src/styles/patterns/button-patterns.css
+
+  Definition #1:
+    File: src/styles/components/Chart-ClimateTemporal.css
+    Line: 77
+    Selector: .political-party-toggle
+    Content preview:
+      padding: 10px 18px;
+      border: 1px solid var(--filter-border);
+      border-right: none;
+      background: var(--color-surface);
+      color: var(--filter-text);
+      ...
+
+  Definition #2:
+    File: src/styles/components/Chart-Dumbbell.css
+    Line: 97
+    Selector: .political-party-toggle, .policy-type-toggle
+    Content preview:
+      /* Use shared toggle button styling */
+      padding: 10px 20px;
+      border: 1px solid var(--filter-border);
+      background: var(--color-surface);
+      color: var(--filter-text);
+      ...
+
+  Definition #3:
+    File: src/styles/patterns/button-patterns.css
+    Line: 172
+    Selector: .political-party-toggle.active,
+.policy-type-toggle.active
+    Content preview:
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+      font-weight: 600;
+      box-shadow: var(--filter-shadow-active);
+      ...
+
+------------------------------------------------------------
+
+CLASS: .error
+-------------
 Total occurrences: 3
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/Chart-Likert.css, src/styles/shared/sections.css, src/styles/core/layout.css
+Files involved: src/styles/core/layout.css, src/styles/shared/sections.css, src/styles/components/Chart-Likert.css
 
   Definition #1:
     File: src/styles/components/Chart-Likert.css
@@ -337,12 +373,12 @@ Files involved: src/styles/components/Chart-Likert.css, src/styles/shared/sectio
 
 ------------------------------------------------------------
 
-CLASS: .error
--------------
+CLASS: .loading
+---------------
 Total occurrences: 3
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/Chart-Likert.css, src/styles/shared/sections.css, src/styles/core/layout.css
+Files involved: src/styles/core/layout.css, src/styles/shared/sections.css, src/styles/components/Chart-Likert.css
 
   Definition #1:
     File: src/styles/components/Chart-Likert.css
@@ -389,7 +425,7 @@ CLASS: .episode-preview-trigger
 Total occurrences: 3
 Unique definitions: 3
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/EpisodePreview.css, src/styles/components/buttons.css, src/styles/patterns/button-patterns.css
+Files involved: src/styles/components/EpisodePreview.css, src/styles/patterns/button-patterns.css, src/styles/components/buttons.css
 
   Definition #1:
     File: src/styles/components/EpisodePreview.css
@@ -417,7 +453,7 @@ Files involved: src/styles/components/EpisodePreview.css, src/styles/components/
 
   Definition #3:
     File: src/styles/patterns/button-patterns.css
-    Line: 306
+    Line: 320
     Selector: .episode-preview-trigger
     Content preview:
       background: linear-gradient(135deg, var(--color-primary-600) 0%, var(--color-primary-500) 100%);
@@ -433,7 +469,7 @@ CLASS: .btn
 Total occurrences: 3
 Unique definitions: 3
 Status: DIFFERENT duplicates
-Files involved: src/styles/shared/sections.css, src/styles/components/buttons.css, src/styles/patterns/button-patterns.css
+Files involved: src/styles/patterns/button-patterns.css, src/styles/shared/sections.css, src/styles/components/buttons.css
 
   Definition #1:
     File: src/styles/components/buttons.css
@@ -474,7 +510,7 @@ CLASS: .card
 Total occurrences: 3
 Unique definitions: 3
 Status: DIFFERENT duplicates
-Files involved: src/styles/shared/sections.css, src/styles/core/layout.css, src/styles/patterns/card-patterns.css
+Files involved: src/styles/core/layout.css, src/styles/patterns/card-patterns.css, src/styles/shared/sections.css
 
   Definition #1:
     File: src/styles/core/layout.css
@@ -516,7 +552,7 @@ CLASS: .chart-title
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css
+Files involved: src/styles/components/Chart-ClimateTemporal.css, src/styles/components/charts/chart-base.css
 
   Definition #1:
     File: src/styles/components/Chart-ClimateTemporal.css
@@ -548,7 +584,7 @@ CLASS: .chart-subtitle
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/charts/chart-base.css, src/styles/components/Chart-ClimateTemporal.css
+Files involved: src/styles/components/Chart-ClimateTemporal.css, src/styles/components/charts/chart-base.css
 
   Definition #1:
     File: src/styles/components/Chart-ClimateTemporal.css
@@ -609,7 +645,7 @@ CLASS: .political-party-controls
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/Chart-ClimateTemporal.css, src/styles/components/Chart-Dumbbell.css
+Files involved: src/styles/components/Chart-Dumbbell.css, src/styles/components/Chart-ClimateTemporal.css
 
   Definition #1:
     File: src/styles/components/Chart-ClimateTemporal.css
@@ -637,26 +673,14 @@ Files involved: src/styles/components/Chart-ClimateTemporal.css, src/styles/comp
 
 ------------------------------------------------------------
 
-CLASS: .political-party-toggle
-------------------------------
+CLASS: .policy-type-toggle
+--------------------------
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/Chart-ClimateTemporal.css, src/styles/components/Chart-Dumbbell.css
+Files involved: src/styles/components/Chart-Dumbbell.css, src/styles/patterns/button-patterns.css
 
   Definition #1:
-    File: src/styles/components/Chart-ClimateTemporal.css
-    Line: 77
-    Selector: .political-party-toggle
-    Content preview:
-      padding: 10px 18px;
-      border: 1px solid var(--filter-border);
-      border-right: none;
-      background: var(--color-surface);
-      color: var(--filter-text);
-      ...
-
-  Definition #2:
     File: src/styles/components/Chart-Dumbbell.css
     Line: 97
     Selector: .political-party-toggle, .policy-type-toggle
@@ -668,6 +692,19 @@ Files involved: src/styles/components/Chart-ClimateTemporal.css, src/styles/comp
       color: var(--filter-text);
       ...
 
+  Definition #2:
+    File: src/styles/patterns/button-patterns.css
+    Line: 172
+    Selector: .political-party-toggle.active,
+.policy-type-toggle.active
+    Content preview:
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: white;
+      font-weight: 600;
+      box-shadow: var(--filter-shadow-active);
+      ...
+
 ------------------------------------------------------------
 
 CLASS: .survey-info-button
@@ -675,11 +712,11 @@ CLASS: .survey-info-button
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/charts/ame-charts.css, src/styles/components/Chart-Dumbbell.css
+Files involved: src/styles/components/Chart-Dumbbell.css, src/styles/components/charts/ame-charts.css
 
   Definition #1:
     File: src/styles/components/Chart-Dumbbell.css
-    Line: 306
+    Line: 299
     Selector: .survey-info-button
     Content preview:
       background: none;
@@ -691,7 +728,7 @@ Files involved: src/styles/components/charts/ame-charts.css, src/styles/componen
 
   Definition #2:
     File: src/styles/components/charts/ame-charts.css
-    Line: 173
+    Line: 117
     Selector: .outcome-label-container .survey-info-button
     Content preview:
       background: none;
@@ -732,64 +769,6 @@ Files involved: src/styles/components/Chart-SystemImpacts.css, src/styles/compon
 
 ------------------------------------------------------------
 
-CLASS: .toggle-buttons
-----------------------
-Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
-Files involved: src/styles/components/Controls.css, src/styles/shared/filters.css
-
-  Definition #1:
-    File: src/styles/components/Controls.css
-    Line: 32
-    Selector: .toggle-buttons
-    Content preview:
-      display: flex;
-      gap: 0;
-      background: var(--color-surface);
-      padding: 3px;
-      border-radius: var(--border-radius-md);
-      ...
-
-  Definition #2:
-    File: src/styles/shared/filters.css
-    Line: 3
-    Selector: .toggle-buttons
-    Content preview:
-      display: flex;
-      gap: 0;
-      background: var(--color-surface);
-      padding: 3px;
-      border-radius: var(--border-radius-md);
-      ...
-
-------------------------------------------------------------
-
-CLASS: .episode-content
------------------------
-Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
-Files involved: src/styles/components/EpisodePreview.css, src/styles/sections/methodology.css
-
-  Definition #1:
-    File: src/styles/components/EpisodePreview.css
-    Line: 66
-    Selector: .episode-content
-    Content preview:
-      display: flex;
-      flex-direction: column;
-
-  Definition #2:
-    File: src/styles/sections/methodology.css
-    Line: 73
-    Selector: .inline-episode-preview .episode-content
-    Content preview:
-      display: flex;
-      flex-direction: column;
-
-------------------------------------------------------------
-
 CLASS: .episode-thumbnail
 -------------------------
 Total occurrences: 2
@@ -810,7 +789,7 @@ Files involved: src/styles/components/EpisodePreview.css, src/styles/sections/me
 
   Definition #2:
     File: src/styles/sections/methodology.css
-    Line: 78
+    Line: 75
     Selector: .inline-episode-preview .episode-thumbnail
     Content preview:
       width: 100%;
@@ -836,7 +815,7 @@ Files involved: src/styles/components/EpisodePreview.css, src/styles/sections/me
 
   Definition #2:
     File: src/styles/sections/methodology.css
-    Line: 90
+    Line: 87
     Selector: .inline-episode-preview .episode-info
     Content preview:
       padding: 1rem;
@@ -861,7 +840,7 @@ Files involved: src/styles/components/EpisodePreview.css, src/styles/sections/me
 
   Definition #2:
     File: src/styles/sections/methodology.css
-    Line: 102
+    Line: 99
     Selector: .inline-episode-preview .episode-meta
     Content preview:
       font-size: 0.875rem;
@@ -876,7 +855,7 @@ CLASS: .tooltip
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/charts/chart-base.css, src/styles/components/GreysAnatomyKnowledgeViz.css
+Files involved: src/styles/components/GreysAnatomyKnowledgeViz.css, src/styles/components/charts/chart-base.css
 
   Definition #1:
     File: src/styles/components/GreysAnatomyKnowledgeViz.css
@@ -909,7 +888,7 @@ CLASS: .condition-label
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/sections/methodology.css, src/styles/components/Legend.css
+Files involved: src/styles/components/Legend.css, src/styles/sections/methodology.css
 
   Definition #1:
     File: src/styles/components/Legend.css
@@ -925,7 +904,7 @@ Files involved: src/styles/sections/methodology.css, src/styles/components/Legen
 
   Definition #2:
     File: src/styles/sections/methodology.css
-    Line: 149
+    Line: 146
     Selector: .experimental-conditions-infographic .condition-label
     Content preview:
       font-size: 0.875rem;
@@ -963,8 +942,8 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 CLASS: .carousel-header
 -----------------------
 Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
+Unique definitions: 2
+Status: DIFFERENT duplicates
 Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
 
   Definition #1:
@@ -976,18 +955,18 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 
   Definition #2:
     File: src/styles/components/charts/ame-charts.css
-    Line: 31
+    Line: 408
     Selector: .carousel-header
     Content preview:
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
 
 ------------------------------------------------------------
 
 CLASS: .chart-info
 ------------------
 Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
+Unique definitions: 2
+Status: DIFFERENT duplicates
 Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
 
   Definition #1:
@@ -1001,20 +980,20 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 
   Definition #2:
     File: src/styles/components/charts/ame-charts.css
-    Line: 35
+    Line: 386
     Selector: .chart-info
     Content preview:
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: flex-start;
 
 ------------------------------------------------------------
 
 CLASS: .carousel-title
 ----------------------
 Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
+Unique definitions: 2
+Status: DIFFERENT duplicates
 Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
 
   Definition #1:
@@ -1031,23 +1010,18 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 
   Definition #2:
     File: src/styles/components/charts/ame-charts.css
-    Line: 41
+    Line: 392
     Selector: .carousel-title
     Content preview:
-      font-family: var(--font-secondary);
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0;
-      color: #1e293b;
-      ...
+      font-size: 1.25rem;
 
 ------------------------------------------------------------
 
 CLASS: .chart-nav
 -----------------
 Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
+Unique definitions: 2
+Status: DIFFERENT duplicates
 Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
 
   Definition #1:
@@ -1061,20 +1035,19 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 
   Definition #2:
     File: src/styles/components/charts/ame-charts.css
-    Line: 50
+    Line: 396
     Selector: .chart-nav
     Content preview:
-      display: flex;
-      align-items: center;
-      gap: 1rem;
+      align-self: stretch;
+      justify-content: center;
 
 ------------------------------------------------------------
 
 CLASS: .nav-btn
 ---------------
 Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
+Unique definitions: 2
+Status: DIFFERENT duplicates
 Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
 
   Definition #1:
@@ -1091,23 +1064,19 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 
   Definition #2:
     File: src/styles/components/charts/ame-charts.css
-    Line: 56
+    Line: 401
     Selector: .nav-btn
     Content preview:
-      background: none;
-      border: 1px solid var(--color-border);
-      color: #374151;
-      padding: var(--spacing-sm) 1rem;
-      border-radius: var(--border-radius-md);
-      ...
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
 
 ------------------------------------------------------------
 
 CLASS: .chart-counter
 ---------------------
 Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
+Unique definitions: 2
+Status: DIFFERENT duplicates
 Files involved: src/styles/components/carousel.css, src/styles/components/charts/ame-charts.css
 
   Definition #1:
@@ -1124,38 +1093,11 @@ Files involved: src/styles/components/carousel.css, src/styles/components/charts
 
   Definition #2:
     File: src/styles/components/charts/ame-charts.css
-    Line: 80
+    Line: 416
     Selector: .chart-counter
     Content preview:
-      font-family: var(--font-secondary);
-      font-size: 0.875rem;
-      color: var(--color-text-muted);
-      font-weight: 500;
-      min-width: 4rem;
-      ...
-
-------------------------------------------------------------
-
-CLASS: .chart-container--elevated
----------------------------------
-Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
-Files involved: src/styles/components/charts/chart-base.css, src/styles/patterns/card-patterns.css
-
-  Definition #1:
-    File: src/styles/components/charts/chart-base.css
-    Line: 48
-    Selector: .chart-container--elevated
-    Content preview:
-      box-shadow: var(--shadow-md);
-
-  Definition #2:
-    File: src/styles/patterns/card-patterns.css
-    Line: 76
-    Selector: .chart-container--elevated
-    Content preview:
-      box-shadow: var(--shadow-md);
+      font-size: 0.75rem;
+      min-width: 3rem;
 
 ------------------------------------------------------------
 
@@ -1164,7 +1106,7 @@ CLASS: .chart-container--compact
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/components/charts/chart-base.css, src/styles/patterns/card-patterns.css
+Files involved: src/styles/patterns/card-patterns.css, src/styles/components/charts/chart-base.css
 
   Definition #1:
     File: src/styles/components/charts/chart-base.css
@@ -1177,36 +1119,11 @@ Files involved: src/styles/components/charts/chart-base.css, src/styles/patterns
 
   Definition #2:
     File: src/styles/patterns/card-patterns.css
-    Line: 80
+    Line: 76
     Selector: .chart-container--compact
     Content preview:
       padding: var(--space-6);
       margin-bottom: var(--space-6);
-
-------------------------------------------------------------
-
-CLASS: .chart-container--full-width
------------------------------------
-Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
-Files involved: src/styles/components/charts/chart-base.css, src/styles/patterns/card-patterns.css
-
-  Definition #1:
-    File: src/styles/components/charts/chart-base.css
-    Line: 58
-    Selector: .chart-container--full-width
-    Content preview:
-      width: 100%;
-      max-width: none;
-
-  Definition #2:
-    File: src/styles/patterns/card-patterns.css
-    Line: 85
-    Selector: .chart-container--full-width
-    Content preview:
-      width: 100%;
-      max-width: none;
 
 ------------------------------------------------------------
 
@@ -1231,7 +1148,7 @@ Files involved: src/styles/components/charts/chart-base.css, src/styles/componen
 
   Definition #2:
     File: src/styles/components/collapsible.css
-    Line: 212
+    Line: 213
     Selector: .info-button
     Content preview:
       display: inline-flex;
@@ -1259,7 +1176,7 @@ Files involved: src/styles/components/charts/chart-base.css, src/styles/componen
 
   Definition #2:
     File: src/styles/components/collapsible.css
-    Line: 238
+    Line: 239
     Selector: .info-tooltip
     Content preview:
       position: absolute;
@@ -1274,23 +1191,52 @@ Files involved: src/styles/components/charts/chart-base.css, src/styles/componen
 CLASS: .expanded
 ----------------
 Total occurrences: 2
-Unique definitions: 1
-Status: IDENTICAL duplicates
-Files involved: src/styles/components/collapsible.css, src/styles/components/full-report-collapse.css
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/full-report-collapse.css, src/styles/components/collapsible.css
 
   Definition #1:
     File: src/styles/components/collapsible.css
     Line: 30
-    Selector: .expand-icon.expanded
+    Selector: .expand-icon.expanded,
+.full-report-arrow.expanded
     Content preview:
       transform: rotate(180deg);
 
   Definition #2:
     File: src/styles/components/full-report-collapse.css
-    Line: 68
-    Selector: .full-report-arrow.expanded
+    Line: 76
+    Selector: .full-report-sections.expanded
+    Content preview:
+      max-height: 100000px; /* Much larger to accommodate all content */
+      overflow: visible; /* Allow content to flow naturally when expanded */
+
+------------------------------------------------------------
+
+CLASS: .full-report-arrow
+-------------------------
+Total occurrences: 2
+Unique definitions: 2
+Status: DIFFERENT duplicates
+Files involved: src/styles/components/full-report-collapse.css, src/styles/components/collapsible.css
+
+  Definition #1:
+    File: src/styles/components/collapsible.css
+    Line: 30
+    Selector: .expand-icon.expanded,
+.full-report-arrow.expanded
     Content preview:
       transform: rotate(180deg);
+
+  Definition #2:
+    File: src/styles/components/full-report-collapse.css
+    Line: 61
+    Selector: .full-report-arrow
+    Content preview:
+      display: flex;
+      align-items: center;
+      transition: transform var(--transition-base);
+      color: var(--color-primary);
 
 ------------------------------------------------------------
 
@@ -1303,7 +1249,7 @@ Files involved: src/styles/core/typography.css, src/styles/components/collapsibl
 
   Definition #1:
     File: src/styles/components/collapsible.css
-    Line: 119
+    Line: 120
     Selector: .expandable-details
     Content preview:
       margin-bottom: var(--spacing-md);
@@ -1331,7 +1277,7 @@ Files involved: src/styles/core/typography.css, src/styles/components/collapsibl
 
   Definition #1:
     File: src/styles/components/collapsible.css
-    Line: 157
+    Line: 158
     Selector: .details-content
     Content preview:
       max-height: 0;
@@ -1388,7 +1334,7 @@ CLASS: .visible
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/sections/banner.css, src/styles/components/table-of-contents.css
+Files involved: src/styles/components/table-of-contents.css, src/styles/sections/banner.css
 
   Definition #1:
     File: src/styles/components/table-of-contents.css
@@ -1417,7 +1363,7 @@ CLASS: .toc-label
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/sections/banner.css, src/styles/components/table-of-contents.css
+Files involved: src/styles/components/table-of-contents.css, src/styles/sections/banner.css
 
   Definition #1:
     File: src/styles/components/table-of-contents.css
@@ -1443,7 +1389,7 @@ CLASS: .container
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/patterns/layout-patterns.css, src/styles/core/layout.css
+Files involved: src/styles/core/layout.css, src/styles/patterns/layout-patterns.css
 
   Definition #1:
     File: src/styles/core/layout.css
@@ -1475,7 +1421,7 @@ CLASS: .report-content
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/global/App.css, src/styles/core/layout.css
+Files involved: src/styles/core/layout.css, src/styles/global/App.css
 
   Definition #1:
     File: src/styles/core/layout.css
@@ -1486,7 +1432,7 @@ Files involved: src/styles/global/App.css, src/styles/core/layout.css
 
   Definition #2:
     File: src/styles/global/App.css
-    Line: 20
+    Line: 25
     Selector: .report-content
     Content preview:
       margin-top: 40px;
@@ -1498,7 +1444,7 @@ CLASS: .report-section
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/global/App.css, src/styles/core/layout.css
+Files involved: src/styles/core/layout.css, src/styles/global/App.css
 
   Definition #1:
     File: src/styles/core/layout.css
@@ -1509,7 +1455,7 @@ Files involved: src/styles/global/App.css, src/styles/core/layout.css
 
   Definition #2:
     File: src/styles/global/App.css
-    Line: 24
+    Line: 29
     Selector: .report-section
     Content preview:
       margin-bottom: 60px;
@@ -1521,7 +1467,7 @@ CLASS: .chart-section
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/global/App.css, src/styles/core/layout.css
+Files involved: src/styles/core/layout.css, src/styles/global/App.css
 
   Definition #1:
     File: src/styles/core/layout.css
@@ -1537,7 +1483,7 @@ Files involved: src/styles/global/App.css, src/styles/core/layout.css
 
   Definition #2:
     File: src/styles/global/App.css
-    Line: 28
+    Line: 33
     Selector: .chart-section
     Content preview:
       margin: 80px 0;
@@ -1554,7 +1500,7 @@ CLASS: .section-base
 Total occurrences: 2
 Unique definitions: 2
 Status: DIFFERENT duplicates
-Files involved: src/styles/shared/sections.css, src/styles/core/layout.css
+Files involved: src/styles/core/layout.css, src/styles/shared/sections.css
 
   Definition #1:
     File: src/styles/core/layout.css
@@ -1591,7 +1537,7 @@ Files involved: src/styles/sections/methodology.css, src/styles/patterns/card-pa
 
   Definition #1:
     File: src/styles/patterns/card-patterns.css
-    Line: 249
+    Line: 242
     Selector: .methodology-section
     Content preview:
       background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-primary-50) 100%);
@@ -1615,12 +1561,7 @@ Files involved: src/styles/sections/methodology.css, src/styles/patterns/card-pa
 RECOMMENDATIONS:
 ==============================
 
-1. CONSOLIDATION OPPORTUNITIES (11 classes):
-   - These classes have identical definitions across multiple files
-   - Consider moving them to a shared/common CSS file
-   - Remove duplicates to reduce bundle size and improve maintainability
-
-2. POTENTIAL CONFLICTS (35 classes):
+2. POTENTIAL CONFLICTS (44 classes):
    - These classes have different definitions with the same name
    - Review for unintended style conflicts
    - Consider renaming classes to be more specific

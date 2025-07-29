@@ -108,7 +108,7 @@ h6 {
 p {
   font-family: var(--font-family-primary);
   font-size: 1.1rem;
-  margin-bottom: var(--spacing-sm);
+  margin-block: var(--spacing-md);
   text-align: left;
   color: var(--color-text-secondary);
   line-height: 1.6;
@@ -136,13 +136,18 @@ li {
 
 /* Custom list bullets */
 li::before {
-  content: "▪" !important;
-  color: var(--color-primary) !important;
+  content: "•";
+  color: var(--color-primary);
   font-weight: bold;
   position: absolute;
   left: -16px;
   font-size: 1rem;
   top: 0.1em;
+}
+
+/* Remove custom bullets from elements that use native bullets */
+.question-item::before {
+  content: none;
 }
 
 /* Bold text in lists */

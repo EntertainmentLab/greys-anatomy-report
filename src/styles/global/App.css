@@ -1,3 +1,8 @@
+p {
+  margin: 0;
+  font-size: inherit; /* or whatever your base font-size is */
+  line-height: inherit;
+}
 .app-wrapper {
   width: 100%;
   min-height: 100vh;
@@ -83,7 +88,6 @@
 /* Clean Header Styling */
 h1, h2, h3 {
   margin-top: 0;
-  padding: var(--spacing-md) 0;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
