@@ -2,6 +2,8 @@ import { useRef } from 'react'
 import { useClimateTemporalData } from '../../hooks/useClimateTemporalData'
 import { COLOR_MAP } from '../../constants'
 import { useTemporalChart } from '../base/TemporalChart'
+import DownloadButton from '../ui/DownloadButton'
+import { useChartDownload } from '../../hooks/useChartDownload'
 // CSS imported via main.css
 
 // Define conditions with your color scheme
@@ -21,6 +23,7 @@ const WAVE_MAPPING = {
 function ClimateTemporalChart() {
   const { climateTemporalData, loading, error } = useClimateTemporalData()
   const svgRef = useRef()
+  const { chartRef, generateFilename } = useChartDownload('climate-temporal')
 
   // Debug logs
   console.log("Climate data available:", climateTemporalData?.length || 0);
@@ -45,10 +48,14 @@ function ClimateTemporalChart() {
   }
 
   return (
-    <div className="climate-temporal-container" style={{ maxWidth: '100%' }}>
-      {/* Remove both political party and wave controls - this chart shows temporal progression */}
+    <div className="temporal-chart-container" ref={chartRef} style={{ position: 'relative', maxWidth: '100%' }}>
+      <DownloadButton 
+        chartRef={chartRef}
+        filename={generateFilename({})}
+        position="top-right"
+      />
       
-      <div className="chart-container" style={{ 
+      <div className="chart-svg-container" style={{ 
         maxWidth: '1200px', 
         margin: '0 auto',
         width: '100%'

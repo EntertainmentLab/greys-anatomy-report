@@ -347,31 +347,11 @@ const AMEBarChart = ({
       })
 
       // Add responsive info buttons
+      // Y-axis info icons will be added as HTML elements instead of SVG
+      // Store outcome click data for HTML buttons
       if (onOutcomeClick) {
-        const buttonSize = isMobile ? 6 : 8
-        const buttonX = isMobile ? -8 : -10
-        
-        group.append('circle')
-          .attr('cx', buttonX)
-          .attr('cy', yScale.bandwidth() / 2)
-          .attr('r', buttonSize)
-          .style('fill', '#6b7280')
-          .style('cursor', 'pointer')
-          .on('click', function(event) {
-            event.stopPropagation()
-            onOutcomeClick(d.outcome)
-          })
-
-        group.append('text')
-          .attr('x', buttonX)
-          .attr('y', yScale.bandwidth() / 2)
-          .attr('text-anchor', 'middle')
-          .attr('dominant-baseline', 'middle')
-          .style('font-size', isMobile ? '8px' : '10px')
-          .style('fill', 'white')
-          .style('cursor', 'pointer')
-          .style('pointer-events', 'none')
-          .text('i')
+        d.hasInfoButton = true
+        d.onOutcomeClick = onOutcomeClick
       }
     })
 
@@ -559,6 +539,33 @@ const AMEBarChart = ({
           )}
         </span>
       </div>
+
+      {/* Y-axis info buttons positioned over the chart */}
+      {data && onOutcomeClick && data.map((categoryData, index) => {
+        const yPos = chartDimensions.margin.top + (index * (isMobile ? 60 : 80)) + (isMobile ? 30 : 40)
+        const leftPos = chartDimensions.margin.left - (isMobile ? 25 : 30)
+        
+        return (
+          <span
+            key={`info-${index}`}
+            className="info-button"
+            style={{
+              position: 'absolute',
+              left: `${leftPos}px`,
+              top: `${yPos}px`,
+              cursor: 'pointer'
+            }}
+            onClick={(e) => {
+              e.stopPropagation()
+              onOutcomeClick(categoryData.outcome)
+            }}
+            onMouseEnter={() => setHoveredItem(`y-axis-${index}`)}
+            onMouseLeave={() => setHoveredItem(null)}
+          >
+            i
+          </span>
+        )
+      })}
     </div>
   )
 }

@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import * as d3 from 'd3'
 import { useClimateBeliefChangeData } from '../../hooks/useClimateBeliefChangeData'
+import DownloadButton from '../ui/DownloadButton'
+import { useChartDownload } from '../../hooks/useChartDownload'
 
 function ClimateBeliefChangeChart({ 
   title = "Climate Belief Changes: From 'Never' to New Perspectives",
@@ -9,6 +11,7 @@ function ClimateBeliefChangeChart({
 }) {
   const svgRef = useRef()
   const { climateBeliefChangeData, loading, error } = useClimateBeliefChangeData()
+  const { chartRef, generateFilename } = useChartDownload('climate-belief-change')
 
   useEffect(() => {
     if (!climateBeliefChangeData || climateBeliefChangeData.length === 0) {
@@ -224,7 +227,12 @@ function ClimateBeliefChangeChart({
   if (error) return <div className="error">Error loading chart: {error}</div>
 
   return (
-    <div className={className}>
+    <div className={className} ref={chartRef} style={{ position: 'relative' }}>
+      <DownloadButton 
+        chartRef={chartRef}
+        filename={generateFilename()}
+        position="top-right"
+      />
       <div className="chart-header" style={{ marginBottom: '20px' }}>
         <h3 className="chart-title" style={{ 
           margin: '0 0 10px 0',

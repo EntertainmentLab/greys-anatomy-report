@@ -13,6 +13,7 @@ export const useEnhancedChart = ({
   title,
   subtitle,
   xAxisLabel,
+  yAxisLabel, // New prop for y-axis label
   chartType, // 'policy' or 'knowledge' or 'ame-effects'
   yAxisItems, // Array of items to display on Y-axis (categories or political parties)
   dataFilter,
@@ -514,6 +515,20 @@ export const useEnhancedChart = ({
           .selectAll("text")
           .remove();
 
+        // Add y-axis label if provided
+        if (yAxisLabel) {
+          g.append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -(chartHeight / 2))
+            .attr("y", -(margin.left - 40))
+            .attr("text-anchor", "middle")
+            .style("fill", "#1f2937")
+            .style("font-size", isMobile ? "15px" : isTablet ? "17px" : "19px")
+            .style("font-weight", "600")
+            .style("font-family", "Roboto Condensed, sans-serif")
+            .text(yAxisLabel);
+        }
+
         // Add custom wrapped text labels with optional interactive icons
         yAxisItems.forEach(item => {
           const yPos = yScale(item) + yScale.bandwidth() / 2;
@@ -552,53 +567,7 @@ export const useEnhancedChart = ({
               .text(line);
           });
 
-          // Add interactive info icon if click handler is provided
-          if (onYAxisLabelClick) {
-            const iconGroup = labelGroup.append("g")
-              .attr("class", "y-axis-info-icon")
-              .style("cursor", "pointer")
-              .on("click", function(event) {
-                event.stopPropagation();
-                onYAxisLabelClick(item);
-              });
-
-            // Add circle background for icon
-            iconGroup.append("circle")
-              .attr("cx", -20)
-              .attr("cy", yPos)
-              .attr("r", 10)
-              .style("fill", "#6b7280")
-              .style("opacity", 0.7)
-              .style("transition", "all 0.2s ease");
-
-            // Add info icon (i)
-            iconGroup.append("text")
-              .attr("x", -20)
-              .attr("y", yPos)
-              .attr("text-anchor", "middle")
-              .attr("dominant-baseline", "middle")
-              .style("font-size", "12px")
-              .style("font-weight", "bold")
-              .style("fill", "white")
-              .style("font-family", "serif")
-              .style("pointer-events", "none")
-              .text("i");
-
-            // Add hover effects
-            iconGroup
-              .on("mouseenter", function() {
-                d3.select(this).select("circle")
-                  .style("fill", "#374151")
-                  .style("opacity", 1)
-                  .attr("r", 11);
-              })
-              .on("mouseleave", function() {
-                d3.select(this).select("circle")
-                  .style("fill", "#6b7280")
-                  .style("opacity", 0.7)
-                  .attr("r", 10);
-              });
-          }
+          // Don't add SVG-based info icons anymore - they'll be added as HTML
         });
       } else {
         // Add y-axis without any visual elements (no line, no ticks) for other charts
@@ -1180,5 +1149,5 @@ export const useEnhancedChart = ({
         .text(d => d.label);
     }
 
-  }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues, onYAxisLabelClick, toggleRef]);
+  }, [data, currentWave, currentPoliticalParty, currentCategory, svgRef, xDomain, title, subtitle, xAxisLabel, yAxisLabel, chartType, yAxisItems, dataFilter, plotRawValues, onYAxisLabelClick, toggleRef]);
 };

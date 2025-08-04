@@ -5,6 +5,8 @@ import { WAVE_LABELS } from '../../constants'
 import { processDataForVisualization } from '../../utils/ameChartUtils'
 import AMEBarChart from './AMEBarChart'
 import SurveyItemsPopup from '../infographics/SurveyItemsPopup'
+import DownloadButton from '../ui/DownloadButton'
+import { useChartDownload } from '../../hooks/useChartDownload'
 
 /**
  * BaseAMEChart - Shared component for all AME chart implementations
@@ -30,6 +32,7 @@ function BaseAMEChart({
   const [selectedConstruct, setSelectedConstruct] = useState('')
   const previousWaveData = useRef(null)
   const previousWave = useRef(defaultWave)
+  const { chartRef, generateFilename } = useChartDownload(`ame-${className.replace('ame-chart-', '')}`)
 
   // Process data for current wave
   const chartData = React.useMemo(() => {
@@ -90,7 +93,12 @@ function BaseAMEChart({
   }
 
   return (
-    <div className={`ame-chart-wrapper ${className}`} {...containerProps}>
+    <div className={`ame-chart-wrapper ${className}`} ref={chartRef} style={{ position: 'relative' }} {...containerProps}>
+      <DownloadButton 
+        chartRef={chartRef}
+        filename={generateFilename({ wave: currentWave === "Immediate" ? 2 : 3 })}
+        position="top-right"
+      />
       {/* Wave Controls */}
       {showWaveControls && (
         <div className="wave-controls">

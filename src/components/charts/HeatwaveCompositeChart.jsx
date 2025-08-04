@@ -2,6 +2,8 @@ import { useRef, useState, useMemo } from 'react'
 import { useHeatwaveCompositeData, useHeatwaveConstructsData } from '../../hooks/useHeatwaveCompositeData'
 import { COLOR_MAP } from '../../constants'
 import { useTemporalChart } from '../base/TemporalChart'
+import DownloadButton from '../ui/DownloadButton'
+import { useChartDownload } from '../../hooks/useChartDownload'
 // CSS imported via main.css
 
 // Define conditions with your color scheme
@@ -23,6 +25,7 @@ function HeatwaveCompositeChart() {
   const { heatwaveConstructsData, loading: constructsLoading, error: constructsError } = useHeatwaveConstructsData()
   const svgRef = useRef()
   const [selectedConstruct, setSelectedConstruct] = useState('overall')
+  const { chartRef, generateFilename } = useChartDownload('heatwave-composite')
 
   // Get unique constructs for dropdown
   const constructOptions = useMemo(() => {
@@ -91,7 +94,12 @@ function HeatwaveCompositeChart() {
   }
 
   return (
-    <div className="heatwave-composite-container">
+    <div className="temporal-chart-container" ref={chartRef} style={{ position: 'relative', maxWidth: '100%' }}>
+      <DownloadButton 
+        chartRef={chartRef}
+        filename={generateFilename({ category: selectedConstruct })}
+        position="top-right"
+      />
       {/* Dropdown menu for construct selection */}
       <div className="controls-container">
         <div className="control-group">
@@ -112,7 +120,11 @@ function HeatwaveCompositeChart() {
         </div>
       </div>
       
-      <div className="chart-container">
+      <div className="chart-svg-container" style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto',
+        width: '100%'
+      }}>
         <svg ref={svgRef}></svg>
       </div>
     </div>

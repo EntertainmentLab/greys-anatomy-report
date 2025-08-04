@@ -25,7 +25,6 @@ export const useTemporalChart = ({
     const renderChart = () => {
       // Ensure SVG ref exists
       if (!svgRef.current || !svgRef.current.parentNode) {
-        console.log("SVG ref or parent not available yet");
         return;
       }
 
@@ -36,18 +35,13 @@ export const useTemporalChart = ({
       const filteredData = data.filter(d => d.political_party === 'Overall');
       
       if (filteredData.length === 0) {
-        console.log("No Overall data available");
         return;
       }
 
-      console.log("Filtered Overall data for y-axis calculation:", filteredData.map(d => ({ condition: d.condition, wave: d.wave, mean: d.mean })));
-
-      // Set up responsive dimensions
+      // Simplified responsive dimensions
       const containerWidth = svgRef.current.parentNode.getBoundingClientRect().width || 800;
-      console.log("Container width:", containerWidth);
-      const screenWidth = window.innerWidth;
-      const isMobile = screenWidth <= 768;
-      const isSmallMobile = screenWidth <= 480;
+      const isMobile = containerWidth <= 768;
+      const isSmallMobile = containerWidth <= 480;
     
       const margin = {
         top: isMobile ? 80 : 100,
@@ -56,13 +50,9 @@ export const useTemporalChart = ({
         left: isMobile ? 50 : 70
       };
       
-      // Ensure minimum and maximum width constraints
-      const minWidth = isMobile ? 280 : 400;
-      const maxWidth = isMobile ? 600 : 1000;
-      const availableWidth = Math.max(minWidth, containerWidth - 32);
-      const constrainedWidth = Math.min(maxWidth, availableWidth);
-      const width = constrainedWidth - margin.left - margin.right;
-      const height = (isMobile ? 400 : 550) - margin.top - margin.bottom;
+      // Simplified width calculation - use 90% of container width
+      const width = Math.max(300, containerWidth * 0.9) - margin.left - margin.right;
+      const height = (isMobile ? 400 : 500) - margin.top - margin.bottom;
 
     const svg = d3.select(svgRef.current)
       .attr("width", width + margin.left + margin.right)
@@ -421,20 +411,21 @@ export const useTemporalChart = ({
     }
     };
 
-    // Initial render with delay to ensure container is rendered
-    const initialRender = setTimeout(() => {
+    // Render chart immediately when dependencies are ready
+    if (svgRef.current && data && data.length > 0) {
       renderChart();
-    }, 250);
+    }
 
     // Add resize event listener for window resize
     const handleResize = () => {
-      setTimeout(renderChart, 100);
+      if (svgRef.current && data && data.length > 0) {
+        renderChart();
+      }
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
-      clearTimeout(initialRender);
       window.removeEventListener('resize', handleResize);
     };
 

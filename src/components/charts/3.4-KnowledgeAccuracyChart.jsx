@@ -1,27 +1,49 @@
 import { useState, useRef } from 'react'
 import { useKnowledgeData } from '../../hooks/useKnowledgeData'
-import { WAVE_LABELS, KNOWLEDGE_CATEGORIES } from '../../constants'
-import { useEnhancedChart } from '../base/EnhancedChart'
-// CSS imported via main.css
+import { KNOWLEDGE_CATEGORIES } from '../../constants'
+import { useUnifiedDumbbellChart } from '../base/useUnifiedDumbbellChart'
+import UnifiedChartContainer from '../base/UnifiedChartContainer'
+import { useChartDownload } from '../../hooks/useChartDownload'
+import { normalizeChartData, filterChartData } from '../../utils/chartDataUtils'
 
 function KnowledgeAccuracyChart() {
   const [currentWave, setCurrentWave] = useState(2)
   const { data: knowledgeData, loading, error } = useKnowledgeData()
   const svgRef = useRef()
-  const waveControlsRef = useRef()
+  const previousWaveData = useRef(null)
+  const previousWave = useRef(2)
+  const { chartRef, generateFilename } = useChartDownload('knowledge-accuracy')
 
-  useEnhancedChart({
+  // Process and filter data
+  const processedData = normalizeChartData(knowledgeData)
+  const filteredCategories = KNOWLEDGE_CATEGORIES.filter(category => category !== 'Cancer')
+
+  // Handle wave change with previous data storage
+  const handleWaveChange = (newWave) => {
+    if (newWave === currentWave) return
+    
+    // Store current wave data before changing
+    if (knowledgeData && knowledgeData.length > 0) {
+      previousWaveData.current = normalizeChartData(knowledgeData.filter(item => item.wave === currentWave))
+    }
+    
+    previousWave.current = currentWave
+    setCurrentWave(newWave)
+  }
+
+  useUnifiedDumbbellChart({
     svgRef,
-    data: knowledgeData,
+    data: processedData,
     currentWave,
-    xDomain: [-5, 15],
+    previousData: previousWaveData.current,
+    groupBy: 'category', // Default grouping by category
     title: 'Heat Episode Impact on Health Knowledge',
-    subtitle: `Percentage point difference from control group by knowledge category`,
+    subtitle: 'Percentage point difference from control group by knowledge category',
     xAxisLabel: 'Difference from Control (percentage points)',
-    chartType: 'knowledge',
-    yAxisItems: KNOWLEDGE_CATEGORIES,
-    dataFilter: (data) => data.filter(d => d.category !== 'Cancer'),
-    waveControlsRef,
+    yAxisLabel: 'Health Risks Associated with Extreme Heat',
+    yAxisItems: filteredCategories,
+    xDomain: null, // Let it auto-calculate the range
+    calculateDifferences: true
   })
 
   if (loading) return <div className="loading">Loading knowledge accuracy data...</div>
@@ -32,27 +54,16 @@ function KnowledgeAccuracyChart() {
   }
 
   return (
-    <div className="chart-container-wrapper">
-      <div className="dumbbell-chart-container">
-        <svg ref={svgRef} className="dumbbell-chart-svg"></svg>
-        <div ref={waveControlsRef} className="wave-controls-container">
-          <div className="wave-controls">
-            <button 
-              className={`wave-tab ${currentWave === 2 ? 'active' : ''}`}
-              onClick={() => setCurrentWave(2)}
-            >
-              {WAVE_LABELS[2]}
-            </button>
-            <button 
-              className={`wave-tab ${currentWave === 3 ? 'active' : ''}`}
-              onClick={() => setCurrentWave(3)}
-            >
-              {WAVE_LABELS[3]}
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <UnifiedChartContainer
+      chartRef={chartRef}
+      svgRef={svgRef}
+      filename={generateFilename({ wave: currentWave })}
+      showWaveControls={true}
+      currentWave={currentWave}
+      onWaveChange={handleWaveChange}
+      availableWaves={[2, 3]}
+      className="knowledge-accuracy-chart"
+    />
   )
 }
 
