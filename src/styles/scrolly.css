@@ -1,0 +1,49 @@
+.scrolly-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.graphic {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 1rem;
+}
+
+.placeholder {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.scroller {
+  flex: 1;
+  padding: 2rem;
+}
+
+.step {
+  margin: 0 auto 60vh;
+  max-width: 35ch;
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .scrolly-wrapper {
+    flex-direction: column;
+  }
+  .graphic {
+    height: 50vh;
+  }
+  .scroller {
+    padding: 1rem;
+  }
+  .step {
+    margin-bottom: 40vh;
+  }
+}
