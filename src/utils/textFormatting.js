@@ -35,36 +35,30 @@ export const formatTextInDOM = () => {
     }
     
     // Rule 2: Italicize text within quotation marks (keeping the quotes)
-    // Process each quoted section individually to handle multiple quotes correctly
-    if (formattedText.includes('"')) {
-      // Split on quotes and process alternating sections
-      const parts = formattedText.split('"');
-      let newText = '';
-      let insideQuotes = false;
-      
-      for (let i = 0; i < parts.length; i++) {
-        if (i > 0) {
-          newText += '"'; // Add back the quote
-        }
-        
-        if (insideQuotes && parts[i].trim() !== '') {
-          // This part is inside quotes, italicize it
-          newText += '<em>' + parts[i] + '</em>';
-        } else {
-          // This part is outside quotes, keep as is
-          newText += parts[i];
-        }
-        
-        // Toggle the inside quotes state for next iteration
-        if (i < parts.length - 1) {
-          insideQuotes = !insideQuotes;
-        }
-      }
-      
-      if (newText !== formattedText) {
-        formattedText = newText;
-        hasChanges = true;
-      }
+    // Use a more precise regex approach to handle multiple quoted sections
+    const quotesRegex = /"([^"]+)"/g;
+    let match;
+    let lastIndex = 0;
+    let newText = '';
+    
+    // Process each quoted section individually
+    while ((match = quotesRegex.exec(formattedText)) !== null) {
+      // Add text before the quote
+      newText += formattedText.substring(lastIndex, match.index);
+      // Add the quote with italicized content
+      newText += '"<em>' + match[1] + '</em>"';
+      lastIndex = quotesRegex.lastIndex;
+    }
+    
+    // Add any remaining text after the last quote
+    if (lastIndex < formattedText.length) {
+      newText += formattedText.substring(lastIndex);
+    }
+    
+    // Only update if we actually made changes
+    if (newText && newText !== formattedText) {
+      formattedText = newText;
+      hasChanges = true;
     }
     
     if (hasChanges) {
