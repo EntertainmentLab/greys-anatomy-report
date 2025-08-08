@@ -98,7 +98,7 @@ function App() {
               Primetime in a Warming World:
             </h1>
             <h2 className="main-subtitle">
-              Can Medical Dramas Prepare Us for Extreme Heat?
+              Can Medical Dramas Save Lives?
             </h2>
             <div className="title-divider"></div>
           </div>
