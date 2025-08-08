@@ -19,8 +19,7 @@ function Methodology({ expandAllDetails = false }) {
         'experimental-conditions': true,
         'instagram-videos': true,
         'study-design': true,
-        'timeline-measures': true,
-        'procedure': true
+        'timeline-measures': true
       });
     }
   }, [expandAllDetails]);
@@ -214,7 +213,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Survey Measures</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <p>We assessed outcomes by adapting established measures from climate and heat-risk communication research, including perceived heat wave risk, threat severity, heat wave worry and harm perception (Howe et al., 2019), social norms and behavioral intentions (Leiserowitz et al., 2025), perceived self-efficacy, support for heat-adaptation policies, and knowledge about the heat impacts of heat waves. These domains were measured with multi-item scales that captured key factors such as perceived threat of heat waves, knowledge of heat-related health risks, support for relevant policy measures, responsibility of healthcare workers, personal impact of climate change, and support for climate action. <strong>See <a href={`${import.meta.env.BASE_URL}html/survey-instrument.html`} target="_blank" rel="noopener noreferrer">full survey instrument for item wording</a>.</strong></p>
+              <p>We assessed outcomes by adapting established measures from climate and heat-risk communication research, including perceived heat wave risk, threat severity, heat wave worry and harm perception (<a href="https://www.pnas.org/doi/10.1073/pnas.1813145116" target="_blank" rel="noopener noreferrer">Howe et al., 2019</a>), social norms and behavioral intentions (<a href="https://climatecommunication.yale.edu/publications/climate-change-in-the-american-mind-politics-policy-spring-2025/" target="_blank" rel="noopener noreferrer">Leiserowitz et al., 2025</a>), perceived self-efficacy, support for heat-adaptation policies, and knowledge about the heat impacts of heat waves. These domains were measured with multi-item scales that captured key factors such as perceived threat of heat waves, knowledge of heat-related health risks, support for relevant policy measures, responsibility of healthcare workers, personal impact of climate change, and support for climate action. <strong>See <a href={`${import.meta.env.BASE_URL}html/survey-instrument.html`} target="_blank" rel="noopener noreferrer">full survey instrument for item wording</a>.</strong></p>
             </div>
             
             <button
@@ -250,7 +249,7 @@ function Methodology({ expandAllDetails = false }) {
         </div>
 
         <div className="methodology-section">
-          <h3>Procedure</h3>
+          <h3>Study Design</h3>
           <p>
             Participants completed ~80-minute one-on-one Zoom interviews. Wave 1 interviews were conducted before the quantitative survey and focused on reactions to the heat wave episode. Wave 2 interviews were conducted after the survey and were informed by key quantitative findings. All participants watched the same episode; a subset of Wave 2 participants also viewed one the Instagram campaign videos following the episode.
           </p>
