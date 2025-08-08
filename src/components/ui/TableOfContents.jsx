@@ -43,22 +43,22 @@ const sections = [
       {
         id: 'heat-wave-perception',
         title: 'Heat Wave Perceptions',
-        selector: 'h3:contains("Heat Wave Perception and Knowledge")'
+        selector: 'h2:contains("Heat Wave Perception and Knowledge")'
       },
       {
         id: 'policy-support',
         title: 'Policy Support',
-        selector: 'h3:contains("Policy Support and Healthcare Worker Responsibility")'
+        selector: 'h2:contains("Policy Support and Healthcare Worker Responsibility")'
       },
       {
         id: 'climate-connections',
         title: 'Climate Change',
-        selector: 'h3:contains("Climate Change Connections")'
+        selector: 'h2:contains("Climate Change Connections")'
       },
       {
         id: 'entertainment-value',
         title: 'Entertainment Value',
-        selector: 'h3:contains("Entertainment Value")'
+        selector: 'h2:contains("Entertainment Value")'
       },
     ]
   },

@@ -65,7 +65,7 @@ const AMEBarChart = ({
         bars.push({
           type: 'treatment',
           label: CONDITION_LABELS.treatment,
-          color: getBarColor(outcome.treatment.estimate, outcome.treatment.sig, effect),
+          color: '#86efac', // Light green for treatment
           data: outcome.treatment,
           previousData: previousTreatment,
           effect: effect
@@ -78,7 +78,7 @@ const AMEBarChart = ({
         bars.push({
           type: 'handoff',
           label: CONDITION_LABELS.handoff,
-          color: getBarColor(outcome.handoff.estimate, outcome.handoff.sig, effect),
+          color: '#16a34a', // Dark green for handoff/multiplatform
           data: outcome.handoff,
           previousData: previousHandoff,
           effect: effect
@@ -105,7 +105,7 @@ const AMEBarChart = ({
     const leftMargin = baseLabelWidth + (isMobile ? 15 : 20)
     
     const margin = { 
-      top: isMobile ? 60 : 80, 
+      top: isMobile ? 100 : 120, // Increased to make room for legend under subtitle
       right: isMobile ? 180 : 220, // More space for effect size column
       bottom: isMobile ? 60 : 80, 
       left: leftMargin 
@@ -149,6 +149,8 @@ const AMEBarChart = ({
       .attr('width', width + margin.left + margin.right)
       .attr('height', height + margin.top + margin.bottom)
 
+    // Remove pattern definitions - no longer needed
+
     // Create or select main group
     let g = svg.select('.chart-group')
     if (g.empty()) {
@@ -157,15 +159,7 @@ const AMEBarChart = ({
         .attr('transform', `translate(${margin.left},${margin.top})`)
     }
 
-    // Create tooltip if it doesn't exist - attach to chart container instead of body
-    const chartContainer = d3.select(svgRef.current.parentElement)
-    let tooltip = chartContainer.select('.ame-tooltip')
-    if (tooltip.empty()) {
-      tooltip = chartContainer.append('div')
-        .attr('class', 'ame-tooltip')
-        .style('opacity', 0)
-        .style('position', 'fixed')
-    }
+    // Tooltip will be accessed via tooltipRef.current directly
 
     // Update responsive title
     let titleText = svg.select('.chart-title')
@@ -247,17 +241,17 @@ const AMEBarChart = ({
 
       // Effect size header is now handled by HTML overlay
 
-      // Legend with shapes
+      // Legend showing different bar types
       const legendData = [
-        { label: CONDITION_LABELS.treatment, shape: 'circle', type: 'treatment' },
-        { label: CONDITION_LABELS.handoff, shape: 'triangle', type: 'handoff' }
+        { label: CONDITION_LABELS.treatment, type: 'treatment' },
+        { label: CONDITION_LABELS.handoff, type: 'handoff' }
       ]
 
-      const legend = g.append('g')
+      const legend = svg.append('g')
         .attr('class', 'legend')
-        .attr('transform', `translate(${width / 2}, ${height + (isMobile ? 50 : 70)})`)
+        .attr('transform', `translate(${(width + margin.left + margin.right) / 2}, ${isMobile ? 80 : 90})`)
 
-      const legendItemWidth = isMobile ? 100 : 150
+      const legendItemWidth = isMobile ? 120 : 160
       const totalLegendWidth = legendData.length * legendItemWidth
       const startX = -totalLegendWidth / 2
 
@@ -268,34 +262,34 @@ const AMEBarChart = ({
         .attr('class', 'legend-item')
         .attr('transform', (d, i) => `translate(${startX + (i * legendItemWidth)}, 0)`)
 
-      // Add shapes to legend
+      // Create legend bars that match the actual chart appearance
       legendItems.each(function(d) {
         const group = d3.select(this)
-        if (d.shape === 'circle') {
-          group.append('circle')
-            .attr('cx', isMobile ? 6 : 8)
-            .attr('cy', isMobile ? 6 : 8)
-            .attr('r', isMobile ? 4 : 6)
-            .style('fill', 'white')
-            .style('stroke', '#000000')
-            .style('stroke-width', 1)
-        } else {
-          group.append('path')
-            .attr('d', d3.symbol().type(d3.symbolTriangle).size(isMobile ? 32 : 64))
-            .attr('transform', `translate(${isMobile ? 6 : 8}, ${isMobile ? 6 : 8})`)
-            .style('fill', 'white')
-            .style('stroke', '#000000')
-            .style('stroke-width', 1)
-        }
+        const rectWidth = isMobile ? 20 : 24
+        const rectHeight = isMobile ? 14 : 16
+        
+        // Use the same colors as the bars
+        const color = d.type === 'treatment' ? '#86efac' : '#16a34a'
+        
+        group.append('rect')
+          .attr('x', 0)
+          .attr('y', 0)
+          .attr('width', rectWidth)
+          .attr('height', rectHeight)
+          .style('fill', color)
+          .style('stroke', '#374151')
+          .style('stroke-width', 1)
+        
+        // Add label
+        group.append('text')
+          .attr('x', rectWidth + 8)
+          .attr('y', rectHeight / 2)
+          .style('font-family', 'Roboto Condensed, sans-serif')
+          .style('font-size', isMobile ? '10px' : '11px')
+          .style('fill', '#374151')
+          .style('dominant-baseline', 'middle')
+          .text(d.label)
       })
-
-      legendItems.append('text')
-        .attr('x', isMobile ? 18 : 25)
-        .attr('y', isMobile ? 10 : 12)
-        .style('font-family', 'Roboto Condensed, sans-serif')
-        .style('font-size', isMobile ? '10px' : '12px')
-        .style('fill', '#374151')
-        .text(d => d.label)
     }
 
     // Simple data update for categories - clear and rebuild each time
@@ -397,13 +391,14 @@ const AMEBarChart = ({
         const prevBarEnd = startFromPrevious ? Math.max(0, bar.previousData.estimate) : 0
         const prevBarWidth = startFromPrevious ? Math.max(2, xScale(prevBarEnd) - xScale(prevBarStart)) : 0
 
+        // Create solid colored bars
         const effectBar = group.append('rect')
           .attr('x', startFromPrevious ? xScale(prevBarStart) : xScale(0))
           .attr('y', barY)
           .attr('width', startFromPrevious ? prevBarWidth : 0)
           .attr('height', barHeight)
           .style('fill', bar.color)
-          .style('cursor', 'pointer')
+          .style('pointer-events', 'none')
 
         // Animate to final position
         effectBar
@@ -424,6 +419,7 @@ const AMEBarChart = ({
           .attr('width', startFromPrevious ? prevCiWidth : 0)
           .attr('height', 1)
           .style('fill', 'rgba(0, 0, 0, 0.6)')
+          .style('pointer-events', 'none') // Allow events to pass through
 
         ciBar
           .transition()
@@ -432,40 +428,6 @@ const AMEBarChart = ({
           .attr('x', xScale(bar.data.ci_lower))
           .attr('width', Math.max(1, xScale(bar.data.ci_upper) - xScale(bar.data.ci_lower)))
 
-        // Responsive shape at bar tip (circle for treatment, triangle for handoff)
-        const prevEstimate = startFromPrevious ? bar.previousData.estimate : 0
-        const shapeSize = isMobile ? 3 : 4
-        const triangleSize = isMobile ? 20 : 32
-        
-        if (bar.type === 'treatment') {
-          const shape = group.append('circle')
-            .attr('cx', startFromPrevious ? xScale(prevEstimate) : xScale(0))
-            .attr('cy', barY + barHeight/2)
-            .attr('r', shapeSize)
-            .style('fill', 'white')
-            .style('stroke', '#000000')
-            .style('stroke-width', 1)
-            
-          shape
-            .transition()
-            .duration(750)
-            .ease(d3.easeQuadOut)
-            .attr('cx', xScale(bar.data.estimate))
-        } else {
-          // Triangle for handoff
-          const shape = group.append('path')
-            .attr('d', d3.symbol().type(d3.symbolTriangle).size(triangleSize))
-            .attr('transform', `translate(${startFromPrevious ? xScale(prevEstimate) : xScale(0)}, ${barY + barHeight/2})`)
-            .style('fill', 'white')
-            .style('stroke', '#000000')
-            .style('stroke-width', 1)
-            
-          shape
-            .transition()
-            .duration(750)
-            .ease(d3.easeQuadOut)
-            .attr('transform', `translate(${xScale(bar.data.estimate)}, ${barY + barHeight/2})`)
-        }
 
         // Responsive effect description
         group.append('text')
@@ -482,25 +444,45 @@ const AMEBarChart = ({
           .duration(350)
           .style('opacity', 1)
 
-        // Add hover effects
-        effectBar
-          .on('mouseover', function(event) {
-            tooltip.transition().duration(200).style('opacity', .9)
+        // Add invisible larger hitbox for better hover interaction
+        const hitbox = group.append('rect')
+          .attr('x', xScale(Math.min(bar.data.ci_lower, 0)) - 5)
+          .attr('y', barY - 2)
+          .attr('width', Math.max(60, xScale(Math.max(bar.data.ci_upper, 0)) - xScale(Math.min(bar.data.ci_lower, 0)) + 10))
+          .attr('height', barHeight + 4)
+          .style('fill', 'transparent')
+          .style('cursor', 'pointer')
+          .on("mouseover", function(event) {
+            // Create tooltip using the same pattern as working charts
+            const tooltip = d3.select("body").append("div")
+              .attr("class", "d3-tooltip")
+              .style("opacity", 0)
+              .style("position", "absolute")
+              .style("background", "rgba(0,0,0,0.8)")
+              .style("color", "white")
+              .style("padding", "10px")
+              .style("border-radius", "5px")
+              .style("pointer-events", "none")
+              .style("font-family", "var(--font-secondary)")
+              .style("font-size", "12px")
+              .style("z-index", "1000");
+
+            tooltip.transition()
+              .duration(200)
+              .style("opacity", .9);
+            
             tooltip.html(formatTooltip(bar.data, categoryData.outcome))
-              .style('left', (event.clientX + 10) + 'px')
-              .style('top', (event.clientY - 10) + 'px')
+              .style("left", (event.pageX + 10) + "px")
+              .style("top", (event.pageY - 28) + "px");
           })
-          .on('mousemove', function(event) {
-            tooltip.style('left', (event.clientX + 10) + 'px')
-              .style('top', (event.clientY - 10) + 'px')
-          })
-          .on('mouseout', function() {
-            tooltip.transition().duration(500).style('opacity', 0)
+          .on("mouseout", function() {
+            d3.selectAll(".d3-tooltip").remove();
           })
       })
     })
 
   }, [data, previousData, title, subtitle, maxValue, onOutcomeClick])
+
 
   return (
     <div className="ame-bar-chart-container" style={{ position: 'relative' }}>
@@ -511,7 +493,7 @@ const AMEBarChart = ({
         style={{
           position: 'absolute',
           left: `${chartDimensions.margin.left + chartDimensions.width + (isMobile ? 5 : 10)}px`,
-          top: isMobile ? '60px' : '70px',
+          top: isMobile ? '80px' : '90px',
           fontSize: isMobile ? '10px' : '12px',
           fontWeight: 'bold',
           color: '#374151',

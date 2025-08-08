@@ -59,8 +59,12 @@ function App() {
         <div className="main-title-section">
           <div className="main-title-container">
             <h1 className="main-title">
-              Primetime in a Warming World: Can Medical Dramas Prepare Us for Extreme Heat?
+              Primetime in a Warming World:
             </h1>
+            <h2 className="main-subtitle">
+              Can Medical Dramas Prepare Us for Extreme Heat?
+            </h2>
+            <div className="title-divider"></div>
           </div>
         </div>
         <div className="container">

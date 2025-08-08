@@ -25,7 +25,7 @@ function HeatwaveCompositeChart() {
   const { heatwaveConstructsData, loading: constructsLoading, error: constructsError } = useHeatwaveConstructsData()
   const svgRef = useRef()
   const [selectedConstruct, setSelectedConstruct] = useState('overall')
-  const { chartRef, generateFilename } = useChartDownload('heatwave-composite')
+  const { chartRef, generateFilename } = useChartDownload('heatwave')
 
   // Get unique constructs for dropdown
   const constructOptions = useMemo(() => {
@@ -93,12 +93,31 @@ function HeatwaveCompositeChart() {
     return <div className="loading">No heatwave data available...</div>
   }
 
+  // Function to get all available views for download all
+  const getAllChartViews = async () => {
+    const allViews = [
+      { value: 'overall', label: 'Overall-Composite' },
+      ...constructOptions
+    ]
+    return allViews
+  }
+
+  // Function to change the view programmatically
+  const changeChartView = async (value) => {
+    setSelectedConstruct(value)
+    // Wait for state update
+    await new Promise(resolve => setTimeout(resolve, 100))
+  }
+
   return (
     <div className="temporal-chart-container" ref={chartRef} style={{ position: 'relative', maxWidth: '100%' }}>
       <DownloadButton 
         chartRef={chartRef}
-        filename={generateFilename({ category: selectedConstruct })}
+        filename={generateFilename()}
         position="top-right"
+        enableDownloadAll={true}
+        getAllViews={getAllChartViews}
+        onViewChange={changeChartView}
       />
       {/* Dropdown menu for construct selection */}
       <div className="controls-container">

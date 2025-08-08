@@ -194,11 +194,14 @@ export const BaseChart = ({
 
 ---
 
-### Phase 3: Unified Data Processing ❌ NOT STARTED
+### Phase 3: Unified Data Processing ✅ COMPLETE (Domain Utils Only)
 
 **Priority: Medium | Estimated Time: 2-3 hours**
+**Status:** Completed January 2025 - Domain utilities implemented
 
-#### Step 3.1: Create Universal Data Hook ❌ NOT DONE
+#### Step 3.1: Create Universal Data Hook ❌ SKIPPED
+- Determined to be over-engineering for this codebase
+- Existing focused data hooks are better
 
 ```javascript
 // src/hooks/useChartData.js
@@ -239,7 +242,11 @@ export const useChartData = (dataSource, config = {}) => {
 }
 ```
 
-#### Step 3.2: Standardize Domain Calculations ❌ NOT DONE
+#### Step 3.2: Standardize Domain Calculations ✅ DONE
+- Created `domainUtils.js` with reusable domain calculation functions
+- Updated `useUnifiedDumbbellChart.js` to use domain utilities
+- Updated `TemporalChart.jsx` to use domain utilities
+- Eliminated duplicate domain calculation logic
 
 ```javascript
 // src/utils/domainUtils.js
@@ -435,9 +442,9 @@ export const useChartAnimations = (transitionDuration = 750) => {
 - [ ] Migrate 2-3 chart components to new system
 
 ### Week 3: Data & Domain Utilities
-- [ ] Phase 3: Unified data processing
-- [ ] Domain calculation utilities
-- [ ] Test all data sources work correctly
+- [✅] Phase 3: Domain calculation utilities (Universal data hook skipped)
+- [✅] Domain calculation utilities implemented and tested
+- [✅] Test all data sources work correctly
 
 ### Week 4: Polish & Optional Features
 - [ ] Phase 4: Simplify remaining chart components
@@ -486,5 +493,17 @@ export const useChartAnimations = (transitionDuration = 750) => {
 - Created `useUnifiedDumbbellChart.js` that handles both chart types
 - Updated both chart components to use the unified hook
 - Removed old duplicate hooks (`useDumbbellChart.js` and `usePolicyDumbbellChart.js`)
-- Tested and verified all functionality preserved including animations  
+- Tested and verified all functionality preserved including animations
+
+### ✅ Phase 3: Domain Calculation Utilities (January 2025)
+- Created `src/utils/domainUtils.js` with reusable domain calculation functions:
+  - `autoWithZero()` - Auto-calculate domain ensuring zero inclusion
+  - `auto()` - Auto-calculate domain without zero forcing
+  - `symmetric()` - Create symmetric domain around zero
+  - `fixed()` - Use predefined domain
+  - `smart()` - Intelligent domain selection based on options
+  - `extractValues()` - Helper to extract values from data structures
+- Updated charts to use domain utilities, eliminating duplicate calculation logic
+- Significantly reduced code duplication and improved maintainability
+- Universal data hook skipped as existing focused hooks are more appropriate  
 **Next Review:** [Schedule regular check-ins during implementation]

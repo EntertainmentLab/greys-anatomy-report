@@ -1,4 +1,5 @@
 import KnowledgeAccuracyChart from '../charts/3.4-KnowledgeAccuracyChart'
+// import KnowledgeHorizontalChart from '../charts/3.4-KnowledgeHorizontalChart'
 import PolicySupportChart from '../charts/3.5-PolicySupportChart'
 import ClimateTemporalChart from '../charts/3.6-ClimateTemporalChart'
 // import ClimateBeliefChangeChart from '../charts/ClimateBeliefChangeChart'
@@ -37,6 +38,7 @@ function KeyFindings() {
       <p>The heat wave episode boosted viewer understanding of the serious health risks associated with extreme heat – particularly the risk of triggering premature labor in pregnant women, a fact introduced early in the storyline. While the multiplatform condition produced outcomes that were comparable or slightly stronger, differences between the two groups were minimal and largely not statistically significant. Excitingly, the knowledge gains persisted 15 days after viewing, indicating that the knowledge gained had lasting impact.</p>
 
       <KnowledgeAccuracyChart />
+      {/* <KnowledgeHorizontalChart /> */}
 
       <h2>
         Policy Support and Healthcare Worker Responsibility

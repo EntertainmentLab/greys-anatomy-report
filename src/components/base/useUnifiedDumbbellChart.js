@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import * as d3 from 'd3'
 import { COLOR_MAP, CONDITION_LABELS } from '../../constants'
+import { smart as smartDomain, extractValues } from '../../utils/domainUtils'
 
 /**
  * Unified dumbbell chart hook that handles both category-based and political party-based grouping
@@ -149,16 +150,8 @@ export const useUnifiedDumbbellChart = ({
       }
 
       // Set domain using global values
-      if (allWaveValues.length > 0) {
-        const dataMin = Math.min(...allWaveValues)
-        const dataMax = Math.max(...allWaveValues)
-        const range = dataMax - dataMin
-        const padding = Math.max(range * 0.1, 1)
-
-        if (!xDomain) {
-          // For difference charts, always include 0 in the domain
-          xDomain = [Math.min(dataMin - padding, -padding, 0), Math.max(dataMax + padding, padding)]
-        }
+      if (allWaveValues.length > 0 && !xDomain) {
+        xDomain = smartDomain(allWaveValues, { includeZero: true })
       }
     } else {
       chartData = filteredData.filter(d => d.condition !== 'control')
@@ -171,9 +164,9 @@ export const useUnifiedDumbbellChart = ({
     const isMobile = containerWidth <= 768
 
     const margin = {
-      top: isMobile ? 80 : 90,
+      top: isMobile ? 120 : 130, // Increased to make room for legend under subtitle
       right: isMobile ? 80 : 100,
-      bottom: isMobile ? 80 : 100,
+      bottom: isMobile ? 60 : 80, // Reduced since legend is no longer at bottom
       left: isMobile ? 140 : 180
     }
 
@@ -185,18 +178,9 @@ export const useUnifiedDumbbellChart = ({
     if (xDomain) {
       [xMin, xMax] = xDomain
     } else {
-      const allValues = chartData.map(d => d.mean)
-      const dataMin = Math.min(...allValues)
-      const dataMax = Math.max(...allValues)
-      const padding = Math.max((dataMax - dataMin) * 0.1, 1)
-      if (calculateDifferences) {
-        // For difference charts, always include 0 in the domain
-        xMin = Math.min(dataMin - padding, -padding, 0)
-        xMax = Math.max(dataMax + padding, padding)
-      } else {
-        xMin = dataMin - padding
-        xMax = dataMax + padding
-      }
+      const allValues = extractValues(chartData, 'mean')
+      const domain = smartDomain(allValues, { includeZero: calculateDifferences })
+      ;[xMin, xMax] = domain
     }
 
     const xScale = d3.scaleLinear()
@@ -350,21 +334,8 @@ export const useUnifiedDumbbellChart = ({
         .text('No change from control')
     }
 
-    // Create tooltip
-    let tooltip = d3.select('body').select('.d3-tooltip')
-    if (tooltip.empty()) {
-      tooltip = d3.select('body').append('div')
-        .attr('class', 'd3-tooltip')
-        .style('opacity', 0)
-        .style('position', 'absolute')
-        .style('background', 'rgba(0,0,0,0.8)')
-        .style('color', 'white')
-        .style('padding', '10px')
-        .style('border-radius', '5px')
-        .style('pointer-events', 'none')
-        .style('font-size', '12px')
-        .style('font-family', 'Roboto Condensed, sans-serif')
-    }
+    // Remove any existing tooltips to prevent duplicates
+    d3.selectAll('.d3-tooltip').remove()
 
     // Clear existing data elements if updating
     if (isUpdate) {
@@ -457,7 +428,21 @@ export const useUnifiedDumbbellChart = ({
           .attr('stroke', 'white')
           .attr('stroke-width', 2)
           .style('cursor', 'pointer')
-          .on('mouseover', (event) => {
+          .on('mouseover', function(event) {
+            // Create tooltip inside event handler - same pattern as AME charts
+            const tooltip = d3.select("body").append("div")
+              .attr("class", "d3-tooltip")
+              .style("opacity", 0)
+              .style("position", "absolute")
+              .style("background", "rgba(0,0,0,0.8)")
+              .style("color", "white")
+              .style("padding", "10px")
+              .style("border-radius", "5px")
+              .style("pointer-events", "none")
+              .style("font-family", "Roboto Condensed, sans-serif")
+              .style("font-size", "12px")
+              .style("z-index", "1000")
+
             tooltip.transition().duration(200).style('opacity', .9)
 
             let tooltipContent = `${CONDITION_LABELS[d.condition]}\n`
@@ -480,8 +465,8 @@ export const useUnifiedDumbbellChart = ({
               .style('left', `${event.pageX + 10}px`)
               .style('top', `${event.pageY - 10}px`)
           })
-          .on('mouseout', () => {
-            tooltip.transition().duration(500).style('opacity', 0)
+          .on('mouseout', function() {
+            d3.selectAll('.d3-tooltip').remove()
           })
 
         if (isUpdate) {
@@ -533,7 +518,7 @@ export const useUnifiedDumbbellChart = ({
 
       const legend = svg.append('g')
         .attr('class', 'chart-legend')
-        .attr('transform', `translate(${margin.left + width / 2}, ${height + margin.top + 70})`)
+        .attr('transform', `translate(${margin.left + width / 2}, ${subtitle ? 80 : 60})`)
 
       const legendItemWidth = isMobile ? 140 : 180
       const startX = -legendItemWidth
@@ -561,10 +546,6 @@ export const useUnifiedDumbbellChart = ({
       })
     }
 
-    // Cleanup tooltip on unmount
-    return () => {
-      d3.selectAll('.d3-tooltip').remove()
-    }
 
   }, [data, currentWave, previousData, groupBy, categoryFilter, title, subtitle, xAxisLabel, yAxisLabel, yAxisItems, xDomain, calculateDifferences, onYAxisLabelClick])
 }

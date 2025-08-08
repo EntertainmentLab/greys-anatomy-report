@@ -21,12 +21,19 @@ export const getBarColor = (estimate, sig, effect) => {
 }
 
 export const formatTooltip = (data, outcome) => {
-  const pValue = data.p_value_fdr === 0 ? '<0.001' : data.p_value_fdr;
-  return `Contrast: ${data.contrast}
-Estimate: ${data.estimate}
-95% CI: [${data.ci_lower}, ${data.ci_upper}]
-N: ${data.n}
-P-value (FDR): ${pValue}
+  if (!data) return 'No data available'
+  
+  const pValue = data.p_value_fdr === 0 ? '<0.001' : data.p_value_fdr?.toFixed(3) || 'N/A'
+  const estimate = data.estimate?.toFixed(3) || 'N/A'
+  const ciLower = data.ci_lower?.toFixed(3) || 'N/A'
+  const ciUpper = data.ci_upper?.toFixed(3) || 'N/A'
+  
+  return `<strong>${outcome || 'Outcome'}</strong><br/>
+Contrast: ${data.contrast || 'N/A'}<br/>
+Estimate: ${estimate}<br/>
+95% CI: [${ciLower}, ${ciUpper}]<br/>
+N: ${data.n || 'N/A'}<br/>
+P-value (FDR): ${pValue}<br/>
 Significance: ${data.sig || 'Not significant'}`
 }
 

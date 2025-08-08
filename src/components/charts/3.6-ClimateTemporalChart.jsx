@@ -37,6 +37,7 @@ function ClimateTemporalChart() {
     currentPoliticalParty: 'Overall',
     conditions: CLIMATE_CONDITIONS,
     waveMapping: WAVE_MAPPING,
+    showErrorBars: false, // Remove error bars for this chart
     // Remove yDomain to let the component calculate it automatically
     // yDomain: [4, 13]
   })

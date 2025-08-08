@@ -1,5 +1,4 @@
 import EpisodePreview from '../infographics/2.2-EpisodePreview';
-import AMEChartsCarousel from '../charts/1.2-AMEChartsCarousel';
 import HeatwaveCompositeChart from '../charts/HeatwaveCompositeChart';
 import SurveyItemsPopup from '../infographics/SurveyItemsPopup';
 import { useState } from 'react';
@@ -20,20 +19,23 @@ function StudyOverview() {
         Study Overview
       </h1>
       <p>
-        Television medical dramas have long reflected the realities of our everyday lives. As the climate crisis increasingly threatens public health and strains our healthcare systems, these shows – where medicine, science, and human emotion converge – may offer more than compelling stories. Can they help audiences see climate change not as a distant, abstract issue, but as a pressing, personal one? And can they deliver potentially life-saving information in a warming world?
+        Television medical dramas have long reflected the realities of our everyday lives. As the climate crisis drives more extreme weather events that threaten public health and strain our healthcare systems, these shows – where medicine, science, and human emotion converge – may offer more than compelling stories. Can they help audiences see weather not as a trivial, abstract issue, but as a pressing, personal one? And can they deliver potentially life-saving information and inspire support for critical solutions in a warming world?
       </p>
       <p>
-        To explore how entertainment can shape public understanding of climate-related health risks, Rare’s Entertainment Lab studied the impact of an extreme heat storyline in the long-running cultural landmark Grey's Anatomy.
+        To explore how entertainment can shape public understanding of climate-related health risks, Rare's Entertainment Lab studied the impact of an extreme heat storyline in the long-running cultural landmark Grey's Anatomy.
       </p>
       <p>
         In the Season 21 episode <button
           className="episode-preview-trigger"
           onClick={() => setShowEpisodePreview(true)}
         >
-          "Drop it Like it's Hot"
+          "Drop It Like It's Hot"
         </button>, staff at Grey Sloan Memorial Hospital respond to a record-breaking heat wave. Though climate change is never mentioned explicitly, the episode vividly depicts the cascading effects of extreme heat: power outages, overwhelmed emergency services, and difficult triage decisions. <b>This provided a unique opportunity to test whether a dramatic medical storyline could shift perceptions about heat waves, their public health risks, and climate change more broadly.</b>
       </p>
-      <p>The results were clear: the episode effectively raised awareness about heat-related health risks and significantly increased concern about the impacts of extreme heat.</p> <p>The episode boosted:</p>
+      <p>
+        <b>The results were clear: the episode effectively raised awareness about heat-related health risks and significantly increased concern about the impacts of extreme heat.</b>
+      </p>
+      <p>The episode boosted:</p>
 
       <ul>
         <li className="definition-item">
@@ -43,13 +45,13 @@ function StudyOverview() {
           </span>, or how likely viewers think they or their community will experience a severe heatwave this summer
         </li>
         <li className="definition-item">
-          <b>Perceived threat severity</b>
+          <b>Perceived threat severity of heat waves</b>
           <span className="info-button" onClick={() => handleConstructClick('Perceived Heat Wave Threat Severity')}>
             i
-          </span>, or how worried viewers are about severity of heatwaves, and the amount of harm they might cause
+          </span>, or how worried viewers are about severity of heat waves, and the amount of harm they might cause
         </li>
         <li className="definition-item">
-          <b>Perceived threat to health</b>
+          <b>Perceived threat of heat waves to health</b>
           <span className="info-button" onClick={() => handleConstructClick('Perceived Threat of Heat Waves on Health')}>
             i
           </span>, or how worried viewers are about how severe heat waves can impact their health
@@ -67,8 +69,8 @@ function StudyOverview() {
           </span> for heat-adaptive policies, such as investments in hospital infrastructure and the expansion of public cooling centers
         </li>
       </ul>
-      <p>In addition to evaluating the episode on its own, the study tested the added impact of a complementary social media campaign. Half of the participants were randomly assigned to watch one of four short-form videos immediately after the episode. Produced independently by an environmental organization, these social media videos explicitly linked the episode’s events to climate science and included calls to action for health system resilience.</p>
-      <p>The strongest and most lasting effects were observed among participants who saw both the episode and the follow-up social media videos. Additionally, this combined condition boosted:</p>
+      <p>In addition to evaluating the episode on its own, the study also examined a <b>multiplatform condition</b>, which assessed the combined impact of the episode and a complementary social media campaign. Half of the viewers were randomly assigned to watch one of four short-form videos immediately after the episode. Produced independently by an environmental organization, these social media videos explicitly linked the episode's events to climate science and included calls to action for health system resilience.</p>
+      <p>The strongest and most lasting effects were observed among viewers who saw both the episode and the follow-up social media videos. Additionally, this combined condition boosted:</p>
       <ul>
         <li className="definition-item">
           <b>Perceived personal impacts of climate change</b>
@@ -83,18 +85,18 @@ function StudyOverview() {
           </span> for action on climate change broadly
         </li>
       </ul>
-      <p>We found that many of the positive shifts in audience attitudes <b>persisted even two weeks after viewing the episode or the episode</b> and the social media video together – providing empirical evidence of short-to-mid term impact.</p>
+      <p>We found that many of the positive shifts in viewer attitudes <b>persisted even two weeks after viewing the episode</b> or the episode and the social media video together – providing empirical evidence of short-to-mid term impact.</p>
 
-      <AMEChartsCarousel />
       <HeatwaveCompositeChart />
-      <p>Notably, through a series of interviews with audiences, we found that these gains came without sacrificing entertainment value. Viewers:</p>
+      <p>Notably, through a series of interviews, we found that these gains came without sacrificing entertainment value. Viewers:</p>
       <ul>
         <li>Connected the on-screen heatwave to their personal experiences with extreme heat and its serious health impacts within their own families.</li>
-        <li>Commended the show for depicting real-world issues like heat waves, and praised the show’s legacy of addressing social issues. One interviewee remarked, “The show does the world a service by… incorporating real-life national issues into the storyline.”</li>
-        <li>Highlighted real-world medical techniques – such as “using body bags and filling them with ice” to cool patients – as especially memorable. That striking image stayed with audiences, driving home just how serious extreme weather can be.</li>
+        <li>Felt better prepared for the threats of extreme heat. One interviewee said it was a reminder "how serious the heat is, and how it is deadly, and to not underestimate it...[the episode] makes you realize, 'Hey, I could very well be in that situation, and I shouldn't play around with it and always be prepared.'"</li>
+        <li>Commended the show for depicting real-world issues like heat waves, and praised the show's legacy of addressing social issues. One interviewee remarked that the show "does the world a service by… incorporating real-life national issues into the storyline."</li>
+        <li>Highlighted real-world medical techniques – such as "using body bags and filling them with ice" to cool patients – as especially memorable. One mother, for instance, shared that she now knows to quickly cool down her overheated two-year-old by placing him in a cold bath—an insight she credited to what she saw on screen.</li>
       </ul>
-      <p>It is important to acknowledge the areas where attitudes remained unchanged. We did not find any significant effects on perceptions of healthcare workers’ responsibility to raise awareness about heat-related health risks. Additionally, the episode alone did not move most measures related specifically to climate change, like the perceived personal impacts of climate change. This lack of movement is perhaps unsurprising, given that the episode did not explicitly reference climate change and the broader issue may not have been top of mind for viewers.</p>
-      <p>Nevertheless, these findings demonstrate the powerful potential of entertainment to both engage and educate, making complex public health and environmental issues feel immediate and personal. As the climate crisis deepens, integrating accurate, emotionally-resonant storylines into popular film and TV may be one of the most impactful tools for life-saving public awareness and action.</p>
+      <p>It is important to acknowledge the areas where attitudes remained unchanged. The episode alone did not move most measures related to climate change broadly, like the perceived personal impacts of <b>climate change</b> (as opposed to the impacts of <b>severe heat waves</b>). This lack of movement is perhaps unsurprising, given that the episode did not explicitly reference climate change and the larger issue may not have been top of mind for viewers. Additionally, we did not find any significant effects on perceptions of healthcare workers' responsibility to raise awareness about heat-related health risks.</p>
+      <p>Nevertheless, these findings demonstrate the powerful potential of entertainment to both engage and educate, making complex public health and environmental issues feel immediate and personal. These findings also examine the added benefits (and potential risks) of complementary multiplatform campaigns that can more explicitly link climate change to human health and extreme weather events. As the climate crisis deepens, integrating accurate, emotionally-resonant stories into popular film, TV, and social media may be one of the most impactful tools for life-saving public awareness and action.</p>
 
 
 

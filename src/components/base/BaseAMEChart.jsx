@@ -33,6 +33,21 @@ function BaseAMEChart({
   const previousWaveData = useRef(null)
   const previousWave = useRef(defaultWave)
   const { chartRef, generateFilename } = useChartDownload(`ame-${className.replace('ame-chart-', '')}`)
+  
+  // Function to get all available views for download all (copying temporal chart pattern)
+  const getAllViews = async () => {
+    return [
+      { value: 'Immediate', label: WAVE_LABELS[2] },
+      { value: '15 Days', label: WAVE_LABELS[3] }
+    ]
+  }
+
+  // Function to change the view programmatically (copying temporal chart pattern)
+  const changeViewForDownload = async (value) => {
+    setCurrentWave(value)
+    // Wait for state update - same as temporal chart
+    await new Promise(resolve => setTimeout(resolve, 100))
+  }
 
   // Process data for current wave
   const chartData = React.useMemo(() => {
@@ -98,6 +113,9 @@ function BaseAMEChart({
         chartRef={chartRef}
         filename={generateFilename({ wave: currentWave === "Immediate" ? 2 : 3 })}
         position="top-right"
+        enableDownloadAll={true}
+        getAllViews={getAllViews}
+        onViewChange={changeViewForDownload}
       />
       {/* Wave Controls */}
       {showWaveControls && (

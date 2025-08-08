@@ -2,9 +2,10 @@ import { useState, useRef } from 'react'
 import { useKnowledgeData } from '../../hooks/useKnowledgeData'
 import { KNOWLEDGE_CATEGORIES } from '../../constants'
 import { useUnifiedDumbbellChart } from '../base/useUnifiedDumbbellChart'
-import UnifiedChartContainer from '../base/UnifiedChartContainer'
+import DownloadButton from '../ui/DownloadButton'
 import { useChartDownload } from '../../hooks/useChartDownload'
 import { normalizeChartData, filterChartData } from '../../utils/chartDataUtils'
+import { WAVE_LABELS } from '../../constants'
 
 function KnowledgeAccuracyChart() {
   const [currentWave, setCurrentWave] = useState(2)
@@ -31,6 +32,21 @@ function KnowledgeAccuracyChart() {
     setCurrentWave(newWave)
   }
 
+  // Function to get all available views for download all
+  const getAllViews = async () => {
+    return [
+      { value: 2, label: WAVE_LABELS[2] },
+      { value: 3, label: WAVE_LABELS[3] }
+    ]
+  }
+
+  // Function to change the view programmatically for downloads
+  const changeViewForDownload = async (value) => {
+    setCurrentWave(value)
+    // Wait for state update - same as temporal chart
+    await new Promise(resolve => setTimeout(resolve, 100))
+  }
+
   useUnifiedDumbbellChart({
     svgRef,
     data: processedData,
@@ -54,16 +70,41 @@ function KnowledgeAccuracyChart() {
   }
 
   return (
-    <UnifiedChartContainer
-      chartRef={chartRef}
-      svgRef={svgRef}
-      filename={generateFilename({ wave: currentWave })}
-      showWaveControls={true}
-      currentWave={currentWave}
-      onWaveChange={handleWaveChange}
-      availableWaves={[2, 3]}
-      className="knowledge-accuracy-chart"
-    />
+    <div className="unified-chart-container knowledge-accuracy-chart" ref={chartRef} style={{ position: 'relative' }}>
+      {/* Download Button with Download All */}
+      <DownloadButton 
+        chartRef={chartRef}
+        filename={generateFilename({ wave: currentWave })}
+        position="top-right"
+        enableDownloadAll={true}
+        getAllViews={getAllViews}
+        onViewChange={changeViewForDownload}
+      />
+
+      {/* Wave Controls */}
+      <div className="wave-controls-container">
+        <div className="wave-controls">
+          {[2, 3].map(wave => (
+            <button 
+              key={wave}
+              className={`wave-tab ${currentWave === wave ? 'active' : ''}`}
+              onClick={() => handleWaveChange(wave)}
+            >
+              {WAVE_LABELS[wave]}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Chart SVG */}
+      <div className="chart-svg-container" style={{ 
+        maxWidth: '1200px', 
+        margin: '0 auto',
+        width: '100%'
+      }}>
+        <svg ref={svgRef}></svg>
+      </div>
+    </div>
   )
 }
 

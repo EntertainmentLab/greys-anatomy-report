@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import * as d3 from 'd3'
 import { COLOR_MAP, WAVE_LABELS } from '../../constants'
+import { smart as smartDomain, extractValues } from '../../utils/domainUtils'
 
 export const useTemporalChart = ({
   svgRef,
@@ -12,7 +13,8 @@ export const useTemporalChart = ({
   conditions,
   waveMapping,
   yDomain,
-  tooltipUnit = "years" // Default to "years" for backwards compatibility
+  tooltipUnit = "years", // Default to "years" for backwards compatibility
+  showErrorBars = true // Default to show error bars for backwards compatibility
 }) => {
   useEffect(() => {
     if (!data || data.length === 0) {
@@ -44,9 +46,9 @@ export const useTemporalChart = ({
       const isSmallMobile = containerWidth <= 480;
     
       const margin = {
-        top: isMobile ? 80 : 100,
+        top: isMobile ? 120 : 140, // Increased to make room for legend under subtitle
         right: isMobile ? 30 : 50,
-        bottom: isMobile ? 80 : 100,
+        bottom: isMobile ? 60 : 80, // Reduced since legend is no longer at bottom
         left: isMobile ? 50 : 70
       };
       
@@ -124,30 +126,18 @@ export const useTemporalChart = ({
     if (yDomain) {
       [yMin, yMax] = yDomain;
     } else {
-      // Use only the filtered Overall data for y-axis calculation
-      const allMeans = filteredData.map(d => d.mean);
+      const allMeans = extractValues(filteredData, 'mean');
       console.log("All means from filtered data:", allMeans);
-      const dataMin = Math.min(...allMeans);
-      const dataMax = Math.max(...allMeans);
-      console.log("Data min:", dataMin, "Data max:", dataMax);
       
-      // Use proportional padding based on data range
-      const dataRange = dataMax - dataMin;
-      const paddingPercent = 0.1; // 10% padding
-      const minPadding = 0.01; // Minimum padding for very small ranges
-      const maxPadding = 0.5; // Maximum padding for very large ranges
+      // Use smart domain calculation with special handling for temporal data
+      const domain = smartDomain(allMeans, { 
+        includeZero: false, // Temporal charts don't need to include zero
+        paddingPercent: 0.1,
+        minPadding: 0.01
+      });
+      [yMin, yMax] = domain;
       
-      let padding = Math.max(minPadding, Math.min(maxPadding, dataRange * paddingPercent));
-      
-      // Special case: if data starts at 0 and range is small, don't go negative
-      if (dataMin >= 0 && dataRange < 0.5) {
-        yMin = Math.max(0, dataMin - padding);
-      } else {
-        yMin = dataMin - padding;
-      }
-      yMax = dataMax + padding;
-      
-      console.log("Data range:", dataRange, "Padding:", padding, "Calculated yMin:", yMin, "yMax:", yMax);
+      console.log("Calculated yMin:", yMin, "yMax:", yMax);
     }
 
     const yScale = d3.scaleLinear()
@@ -271,7 +261,55 @@ export const useTemporalChart = ({
         .attr("stroke-dasharray", "5,0") // Solid line
         .attr("d", line);
       
-      // Draw points for averages
+      // Draw error bars using unrounded CI values (if enabled)
+      if (showErrorBars) {
+        g.selectAll(`.error-bar-${conditionInfo.name.replace(/\s+/g, '-')}`)
+          .data(conditionData)
+          .enter()
+          .append("g")
+          .attr("class", `error-bar-${conditionInfo.name.replace(/\s+/g, '-')}`)
+          .each(function(d) {
+            if (d.se !== undefined && d.se > 0) {
+              const errorGroup = d3.select(this);
+              
+              // Calculate unrounded CI bounds
+              const ciLower = d.mean - 1.96 * d.se;
+              const ciUpper = d.mean + 1.96 * d.se;
+              
+              // Vertical error bar line
+              errorGroup.append("line")
+                .attr("x1", xScale(d.wave))
+                .attr("x2", xScale(d.wave))
+                .attr("y1", yScale(ciLower))
+                .attr("y2", yScale(ciUpper))
+                .attr("stroke", conditionInfo.color)
+                .attr("stroke-width", isMobile ? 1 : 1.5)
+                .attr("opacity", 0.7);
+              
+              // Top cap
+              errorGroup.append("line")
+                .attr("x1", xScale(d.wave) - (isMobile ? 3 : 4))
+                .attr("x2", xScale(d.wave) + (isMobile ? 3 : 4))
+                .attr("y1", yScale(ciUpper))
+                .attr("y2", yScale(ciUpper))
+                .attr("stroke", conditionInfo.color)
+                .attr("stroke-width", isMobile ? 1 : 1.5)
+                .attr("opacity", 0.7);
+              
+              // Bottom cap
+              errorGroup.append("line")
+                .attr("x1", xScale(d.wave) - (isMobile ? 3 : 4))
+                .attr("x2", xScale(d.wave) + (isMobile ? 3 : 4))
+                .attr("y1", yScale(ciLower))
+                .attr("y2", yScale(ciLower))
+                .attr("stroke", conditionInfo.color)
+                .attr("stroke-width", isMobile ? 1 : 1.5)
+                .attr("opacity", 0.7);
+            }
+          });
+      }
+      
+      // Draw points for averages (on top of error bars)
       g.selectAll(`.point-${conditionInfo.name.replace(/\s+/g, '-')}`)
         .data(conditionData)
         .enter()
@@ -303,14 +341,19 @@ export const useTemporalChart = ({
           let tooltipContent = `<strong>${d.condition}</strong><br/>`;
           tooltipContent += `${d.wave_label}<br/>`;
           
-          // Estimate
-          tooltipContent += `Mean: ${d.mean.toFixed(2)}${tooltipUnit ? ' ' + tooltipUnit : ''}<br/>`;
+          // Estimate - use more precision if values are small
+          const meanDecimals = Math.abs(d.mean) < 0.1 ? 3 : 2;
+          tooltipContent += `Mean: ${d.mean.toFixed(meanDecimals)}${tooltipUnit ? ' ' + tooltipUnit : ''}<br/>`;
           
-          // Confidence Interval
+          // Confidence Interval - use more precision if values are small
           if (d.se !== undefined) {
-            const ciLower = (d.mean - 1.96 * d.se).toFixed(2);
-            const ciUpper = (d.mean + 1.96 * d.se).toFixed(2);
-            tooltipContent += `95% CI: [${ciLower}, ${ciUpper}]<br/>`;
+            const ciLower = d.mean - 1.96 * d.se;
+            const ciUpper = d.mean + 1.96 * d.se;
+            
+            // Determine decimal places based on magnitude
+            const decimals = Math.abs(d.mean) < 0.1 ? 3 : 2;
+            
+            tooltipContent += `95% CI: [${ciLower.toFixed(decimals)}, ${ciUpper.toFixed(decimals)}]<br/>`;
           }
           
           // Sample size
@@ -336,7 +379,7 @@ export const useTemporalChart = ({
     
     const legend = svg.append("g")
       .attr("class", "legend")
-      .attr("transform", `translate(${legendStartX}, ${height + margin.top + (isMobile ? 60 : 80)})`);
+      .attr("transform", `translate(${legendStartX}, ${subtitle ? 90 : 70})`);
 
     if (isMobile && legendWidth > width + margin.left + margin.right) {
       // Stack legend items vertically on mobile if they don't fit

@@ -40,25 +40,29 @@ function Methodology({ expandAllDetails = false }) {
         <div className="methodology-section">
           <h3>Overview</h3>
           <p>
-            The study recruited ~5000 participants whose demographic characteristics were matched using Nielsen data to resemble viewers of Grey's Anatomy Season 21. Participants were randomly assigned to a Control Group; a Heat Wave Episode Group; and a Multiplatform Group: 
-            <ul>
-              <li>
-                <b>Heat Wave Episode Group:</b> watched Season 21, Episode 8 (“Drop It Like It’s Hot”), in which a severe heat wave disrupts hospital operations and patient care.
-              </li>
-              <li>
-                <b>Multiplatform Group:</b> watched the same episode as the Heat Wave group, followed by social media content tying the episode content to climate change. This allowed us to study the joint effect of viewing content along with complementary social media impact campaigns.
-              </li>
+            The study recruited ~5000 participants whose demographic characteristics were matched using Nielsen data to resemble viewers of Grey's Anatomy Season 21. Participants were randomly assigned to a Control Group; a Heat Wave Episode Group; and a Multiplatform Group:
+          </p>
+          <ul>
+            <li>
+              <b>Heat Wave Episode Group:</b> watched Season 21, Episode 8 ("Drop It Like It's Hot"), in which a severe heat wave disrupts hospital operations and patient care.
+            </li>
+            <li>
+              <b>Multiplatform Group:</b> watched the same episode as the Heat Wave group, followed by social media content tying the episode content to climate change. This allowed us to study the joint effect of viewing content along with complementary social media impact campaigns.
+            </li>
               <li>
                 <b>Control Group:</b> watched Season 21, Episode 6 (“Night Moves”), which includes no mention of heatwaves.
               </li>
-            </ul>
-            To track the impact of viewing over time, we measured audiences at three different points: 
-            <ul>
-              <li>Baseline (7-10 days prior to viewing) [N=4830]</li>
-              <li>Immediately after watching the show [N=3575]</li>
-              <li>15-20 days after watching the show [N=3219]</li>
-            </ul>
-            At each point, participants completed a survey measuring perceptions of heat waves, knowledge of heat-related health risks, confidence in taking protective actions, support for relevant policy measures, and beliefs about climate change’s relevance to daily life.
+          </ul>
+          <p>
+            To track the impact of viewing over time, we measured audiences at three different points:
+          </p>
+          <ul>
+            <li>Baseline (7-10 days prior to viewing) [N=4830]</li>
+            <li>Immediately after watching the show [N=3575]</li>
+            <li>15-20 days after watching the show [N=3219]</li>
+          </ul>
+          <p>
+            At each point, participants completed a survey measuring perceptions of heat waves, knowledge of heat-related health risks, confidence in taking protective actions, support for relevant policy measures, and beliefs about climate change's relevance to daily life.
           </p>
         </div>
 <div className="methodology-section">
