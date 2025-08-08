@@ -72,19 +72,15 @@ const InstagramCarousel = () => {
     <div className="instagram-section">
       <div className="section-content">
         <div className="text-content">
-          <h3>#DangerDome</h3>
           <p>
-            These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's #DangerDome impact campaign, which was specifically designed to:
+            The four climate-related social media videos used in the Multiplatform Condition (Heat Wave Episode + Social Media) were commissioned and distributed by Action for the Climate Emergency (ACE), a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's #DangerDome impact campaign, which was specifically designed to:
           </p>
           <ul>
             <li>
-              Amplify the Grey's Anatomy storyline for viewers who had just watched the episode;
+              Amplify the Grey's Anatomy storyline for viewers who had just watched the episode; and
             </li>
             <li>
-              Translate the drama into clear climate science take‑aways about extreme heat, health risks, and community preparedness; and
-            </li>
-            <li>
-              Test whether this supplemental, creator‑driven content could deepen knowledge and concern in tandem with the show's narrative.
+              Translate the drama into clear climate science take‑aways about extreme heat, health risks, and community preparedness
             </li>
           </ul>
         </div>

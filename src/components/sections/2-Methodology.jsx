@@ -148,7 +148,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Social Media Content: Instagram Videos</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <p>The four climate-related social media videos used in the Multiplatform Condition (<i>Heat Wave Episode + Social Media</i>) were <strong>commissioned and distributed by Action for the Climate Emergency (ACE)</strong>, a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's <strong>#DangerDome impact campaign</strong>, which was specifically designed to:</p>
+              <p>The four climate-related social media videos used in the Multiplatform Condition (<i>Heat Wave Episode + Social Media</i>) were <strong>commissioned and distributed by Action for the Climate Emergency (ACE)</strong>, a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's impact campaign, which was specifically designed to:</p>
             </div>
             
             <button
@@ -162,7 +162,7 @@ function Methodology({ expandAllDetails = false }) {
             <div className={`details-content ${expandedDetails['instagram-videos'] ? 'expanded' : ''}`}>
               <ul>
                 <li><strong>Amplify the <i>Grey's Anatomy</i> storyline</strong> for viewers who had just watched the episode; and</li>
-                <li><strong>Translate the drama into clear climate science take-aways</strong> about extreme heat, health risks, and community preparedness</li>
+                <li><strong>Translate the drama into clear climate science take‑aways</strong> about extreme heat, health risks, and community preparedness</li>
               </ul>
               <p>The videos were created by the following Instagram creators:</p>
               <ul>
@@ -254,7 +254,7 @@ function Methodology({ expandAllDetails = false }) {
         <div className="methodology-section">
           <h3>Procedure</h3>
           <p>
-            Participants completed <strong>~80-minute one-on-one Zoom interviews</strong>. Wave 1 interviews were conducted before the quantitative survey and focused on reactions to the heat wave episode. Wave 2 interviews were conducted after the survey and were informed by key quantitative findings. All participants watched the same episode; a subset of Wave 2 participants also viewed one <strong>the Instagram campaign videos</strong> following the episode.
+            Participants completed <strong>~80-minute one-on-one Zoom interviews</strong>. Wave 1 interviews were conducted before the quantitative survey and focused on reactions to the heat wave episode. Wave 2 interviews were conducted after the survey and were informed by key quantitative findings. All participants watched the same episode; a subset of Wave 2 participants also viewed one the Instagram campaign videos following the episode.
           </p>
         </div>
 

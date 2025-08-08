@@ -45,6 +45,59 @@ const AMEBarChart = ({
     return lines
   }
 
+  // Separate useEffect for container width initialization and resizing
+  useEffect(() => {
+    const handleResize = () => {
+      if (svgRef.current?.parentElement) {
+        const containerElement = svgRef.current.parentElement
+        const currentWidth = containerElement.getBoundingClientRect().width
+        
+        // Only update if there's a significant change and the width is valid
+        if (currentWidth > 0 && Math.abs(currentWidth - containerWidth) > 20) {
+          setContainerWidth(currentWidth)
+        }
+      }
+    }
+
+    // Initial size detection with multiple attempts to ensure DOM is ready
+    const initialSizeDetection = () => {
+      // First immediate attempt
+      handleResize()
+      
+      // Second attempt after a short delay
+      setTimeout(() => {
+        handleResize()
+      }, 100)
+      
+      // Third attempt after a longer delay (for slow loading pages)
+      setTimeout(() => {
+        handleResize()
+      }, 500)
+    }
+
+    // Set up ResizeObserver for better responsiveness
+    let resizeObserver
+    if (typeof ResizeObserver !== 'undefined' && svgRef.current?.parentElement) {
+      resizeObserver = new ResizeObserver(() => {
+        handleResize()
+      })
+      resizeObserver.observe(svgRef.current.parentElement)
+    }
+
+    // Initial detection
+    initialSizeDetection()
+
+    // Fallback: also listen to window resize
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      if (resizeObserver) {
+        resizeObserver.disconnect()
+      }
+      window.removeEventListener('resize', handleResize)
+    }
+  }, []) // Remove containerWidth from dependencies to avoid infinite loops
+
   useEffect(() => {
     if (!data || data.length === 0) return
 
@@ -90,13 +143,9 @@ const AMEBarChart = ({
       }
     })
 
-    // Get container dimensions for responsive sizing
-    const containerElement = svgRef.current.parentElement
-    const currentContainerWidth = containerElement ? containerElement.getBoundingClientRect().width : 1200
-    
-    // Update container width state if it has changed significantly
-    if (Math.abs(currentContainerWidth - containerWidth) > 20) {
-      setContainerWidth(currentContainerWidth)
+    // Ensure we have a valid container width before proceeding
+    if (containerWidth <= 0) {
+      return
     }
     
     // Calculate responsive dimensions with stable margins
@@ -112,7 +161,7 @@ const AMEBarChart = ({
     }
     
     const categoryHeight = isMobile ? 60 : 80
-    const availableWidth = currentContainerWidth // Use full container width
+    const availableWidth = containerWidth // Use full container width
     const width = Math.max(350, (availableWidth - margin.left - margin.right) * 0.75)
     // Use actual category count for height calculation
     const height = groupedData.length * categoryHeight
@@ -481,7 +530,7 @@ const AMEBarChart = ({
       })
     })
 
-  }, [data, previousData, title, subtitle, maxValue, onOutcomeClick])
+  }, [data, previousData, title, subtitle, maxValue, onOutcomeClick, containerWidth])
 
 
   return (
