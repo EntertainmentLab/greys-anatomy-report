@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Formatting Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .before {
+            background: #fff3cd;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .after {
+            background: #d1ecf1;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        em {
+            font-style: italic;
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Text Formatting Test Page</h1>
+    <p>This page tests the automatic text formatting functionality.</p>
+
+    <div class="test-section">
+        <h2>Test 1: Grey's Anatomy</h2>
+        <div class="before">
+            <strong>Before formatting:</strong>
+            <p id="test1">The show Grey's Anatomy has been on air for many years. Both Grey's Anatomy and Greys Anatomy should be italicized.</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 2: Quotation Marks</h2>
+        <div class="before">
+            <strong>Before formatting:</strong>
+            <p id="test2">One viewer remarked: "I would personally show the episode to my own parents." Another said "It makes you realize, 'Hey, I could very well be in that situation.'" The episode title is "Drop It Like It's Hot".</p>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Test 3: Combined</h2>
+        <div class="before">
+            <strong>Before formatting:</strong>
+            <p id="test3">Participants watched "Grey's Anatomy" and said "The show does the world a service." The episode "Night Moves" was used as a control.</p>
+        </div>
+    </div>
+
+    <button onclick="applyFormatting()">Apply Formatting</button>
+
+    <script type="module">
+        // Import and use the formatting function
+        import { formatTextInDOM } from './src/utils/textFormatting.js';
+        
+        window.applyFormatting = function() {
+            formatTextInDOM();
+            
+            // Show the "after" sections
+            document.querySelectorAll('.test-section').forEach(section => {
+                const afterDiv = document.createElement('div');
+                afterDiv.className = 'after';
+                afterDiv.innerHTML = '<strong>After formatting:</strong>' + 
+                    section.querySelector('.before p').outerHTML;
+                section.appendChild(afterDiv);
+            });
+        };
+    </script>
+</body>
+</html>

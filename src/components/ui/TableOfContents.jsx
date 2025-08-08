@@ -10,7 +10,9 @@ const sections = [
   {
     id: 'study-overview',
     title: 'Study Overview',
-    selector: 'h1:contains("Study Overview")'
+    selector: 'h1:contains("Study Overview")',
+    subsections: [
+    ]
   },
   {
     id: 'methodology',
@@ -18,19 +20,14 @@ const sections = [
     selector: 'h1:contains("Methodology")',
     subsections: [
       {
-        id: 'experimental-conditions',
-        title: 'Experimental Conditions',
-        selector: 'h3:contains("Experimental Conditions")'
-      },
-            {
-        id: 'instagram-videos',
-        title: 'Instagram Videos',
-        selector: 'h3:contains("Instagram Videos")'
+        id: 'quantitative-methodology',
+        title: 'Quantitative',
+        selector: 'h2:contains("Quantitative Methodology")'
       },
       {
-        id: 'timeline-and-measures',
-        title: 'Timeline and Measures',
-        selector: 'h3:contains("Timeline and Measures")'
+        id: 'qualitative-methodology',
+        title: 'Qualitative',
+        selector: 'h2:contains("Qualitative Methodology")'
       }
     ]
   },
@@ -39,11 +36,10 @@ const sections = [
     title: 'Key Findings',
     selector: 'h1:contains("Key Findings")',
     subsections: [
-
       {
-        id: 'heat-wave-perception',
-        title: 'Heat Wave Perceptions',
-        selector: 'h2:contains("Heat Wave Perception and Knowledge")'
+        id: 'perception-knowledge',
+        title: 'Perception and Knowledge',
+        selector: 'h2:contains("Perception and Knowledge of Heat Waves")'
       },
       {
         id: 'policy-support',
@@ -52,20 +48,21 @@ const sections = [
       },
       {
         id: 'climate-connections',
-        title: 'Climate Change',
+        title: 'Climate Change Connections',
         selector: 'h2:contains("Climate Change Connections")'
       },
       {
         id: 'entertainment-value',
         title: 'Entertainment Value',
-        selector: 'h2:contains("Entertainment Value")'
-      },
+        selector: 'h2:contains("Impact of the Social Media Campaign on Episode\'s Entertainment Value")'
+      }
     ]
   },
   {
     id: 'supplementary-materials',
     title: 'Supplementary Materials',
-    selector: 'h1:contains("Supplementary Materials")'
+    selector: 'h1:contains("Supplementary Materials")',
+    subsections: []
   }
 ]
 

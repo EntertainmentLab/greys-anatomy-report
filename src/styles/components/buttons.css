@@ -85,8 +85,6 @@
   font-weight: 600;
   font-size: inherit;
   cursor: pointer;
-  transition: all var(--transition-base);
-  /* box-shadow: 0 2px 4px rgba(0, 91, 187, 0.2); */
   text-decoration: none;
   display: inline;
   line-height: inherit;
@@ -94,11 +92,11 @@
 
 .episode-preview-trigger:hover {
   /* background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%); */
-  transform: translateY(-1px);
+  /* transform: translateY(-1px); -- REMOVED: no transforms on hover */
   /* box-shadow: 0 4px 8px rgba(0, 91, 187, 0.3); */
 }
 
 .episode-preview-trigger:active {
   transform: translateY(0);
-  box-shadow: 0 2px 4px rgba(0, 91, 187, 0.2);
+  /* box-shadow: 0 2px 4px rgba(0, 91, 187, 0.2); */
 }

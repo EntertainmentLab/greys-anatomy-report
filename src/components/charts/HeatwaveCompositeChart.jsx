@@ -44,7 +44,8 @@ function HeatwaveCompositeChart() {
   // Filter data based on selected construct
   const displayData = useMemo(() => {
     if (selectedConstruct === 'overall') {
-      return heatwaveCompositeData
+      // Make sure composite data is actually loaded
+      return heatwaveCompositeData || []
     }
     return heatwaveConstructsData?.filter(d => d.construct === selectedConstruct) || []
   }, [selectedConstruct, heatwaveCompositeData, heatwaveConstructsData])
@@ -70,6 +71,8 @@ function HeatwaveCompositeChart() {
   // Debug logs
   console.log("Selected construct:", selectedConstruct);
   console.log("Display data available:", displayData?.length || 0);
+  console.log("Composite loading:", compositeLoading, "Constructs loading:", constructsLoading);
+  console.log("Heatwave composite data length:", heatwaveCompositeData?.length || 0);
 
   useTemporalChart({
     svgRef,
@@ -89,6 +92,17 @@ function HeatwaveCompositeChart() {
 
   if (loading) return <div className="loading">Loading heatwave data...</div>
   if (error) return <div className="error">Error loading data: {error}</div>
+  
+  // For 'overall' construct, we need composite data to be loaded
+  // For specific constructs, we need constructs data to be loaded
+  const dataReady = selectedConstruct === 'overall' 
+    ? heatwaveCompositeData && heatwaveCompositeData.length > 0
+    : heatwaveConstructsData && heatwaveConstructsData.length > 0
+  
+  if (!dataReady) {
+    return <div className="loading">Loading heatwave data...</div>
+  }
+  
   if (!displayData || displayData.length === 0) {
     return <div className="loading">No heatwave data available...</div>
   }

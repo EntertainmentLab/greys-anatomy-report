@@ -65,6 +65,19 @@
   font-size: 1rem;
   line-height: 1.6;
   position: relative;
+  color: var(--color-text-secondary, #4a5568);
+}
+
+.text-content li::marker {
+  color: var(--color-text-secondary, #4a5568);
+}
+
+.text-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-primary, #003B7A);
+  margin-bottom: 1rem;
+  font-family: 'Roboto Condensed', sans-serif;
 }
 
 .carousel-content {

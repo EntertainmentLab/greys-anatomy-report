@@ -12,7 +12,7 @@ import PleaseRotatePrompt from './components/ui/PleaseRotatePrompt'
 import TableOfContents from './components/ui/TableOfContents'
 import Footer from './components/ui/Footer'
 import ScrollytellingApp from './components/ScrollytellingApp'
-import { formatGreysAnatomyInDOM } from './utils/textFormatting'
+import { formatTextInDOM } from './utils/textFormatting'
 // Import emergency scroll fix for debugging
 import './utils/emergencyScrollFix'
 import './styles/global/App.css'
@@ -46,9 +46,10 @@ function App() {
     return () => window.removeEventListener('hashchange', checkHash)
   }, [])
 
-  // Format Grey's Anatomy text after component renders and whenever content changes
+  // Format text after component renders and whenever content changes
+  // This applies Grey's Anatomy italicization and quotation marks italicization
   useEffect(() => {
-    formatGreysAnatomyInDOM()
+    formatTextInDOM()
   }, [isFullReportExpanded, data]) // Re-run when report expands/collapses or data changes
 
   if (loading) return <div className="loading">Loading data...</div>

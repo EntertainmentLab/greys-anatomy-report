@@ -22,7 +22,7 @@ function StudyOverview() {
         Television medical dramas have long reflected the realities of our everyday lives. As the climate crisis drives more extreme weather events that threaten public health and strain our healthcare systems, these shows – where medicine, science, and human emotion converge – may offer more than compelling stories. Can they help audiences see weather not as a trivial, abstract issue, but as a pressing, personal one? And can they deliver potentially life-saving information and inspire support for critical solutions in a warming world?
       </p>
       <p>
-        To explore how entertainment can shape public understanding of climate-related health risks, Rare's Entertainment Lab studied the impact of an extreme heat storyline in the long-running cultural landmark Grey's Anatomy.
+        To explore how entertainment can shape public understanding of climate-related health risks, Rare's Entertainment Lab studied the impact of an extreme heat storyline in the long-running cultural landmark <i>Grey's Anatomy</i>.
       </p>
       <p>
         In the Season 21 episode <button
@@ -90,13 +90,22 @@ function StudyOverview() {
       <HeatwaveCompositeChart />
       <p>Notably, through a series of interviews, we found that these gains came without sacrificing entertainment value. Viewers:</p>
       <ul>
-        <li className="definition-item"><b>Connected the on-screen heat wave to their personal experiences</b> with extreme heat and its serious health impacts within their own families.</li>
+        <li className="definition-item"><b>Connected the on-screen heatwave to their personal experiences</b> with extreme heat and its serious health impacts within their own families.</li>
         <li className="definition-item"><b>Felt better prepared for the threats of extreme heat.</b> One interviewee said it was a reminder "how serious the heat is, and how it is deadly, and to not underestimate it...[the episode] makes you realize, 'Hey, I could very well be in that situation, and I shouldn't play around with it and always be prepared.'"</li>
         <li className="definition-item"><b>Commended the show for depicting real-world issues</b> like heat waves, and praised the show's legacy of addressing social issues. One interviewee remarked that the show "does the world a service by… incorporating real-life national issues into the storyline."</li>
         <li className="definition-item"><b>Highlighted real-world medical techniques</b> – such as "using body bags and filling them with ice" to cool patients – as especially memorable. One mother, for instance, shared that she now knows to quickly cool down her overheated two-year-old by placing him in a cold bath—an insight she credited to what she saw on screen.</li>
       </ul>
       <p>It is important to acknowledge the areas where attitudes remained unchanged. The episode alone did not move most measures related to climate change broadly, like the perceived personal impacts of <b>climate change</b> (as opposed to the impacts of <b>severe heat waves</b>). This lack of movement is perhaps unsurprising, given that the episode did not explicitly reference climate change and the larger issue may not have been top of mind for viewers. Additionally, we did not find any significant effects on perceptions of healthcare workers' responsibility to raise awareness about heat-related health risks.</p>
       <p>Nevertheless, these findings demonstrate the powerful potential of entertainment to both engage and educate, making complex public health and environmental issues feel immediate and personal. These findings also examine the added benefits (and potential risks) of complementary multiplatform campaigns that can more explicitly link climate change to human health and extreme weather events. As the climate crisis deepens, integrating accurate, emotionally-resonant stories into popular film, TV, and social media may be one of the most impactful tools for life-saving public awareness and action.</p>
+
+      <h2>The Role of Film and TV in Addressing Social Issues</h2>
+      <p>In conversation with viewers, we found strong support for film and television engaging with real-world social issues—provided it's done without overt preaching. One interviewee praised the show, and particularly creator Shonda Rhimes and her team, for their legacy of tackling topical issues. She said the show "does the world a service by… incorporating real-life national issues into the storyline."</p>
+      
+      <p>Another viewer noted, "it just makes it more fun to watch because … it feels like a real universe, not just like a TV show." Others appreciated how addressing such topics can heighten entertainment value by allowing viewers to "connect with something that's real."</p>
+      
+      <p>Several conversations suggested that strong storytelling and compelling narratives can bridge political divides. As one viewer put it: "I do think that talking about social issues is great, and especially in the form of a TV show, where it's not like necessarily being shoved down your face like, 'Vote for this person because of this'…I think it kind of opens people's minds a little bit, and makes them think like, 'Oh, could that be me? Could that be my daughter… my grandson, my granddaughter?'"</p>
+      
+      <p>One participant also emphasized the potential for television to spark meaningful discussions, noting that certain shows can "get the conversation rolling" about topics like climate change. In her experience, such conversations often start casually, with a simple, "Did you see that on TV?"</p>
 
 
 

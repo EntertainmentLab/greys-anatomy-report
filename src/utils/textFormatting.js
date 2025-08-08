@@ -1,8 +1,10 @@
 /**
- * Utility function to automatically italicize "Grey's Anatomy" text in the DOM
- * This function searches for text nodes and replaces "Grey's Anatomy" with italicized version
+ * Utility function to automatically format text in the DOM
+ * This function applies multiple formatting rules:
+ * 1. Italicizes "Grey's Anatomy" text
+ * 2. Italicizes text within quotation marks (keeping the quotes)
  */
-export const formatGreysAnatomyInDOM = () => {
+export const formatTextInDOM = () => {
   const textNodes = [];
   
   // Function to find all text nodes in the document
@@ -22,12 +24,28 @@ export const formatGreysAnatomyInDOM = () => {
   // Process each text node
   textNodes.forEach(node => {
     const text = node.nodeValue;
-    const regex = /Grey's Anatomy|Greys Anatomy/gi;
+    let formattedText = text;
+    let hasChanges = false;
     
-    if (regex.test(text)) {
+    // Rule 1: Italicize Grey's Anatomy
+    const greysRegex = /Grey's Anatomy|Greys Anatomy/gi;
+    if (greysRegex.test(text)) {
+      formattedText = formattedText.replace(greysRegex, '<em>Grey\'s Anatomy</em>');
+      hasChanges = true;
+    }
+    
+    // Rule 2: Italicize text within quotation marks (keeping the quotes)
+    // This regex matches text within double quotes, including the quotes themselves
+    const quotesRegex = /"([^"]*)"/g;
+    if (quotesRegex.test(formattedText)) {
+      formattedText = formattedText.replace(quotesRegex, '"<em>$1</em>"');
+      hasChanges = true;
+    }
+    
+    if (hasChanges) {
       // Create a new element to replace the text node
       const wrapper = document.createElement('span');
-      wrapper.innerHTML = text.replace(regex, '<em>Grey\'s Anatomy</em>');
+      wrapper.innerHTML = formattedText;
       
       // Replace the text node with the new element
       node.parentNode.replaceChild(wrapper, node);
@@ -36,15 +54,28 @@ export const formatGreysAnatomyInDOM = () => {
 };
 
 /**
- * Hook to automatically format Grey's Anatomy text after component renders
+ * Legacy function name for backward compatibility
+ * @deprecated Use formatTextInDOM instead
  */
-export const useGreysAnatomyFormatting = () => {
+export const formatGreysAnatomyInDOM = formatTextInDOM;
+
+/**
+ * Hook to automatically format text after component renders
+ * Applies both Grey's Anatomy italicization and quotation marks italicization
+ */
+export const useTextFormatting = () => {
   const formatText = () => {
     // Small delay to ensure DOM is ready
     setTimeout(() => {
-      formatGreysAnatomyInDOM();
+      formatTextInDOM();
     }, 0);
   };
   
   return formatText;
 };
+
+/**
+ * Legacy hook name for backward compatibility
+ * @deprecated Use useTextFormatting instead
+ */
+export const useGreysAnatomyFormatting = useTextFormatting;

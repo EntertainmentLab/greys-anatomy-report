@@ -72,8 +72,9 @@ const InstagramCarousel = () => {
     <div className="instagram-section">
       <div className="section-content">
         <div className="text-content">
+          <h3>#DangerDome</h3>
           <p>
-            These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's #DangerDome impact campaign, which was specifically designed to
+            These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's #DangerDome impact campaign, which was specifically designed to:
           </p>
           <ul>
             <li>

@@ -334,8 +334,7 @@
 }
 
 .episode-preview-trigger:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  /* Only change text color - no shadows or transforms */
 }
 
 .episode-preview-trigger:active {

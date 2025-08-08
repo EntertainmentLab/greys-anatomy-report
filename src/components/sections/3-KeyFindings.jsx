@@ -15,7 +15,7 @@ function KeyFindings() {
         Key Findings
       </h1>
       <p>
-        Overall, the heat wave episode of Grey’s Anatomy effectively increased viewer understanding of heat-related health risks and heightened concern about the impacts of extreme heat. The combination of the episode and the social media videos produced the strongest and most lasting effects. Notably, these impacts occurred without diminishing the show's entertainment value.
+        Overall, the heat wave episode of <i>Grey's Anatomy</i> effectively increased viewer understanding of heat-related health risks, heightened concern about the impacts of extreme heat, and boosted support for heat-adaptive policies. Notably, through interviews with viewers, we found that these impacts occurred without diminishing the show's entertainment value. For most (but not all) of the measures, the combination of the episode and the social media videos produced the strongest and most lasting effects.
       </p>
       {/* <h3>
         [Option 1 of Key Findings]
@@ -26,16 +26,22 @@ function KeyFindings() {
       </h3> */}
 
 
-      <h2>Heat Wave Perception and Knowledge</h2>
+      <h2>Perception and Knowledge of Heat Waves</h2>
       <h3>Perceived Likelihood of Heat Wave Exposure</h3>
-      <p>The multiplatform condition significantly increased perceived risk of experiencing a severe heat wave both immediately after the episode and 15 days later, compared to both control and episode only conditions. The treatment-only group saw a modest, marginal increase, but those effects diminished 15 days later.</p>
-      <h3>Perceived Heat Wave Threat Severity</h3>
-      <p>Both the heat wave episode and multiplatform conditions significantly increased perceived threat severity, including greater concern over potential harm and increased behavioral intentions, with the multiplatform condition yielding the largest effects.</p>
+      <p>We surveyed viewers, "How likely is it that you, your family, or your community will be seriously impacted by at least one severe heat wave this summer?"</p>
+      <p>The multiplatform condition significantly increased perceived likelihood, with gains evident immediately after viewing and sustained 15 days later. The heat wave episode condition showed a modest, marginal increase in perceived likelihood, but those effects faded over time.</p>
+      <p>Our one-on-one interviews confirmed that viewers had greater perceptions of heat wave likelihood. One viewer remarked, "Wow…This is going to be more common, you know, every single year. Right? There are going to be more heat waves in places that are not prepared or not used to heat waves."</p>
+      <h3>Perceived Threat Severity of Heat Waves</h3>
+      <p>Both the heat wave episode and the multiplatform conditions significantly increased perceived threat severity—boosting concern about potential harm to personal well-being, family, and community, as well as the likelihood of taking extra precautions and checking in on vulnerable individuals. The multiplatform condition produced the strongest effects immediately after viewing.</p>
+      <p>In our interviews, one viewer remarked: "I would personally show [the episode] to my own parents. I feel like there's times where they just don't realize, and they'll like, stand outside and water their plants and like they don't realize how much time they're spending outside. No protection, like nothing."</p>
       <h3>Perceived Threat of Heat Waves on Health</h3>
-      <p>Participants who watched the episode (particularly those in the multiplatform condition) demonstrated significantly greater concern about the health consequences of heat waves, including increased worry about potential effects on their own health and that of their loved ones, along with greater awareness of how extreme heat can overwhelm their local hospital systems. This heightened awareness and concern remained 15 days after viewing, suggesting that the episode created lasting changes that could translate into better preparedness and protective actions during future heat waves.</p>
+      <p>Viewers who watched the episode—especially those in the multiplatform condition—expressed significantly greater concern about the health impacts of heat waves. This included increased worry about risks to their own health and that of loved ones, as well as heightened awareness of how extreme heat can strain local hospital systems. These effects persisted 15 days after viewing, suggesting that both the episode alone and the multiplatform campaign fostered lasting awareness that could support better preparedness and protective behaviors during future heat waves.</p>
+      <p>One interviewee remarked that the episode was "a reminder to me how serious the heat is, and how it is deadly, and to not underestimate it, to be prepared...." She further elaborated, "It makes you realize like, 'Hey, I could very well be in that situation, and I shouldn't play around with it and always be prepared.'"</p>
+      <p>Another said that, inspired by the episode, she would "call my family, making sure I check in on them, and when it's super hot outside, and tell them to look out for the different health risks that are being discussed [in the episode]."</p>
       <AMEChart1 />
       <h3>Knowledge of Heat Wave Health Impacts</h3>
-      <p>The heat wave episode boosted viewer understanding of the serious health risks associated with extreme heat – particularly the risk of triggering premature labor in pregnant women, a fact introduced early in the storyline. While the multiplatform condition produced outcomes that were comparable or slightly stronger, differences between the two groups were minimal and largely not statistically significant. Excitingly, the knowledge gains persisted 15 days after viewing, indicating that the knowledge gained had lasting impact.</p>
+      <p>The heat wave episode boosted viewer understanding of the serious health risks associated with extreme heat – including the risk of organ failure, heart attacks among the vulnerable, premature labor in pregnant women, and increased violent crime, all of which were included in the episode. While the multiplatform condition produced outcomes that were comparable or slightly stronger, differences between the two groups were minimal and largely not statistically significant. Excitingly, the knowledge gains persisted 15 days after viewing, indicating that the knowledge gained had lasting impact.</p>
+      <p>In our interviews, one viewer found that the episode helped her understand that individuals "prone to heart problems" require more "heat protection" during hot weather. She emphasized that she did not fully realize "heart attack, organ failure... all of these things" were not connected to heat until watching the episode.</p>
 
       <KnowledgeAccuracyChart />
       {/* <KnowledgeHorizontalChart /> */}
@@ -64,26 +70,26 @@ function KeyFindings() {
       <h2>
         Climate Change Connections
       </h2>
-      <h3>Climate Change Impact and Action Support</h3>
+      <h3>Climate Change Impacts and Support for Climate Action</h3>
       <p>
-        Participants in the multiplatform group were more likely to attribute heat waves to climate change. They also perceived greater concern about climate change among others. These attribution effects were stronger in the multiplatform condition than with the episode alone and remained statistically significant 15 days later, suggesting that the supplemental social media videos effectively reinforced connections between the episode’s storyline and broader climate science. Additionally, the multiplatform condition significantly increased support for climate action, particularly in normative beliefs and intent to act. These effects were modest but consistent.
-
+        Participants in the multiplatform group were more likely to attribute heat waves to climate change. They also perceived greater concern about climate change among others. This matters because people often underestimate the climate concern of <a href="https://www.nature.com/articles/s41467-022-32412-y" target="_blank" rel="noopener noreferrer">those around them</a>, a form of pluralistic ignorance that can discourage individual action or reduce support for climate policies. These attribution effects were stronger in the multiplatform condition than with the episode alone and remained statistically significant 15 days later, suggesting that the supplemental social media videos effectively reinforced connections between the episode's storyline and broader climate science.
+      </p>
+      <p>
+        The multiplatform condition also increased support for climate action, particularly in normative beliefs ("Do you think that people should take action to address climate change because it is the right thing to do?") and self-reported intention to take some action to address climate change in the next 12 months. These effects were modest but consistent.
       </p>
 
       <AMEChart3 />
       <h3>Climate Change Temporal Proximity</h3>
-      <p>Participants in the multiplatform group  were also more like to believe that the impacts of climate change would affect their daily lives more imminently – over a year sooner when surveyed immediately after viewing. While we did see similar effects immediately after viewing the episode, those effects did not persist for the episode-only group.</p>
+      <p>Participants in the multiplatform group were also more likely to believe that the impacts of climate change would affect their daily lives more imminently – over a year sooner when surveyed immediately after viewing. While we did see similar effects immediately after viewing the episode, those effects did not persist for the episode-only group.</p>
       <ClimateTemporalChart />
       <p>It’s important to note that the episode itself did not reference climate change. Given this, it is not surprising that the episode alone did not significantly increase climate attribution for heat waves or shift broader climate-related beliefs.</p>
       {/* <ClimateBeliefChangeChart /> */}
 
       <h2>
-        Entertainment Value
+        Impact of the Social Media Campaign on Episode's Entertainment Value
       </h2>
       <p>
-        Critically, there was no significant difference between the heat wave episode only and multiplatform groups in participants' reported likelihood of recommending Grey's Anatomy after viewing the episode. The addition of impact-focused Instagram content did not reduce or enhance entertainment value, demonstrating that these campaigns can be added without compromising the viewing experience.
-
-
+        Critically, there was no significant difference between the heat wave episode only and multiplatform groups in participants' reported likelihood of recommending <i>Grey's Anatomy</i> after viewing the episode. The addition of impact-focused social media content did not reduce or enhance entertainment value, demonstrating that these campaigns can be added without compromising the viewing experience.
       </p>
 
 
