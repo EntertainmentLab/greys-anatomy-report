@@ -35,11 +35,36 @@ export const formatTextInDOM = () => {
     }
     
     // Rule 2: Italicize text within quotation marks (keeping the quotes)
-    // This regex matches text within double quotes, including the quotes themselves
-    const quotesRegex = /"([^"]*)"/g;
-    if (quotesRegex.test(formattedText)) {
-      formattedText = formattedText.replace(quotesRegex, '"<em>$1</em>"');
-      hasChanges = true;
+    // Process each quoted section individually to handle multiple quotes correctly
+    if (formattedText.includes('"')) {
+      // Split on quotes and process alternating sections
+      const parts = formattedText.split('"');
+      let newText = '';
+      let insideQuotes = false;
+      
+      for (let i = 0; i < parts.length; i++) {
+        if (i > 0) {
+          newText += '"'; // Add back the quote
+        }
+        
+        if (insideQuotes && parts[i].trim() !== '') {
+          // This part is inside quotes, italicize it
+          newText += '<em>' + parts[i] + '</em>';
+        } else {
+          // This part is outside quotes, keep as is
+          newText += parts[i];
+        }
+        
+        // Toggle the inside quotes state for next iteration
+        if (i < parts.length - 1) {
+          insideQuotes = !insideQuotes;
+        }
+      }
+      
+      if (newText !== formattedText) {
+        formattedText = newText;
+        hasChanges = true;
+      }
     }
     
     if (hasChanges) {
