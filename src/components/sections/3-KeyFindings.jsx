@@ -73,10 +73,12 @@ function KeyFindings() {
       </h2>
       <h3>Climate Change Impacts and Support for Climate Action</h3>
       <p>
-        Participants in the multiplatform group were more likely to attribute heat waves to climate change. They also perceived greater concern about climate change among others. This matters because people often underestimate the climate concern of <a href="https://www.nature.com/articles/s41467-022-32412-y" target="_blank" rel="noopener noreferrer">those around them</a>, a form of pluralistic ignorance that can discourage individual action or reduce support for climate policies. These attribution effects were stronger in the multiplatform condition than with the episode alone and remained statistically significant 15 days later, suggesting that the supplemental social media videos effectively reinforced connections between the episode's storyline and broader climate science.
+        Participants in the multiplatform group were more likely to attribute heat waves to climate change. They also perceived greater concern about climate change among others. This matters because people often underestimate the climate concern of <a href="https://www.nature.com/articles/s41467-022-32412-y" target="_blank" rel="noopener noreferrer">those around them</a>, a form of  “pluralistic ignorance” (i.e. ignorance about how commonly shared a belief is). Research consistently shows that pluralistic ignorance can discourage individual action or reduce support for climate policies.
+      </p>
+      <p>These climate attribution effects were stronger in the multiplatform condition than with the episode alone and remained statistically significant 15-20 days later, suggesting that the supplemental social media videos effectively reinforced connections between the episode’s heat wave storyline and broader climate science.
       </p>
       <p>
-        The multiplatform condition also increased support for climate action, particularly in normative beliefs ("Do you think that people should take action to address climate change because it is the right thing to do?") and self-reported intention to take some action to address climate change in the next 12 months. These effects were modest but consistent.
+        The multiplatform condition also increased support for climate action, particularly in normative beliefs (“Do you think that people should take action to address climate change because it is the right thing to do?”) and self-reported intention to take some action to address climate change in the next 12 months. These effects were modest but consistent.
       </p>
 
       <AMEChart3 />
