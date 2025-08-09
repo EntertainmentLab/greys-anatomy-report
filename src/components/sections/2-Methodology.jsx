@@ -199,7 +199,7 @@ function Methodology({ expandAllDetails = false }) {
 
             <div className={`details-content ${expandedDetails['study-design'] ? 'expanded' : ''}`}>
               <ul>
-                <li><strong>Wave 1 - Baseline Survey (N = 4,830):</strong> Administered 7-12 days prior to viewing, assessing demographics, media habits, and key outcome variables.</li>
+                <li><strong>Wave 1 - Baseline Survey (N = 4,830):</strong> Administered 7-10 days prior to viewing, assessing demographics, media habits, and key outcome variables.</li>
                 <li><strong>Wave 2 - Post-Viewing Survey (N = 3,575):</strong> Participants watched the assigned episode (and, for the multiplatform group, a social media video). After having seen the content, participants responded to a survey assessing perceived heat risk, health system impacts, climate beliefs, policy preferences, and behavioral intentions.</li>
                 <li><strong>Wave 3 - Survey Measuring Durability of Effects (N = 3,219):</strong> A follow-up survey, administered 15-20 days post-viewing, helped assess how long the effects of viewing heat-related content persists in the short-to-medium run.</li>
               </ul>
@@ -258,7 +258,7 @@ function Methodology({ expandAllDetails = false }) {
         <div className="methodology-section">
           <h3>Measures</h3>
           <p>
-            <strong>Wave 1 interviews</strong> focused on participants' initial, unaided reactions to the heat wave episode. Measures included general impressions of the episode, entertainment value, perceived realism, and recall of the heatwave storyline. Participants were asked to summarize the plot, identify heat-related medical emergencies, and reflect on whether the episode taught them anything new about extreme heat as a health risk. Additional measures probed personal relevance (e.g., past experiences with extreme heat), perceived hospital preparedness, and suggestions for improving the episode's messaging. Participants also provided feedback on the study experience itself.
+            <strong>Wave 1 interviews</strong> focused on participants' initial, unaided reactions to the heat wave episode. Measures included general impressions of the episode, entertainment value, perceived realism, and recall of the heat wave storyline. Participants were asked to summarize the plot, identify heat-related medical emergencies, and reflect on whether the episode taught them anything new about extreme heat as a health risk. Additional measures probed personal relevance (e.g., past experiences with extreme heat), perceived hospital preparedness, and suggestions for improving the episode's messaging. Participants also provided feedback on the study experience itself.
           </p>
           
           <p>

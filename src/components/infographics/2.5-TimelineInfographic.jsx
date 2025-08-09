@@ -9,7 +9,7 @@ const TimelineInfographic = () => {
       id: 1,
       title: "Baseline",
       subtitle: "Wave 1",
-      date: "7-12 days before viewing",
+      date: "7-10 days before viewing",
       participants: 4830,
       participantsLabel: "N = 4,830",
       icon: "📋",

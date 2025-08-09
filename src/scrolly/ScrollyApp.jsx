@@ -10,7 +10,7 @@ const sections = [
   },
   {
     title: 'What We Learned',
-    text: 'People who watched a heatwave storyline remembered more lifesaving tips.',
+    text: 'People who watched a heat wave storyline remembered more lifesaving tips.',
     extra: 'On average, viewers recalled about two more pieces of heat safety advice than non-viewers.',
     image: '/images/eyeinspired.jpg',
     alt: 'Illustration of a blazing sun'

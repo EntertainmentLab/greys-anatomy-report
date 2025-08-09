@@ -42,7 +42,7 @@ function StudyOverview() {
           <b>Perceived likelihood of heat wave exposure</b>
           <span className="info-button" onClick={() => handleConstructClick('Perceived Likelihood of Heat Wave Exposure')}>
             i
-          </span>, or how likely viewers think they or their community will experience a severe heatwave this summer
+          </span>, or how likely viewers think they or their community will experience a severe heat wave this summer
         </li>
         <li className="definition-item">
           <b>Perceived threat severity of heat waves</b>
@@ -90,7 +90,7 @@ function StudyOverview() {
       <HeatwaveCompositeChart />
       <p>Notably, through a series of interviews, we found that these gains came without sacrificing entertainment value. Viewers:</p>
       <ul>
-        <li className="definition-item"><b>Connected the on-screen heatwave to their personal experiences</b> with extreme heat and its serious health impacts within their own families.</li>
+        <li className="definition-item"><b>Connected the on-screen heat wave to their personal experiences</b> with extreme heat and its serious health impacts within their own families.</li>
         <li className="definition-item"><b>Felt better prepared for the threats of extreme heat.</b> One interviewee said it was a reminder "how serious the heat is, and how it is deadly, and to not underestimate it...[the episode] makes you realize, 'Hey, I could very well be in that situation, and I shouldn't play around with it and always be prepared.'"</li>
         <li className="definition-item"><b>Commended the show for depicting real-world issues</b> like heat waves, and praised the show's legacy of addressing social issues.</li>
         <li className="definition-item"><b>Highlighted real-world medical techniques</b> – such as "using body bags and filling them with ice" to cool patients – as especially memorable. One mother, for instance, shared that she now knows to quickly cool down her overheated two-year-old by placing him in a cold bath—an insight she credited to what she saw on screen.</li>
@@ -105,7 +105,7 @@ function StudyOverview() {
       
       <p>Several conversations suggested that strong storytelling and compelling narratives can bridge political divides. As one viewer put it: "I do think that talking about social issues is great, and especially in the form of a TV show, where it's not like necessarily being shoved down your face like, 'Vote for this person because of this'…I think it kind of opens people's minds a little bit, and makes them think like, 'Oh, could that be me? Could that be my daughter… my grandson, my granddaughter?'"</p>
       
-      <p>One participant also emphasized the potential for television to spark meaningful discussions, noting that certain shows can "get the conversation rolling" about topics like climate change. In her experience, such conversations often start casually, with a simple, "Did you see that on TV?"</p>
+      <p>One participant also emphasized the potential for television to spark meaningful discussions, noting that certain shows can "get the conversation rolling" about topics like climate change. In her experience, such conversations often start casually, with a simple, <b>"Did you see that on TV?"</b></p>
 
 
 
