@@ -43,17 +43,17 @@ function Methodology({ expandAllDetails = false }) {
       <div className="methodology-content">
         <div className="methodology-section">
           <p>
-            The study recruited <strong>~5000 U.S.-based participants</strong> whose demographic characteristics were matched using Nielsen data to resemble viewers of <i>Grey's Anatomy</i> Season 21. Our final sample closely matched the target demographic across most dimensions (gender, ethnicity, US region, and household income), with the primary deviation being a younger age distribution. Therefore these results are most applicable to the younger segments (under age 45) of the typical <i>Grey's</i> audience. Participants were randomly assigned to a Heat Wave Episode Group; a Multiplatform Group, and a Control Group:
+            The study recruited <strong>~5000 U.S.-based participants</strong> whose demographic characteristics were matched using Nielsen data to resemble viewers of <i>Grey’s Anatomy</i> Season 21. Our final sample closely matched the target demographic across most dimensions (gender, ethnicity, US region, and household income), with the primary deviation being a younger age distribution. Therefore these results are most applicable to the younger segments (under age 45) of the typical <i>Grey’s</i> audience. Participants were randomly assigned to a Heat Wave Episode Group; a Multiplatform Group, and a Control Group:
           </p>
           <ul>
             <li>
-              <strong>HEAT WAVE EPISODE GROUP</strong> watched Season 21, Episode 8 ("Drop It Like It's Hot"), in which a severe heat wave disrupts hospital operations and patient care.
+              <strong>HEAT WAVE EPISODE GROUP</strong> watched Season 21, Episode 8 (<em>“Drop It Like It’s Hot”</em>), in which a severe heat wave disrupts hospital operations and patient care.
             </li>
             <li>
               <strong>MULTIPLATFORM GROUP</strong> watched the same episode as the Heat Wave group, followed by social media content tying the episode content to climate change. This allowed us to study the joint effect of viewing content along with complementary social media campaigns.
             </li>
             <li>
-              <strong>CONTROL GROUP</strong> watched Season 21, Episode 6 ("Night Moves"), which includes no mention of heat waves.
+              <strong>CONTROL GROUP</strong> watched Season 21, Episode 6 (<em>“Night Moves”</em>), which includes no mention of heat waves.
             </li>
           </ul>
           <p>
@@ -73,7 +73,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Participants</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <p>We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. At Wave 1, participants (N = 4,830) were quota-sampled using Nielsen data to match the demographic profile of <i>Grey's Anatomy</i> Season 21 viewers on age, sex, race/ethnicity, income, and region. Given the large sample size, towards the end of recruitment, we used Connect's "relax quotas" feature which allowed participants to enter if they met most (but not all) of the recruitment quota categories.</p>
+              <p>We employed a three-arm, longitudinal randomized controlled design across three waves of data collection. At Wave 1, participants (N = 4,830) were quota-sampled using Nielsen data to match the demographic profile of <i>Grey’s Anatomy</i> Season 21 viewers on age, sex, race/ethnicity, income, and region. Given the large sample size, towards the end of recruitment, we used Connect’s “relax quotas” feature which allowed participants to enter if they met most (but not all) of the recruitment quota categories.</p>
             </div>
             
             <button
@@ -112,18 +112,18 @@ function Methodology({ expandAllDetails = false }) {
                     className="episode-preview-trigger"
                     onClick={() => setShowEpisodePreview(true)}
                   >
-                    "Drop It Like It's Hot"
+                    <em>“Drop It Like It’s Hot”</em>
                   </button>), in which a severe heat wave disrupts hospital operations and patient care.
                 </li>
                 <li>
-                  <strong>MULTIPLATFORM GROUP (N = 1,073)</strong> <i>(aka Heat Wave Episode + Social Media):</i> Viewed the same episode as the Heat Wave group, followed by one of four climate-related social media videos developed to contextualize the episode's content within broader climate-health dynamics. Each participant was randomly assigned one of the four videos.
+                  <strong>MULTIPLATFORM GROUP (N = 1,073)</strong> <i>(aka Heat Wave Episode + Social Media):</i> Viewed the same episode as the Heat Wave group, followed by one of four climate-related social media videos developed to contextualize the episode’s content within broader climate-health dynamics. Each participant was randomly assigned one of the four videos.
                 </li>
                 <li>
                   <strong>CONTROL GROUP (N = 1,040)</strong> <i>(aka Non-Climate or Weather-Related Episode):</i> Viewed Season 21, Episode 6 (<button
                     className="episode-preview-trigger"
                     onClick={() => setShowNightMovesPreview(true)}
                   >
-                    "Night Moves"
+                    <em>“Night Moves”</em>
                   </button>) – a narrative episode with no reference to climate or extreme heat.
                 </li>
               </ul>
@@ -145,7 +145,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Social Media Content: Instagram Videos</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <p>The four climate-related social media videos used in the Multiplatform Condition (<i>Heat Wave Episode + Social Media</i>) were <strong>commissioned and distributed by Action for the Climate Emergency (ACE)</strong>, a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's impact campaign, which was specifically designed to:</p>
+              <p>The four climate-related social media videos used in the Multiplatform Condition (<i>Heat Wave Episode + Social Media</i>) were <strong>commissioned and distributed by Action for the Climate Emergency (ACE)</strong>, a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE’s #DangerDome impact campaign, which was specifically designed to:</p>
             </div>
             
             <button
@@ -158,7 +158,7 @@ function Methodology({ expandAllDetails = false }) {
 
             <div className={`details-content ${expandedDetails['instagram-videos'] ? 'expanded' : ''}`}>
               <ul>
-                <li><strong>Amplify the <i>Grey's Anatomy</i> storyline</strong> for viewers who had just watched the episode; and</li>
+                <li><strong>Amplify the <i>Grey’s Anatomy</i> storyline</strong> for viewers who had just watched the episode; and</li>
                 <li><strong>Translate the drama into clear climate science take‑aways</strong> about extreme heat, health risks, and community preparedness</li>
               </ul>
               <p>The videos were created by the following Instagram creators:</p>
@@ -244,7 +244,7 @@ function Methodology({ expandAllDetails = false }) {
         <div className="methodology-section">
           <h3>Participants</h3>
           <p>
-            We recruited 20 participants from User Interviews in two waves. Wave 1 (n = 11) took place before the quantitative portion of the study; Wave 2 (n = 9) followed and was informed by quantitative findings. The average age was 38.6, and most participants were female (n = 15). The sample included individuals identifying as White (n = 11), Hispanic or Latino (n = 4), Asian (n = 3), and Black or African American (n = 2). Participants were primarily from the South (n = 11), with others from the Northeast (n = 4), Midwest (n = 3), and West (n = 2). Eight reported having previously watched <i>Grey's Anatomy</i> - ranging from loyal fans to viewers who had watched most seasons. Wave 2 primarily focused on more politically-conservative leaning participants, with the sample consisting of 5 Republicans, 2 Independents, and 2 Democrats.
+            We recruited 20 participants from User Interviews in two waves. Wave 1 (n = 11) took place before the quantitative portion of the study; Wave 2 (n = 9) followed and was informed by quantitative findings. The average age was 38.6, and most participants were female (n = 15). The sample included individuals identifying as White (n = 11), Hispanic or Latino (n = 4), Asian (n = 3), and Black or African American (n = 2). Participants were primarily from the South (n = 11), with others from the Northeast (n = 4), Midwest (n = 3), and West (n = 2). Eight reported having previously watched <i>Grey’s Anatomy</i> - ranging from loyal fans to viewers who had watched most seasons. Wave 2 primarily focused on more politically-conservative leaning participants, with the sample consisting of 5 Republicans, 2 Independents, and 2 Democrats.
           </p>
         </div>
 
@@ -258,7 +258,7 @@ function Methodology({ expandAllDetails = false }) {
         <div className="methodology-section">
           <h3>Measures</h3>
           <p>
-            <strong>Wave 1 interviews</strong> focused on participants' initial, unaided reactions to the heat wave episode. Measures included general impressions of the episode, entertainment value, perceived realism, and recall of the heat wave storyline. Participants were asked to summarize the plot, identify heat-related medical emergencies, and reflect on whether the episode taught them anything new about extreme heat as a health risk. Additional measures probed personal relevance (e.g., past experiences with extreme heat), perceived hospital preparedness, and suggestions for improving the episode's messaging. Participants also provided feedback on the study experience itself.
+            <strong>Wave 1 interviews</strong> focused on participants’ initial, unaided reactions to the heat wave episode. Measures included general impressions of the episode, entertainment value, perceived realism, and recall of the heat wave storyline. Participants were asked to summarize the plot, identify heat-related medical emergencies, and reflect on whether the episode taught them anything new about extreme heat as a health risk. Additional measures probed personal relevance (e.g., past experiences with extreme heat), perceived hospital preparedness, and suggestions for improving the episode’s messaging. Participants also provided feedback on the study experience itself.
           </p>
           
           <p>

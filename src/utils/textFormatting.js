@@ -34,32 +34,32 @@ export const formatTextInDOM = () => {
       hasChanges = true;
     }
     
-    // Rule 2: Italicize text within quotation marks (keeping the quotes)
-    // Use a more precise regex approach to handle multiple quoted sections
-    const quotesRegex = /"([^"]+)"/g;
-    let match;
-    let lastIndex = 0;
-    let newText = '';
+    // // Rule 2: Italicize text within quotation marks (keeping the quotes)
+    // // Use a more precise regex approach to handle multiple quoted sections
+    // const quotesRegex = /"([^"]+)"/g;
+    // let match;
+    // let lastIndex = 0;
+    // let newText = "";
     
-    // Process each quoted section individually
-    while ((match = quotesRegex.exec(formattedText)) !== null) {
-      // Add text before the quote
-      newText += formattedText.substring(lastIndex, match.index);
-      // Add the quote with italicized content
-      newText += '"<em>' + match[1] + '</em>"';
-      lastIndex = quotesRegex.lastIndex;
-    }
+    // // Process each quoted section individually
+    // while ((match = quotesRegex.exec(formattedText)) !== null) {
+    //   // Add text before the quote
+    //   newText += formattedText.substring(lastIndex, match.index);
+    //   // Add the quote with italicized content
+    //   newText += ""<em>' + match[1] + '</em>"';
+    //   lastIndex = quotesRegex.lastIndex;
+    // }
     
-    // Add any remaining text after the last quote
-    if (lastIndex < formattedText.length) {
-      newText += formattedText.substring(lastIndex);
-    }
+    // // Add any remaining text after the last quote
+    // if (lastIndex < formattedText.length) {
+    //   newText += formattedText.substring(lastIndex);
+    // }
     
-    // Only update if we actually made changes
-    if (newText && newText !== formattedText) {
-      formattedText = newText;
-      hasChanges = true;
-    }
+    // // Only update if we actually made changes
+    // if (newText && newText !== formattedText) {
+    //   formattedText = newText;
+    //   hasChanges = true;
+    // }
     
     if (hasChanges) {
       // Create a new element to replace the text node
