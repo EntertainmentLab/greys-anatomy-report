@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withCacheBusting, noStoreFetchInit } from '../utils/cacheBuster'
 
 const IMPACT_MAPPING = {
   'Overcrowding': 'Overcrowded hospitals turning away patients',
@@ -17,7 +18,8 @@ export function useImpactsData() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}data/data-system-impacts.json`)
+  const url = withCacheBusting(`${import.meta.env.BASE_URL}data/data-system-impacts.json`)
+  const response = await fetch(url, noStoreFetchInit)
         
         if (!response.ok) throw new Error('Failed to fetch system impacts data')
         

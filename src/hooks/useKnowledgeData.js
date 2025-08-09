@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withCacheBusting, noStoreFetchInit } from '../utils/cacheBuster'
 
 // Helper to deeply flatten a value until it's not an array
 function deepUnwrap(val) {
@@ -16,7 +17,8 @@ export function useKnowledgeData() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const response = await fetch(`${import.meta.env.BASE_URL}data/data-knowledge.json`)
+  const url = withCacheBusting(`${import.meta.env.BASE_URL}data/data-knowledge.json`)
+  const response = await fetch(url, noStoreFetchInit)
         
         if (!response.ok) throw new Error('Failed to fetch knowledge data')
         

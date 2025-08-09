@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withCacheBusting, noStoreFetchInit } from '../utils/cacheBuster'
 
 // Helper to deeply flatten a value until it's not an array
 function deepUnwrap(val) {
@@ -17,7 +18,8 @@ export function useHighLevelConstData() {
     const loadData = async () => {
       try {
         console.log('Fetching high-level construct data...')
-        const response = await fetch(`${import.meta.env.BASE_URL}data/data-high-level-const.json`)
+  const url = withCacheBusting(`${import.meta.env.BASE_URL}data/data-high-level-const.json`)
+  const response = await fetch(url, noStoreFetchInit)
         
         if (!response.ok) {
           throw new Error(`Failed to fetch high-level construct data: ${response.status} ${response.statusText}`)

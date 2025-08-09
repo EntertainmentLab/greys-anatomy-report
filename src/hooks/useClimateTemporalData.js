@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withCacheBusting, noStoreFetchInit } from '../utils/cacheBuster'
 
 export function useClimateTemporalData() {
   const [climateTemporalData, setClimateTemporalData] = useState([])
@@ -9,7 +10,8 @@ export function useClimateTemporalData() {
     const loadData = async () => {
       try {
         console.log('Fetching climate temporal data...')
-        const response = await fetch(`${import.meta.env.BASE_URL}data/data-climate-temporal.json`)
+  const url = withCacheBusting(`${import.meta.env.BASE_URL}data/data-climate-temporal.json`)
+  const response = await fetch(url, noStoreFetchInit)
         
         if (!response.ok) {
           throw new Error(`Failed to fetch climate temporal data: ${response.status} ${response.statusText}`)

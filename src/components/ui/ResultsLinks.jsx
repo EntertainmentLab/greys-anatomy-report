@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withCacheBusting, noStoreFetchInit } from '../../utils/cacheBuster'
 
 // Helper to deeply flatten a value until it's not an array
 function deepUnwrap(val) {
@@ -26,8 +27,8 @@ export function useData() {
       try {
         // Load both datasets
         const [knowledgeResponse, threatResponse] = await Promise.all([
-          fetch(`${import.meta.env.BASE_URL}data.json`),
-          fetch(`${import.meta.env.BASE_URL}data/data-health-worry.json`)
+          fetch(withCacheBusting(`${import.meta.env.BASE_URL}data.json`), noStoreFetchInit),
+          fetch(withCacheBusting(`${import.meta.env.BASE_URL}data/data-health-worry.json`), noStoreFetchInit)
         ])
         
         if (!knowledgeResponse.ok) throw new Error('Failed to fetch knowledge data')

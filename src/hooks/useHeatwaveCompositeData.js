@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withCacheBusting, noStoreFetchInit } from '../utils/cacheBuster'
 
 export function useHeatwaveCompositeData() {
   const [heatwaveCompositeData, setHeatwaveCompositeData] = useState([])
@@ -9,7 +10,8 @@ export function useHeatwaveCompositeData() {
     const loadData = async () => {
       try {
         console.log('Fetching heatwave composite data...')
-        const response = await fetch(`${import.meta.env.BASE_URL}data/data-heatwave-composite.json`)
+  const url = withCacheBusting(`${import.meta.env.BASE_URL}data/data-heatwave-composite.json`)
+  const response = await fetch(url, noStoreFetchInit)
         
         if (!response.ok) {
           throw new Error(`Failed to fetch heatwave composite data: ${response.status} ${response.statusText}`)
@@ -59,7 +61,8 @@ export function useHeatwaveConstructsData() {
     const loadData = async () => {
       try {
         console.log('Fetching heatwave constructs data...')
-        const response = await fetch(`${import.meta.env.BASE_URL}data/data-heatwave-constructs.json`)
+  const url = withCacheBusting(`${import.meta.env.BASE_URL}data/data-heatwave-constructs.json`)
+  const response = await fetch(url, noStoreFetchInit)
         
         if (!response.ok) {
           throw new Error(`Failed to fetch heatwave constructs data: ${response.status} ${response.statusText}`)

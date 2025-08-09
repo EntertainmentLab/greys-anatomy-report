@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
+import { withCacheBusting, noStoreFetchInit } from '../utils/cacheBuster'
 
 /**
  * useDataLoader - Standardized data loading hook
@@ -17,7 +18,10 @@ export function useDataLoader(dataSource, options = {}) {
     retryDelay = 1000,
     onSuccess = null,
     onError = null,
-    transform = null
+  transform = null,
+  // allow opt-out if a particular endpoint must be cached
+  cacheBust = true,
+  fetchInit = {}
   } = options
 
   const [state, setState] = useState({
@@ -44,7 +48,8 @@ export function useDataLoader(dataSource, options = {}) {
       if (typeof dataSource === 'function') {
         result = await dataSource()
       } else if (typeof dataSource === 'string') {
-        const response = await fetch(dataSource)
+        const url = cacheBust ? withCacheBusting(dataSource) : dataSource
+        const response = await fetch(url, { ...noStoreFetchInit, ...fetchInit })
         if (!response.ok) {
           throw new Error(`HTTP ${response.status}: ${response.statusText}`)
         }
@@ -164,7 +169,7 @@ export function useJsonLoader(url, options = {}) {
   
   return useDataLoader(fullUrl, {
     ...options,
-    transform: options.transform || ((data) => data)
+  transform: options.transform || ((data) => data)
   })
 }
 

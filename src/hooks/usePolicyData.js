@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { withCacheBusting, noStoreFetchInit } from '../utils/cacheBuster'
 
 // Helper to deeply flatten a value until it's not an array
 function deepUnwrap(val) {
@@ -17,7 +18,8 @@ export function usePolicyData() {
     const loadData = async () => {
       try {
         console.log('Fetching policy support data...')
-        const response = await fetch(`${import.meta.env.BASE_URL}data/data-policy-support.json`)
+  const url = withCacheBusting(`${import.meta.env.BASE_URL}data/data-policy-support.json`)
+  const response = await fetch(url, noStoreFetchInit)
         
         if (!response.ok) {
           throw new Error(`Failed to fetch policy support data: ${response.status} ${response.statusText}`)
