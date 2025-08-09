@@ -43,14 +43,14 @@ function Methodology({ expandAllDetails = false }) {
       <div className="methodology-content">
         <div className="methodology-section">
           <p>
-            The study recruited <strong>~5000 U.S.-based participants</strong> whose demographic characteristics were matched using Nielsen data to resemble viewers of <i>Grey’s Anatomy</i> Season 21. Our final sample closely matched the target demographic across core dimensions like gender, ethnicity, US region, and household income, with the primary deviation being a slightly younger age distribution. Participants were randomly assigned to a Heat Wave Episode Group; a Multiplatform Group, and a Control Group:
-          </p>
+            The study recruited <strong>~5000 U.S.-based participants</strong> whose demographic characteristics were matched using Nielsen data to resemble viewers of <i>Grey’s Anatomy</i> Season 21. Our final sample closely matched the target demographic across core dimensions like gender, ethnicity, US region, and household income, with the primary deviation being a slightly younger age distribution.</p>
+            <p> Participants were randomly assigned to a <em>Heat Wave Episode</em> group; a <em>Multiplatform</em> group, and a <em>Control</em> group:</p>
           <ul>
             <li>
               <strong>HEAT WAVE EPISODE GROUP</strong> watched Season 21, Episode 8 (<em>“Drop It Like It’s Hot”</em>), in which a severe heat wave disrupts hospital operations and patient care.
             </li>
             <li>
-              <strong>MULTIPLATFORM GROUP</strong> watched the same episode as the Heat Wave group, followed by social media content tying the episode content to climate change. This allowed us to study the joint effect of viewing content along with complementary social media campaigns.
+              <strong>MULTIPLATFORM GROUP</strong> watched the same episode as the Heat Wave Episode group, followed by social media content tying the episode content to climate change. This allowed us to study the joint effect of viewing content along with complementary social media campaigns.
             </li>
             <li>
               <strong>CONTROL GROUP</strong> watched Season 21, Episode 6 (<em>“Night Moves”</em>), which includes no mention of heat waves.
@@ -60,12 +60,12 @@ function Methodology({ expandAllDetails = false }) {
             To track the impact of the content over time, we measured participants at three different points:
           </p>
           <ul>
-            <li><strong>Baseline</strong> (7-10 days prior to viewing) [N=4830]</li>
-            <li><strong>Immediately after watching the show</strong> [N=3575]</li>
-            <li><strong>15-20 days after watching the show</strong> [N=3219]</li>
+            <li><strong>Baseline</strong> (7-10 days prior to viewing)</li>
+            <li><strong>Post-Viewing</strong> (Immediately after watching the show)</li>
+            <li><strong>Follow-Up</strong> (15-20 days after watching the show)</li>
           </ul>
           <p>
-            At each point, participants completed a survey measuring perceptions of heat waves, knowledge of heat-related health risks, confidence in taking protective actions, support for relevant policy measures, and beliefs about climate change's relevance to daily life.
+            Over 3000 participants completed all three waves of the study. At each wave, participants completed a survey measuring perceptions of heat waves, knowledge of heat-related health risks, confidence in taking protective actions, support for relevant policy measures, and beliefs about climate change's relevance to daily life.
           </p>
         </div>
 
@@ -85,7 +85,7 @@ function Methodology({ expandAllDetails = false }) {
             </button>
 
             <div className={`details-content ${expandedDetails['participants'] ? 'expanded' : ''}`}>
-              <p>Data were collected via Cloud Research Connect online survey platform, and participants were compensated at above market rates. Compensation increased across waves to minimize participant attrition. Attrition was high between baseline and the viewing assignment (~30%), with 3,454 participants returning to view the episode. This high rate of attrition is likely due to the survey length at Wave 2, which required participants to watch a 40-min episode and then complete an 8-10 minute survey. We saw much lower attrition (~7%) between Wave 2 and Wave 3, with 3,204 out of 3,454 returning to complete the final post-viewing survey.</p>
+              <p>Data were collected via Cloud Research’s Connect online survey platform. Participants were compensated at above-market rates and compensation increased across waves to minimize participant attrition. Between baseline and the viewing assignment, attrition was relatively high (~30%), with 3,454 participants returning to view the episode. This high rate of attrition is likely due to the survey length at Wave 2, which required participants to watch a 40-min episode and then complete an 8-10 minute survey. We saw much lower attrition (~7%) between Wave 2 and Wave 3, with 3,204 out of 3,454 returning to complete the final post-viewing survey.</p>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ function Methodology({ expandAllDetails = false }) {
                   </button>), in which a severe heat wave disrupts hospital operations and patient care.
                 </li>
                 <li>
-                  <strong>MULTIPLATFORM GROUP (N = 1,073)</strong> <i>(aka Heat Wave Episode + Social Media):</i> Viewed the same episode as the Heat Wave group, followed by one of four climate-related social media videos developed to contextualize the episode’s content within broader climate-health dynamics. Each participant was randomly assigned one of the four videos.
+                  <strong>MULTIPLATFORM GROUP (N = 1,073)</strong> <i>(aka Heat Wave Episode + Social Media):</i> Viewed the same episode as the Heat Wave Episode group, followed by one of four climate-related social media videos developed to contextualize the episode’s content within broader climate-health dynamics. Each participant was randomly assigned one of the four videos.
                 </li>
                 <li>
                   <strong>CONTROL GROUP (N = 1,040)</strong> <i>(aka Non-Climate or Weather-Related Episode):</i> Viewed Season 21, Episode 6 (<button
@@ -146,9 +146,13 @@ function Methodology({ expandAllDetails = false }) {
           <div className="expandable-details">
             <div className="details-summary">
               <p>The four climate-related social media videos used in the Multiplatform Condition (<i>Heat Wave Episode + Social Media</i>) were <strong>commissioned and distributed by Action for the Climate Emergency (ACE)</strong>, a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE’s #DangerDome impact campaign, which was specifically designed to:</p>
+               <ul>
+                <li><strong>Amplify the <i>Grey’s Anatomy</i> storyline</strong> for viewers who had just watched the episode; and</li>
+                <li><strong>Translate the drama into clear climate science take‑aways</strong> about extreme heat, health risks, and community preparedness</li>
+              </ul>
             </div>
             
-            <button
+            {/* <button
               className={`details-toggle ${expandedDetails['instagram-videos'] ? 'expanded' : ''}`}
               onClick={() => toggleDetails('instagram-videos')}
             >
@@ -157,10 +161,7 @@ function Methodology({ expandAllDetails = false }) {
             </button>
 
             <div className={`details-content ${expandedDetails['instagram-videos'] ? 'expanded' : ''}`}>
-              <ul>
-                <li><strong>Amplify the <i>Grey’s Anatomy</i> storyline</strong> for viewers who had just watched the episode; and</li>
-                <li><strong>Translate the drama into clear climate science take‑aways</strong> about extreme heat, health risks, and community preparedness</li>
-              </ul>
+             
               <p>The videos were created by the following Instagram creators:</p>
               <ul>
                 <li>
@@ -176,7 +177,7 @@ function Methodology({ expandAllDetails = false }) {
                   <strong><a href="https://www.instagram.com/reel/DG5o77lAYV4/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">@farmernick</a></strong>: Nick Cutsumpas uses his platform to coach urban gardening, sustainability, and plant-care through hands-on tutorials and environmental activism
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
           
           <InstagramCarousel />
@@ -186,7 +187,7 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Study Design</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <p>We employed a longitudinal design to assess both immediate and sustained effects of the viewing experience. Participants completed surveys at three time points: a baseline assessment prior to viewing, an immediate post-viewing survey, and a follow-up survey approximately 15-20 days later to examine whether any observed effects persisted over time. Over 3000 participants completed all three waves.</p>
+              <p>We employed a longitudinal design to assess both immediate and sustained effects of viewing the heat wave content. Participants completed surveys at three time points: a baseline assessment prior to viewing, an immediate post-viewing survey, and a follow-up survey approximately 15-20 days later. Over 3000 participants completed all three waves.</p>
             </div>
             
             <button
@@ -213,26 +214,24 @@ function Methodology({ expandAllDetails = false }) {
           <h3>Survey Measures</h3>
           <div className="expandable-details">
             <div className="details-summary">
-              <p>We assessed outcomes by adapting established measures from climate and heat-risk communication research, including perceived heat wave risk, threat severity, heat wave worry and harm perception (<a href="https://www.pnas.org/doi/10.1073/pnas.1813145116" target="_blank" rel="noopener noreferrer">Howe et al., 2019</a>), social norms and behavioral intentions (<a href="https://climatecommunication.yale.edu/publications/climate-change-in-the-american-mind-politics-policy-spring-2025/" target="_blank" rel="noopener noreferrer">Leiserowitz et al., 2025</a>), perceived self-efficacy, support for heat-adaptation policies, and knowledge about the heat impacts of heat waves. These domains were measured with multi-item scales that captured key factors such as perceived threat of heat waves, knowledge of heat-related health risks, support for relevant policy measures, responsibility of healthcare workers, personal impact of climate change, and support for climate action. <strong>See <a href={`${import.meta.env.BASE_URL}html/survey-instrument.html`} target="_blank" rel="noopener noreferrer">full survey instrument for item wording</a>.</strong></p>
+              <p>We assessed outcomes by adapting established measures from climate and heat-risk communication research, including perceived heat wave risk, threat severity, heat wave worry and harm perception (<a href="https://www.pnas.org/doi/10.1073/pnas.1813145116" target="_blank" rel="noopener noreferrer">Howe et al., 2019</a>), social norms and behavioral intentions (<a href="https://climatecommunication.yale.edu/publications/climate-change-in-the-american-mind-politics-policy-spring-2025/" target="_blank" rel="noopener noreferrer">Leiserowitz et al., 2025</a>), perceived self-efficacy, support for heat-adaptation policies, and knowledge about the heat impacts of heat waves. These domains were measured with multi-item scales that captured key factors such as perceived threat of heat waves, knowledge of heat-related health risks, support for relevant policy measures, responsibility of healthcare workers to advocate for public awareness, personal impact of climate change, and support for climate action. <em><a href={`${import.meta.env.BASE_URL}html/survey-instrument.html`} target="_blank" rel="noopener noreferrer">See full survey instrument for item wording</a></em></p>
             </div>
             
-            <button
+            {/* <button
               className={`details-toggle ${expandedDetails['timeline-measures'] ? 'expanded' : ''}`}
               onClick={() => toggleDetails('timeline-measures')}
             >
               {expandedDetails['timeline-measures'] ? 'Less details' : 'More details'}
               <span className="details-toggle-icon">▼</span>
-            </button>
+            </button> */}
 
-            <div className={`details-content ${expandedDetails['timeline-measures'] ? 'expanded' : ''}`}>
-              <p>
-                Participants who failed comprehension checks, provided non-substantive responses to open-text prompts, or viewed less than 85% of the assigned episode were excluded from analysis, leaving a final sample of 3,048. Analyses were <a href="https://osf.io/uv9x3" target="_blank" rel="noopener noreferrer">pre-registered</a>. Responses to individual survey items were aggregated into scales and sub-scales using pre-registered hierarchical models. Analyses of individual survey items were pre-registered as exploratory. Statistical tests were performed using FDR (False Discovery Rate) corrections to account for multiple comparisons.
-              </p>
-              <p>
-                This study contributes to a growing body of work assessing the potential role of entertainment in shifting public norms and attitudes related to climate impacts.
-              </p>
+            {/* <div className={`details-content ${expandedDetails['timeline-measures'] ? 'expanded' : ''}`}> */}
+              <h3>Data Analysis Strategy</h3>
+              <p>All statistical analyses and exclusion criteria were <a href="https://osf.io/uv9x3" target="_blank" rel="noopener noreferrer">pre-registered</a> in advance of running the study.</p>
+              <p>Participants who failed comprehension checks, provided non-substantive responses to open-text prompts, or viewed less than 85% of the assigned episode were excluded from analysis, leaving a final sample of 3,048.</p>
+              <p>Responses to individual survey items were aggregated into scales and sub-scales using pre-registered hierarchical models. Analyses of individual survey items were pre-registered as exploratory. Statistical tests were performed using FDR (False Discovery Rate) corrections to account for multiple comparisons.</p>
             </div>
-          </div>
+          {/* </div> */}
         </div>
 
       </div>
@@ -244,26 +243,22 @@ function Methodology({ expandAllDetails = false }) {
         <div className="methodology-section">
           <h3>Participants</h3>
           <p>
-            We recruited 20 participants from User Interviews in two waves. Wave 1 (n = 11) took place before the quantitative portion of the study; Wave 2 (n = 9) followed and was informed by quantitative findings. The average age was 38.6, and most participants were female (n = 15). The sample included individuals identifying as White (n = 11), Hispanic or Latino (n = 4), Asian (n = 3), and Black or African American (n = 2). Participants were primarily from the South (n = 11), with others from the Northeast (n = 4), Midwest (n = 3), and West (n = 2). Eight reported having previously watched <i>Grey’s Anatomy</i> - ranging from loyal fans to viewers who had watched most seasons. Wave 2 primarily focused on more politically-conservative leaning participants, with the sample consisting of 5 Republicans, 2 Independents, and 2 Democrats.
+            We recruited 20 participants from User Interviews (a platform for recruiting participants for extended qualitative interviews) in two waves. Wave 1 (n = 11) took place before the quantitative portion of the study; Wave 2 (n = 9) followed and was informed by quantitative findings. The average age was 38.6, and most participants were female (n = 15). The sample included individuals identifying as White (n = 11), Hispanic or Latino (n = 4), Asian (n = 3), and Black or African American (n = 2). In terms of geographical distribution, participants were primarily from the South (n = 11), with others from the Northeast (n = 4), Midwest (n = 3), and West (n = 2). Eight reported having previously watched <i>Grey’s Anatomy</i> - ranging from loyal fans to viewers who had watched most seasons. Interviews in Wave 2 primarily focused on more politically-conservative participants, with the sample consisting of 5 Republicans, 2 Independents, and 2 Democrats.
           </p>
         </div>
 
         <div className="methodology-section">
           <h3>Study Design</h3>
           <p>
-            Participants completed ~80-minute one-on-one Zoom interviews. Wave 1 interviews were conducted before the quantitative survey and focused on reactions to the heat wave episode. Wave 2 interviews were conducted after the survey and were informed by key quantitative findings. All participants watched the same episode; a subset of Wave 2 participants also viewed one the Instagram campaign videos following the episode.
+            Participants completed ~80-minute one-on-one Zoom interviews. Wave 1 interviews were conducted before the quantitative survey and focused on reactions to the heat wave episode. Wave 2 interviews were conducted after the survey and were informed by key quantitative findings. All participants watched the heat wave episode; a subset of Wave 2 participants also viewed one or two of the Instagram campaign videos following the episode.
           </p>
         </div>
 
         <div className="methodology-section">
           <h3>Measures</h3>
-          <p>
-            <strong>Wave 1 interviews</strong> focused on participants’ initial, unaided reactions to the heat wave episode. Measures included general impressions of the episode, entertainment value, perceived realism, and recall of the heat wave storyline. Participants were asked to summarize the plot, identify heat-related medical emergencies, and reflect on whether the episode taught them anything new about extreme heat as a health risk. Additional measures probed personal relevance (e.g., past experiences with extreme heat), perceived hospital preparedness, and suggestions for improving the episode’s messaging. Participants also provided feedback on the study experience itself.
-          </p>
+          <p><strong>Wave 1 interviews</strong> focused on participants’ initial, unaided reactions to the heat wave episode. Measures included general impressions of the episode, entertainment value, perceived realism, and recall of the heat wave storyline. Participants were asked to summarize the plot, identify heat-related medical emergencies, and reflect on whether the episode taught them anything new about extreme heat as a health risk. Additional measures probed personal relevance (e.g., past experiences with extreme heat), perceived hospital preparedness, and suggestions for improving the episode’s messaging.</p>
           
-          <p>
-            <strong>Wave 2 interviews</strong> were designed to explore reactions and interpretations of quantitative survey findings. Participants reflected their own belief shifts and their thoughts on the results showing increases in heat-related health knowledge and policy support among viewers. Measures captured reactions to these findings and explanations for observed political differences. Participants compared messaging frames for both adaptation measures and general climate messages, evaluated their effectiveness, and reflected on whether the episode or findings might influence their own behavior or conversations with others. Those who viewed an Instagram video were also asked about source credibility and message reception. As in Wave 1, participants provided advice for show writers and feedback on the interview experience.
-          </p>
+          <p><strong>Wave 2 interviews</strong> were designed to explore reactions and interpretations of quantitative survey findings. Participants first reflected their own belief shifts. Participants were then asked to provide their opinion on the pattern of results from the quantitative study, focusing on the increases in heat-related health knowledge and policy support among viewers. Measures captured reactions to these findings - especially their thoughts on the political differences in policy support. Participants were also asked to compare different messaging frames for both heat-adaptation measures (health alone vs health plus climate) as well as messages about climate impacts (health-focused, economy-focused, or national-security focused). Measures captured participants’ evaluations of the different messaging frames in terms of persuasiveness and risk of backlash. Participants were also asked to reflect on which messaging frames would be influential among their peers, especially peers who are less climate engaged. They were also asked to reflect on how the episode or findings might influence their own behavior or their conversations with others. Finally, participants were asked to evaluate the Instagram videos in terms of source credibility, persuasive appeal, and message receptivity.</p>
         </div>
       </div>
 

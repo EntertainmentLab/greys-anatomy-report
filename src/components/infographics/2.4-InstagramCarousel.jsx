@@ -72,17 +72,21 @@ const InstagramCarousel = () => {
     <div className="instagram-section">
       <div className="section-content">
         <div className="text-content">
-          <p>
-            The four climate-related social media videos used in the Multiplatform Condition (Heat Wave Episode + Social Media) were commissioned and distributed by Action for the Climate Emergency (ACE), a youth-led U.S. climate-advocacy nonprofit. These short-form Instagram reels featured social media content creators discussing heat-related health impacts and climate adaptation strategies as part of ACE's #DangerDome impact campaign, which was specifically designed to:
-          </p>
-          <ul>
-            <li>
-              Amplify the Grey's Anatomy storyline for viewers who had just watched the episode; and
-            </li>
-            <li>
-              Translate the drama into clear climate science take‑aways about extreme heat, health risks, and community preparedness
-            </li>
-          </ul>
+          <p><b>The social media videos were produced by the following Instagram creators:</b></p>
+              <ul>
+                <li>
+                  <strong><a href="https://www.instagram.com/reel/DG8WJFNuxwm/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">@eyeinspired</a></strong>: Kelly Edelman posts bold, mixed-media portraits with vivid colors and occasional art-tutorials—popular among her millions of followers
+                </li>
+                <li>
+                  <strong><a href="https://www.instagram.com/reel/DG_myvfBnLC/" target="_blank" rel="noopener noreferrer">@becomingdrdevore</a></strong>: Syd shares transparent pre-med and med-school journey content, MCAT tips, and application advice for aspiring medical students
+                </li>
+                <li>
+                  <strong><a href="https://www.instagram.com/reel/DG6BgVAxhij/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">@scotpilie_wx</a></strong>: New Orleans meteorologist Scot Pilié blends weather updates, personal lifestyle and foodie moments to engage his ~56K followers
+                </li>
+                <li>
+                  <strong><a href="https://www.instagram.com/reel/DG5o77lAYV4/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer">@farmernick</a></strong>: Nick Cutsumpas uses his platform to coach urban gardening, sustainability, and plant-care through tutorials and environmental activism
+                </li>
+              </ul>
         </div>
 
         <div className="carousel-content">
