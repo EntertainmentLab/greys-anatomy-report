@@ -101,7 +101,7 @@ function StudyOverview() {
       <h2>Audience Opinions on The Role of Film and TV in Addressing Social Issues</h2>
       <p>In conversation with viewers, we found strong support for film and television engaging with real-world social issues—provided it's done without overt preaching. One interviewee praised the show, and particularly creator Shonda Rhimes and her team, for their legacy of tackling topical issues. She said the show "does the world a service by… incorporating real-life national issues into the storyline."</p>
       
-      <p>Another viewer noted, "it just makes it more fun to watch because … it feels like a real universe, not just like a TV show." Others appreciated how addressing such topics can heighten entertainment value by allowing viewers to "connect with something that's real."</p>
+      <p>Another viewer noted, "<em>it just makes it more fun to watch because … it feels like a real universe, not just like a TV show.</em>" Others appreciated how addressing such topics can heighten entertainment value by allowing viewers to "<em>connect with something that's real.</em>"</p>
       
       <p>Several conversations suggested that strong storytelling and compelling narratives can bridge political divides. As one viewer put it: "I do think that talking about social issues is great, and especially in the form of a TV show, where it's not like necessarily being shoved down your face like, 'Vote for this person because of this'…I think it kind of opens people's minds a little bit, and makes them think like, 'Oh, could that be me? Could that be my daughter… my grandson, my granddaughter?'"</p>
       
