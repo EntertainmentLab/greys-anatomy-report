@@ -43,7 +43,7 @@ function Methodology({ expandAllDetails = false }) {
       <div className="methodology-content">
         <div className="methodology-section">
           <p>
-            The study recruited <strong>~5000 U.S.-based participants</strong> whose demographic characteristics were matched using Nielsen data to resemble viewers of <i>Grey’s Anatomy</i> Season 21. Our final sample closely matched the target demographic across most dimensions (gender, ethnicity, US region, and household income), with the primary deviation being a younger age distribution. Therefore these results are most applicable to the younger segments (under age 45) of the typical <i>Grey’s</i> audience. Participants were randomly assigned to a Heat Wave Episode Group; a Multiplatform Group, and a Control Group:
+            The study recruited <strong>~5000 U.S.-based participants</strong> whose demographic characteristics were matched using Nielsen data to resemble viewers of <i>Grey’s Anatomy</i> Season 21. Our final sample closely matched the target demographic across core dimensions like gender, ethnicity, US region, and household income, with the primary deviation being a slightly younger age distribution. Participants were randomly assigned to a Heat Wave Episode Group; a Multiplatform Group, and a Control Group:
           </p>
           <ul>
             <li>
